@@ -3,7 +3,7 @@ class NewplanController < ApplicationController
   end
 
   def add
-    params['keyword']
+    @planlist = params['keyword']
     render 'newplan/index'
   end
 end
