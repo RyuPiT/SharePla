@@ -11,3 +11,15 @@
  *= require_self
  *= require_tree .
  */
+body {
+    text-align: center; 
+}
+
+#main {
+    marge: 0 auto;    
+    width: 800px;
+}
+
+#plan-list {
+    text-align:left;
+}
