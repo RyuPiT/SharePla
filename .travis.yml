@@ -1,3 +1,10 @@
 language: ruby
 rvm:
 - 2.0.0
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZlnNOSRChLaqKShNyc1aexkQkNQwFwbwUcIb2QGqEsIN5UvgTCKiHw5nOJVK8WZMs5AP0X12CTg6iigDaLMSHu8hya76H8Gww19qZsoVa5ZZ663UKFNjSMtXU05RvxtBem6ef86RZ8rJJ5YzPXUDwG2TCQABqFh0spOAUNEKh24=
+  app: dry-plains-9898
+  on:
+    repo: RyuPiT/SharePla
