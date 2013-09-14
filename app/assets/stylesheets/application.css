@@ -13,11 +13,12 @@
  */
 body {
     text-align: center; 
+    marge: 0 auto;    
+    width: 800px;
 }
 
 #main {
-    marge: 0 auto;    
-    width: 800px;
+    background:#ddd
 }
 
 #plan-list {
