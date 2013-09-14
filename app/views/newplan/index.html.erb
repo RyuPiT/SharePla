@@ -1,2 +1,15 @@
-<h1>シェアプラ</h1>
-<p>入力フォームをここに作成</p>
+<h1><%= link_to 'シェアプラ', root_path %></h1>
+
+<form action="add" method="POST">
+    <input type="input" name="keyword" required>
+    <input type="submit" value="追加">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
+
+<ol>
+  <li>羽田空港</li>
+  <li>品川駅</li>
+  <li>浅草・雷門</li>
+  <li>東京スカイツリー</li>
+  <li>ホテル</li>
+</ol>
