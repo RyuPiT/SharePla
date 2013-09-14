@@ -4,6 +4,6 @@ class HelloController < ApplicationController
   end
 
   def to
-    @message = "Hello #{params[:name]} !"
+    @message = "Hello #{params[:name]} !!!"
   end
 end
