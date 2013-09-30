@@ -1,13 +1,14 @@
 SharePla::Application.routes.draw do
-  get "newplan/index"
-  get "hello/index"
+  get "/newplan" => "newplan#index"
+  post "/newplan" => "newplan#add"
 
   #get "hello/to/:name" => "hello#to"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'newplan#index'
+  #root 'newplan#index'
+  root 'top#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

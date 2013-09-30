@@ -11,13 +11,19 @@
  *= require_self
  *= require_tree .
  */
+@import "bootstrap";                # bootstrap
+@import "bootstrap-responsive";     # responsiveデザインに対応
+
+
 body {
     text-align: center; 
+    marge: 0 auto;    
+    width: 800px;
+    padding-top: 60px;
 }
 
 #main {
-    marge: 0 auto;    
-    width: 800px;
+    background:#ddd
 }
 
 #plan-list {

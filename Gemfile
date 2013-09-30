@@ -38,6 +38,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'jquery-ui-rails'
+
+# Twitter Bootstrap 3.0
+gem 'bootstrap-sass', '2.3.2.0'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

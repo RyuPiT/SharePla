@@ -1,7 +1,7 @@
 <div id="main">
     <h1><%= link_to 'シェアプラ', root_path %></h1>
   <div id="planpost">
-    <form action="add" method="POST">
+    <form action="<%= newplan_path %>" method="POST">
       <input type="input" name="keyword" required>
       <input type="submit" value="追加">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -15,5 +15,6 @@
       <li>東京スカイツリー</li>
       <li>ホテル</li>
     </ol>
+    <h3> <%= @planlist %> </h3>
   </div>
 </div>
