@@ -4,8 +4,12 @@ describe 'newplan/index.html.erb' do
   before do
     render
   end
-  it 'tag test'do
-    # have_tag
-    response.should have_selector('h1')
+
+  describe 'test' do 
+    it 'tag test'do
+      # have_tag
+      response.should have_selector('h1')
+    end
   end
+
 end
