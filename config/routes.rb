@@ -1,5 +1,5 @@
 SharePla::Application.routes.draw do
-  get "top/index"
+  get "/newplan" => "newplan#index"
   post "/newplan" => "newplan#add"
 
   #get "hello/to/:name" => "hello#to"
