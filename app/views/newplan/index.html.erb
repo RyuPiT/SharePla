@@ -1,5 +1,5 @@
 <div id="main">
-    <h1><%= link_to 'シェアプラ', root_path %></h1>
+    <h1>プラン作成</h1>
   <div id="planpost">
     <form action="<%= newplan_path %>" method="POST">
       <input type="input" name="keyword" required>
@@ -8,13 +8,13 @@
     </form>
   </div>
   <div id="plan-list">
-    <ol>
-      <li>羽田空港</li>
-      <li>品川駅</li>
-      <li>浅草・雷門</li>
-      <li>東京スカイツリー</li>
-      <li>ホテル</li>
+    <ol id="sortable">
+      <li class="ui-state-default">羽田空港</li>
+      <li class="ui-state-default">品川駅</li>
+      <li class="ui-state-default">浅草・雷門</li>
+      <li class="ui-state-default">東京スカイツリー</li>
+      <li class="ui-state-default">ホテル</li>
+      <li class="ui-state-default"><%= @planlist %></h3>
     </ol>
-    <h3> <%= @planlist %> </h3>
   </div>
 </div>

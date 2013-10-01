@@ -1,12 +1,20 @@
 @import "bootstrap";
 /* universal */
 
+/* Main : #D0E0F0
+ * Attention : #A6D233
+ * Sub : #F0F0F0
+ * Sub2 : #608090
+ * Dark : #305060
+ */
+
 html {
   overflow-y: scroll;
 }
 
 body {
   padding-top: 60px;
+  background-color:#D0E0F0;
 }
 
 section {
