@@ -26,3 +26,7 @@ placeholder: "ui-state-highlight"
 });
 $( "#sortable" ).disableSelection();
 });
+
+function getCSRFtoken(){
+  return $("meta[name=csrf-token]").attr("content");
+}

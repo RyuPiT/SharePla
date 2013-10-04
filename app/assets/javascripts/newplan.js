@@ -3,7 +3,7 @@
 
 $(function() {
   $("#addplan").submit(function(){
-    jQuery.post("/newplan/add.json", { name: $("#addplan > input[name=keyword]").val() }, addplan_callback)
+    jQuery.post("/newplan/add.json", { name: $("#addplan > input[name=keyword]").val(), authenticity_token: getCSRFtoken()}, addplan_callback)
     .fail(
       function(){
       alert("post failed");
