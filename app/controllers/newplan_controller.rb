@@ -3,7 +3,11 @@ class NewplanController < ApplicationController
   end
 
   def add
-    @planlist = params['keyword']
-    render 'newplan/index'
+    @planlist = { name: params['name'] }
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @planlist }
+    end
   end
 end

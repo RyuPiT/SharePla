@@ -1,6 +1,6 @@
 SharePla::Application.routes.draw do
   get "/newplan" => "newplan#index"
-  post "/newplan" => "newplan#add"
+  post "/newplan/add" => "newplan#add"
 
   #get "hello/to/:name" => "hello#to"
   # The priority is based upon order of creation: first created -> highest priority.

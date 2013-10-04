@@ -1,7 +1,7 @@
 <div id="main">
     <h1>プラン作成</h1>
   <div id="planpost">
-    <form action="<%= newplan_path %>" method="POST">
+    <form action="<%= newplan_path %>" id="addplan" method="POST">
       <input type="input" name="keyword" required>
       <input type="submit" value="追加">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -14,7 +14,6 @@
       <li class="ui-state-default">浅草・雷門</li>
       <li class="ui-state-default">東京スカイツリー</li>
       <li class="ui-state-default">ホテル</li>
-      <li class="ui-state-default"><%= @planlist %></h3>
     </ol>
   </div>
 </div>
