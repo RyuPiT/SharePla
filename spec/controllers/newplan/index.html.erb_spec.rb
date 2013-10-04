@@ -20,4 +20,18 @@ describe 'newplan/index.html.erb' do
       response.should render_template("index")
     end
   end
+
+  describe NewplanController do
+    before do
+      @params ={
+        :keyword => "新宿プリンスホテル"
+      }
+    end
+    
+    it "success" do
+      post :add, @params
+      expect(response).to be_success
+      expect(assigns[:planlist]) == @params['keyward']
+    end
+  end
 end
