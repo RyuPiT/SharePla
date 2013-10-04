@@ -12,7 +12,6 @@
  *= require_self
  *= require_tree .
  */
-@import "bootstrap";                # bootstrap
 
 body {
     text-align: center; 
