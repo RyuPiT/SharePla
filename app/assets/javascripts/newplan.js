@@ -20,3 +20,19 @@ function addplan_callback(data) {
   $("#sortable").append(li);
   $("#addplan > input[name=keyword]").val("");
 };
+
+$(function() {
+  $("#saveplan").click(function(){
+    jQuery.post("/newplan/save.json", { name: "aiueo", authenticity_token: getCSRFtoken()}, saveplan_callback, "text")
+    .fail(
+      function(){
+      alert("save plan post failed");
+      }
+    );
+    return false;
+  });
+});
+
+function saveplan_callback(data) {
+  alert("post ok");
+};
