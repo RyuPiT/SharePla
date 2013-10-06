@@ -2,10 +2,10 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
-  $("#addplan").submit(function(){
-    jQuery.post("/newplan/add.json", { name: $("#addplan > input[name=keyword]").val(), authenticity_token: getCSRFtoken()}, addplan_callback)
+  $("#addplan").submit(function() {
+    jQuery.post("/newplan/add.json", { name: $("#addplan > input[name=keyword]").val(), authenticity_token: getCSRFtoken() }, addplan_callback)
     .fail(
-      function(){
+      function() {
       alert("post failed");
       }
     );
@@ -20,3 +20,28 @@ function addplan_callback(data) {
   $("#sortable").append(li);
   $("#addplan > input[name=keyword]").val("");
 };
+
+$(function() {
+  $("#saveplan").click(function() {
+    var plans = getPlan();
+    jQuery.post("/newplan/save.json", { planlist: plans, authenticity_token: getCSRFtoken() }, saveplan_callback, "text")
+    .fail(
+      function() {
+      alert("save plan post failed");
+      }
+    );
+    return false;
+  });
+});
+
+function saveplan_callback(data) {
+  alert("post ok");
+};
+
+function getPlan() {
+  var arr = new Array();
+  for(var i = 0 ; i < $("#sortable > li").length ; i++){
+    arr[i] = $("#sortable > li").eq(i).text();
+  }
+  return arr;
+}
