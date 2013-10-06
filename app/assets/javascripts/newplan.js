@@ -22,7 +22,7 @@ function addplan_callback(data) {
 };
 
 $(function() {
-  $("#saveplan").click(function() {
+  $("#saveplan").submit(function() {
     var plans = getPlan();
     jQuery.post("/newplan/save.json", { planlist: plans, authenticity_token: getCSRFtoken() }, saveplan_callback, "text")
     .fail(
