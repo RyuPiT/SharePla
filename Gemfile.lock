@@ -149,6 +149,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  json
   rails (= 4.0.0)
   rails_12factor
   rake
