@@ -2,10 +2,10 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
-  $("#addplan").submit(function(){
-    jQuery.post("/newplan/add.json", { name: $("#addplan > input[name=keyword]").val(), authenticity_token: getCSRFtoken()}, addplan_callback)
+  $("#addplan").submit(function() {
+    jQuery.post("/newplan/add.json", { name: $("#addplan > input[name=keyword]").val(), authenticity_token: getCSRFtoken() }, addplan_callback)
     .fail(
-      function(){
+      function() {
       alert("post failed");
       }
     );
