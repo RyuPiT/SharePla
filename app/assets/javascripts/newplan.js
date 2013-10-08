@@ -23,8 +23,8 @@ function addplan_callback(data) {
 
 $(function() {
   $("#saveplan").submit(function() {
-    var plans = getPlan();
-    jQuery.post("/newplan/save.json", { planlist: plans, authenticity_token: getCSRFtoken() }, saveplan_callback, "text")
+    var all_card = get_all_card();
+    jQuery.post("/newplan/save.json", { "all_card": all_card, authenticity_token: getCSRFtoken() }, saveplan_callback, "text")
     .fail(
       function() {
       alert("save plan post failed");
@@ -38,7 +38,7 @@ function saveplan_callback(data) {
   alert("post ok");
 };
 
-function getPlan() {
+function get_all_card() {
   var arr = new Array();
   for(var i = 0 ; i < $("#sortable > li").length ; i++){
     arr[i] = $("#sortable > li").eq(i).text();
