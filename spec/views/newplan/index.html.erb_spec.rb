@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 describe 'newplan/index.html.erb' do
-  before do
-    render
-  end
-
-  describe 'test' do 
-    it 'tag test'do
-      # have_tag
-      response.should have_selector('h1')
+  describe 'check list' do 
+    before do
+      assigns[:keyword] = "新宿プリンスホテル"
+      render
     end
-  end
 
+    it 'has planlist'do
+      expect(response).to have_selector('li' ,"新宿プリンスホテル")
+    end
+
+  end
 end
