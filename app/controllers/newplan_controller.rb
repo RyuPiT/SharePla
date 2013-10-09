@@ -12,13 +12,12 @@ class NewplanController < ApplicationController
   end
 
   def save
-    i = 0
     id = 0
     day_id = "day" + id.to_s
 
     day_plan = { day_id => { } }
 
-    params['all_card'].each do |card|
+    params['all_card'].each_with_index do |card, i|
       card_list = { "title" => card }
       day_plan[day_id].store(i,card_list)
       i += 1
