@@ -1,3 +1,4 @@
+require './lib/json_controller.rb'
 class NewplanController < ApplicationController
   def index
   end
@@ -23,9 +24,9 @@ class NewplanController < ApplicationController
       i += 1
     end
 
-    open("tmp/plans.json", "a") do |io|
-      JSON.dump(day_plan, io)
-    end
+    json = JsonManager.new("plans.json")
+    json.add day_plan
+    json.save
 
     respond_to do |format|
       format.html { render :nothing => true }
