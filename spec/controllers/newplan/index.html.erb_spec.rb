@@ -38,7 +38,6 @@ describe 'newplan/index.html.erb' do
     
     it "success" do
       expect(assigns[:planlist]) == nil
-      p response
     end
 
   end
