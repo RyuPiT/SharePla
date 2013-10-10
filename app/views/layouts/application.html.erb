@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>SharePla</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-          <%= link_to "SharePla", root_path, id: "logo" %>
-          <nav>
-            <ul class="nav pull-right">
-              <li><%= link_to "Home",    '#' %></li>
-              <li><%= link_to "Help",    '#' %></li>
-              <li><%= link_to "Sign in", '#' %></li>
-            </ul>
-          </nav>
-        </div>
+<html lang="ja">
+  <head>
+    <meta charaset="urf-8">
+    <title>SharePla</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="wrap">
+      <%= render 'layouts/header' %>
+      <div class="container">
+	<%= yield %>
       </div>
-    </header>
-    <div class="container">
-      <%= yield %>
-    </div>  
-</body>
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
 </html>
+
