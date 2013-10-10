@@ -6,10 +6,8 @@ describe 'top/index.html.erb' do
       render
     end
 
-    it 'has link'do
-      expect(response).to include ('/newplan')
-      p response
-
+    it 'has link' do
+      expect(response).to have_selector('a','/newplan')
     end
 
   end
