@@ -8,17 +8,12 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require twitter/bootstrap
+ *= require bootstrap-theme.min.css
  *= require jquery.ui.all
  *= require_self
  *= require_tree .
  */
-
-body {
-    text-align: center; 
-    marge: 0 auto;    
-    width: 800px;
-    padding-top: 60px;
-}
 
 #draggable {  
     width: 150px;
@@ -26,10 +21,7 @@ body {
     padding: 0.5em;
 }
 
-#main {
-    background:#ddd
-}
-
 #plan-list {
     text-align:left;
 }
+

@@ -43,8 +43,12 @@ end
 gem 'jquery-ui-rails'
 
 # Twitter Bootstrap 3.0
-gem 'bootstrap-sass', '2.3.2.0'
+# gem 'bootstrap-sass', '2.3.2.0'
 gem 'jquery-turbolinks'
+
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                          :github => 'anjlab/bootstrap-rails',
+                          :branch => '3.0.0'
 
 
 # Use ActiveModel has_secure_password

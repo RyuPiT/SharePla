@@ -1,35 +1,53 @@
-@import "bootstrap";
-/* universal */
+$boader-color: #E1E1E1;
+$main-color: #D0E0F0;
+$attention-color: #A6D233;
+$glay-color: #F0F0F0;
+$durk-color : #608090;
+$font-color : #305060;
 
-/* Main : #D0E0F0
- * Attention : #A6D233
- * Sub : #F0F0F0
- * Sub2 : #608090
- * Dark : #305060
- */
-@import "bootstrap";                // bootstrap
-
-html {
-  overflow-y: scroll;
+html,body{
+    height:100%;
 }
 
-body {
-  padding-top: 60px;
-  background-color:#D0E0F0;
+#wrap {
+  position:relative;
+  min-height:100%;
 }
 
-section {
-  overflow: auto;
+.container {
+  padding: 40px 0;
 }
 
-textarea {
-  resize: vertical;
-}
+/* footer */
 
-.center {
-  text-align: center;
-}
+footer {
+  padding: 10px 15px 0px 15px;
+  margin-top: 70px;
+  border-top: 1px solid $boader-color;
+  background-color: $glay-color;
+  bottom: 0;
+  width: 100%;
+  position:absolute;
+  height: 40px;
+  a {
+    color: #555;
 
-.center h1 {
-  margin-bottom: 10px;
+    &:hover {
+      color: #222;
+    }
+  }
+
+  small {
+    float: left;
+  }
+
+  ul {
+    float: right;
+    list-style: none;
+
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
 }
