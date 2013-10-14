@@ -12,10 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all
+//= require jquery.ui.core.js
+//= require jquery.ui.widget.js
+//= require jquery.ui.mouse.js
+//= require jquery.ui.sortable.js
+//= require jquery.ui.draggable.js
 //= require_tree .
 //= require twitter/bootstrap
-
 
  $(function() {
  $( "#draggable" ).draggable();

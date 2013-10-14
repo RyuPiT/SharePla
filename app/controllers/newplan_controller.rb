@@ -1,4 +1,3 @@
-require './lib/json_controller.rb'
 class NewplanController < ApplicationController
   def index
   end
@@ -12,19 +11,23 @@ class NewplanController < ApplicationController
   end
 
   def save
+    json = ApplicationHelper::JsonManager.new("plans.json")
     id = 0
     day_id = "day" + id.to_s
 
-    day_plan = { day_id => { } }
+    plan = { day_id => { } }
 
     params['all_card'].each_with_index do |card, i|
       card_list = { "title" => card }
-      day_plan[day_id].store(i,card_list)
+      plan[day_id].store(i,card_list)
       i += 1
     end
 
-    json = JsonManager.new("plans.json")
-    json.add day_plan
+    plan_id = json.get_all.length
+    plan.store("id", plan_id)
+    plan.store("title", params['title'])
+
+    json.add plan
     json.save
 
     respond_to do |format|

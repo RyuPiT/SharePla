@@ -1,12 +1,12 @@
-$boader-color: #E1E1E1;
-$main-color: #D0E0F0;
-$attention-color: #A6D233;
-$glay-color: #E8E8E8;
-$durk-color: #608090;
+$boader-color: #e1e1e1;
+$main-color: #d0e0f0;
+$attention-color: #a6d233;
+$glay-color: #e8e8e8;
+$dark-color: #608090;
 $font-color: #305060;
 
 html,body{
-    height:100%;
+  height:100%;
 }
 
 #wrap {
@@ -19,16 +19,17 @@ html,body{
 }
 
 
-/* navbar */
+/* navigation bar */
 
 .navbar {
-  background-image: -webkit-gradient(linear,left 0,left 100%,from(#7191a1),to($durk-color));
-  background-image: linear-gradient(to bottom,#7191a1 0,$durk-color 100%);
+  background-image: -webkit-gradient(linear,left 0,left 100%,from(#7191a1),to($dark-color));
+  background-image: linear-gradient(to bottom,#7191a1 0,$dark-color 100%);
 }
 
 .navbar-default .navbar-brand {
   color: $glay-color;
   font-size: 23px;
+
   &:hover {
     color: #fafafa;
   }
@@ -43,8 +44,7 @@ html,body{
     }
 }
 
-.navbar-default
-.navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #fafafa;
