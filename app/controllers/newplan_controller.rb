@@ -1,4 +1,3 @@
-require './lib/json_controller.rb'
 class NewplanController < ApplicationController
   def index
   end
@@ -23,7 +22,7 @@ class NewplanController < ApplicationController
       i += 1
     end
 
-    json = JsonManager.new("plans.json")
+    json = ApplicationHelper::JsonManager.new("plans.json")
     json.add day_plan
     json.save
 
