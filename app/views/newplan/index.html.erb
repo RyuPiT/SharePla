@@ -1,8 +1,8 @@
-<div id="main">
-  <h1>プラン作成</h1>
+<div class="container">
+
   <div id="plan-list">
-    <form id="saveplan" method="POST">
-      プランタイトル：<input type="input" name="plan-title" required>      
+    <form class="row" id="saveplan" method="POST">
+      <input type="input" name="plan-title" placeholder="プランタイトル" required>      
       <ol id="sortable">
         <li class="ui-state-default">羽田空港</li>
         <li class="ui-state-default">品川駅</li>
@@ -10,9 +10,10 @@
         <li class="ui-state-default">東京スカイツリー</li>
         <li class="ui-state-default">ホテル</li>
       </ol>
-      <input type="submit" value="保存">
+      <input class="btn btn-primary" type="submit" value="保存">
     </form>
   </div>
+
   <div id="planpost">
     <form action="<%= newplan_path %>" id="addplan" method="POST">
       <input type="input" name="keyword" required>
@@ -20,4 +21,5 @@
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     </form>
   </div>
+
 </div>

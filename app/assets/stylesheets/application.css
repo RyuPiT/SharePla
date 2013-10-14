@@ -9,19 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require twitter/bootstrap
- *= require bootstrap-theme.min.css
  *= require jquery.ui.all
  *= require_self
  *= require_tree .
  */
-
-#draggable {  
-    width: 150px;
-    height: 150px;
-    padding: 0.5em;
-}
-
-#plan-list {
-    text-align:left;
-}
-
