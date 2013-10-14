@@ -13,6 +13,10 @@ module ApplicationHelper
       end
     end
 
+    def get_all
+      return @json_data
+    end
+
     def add(data)
       @json_data.push data
     end
