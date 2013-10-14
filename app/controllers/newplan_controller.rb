@@ -11,6 +11,7 @@ class NewplanController < ApplicationController
   end
 
   def save
+    json = ApplicationHelper::JsonManager.new("plans.json")
     id = 0
     day_id = "day" + id.to_s
 
@@ -22,9 +23,10 @@ class NewplanController < ApplicationController
       i += 1
     end
 
+    plan_id = json.get_all.length
+    plan.store("id", plan_id)
     plan.store("title", params['title'])
 
-    json = ApplicationHelper::JsonManager.new("plans.json")
     json.add plan
     json.save
 
