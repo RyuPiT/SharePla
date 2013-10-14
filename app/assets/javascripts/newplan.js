@@ -22,7 +22,7 @@ $(function() {
     var post_data   = { "all_card": get_all_card(), authenticity_token: getCSRFtoken() };
     var post_url    = "/newplan/save.json";
     var return_type = "text";
-
+    var plan_title = { name: $("#saveplan > input[name=plan-title]").val(), authenticity_token: getCSRFtoken() };
     jQuery.post(post_url, post_data, saveplan_callback, return_type).fail(fail_func);
     return false;
   });
