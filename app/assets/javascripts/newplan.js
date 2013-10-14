@@ -19,7 +19,7 @@ $(function() {
   }
 
   $("#saveplan").submit(function() {
-    var postData   = { "all_card": getAllCard(), authenticity_token: getCSRFtoken() };
+    var postData   = { title: $("input[name=plan-title]").val(), "all_card": getAllCard(), authenticity_token: getCSRFtoken() };
     var postUrl    = "/newplan/save.json";
     var returnType = "text";
 
