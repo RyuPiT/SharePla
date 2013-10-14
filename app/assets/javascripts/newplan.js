@@ -3,14 +3,14 @@
 
 $(function() {
   $("#addplan").submit(function() {
-    var post_data = { name: $("#addplan > input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
-    var post_url  = "/newplan/add.json";
+    var postData = { name: $("#addplan > input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
+    var postUrl  = "/newplan/add.json";
 
-    jQuery.post(post_url, post_data, addplan_callback).fail(fail_func);
+    jQuery.post(postUrl, postData, addplanCallback).fail(failFunc);
     return false;
   });
 
-  function addplan_callback(data) {
+  function addplanCallback(data) {
     var li = $("<li>");
     li.addClass("ui-state-default");
     li.text(data["name"]);
@@ -19,28 +19,28 @@ $(function() {
   }
 
   $("#saveplan").submit(function() {
-    var post_data   = { "all_card": get_all_card(), authenticity_token: getCSRFtoken() };
-    var post_url    = "/newplan/save.json";
-    var return_type = "text";
-    var plan_title = { name: $("#saveplan > input[name=plan-title]").val(), authenticity_token: getCSRFtoken() };
-    jQuery.post(post_url, post_data, saveplan_callback, return_type).fail(fail_func);
+    var postData   = { "all_card": getAllCard(), authenticity_token: getCSRFtoken() };
+    var postUrl    = "/newplan/save.json";
+    var returnType = "text";
+
+    jQuery.post(postUrl, postData, saveplanCallback, returnType).fail(failFunc);
     return false;
   });
 
-  function saveplan_callback(data) {
+  function saveplanCallback(data) {
     alert("post ok");
   }
 
-  var fail_func = function() {
+  var failFunc = function() {
     alert("post failed");
   }
 
-  function get_all_card() {
-    var all_card = new Array();
+  function getAllCard() {
+    var allCard = new Array();
     var size     = $("#sortable > li").length;
     for(var i = 0; i < size; i++){
-      all_card[i] = $("#sortable > li").eq(i).text();
+      allCard[i] = $("#sortable > li").eq(i).text();
     }
-    return all_card;
+    return allCard;
   }
 });
