@@ -1,25 +1,25 @@
-<div class="container">
-
-  <div id="plan-list">
-    <form class="row" id="saveplan" method="POST">
-      <input type="input" name="plan-title" placeholder="プランタイトル" required>      
-      <ol id="sortable">
-        <li class="ui-state-default">羽田空港</li>
-        <li class="ui-state-default">品川駅</li>
-        <li class="ui-state-default">浅草・雷門</li>
-        <li class="ui-state-default">東京スカイツリー</li>
-        <li class="ui-state-default">ホテル</li>
-      </ol>
-      <input class="btn btn-primary" type="submit" value="保存">
-    </form>
+<div id="plan-list">
+  <div class="page-header">
+    <form class="form-inline" id="saveplan" method="POST">
+      <div class="row">
+	<div class="col-md-10">
+	  <label class="sr-only">プランタイトル</label>
+	  <input class="form-control input-lg" type="input" name="plan-title" placeholder="プランタイトル" required>      
+	</div>
+	<div class="col-md-1">
+	  <button class="btn btn-default btn-lg" type="submit">プラン保存</button>
+	</div>
+      </div>
   </div>
-
-  <div id="planpost">
-    <form action="<%= newplan_path %>" id="addplan" method="POST">
-      <input type="input" name="keyword" required>
-      <input type="submit" value="追加">
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    </form>
-  </div>
-
+  <ol id="sortable">
+   <li class="ui-state-default"><span class="title">羽田空港</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></li>
+  </ol>
+  </form>
+</div>
+<div id="planpost">
+  <form action="<%= newplan_path %>" id="addplan" method="POST">
+    <input type="input" name="keyword" required>
+    <input type="submit" value="追加">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
 </div>
