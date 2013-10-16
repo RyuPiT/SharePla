@@ -20,7 +20,6 @@ class NewplanController < ApplicationController
     params['all_card'].each_with_index do |card, i|
       card_list = { "title" => card }
       plan[day_id].store(i,card_list)
-      i += 1
     end
 
     plan_id = json.get_all.length

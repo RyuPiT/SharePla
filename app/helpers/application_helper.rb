@@ -14,7 +14,7 @@ module ApplicationHelper
     end
 
     def get_all
-      return @json_data
+      @json_data
     end
 
     def add(data)
