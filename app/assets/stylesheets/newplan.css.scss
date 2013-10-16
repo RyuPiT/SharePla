@@ -1,3 +1,31 @@
 // Place all the styles related to the newplan controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#plan-list > .navbar-fixed-top {
+  top: 50px;
+  padding: 10px 0 10px;
+  background-color: #f0f0f0;
+}
+
+#sortable {
+ list-style-type: none;
+ margin-top:  130px;
+ padding: 0;
+}
+
+#sortable li {
+ margin: 0 5px 5px 5px;
+ padding: 5px;
+ font-size: 1.2em;
+ height: 1.5em;
+}
+
+html>body #sortable li {
+ height: 2em;
+ line-height: 1.5em;
+}
+
+.ui-state-highlight {
+ height: 1.5em;
+ line-height: 1.2em;
+}

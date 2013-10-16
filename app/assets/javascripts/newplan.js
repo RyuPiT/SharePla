@@ -13,8 +13,11 @@ $(function() {
   function addplanCallback(data) {
     var li = $("<li>");
     li.addClass("ui-state-default");
-    li.append("<span class=\"title\">" + data["name"] + "<\/span>");
+    //add card-title
+    li.append("<span class=\"title\">" + data["name"] + "</span>");
+    //add delete-botton
     li.append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>");
+
     $("#sortable").append(li);
     $("#addplan > input[name=keyword]").val("");
   }
