@@ -13,6 +13,8 @@ $(function() {
   function addplanCallback(data) {
     var li = $("<li>");
     li.addClass("ui-state-default");
+    //add icon
+    li.append("<span class=\"glyphicon glyphicon-flag\">");
     //add card-title
     li.append("<span class=\"title\">" + data["name"] + "</span>");
     //add delete-botton

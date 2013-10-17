@@ -24,13 +24,13 @@ html,body{
 
 /* navigation bar */
 
-//nvavigation bar backgound-color 
+//nvavigation bar backgound-color
 .navbar {
   background-image: -webkit-gradient(linear,left 0,left 100%,from(#7191a1),to($dark-color));
   background-image: linear-gradient(to bottom,#7191a1 0,$dark-color 100%);
 }
 
-//nvavigation bar font-color 
+//nvavigation bar font-color
 .navbar-default .navbar-brand {
   color: $glay-color;
   font-size: 23px;
@@ -40,7 +40,7 @@ html,body{
   }
 }
 
-//nvavigation bar backgound-color 
+//nvavigation bar backgound-color
 .navbar-default
 .navbar-nav > .active > a {
   background-color: #5d7d8d;
@@ -50,14 +50,15 @@ html,body{
     }
 }
 
-//nvavigation bar font-color 
+//nvavigation bar font-color
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #fafafa;
 }
 
-//nvavigation bar font-color 
+
+//nvavigation bar font-color
 .navbar-default
 .navbar-nav > li > a {
   color: $glay-color;
@@ -67,13 +68,53 @@ html,body{
 }
 
 
-/* main contents */
 
+/* main contents */
 //avoid over in navigation bar
 .page-header {
   padding-top: 20px;
 }
 
+//jquery_ui_theme sortable
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default{
+  background: $main-color;
+  border: 1px solid $main-color;
+  color: $font-color;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+  margin: 0 5px 8px 5px;
+  padding: 5px;
+  font-size: 1.2em;
+  height: 2em;
+  line-height: 1.5em;
+
+    &:hover {
+      color: $dark-color;
+      box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+      margin: 5px 9px 8px 1px;
+      cursor:pointer;
+      cursor:hand;
+    }
+
+}
+
+.ui-state-highlight {
+  border: 1px dashed $dark-color;
+  background: none;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  margin: 0 5px 5px 5px;
+  padding: 18px 0 17px;
+  font-size: 1.2em;
+  height: 1.5em;
+  height: 2em;
+  line-height: 1.5em;
+}
 
 
 /* footer position bottom */
