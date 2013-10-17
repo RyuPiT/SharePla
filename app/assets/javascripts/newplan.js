@@ -34,7 +34,7 @@ $(function() {
   });
 
   function saveplanCallback(data) {
-    alert("post ok");
+    location.href = "/";
   }
 
   var failFunc = function() {
