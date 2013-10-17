@@ -30,6 +30,7 @@ class NewplanController < ApplicationController
     json.save
 
     respond_to do |format|
+      flash[:notice] = "保存しました"
       format.html { render :nothing => true }
       format.json { render :nothing => true }
     end
