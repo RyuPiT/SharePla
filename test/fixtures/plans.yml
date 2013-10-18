@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  area_tags: 
+  days: MyString
+  description: MyString
+  sumbnail: MyString
+  tags: 
+  title: MyString
+
+two:
+  area_tags: 
+  days: MyString
+  description: MyString
+  sumbnail: MyString
+  tags: 
+  title: MyString
