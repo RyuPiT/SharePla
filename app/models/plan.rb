@@ -3,7 +3,7 @@ class Plan
   include Mongoid::Timestamps
 
   field :area_tags, type: Array
-  field :days, type: String
+  field :days, type: Hash
   field :description, type: String
   field :sumbnail, type: String
   field :tags, type: Array
