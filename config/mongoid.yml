@@ -77,7 +77,7 @@ test:
 production:
   sessions:
     default:
-      url: <%= ENV['MONGOHQ_URL'] %>
+      uri: <%= ENV['MONGOHQ_URL'] %>
       options:
         consistency: :strong
         max_retries: 1
