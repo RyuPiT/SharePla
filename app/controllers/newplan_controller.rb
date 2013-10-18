@@ -11,28 +11,24 @@ class NewplanController < ApplicationController
   end
 
   def save
-    json = ApplicationHelper::JsonManager.new("plans.json")
-    id = 0
-    day_id = "day" + id.to_s
+    arr = Array.new
+    plan_params = Hash.new
 
-    plan = { day_id => { } }
-
-    params['all_card'].each_with_index do |card, i|
-      card_list = { "title" => card }
-      plan[day_id].store(i,card_list)
+    params['plan']['days'].each do |key,value|
+      arr.push value
     end
+    day0 = { "day0" => arr }
 
-    plan_id = json.get_all.length
-    plan.store("id", plan_id)
-    plan.store("title", params['title'])
-
-    json.add plan
-    json.save
+    plan_params.store("days",day0)
+    plan_params.store("title", params['plan']['title'])
+    @plan = Plan.new(plan_params)
 
     respond_to do |format|
-      flash[:notice] = "保存しました"
-      format.html { render :nothing => true }
-      format.json { render :nothing => true }
+      if @plan.save
+        flash[:notice] = "保存しました"
+        format.html { render :nothing => true }
+        format.json { render :nothing => true }
+      end
     end
   end
 end

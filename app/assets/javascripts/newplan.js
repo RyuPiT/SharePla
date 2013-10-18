@@ -23,7 +23,7 @@ $(function() {
   }
 
   $("#saveplan").submit(function() {
-    var postData   = { title: $("input[name=plan-title]").val(), "all_card": getAllCard(), authenticity_token: getCSRFtoken() };
+    var postData   = { plan: { title: $("input[name=plan-title]").val(), "days": getAllCard() }, authenticity_token: getCSRFtoken() };
     var postUrl    = "/newplan/save.json";
     var returnType = "text";
 
@@ -43,7 +43,9 @@ $(function() {
     var allCard = new Array();
     var size     = $("#sortable > li ").length;
     for(var i = 0; i < size; i++){
-      allCard[i] = $("#sortable > li > .title").eq(i).text();
+      var json = { };
+      json["title"] = $("#sortable > li > .title").eq(i).text();
+      allCard[i] = json;
     }
     return allCard;
   }

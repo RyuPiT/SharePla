@@ -12,6 +12,8 @@ group :test do
 end
 gem 'rails_12factor', group: :production
 
+gem 'mongoid', git: 'git://github.com/mongoid/mongoid.git'
+
 gem 'json'
 
 # Use SCSS for stylesheets
