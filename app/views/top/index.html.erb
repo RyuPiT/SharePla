@@ -6,3 +6,9 @@
   <%= link_to 'Create Plan!', newplan_path %>
   <%= h(flash[:notice]) %>
 </div>
+
+<% if ! @plans.nil? %>
+  <% @plans.each do |json| %>
+    <%= link_to json['title'], json %>
+  <% end %>
+<% end %>
