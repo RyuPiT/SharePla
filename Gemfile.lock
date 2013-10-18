@@ -7,6 +7,16 @@ GIT
       railties (>= 3.0)
       sass (>= 3.2)
 
+GIT
+  remote: git://github.com/mongoid/mongoid.git
+  revision: e3539830c2c00eea134951eb3cd9eef669ddef99
+  specs:
+    mongoid (4.0.0)
+      activemodel (~> 4.0.0)
+      moped (~> 2.0.beta3)
+      origin (~> 1.0)
+      tzinfo (~> 0.3.37)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -36,6 +46,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.14)
+    bson (2.0.0.rc3)
     builder (3.1.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -73,9 +84,14 @@ GEM
     mime-types (1.25)
     mini_portile (0.5.1)
     minitest (4.7.5)
+    moped (2.0.0.beta3)
+      bson (~> 2.0.0.rc3)
+      optionable (~> 0.1.1)
     multi_json (1.8.1)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    optionable (0.1.1)
+    origin (1.1.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -157,6 +173,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   json
+  mongoid!
   rails (= 4.0.0)
   rails_12factor
   rake
