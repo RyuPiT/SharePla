@@ -87,10 +87,8 @@ html,body{
   -webkit-border-radius: 8px;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
   margin: 0 5px 8px 5px;
-  padding: 5px;
+  padding: 7px;
   font-size: 1.2em;
-  height: 2em;
-  line-height: 1.5em;
 
     &:hover {
       color: $dark-color;
@@ -98,6 +96,9 @@ html,body{
       margin: 5px 9px 8px 1px;
       cursor:pointer;
       cursor:hand;
+      $main-gradient: #daeafa;
+      background: -moz-linear-gradient(top,$main-gradient 0%,$main-color);
+      background: -webkit-gradient(linear, left top, left bottom, from($main-gradient), to($main-color));
     }
 
 }
@@ -112,8 +113,15 @@ html,body{
   padding: 18px 0 17px;
   font-size: 1.2em;
   height: 1.5em;
-  height: 2em;
   line-height: 1.5em;
+}
+
+
+//flag icon
+.ui-state-default > .title:before {
+  content: "\e034";
+  font-family: 'Glyphicons Halflings';
+  padding: 0 10px 0;
 }
 
 
