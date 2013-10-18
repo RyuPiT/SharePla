@@ -1,8 +1,10 @@
 <div class="container">
   <div class="page-header">
-    <h1>Top Page</h1>
+    <% if flash[:notice] %>
+    <div class="alert alert-success alert-dismissable"><button id="jquery-ui-hide" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= h(flash[:notice]) %></div>
+    <% end %>
+     <h1>Top Page</h1>
   </div>
   <p>Welcome SharePla</p>
   <%= link_to 'Create Plan!', newplan_path %>
-  <%= h(flash[:notice]) %>
 </div>

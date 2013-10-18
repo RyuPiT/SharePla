@@ -48,3 +48,12 @@ $(function() {
     return allCard;
   }
 });
+
+//plan-list sort
+$(function() {
+  $("#sortable").sortable({
+    placeholder: "ui-state-highlight"
+  });
+  $("#sortable").disableSelection();
+});
+
