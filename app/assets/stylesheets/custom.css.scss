@@ -24,13 +24,13 @@ html,body{
 
 /* navigation bar */
 
-//nvavigation bar backgound-color
+//navigation bar backgound-color
 .navbar {
   background-image: -webkit-gradient(linear,left 0,left 100%,from(#7191a1),to($dark-color));
   background-image: linear-gradient(to bottom,#7191a1 0,$dark-color 100%);
 }
 
-//nvavigation bar font-color
+//navigation bar font-color
 .navbar-default .navbar-brand {
   color: $glay-color;
   font-size: 23px;
@@ -40,7 +40,7 @@ html,body{
   }
 }
 
-//nvavigation bar backgound-color
+//navigation bar backgound-color
 .navbar-default
 .navbar-nav > .active > a {
   background-color: #5d7d8d;
@@ -50,7 +50,7 @@ html,body{
     }
 }
 
-//nvavigation bar font-color
+//navigation bar font-color
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
@@ -58,7 +58,7 @@ html,body{
 }
 
 
-//nvavigation bar font-color
+//navigation bar font-color
 .navbar-default
 .navbar-nav > li > a {
   color: $glay-color;
