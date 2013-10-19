@@ -1,6 +1,7 @@
 <div class="container">
   <div class="page-header">
     <h1><%= @plan.title %></h1>
+    <h2><%= @plan.description %></h2>
   </div>
   <% @plan.days['day0'].each do |arr| %>
     <% arr.each do |key,val| %>
