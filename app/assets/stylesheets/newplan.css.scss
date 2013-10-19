@@ -7,9 +7,14 @@
   background-color: #f0f0f0;
 }
 
+textarea {
+  margin: 5px 0 10px;
+  resize:none;
+  margin-top:  130px;
+}
+
 #sortable {
  list-style-type: none;
- margin-top:  130px;
  padding: 0;
 }
 

@@ -59,3 +59,7 @@ $(function() {
   $("#sortable").disableSelection();
 });
 
+//textarea autosize
+$(document).ready(function(){
+    $('textarea').autosize();
+});
