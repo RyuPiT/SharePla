@@ -20,7 +20,8 @@ class NewplanController < ApplicationController
     day0 = { "day0" => arr }
 
     plan_params.store("days",day0)
-    plan_params.store("title", params['plan']['title'])
+    plan_params.store("title",params['plan']['title'])
+    plan_params.store("description",params['plan']['desc'])
     @plan = Plan.new(plan_params)
 
     respond_to do |format|
