@@ -23,7 +23,7 @@ $(function() {
   }
 
   $("#saveplan").submit(function() {
-    var postData   = { plan: { title: $("input[name=plan-title]").val(), "days": getAllCard() }, authenticity_token: getCSRFtoken() };
+    var postData   = { plan: { title: $("input[name=plan-title]").val(), desc: $("textarea[name=plan-desc]").val(), "days": getAllCard() }, authenticity_token: getCSRFtoken() };
     var postUrl    = "/newplan/save.json";
     var returnType = "text";
 
