@@ -8,4 +8,6 @@ class Plan
   field :sumbnail, type: String
   field :tags, type: Array
   field :title, type: String
+
+  validates :title, presence: true
 end
