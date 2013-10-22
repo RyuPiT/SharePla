@@ -20,18 +20,6 @@
 //= require_tree .
 //= require twitter/bootstrap
 
- $(function() {
- $( "#draggable" ).draggable();
-});
-
-
- $(function() {
-$( "#sortable" ).sortable({
-placeholder: "ui-state-highlight"
-});
-$( "#sortable" ).disableSelection();
-});
-
 function getCSRFtoken(){
   return $("meta[name=csrf-token]").attr("content");
 }

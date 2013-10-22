@@ -13,13 +13,17 @@ $(function() {
   function addplanCallback(data) {
     var li = $("<li>");
     li.addClass("ui-state-default");
-    li.text(data["name"]);
+    //add card-title
+    li.append("<span class=\"title\">" + data["name"] + "</span>");
+    //add delete-botton
+    li.append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>");
+
     $("#sortable").append(li);
     $("#addplan > input[name=keyword]").val("");
   }
 
   $("#saveplan").submit(function() {
-    var postData   = { title: $("input[name=plan-title]").val(), "all_card": getAllCard(), authenticity_token: getCSRFtoken() };
+    var postData   = { plan: { title: $("input[name=plan-title]").val(), desc: $("textarea[name=plan-desc]").val(), "days": getAllCard() }, authenticity_token: getCSRFtoken() };
     var postUrl    = "/newplan/save.json";
     var returnType = "text";
 
@@ -28,7 +32,7 @@ $(function() {
   });
 
   function saveplanCallback(data) {
-    alert("post ok");
+    location.href = "/";
   }
 
   var failFunc = function() {
@@ -37,10 +41,25 @@ $(function() {
 
   function getAllCard() {
     var allCard = new Array();
-    var size     = $("#sortable > li").length;
+    var size     = $("#sortable > li ").length;
     for(var i = 0; i < size; i++){
-      allCard[i] = $("#sortable > li").eq(i).text();
+      var json = { };
+      json["title"] = $("#sortable > li > .title").eq(i).text();
+      allCard[i] = json;
     }
     return allCard;
   }
+});
+
+//plan-list sort
+$(function() {
+  $("#sortable").sortable({
+    placeholder: "ui-state-highlight"
+  });
+  $("#sortable").disableSelection();
+});
+
+//textarea autosize
+$(document).ready(function(){
+    $('textarea').autosize();
 });

@@ -1,3 +1,28 @@
-<h1>Top Page</h1>
-<p>Welcome SharePla</p>
-<%= link_to 'Create Plan!', newplan_path %>
+<div class="container">
+  <div class="page-header">
+    <% if flash[:notice] %>
+    <div class="alert alert-success alert-dismissable"><button id="jquery-ui-hide" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= h(flash[:notice]) %></div>
+    <% end %>
+     <h1>Welcome SharePla</h1>
+  </div>
+  <%= link_to 'Create Plan!', newplan_path %>
+
+  <!-- show list plan-title -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>プランタイトル</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if ! @plans.nil? %>
+        <% @plans.each do |json| %>
+          <tr>
+            <td><%= link_to json['title'], json %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
