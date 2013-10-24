@@ -1,7 +1,5 @@
 @font-face {
-    font-family: "FontAwesome";
-    src: url('/assets/font/fontawesome-webfont.eot');
-    src: url('/assets/font/fontawesome-webfont.eot?#iefix') format('eot'), url('/assets/font/fontawesome-webfont.woff') format('woff'), url('/assets/font/fontawesome-webfont.ttf') format('truetype'), url('/assets/font/fontawesome-webfont.svg#FontAwesome') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Glyphicons Halflings';
+  src: url('/assets/glyphicons-halflings-regular.eot');
+  src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
