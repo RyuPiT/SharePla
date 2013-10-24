@@ -1,0 +1,7 @@
+@font-face {
+    font-family: "FontAwesome";
+    src: url('/assets/stylesheets/twitter/fontawesome-webfont.eot');
+    src: url('/assets/stylesheets/twitter/glyphicons-halflings-regular-ab2f6984951c07fd89e6afdefabd93c7.eot?#iefix') format('eot'), url('/assets/stylesheets/twitter/glyphicons-halflings-regular-fa1d7f79d80d03f8a598822bd9df79bf.woff') format('woff'), url('/assets/stylesheets/twitter/glyphicons-halflings-regular-c21928f7d46b397b0af6b9ee4a7bd0dd.ttf') format('truetype'), url('/assets/stylesheets/twitter/glyphicons-halflings-regular-9f75212cf9fca594cee7e0e3587db9d1.svg#FontAwesome') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
