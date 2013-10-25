@@ -65,3 +65,6 @@ gem 'font-awesome-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
