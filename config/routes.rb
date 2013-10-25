@@ -5,6 +5,7 @@ SharePla::Application.routes.draw do
   match '/newplan/save', to: 'newplan#save' , via: 'post'
   match '/plan'        , to: 'top#show'     , via: 'get'
   match '/pdf/sample'  , to: 'documents#sample',via: 'get'
+  match '/pdf'         , to: 'documents#create',via: 'post'
 
   #get "hello/to/:name" => "hello#to"
   # The priority is based upon order of creation: first created -> highest priority.
