@@ -5,7 +5,7 @@ describe Plan do
   it "is valid with all field" do
     plan = Plan.new(
       area_tags: ["okinawa"],
-      days: {day0: [{ title: "haneda1" }, { title: "naha" }] },
+      days: [ Day.new(title: "test") ],
       description: "desc test",
       sumbnail: "sumbnail test",
       tags: ["a","b"],
