@@ -3,7 +3,7 @@ SharePla::Application.routes.draw do
   match '/newplan'     , to: 'newplan#index', via: 'get'
   match '/newplan/add' , to: 'newplan#add'  , via: 'post'
   match '/newplan/save', to: 'newplan#save' , via: 'post'
-  match '/plan'        , to: 'top#show'     , via: 'get'
+  match '/plan/:id'    , to: 'top#show'     , via: 'get', as: :plan
   match '/pdf/sample'  , to: 'documents#sample',via: 'get'
   match '/pdf'         , to: 'documents#create',via: 'post'
 
