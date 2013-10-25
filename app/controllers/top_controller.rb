@@ -9,6 +9,6 @@ class TopController < ApplicationController
 
   private
   def set_plan
-    @plan = Plan.find(params['format'])
+    @plan = Plan.find(params['id'])
   end
 end
