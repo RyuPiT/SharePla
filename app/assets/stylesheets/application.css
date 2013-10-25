@@ -11,5 +11,6 @@
  *= require twitter/bootstrap
  *= require jquery.ui.all
  *= require_self
+ *= require font-awesome
  *= require_tree .
  */
