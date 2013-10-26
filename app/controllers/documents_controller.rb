@@ -15,6 +15,9 @@ class DocumentsController < ApplicationController
     File.open(save_path, 'wb') do |file|
       file << pdf
     end
-    render :nothing => true
+    
+    # download pdf file
+    send_file('tmp/pdf/ticket.pdf') 
+#    render :nothing => true
   end
 end
