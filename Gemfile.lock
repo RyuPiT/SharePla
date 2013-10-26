@@ -67,6 +67,7 @@ GEM
     font-awesome-rails (4.0.0.0)
       railties (>= 3.2, < 5.0)
     hike (1.2.3)
+    httpclient (2.3.4.1)
     i18n (0.6.5)
     jbuilder (1.5.2)
       activesupport (>= 3.0.0)
@@ -174,6 +175,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
   font-awesome-rails
+  httpclient
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
