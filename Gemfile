@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 ruby '2.0.0'
 
+# for rakuten API
+gem 'httpclient'
 
 group :test do
   gem 'rake'
