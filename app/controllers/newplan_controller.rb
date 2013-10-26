@@ -4,6 +4,25 @@ class NewplanController < ApplicationController
 
   def add
     @planlist = { name: params['name'] }
+
+    httpClient = HTTPClient.new
+    @jsonData = nil
+    @errorMeg = nil
+
+    begin
+      data = httpClient.get_content('http://api.rakuten.co.jp/rws/3.0/json', {
+                                    'developerId'   => ENV['RakutenDeveloperId'],
+                                    'affiliateId'   => ENV['RakutenAffiliateId'],
+                                    'version'       => '2009-10-20',
+                                    'operation'     => 'KeywordHotelSearch',
+                                    'keyword'       => params['name']
+      })
+      @jsonData = JSON.parse data
+      p @jsonData
+    rescue HTTPClient::BadResponseError => e
+    rescue HTTPClient::TimeoutError => e
+    end
+
     respond_to do |format|
       format.html { render :nothing => true }
       format.json { render :json => @planlist }
