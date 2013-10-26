@@ -16,8 +16,22 @@ class DocumentsController < ApplicationController
       file << pdf
     end
     
+    send_data(File.read('tmp/pdf/ticket.pdf'), :filename => 'hoge.pdf',:disposition=> 'inline')
+    
     # download pdf file
-    send_file('tmp/pdf/ticket.pdf') 
+#    send_file('tmp/pdf/ticket.pdf') 
 #    render :nothing => true
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
