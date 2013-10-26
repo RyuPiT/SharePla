@@ -7,6 +7,9 @@ class TopController < ApplicationController
   def show
   end
 
+  def static
+  end
+
   private
   def set_plan
     @plan = Plan.find(params['id'])
