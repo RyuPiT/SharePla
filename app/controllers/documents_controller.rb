@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
 
   def sample
-    render :pdf => "newplan", :layout =>false, :template => "/newplan/index.html", :encoding => "UTF-8"
+    render :pdf => "newplan", :layout =>false, :template => "/top/static.html", :encoding => "UTF-8"
   end
 
   def create
