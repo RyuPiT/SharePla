@@ -10,7 +10,7 @@ $font-color: #305060;
 
 
 html,body{
-  //footer position buttom 
+  //footer position buttom
   height:100%;
 }
 
@@ -96,7 +96,6 @@ html,body{
     &:hover {
       color: $dark-color;
       box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
-      margin: 5px 9px 8px 1px;
       cursor:pointer;
       cursor:hand;
       $main-gradient: #daeafa;
@@ -123,6 +122,13 @@ html,body{
 //flag icon
 .ui-state-default > .title:before {
   content: "\e034";
+  font-family: 'Glyphicons Halflings';
+  padding: 0 10px 0;
+}
+
+//home icon
+.ui-state-default > .hotel:before {
+  content: "\e021";
   font-family: 'Glyphicons Halflings';
   padding: 0 10px 0;
 }

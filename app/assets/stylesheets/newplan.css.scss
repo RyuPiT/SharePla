@@ -10,15 +10,23 @@
 textarea {
   margin: 5px 0 10px;
   resize:none;
-  margin-top:  130px;
 }
 
-#sortable {
- list-style-type: none;
- padding: 0;
+#sortable,
+#sortable1,
+#sortable2 {
+  list-style-type: none;
+  padding: 0;
 }
 
 .ui-state-highlight {
- height: 1.5em;
- line-height: 1.2em;
+  height: 1.5em;
+  line-height: 1.2em;
+}
+
+.contents {
+  margin-top: 130px;
+}
+
+.travel-serch {
 }

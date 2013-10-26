@@ -59,6 +59,21 @@ $(function() {
   $("#sortable").disableSelection();
 });
 
+$(function() {
+  $( "ol.droptrue" ).sortable({
+    connectWith: "ol"
+  });
+
+  $( "ol.dropfalse" ).sortable({
+    connectWith: "ol",
+    dropOnEmpty: false
+    });
+
+  $( "#sortable1, #sortable2" ).disableSelection();
+});
+
+
+
 //textarea autosize
 $(document).ready(function(){
     $('textarea').autosize();
