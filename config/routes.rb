@@ -5,7 +5,8 @@ SharePla::Application.routes.draw do
   match '/newplan/save', to: 'newplan#save' , via: 'post'
   match '/plan/:id'    , to: 'top#show'     , via: 'get', as: :plan
   match '/pdf/sample'  , to: 'documents#sample',via: 'get'
-  match '/static/'  , to: 'top#static',via: 'get'
+  match '/pdf/string'  , to: 'documents#string',via: 'post'
+  match '/static/'     , to: 'top#static'      ,via: 'get'
   match '/pdf'         , to: 'documents#create',via: 'post'
 
   #get "hello/to/:name" => "hello#to"
