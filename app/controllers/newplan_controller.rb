@@ -3,23 +3,7 @@ class NewplanController < ApplicationController
   end
 
   def add
-    keyword = params['name']
-
-    httpClient = HTTPClient.new
-    @json_data = nil
-
-    begin
-      data = httpClient.get_content('http://api.rakuten.co.jp/rws/3.0/json', {
-                                    'developerId'   => ENV['RakutenDeveloperId'],
-                                    'affiliateId'   => ENV['RakutenAffiliateId'],
-                                    'version'       => '2009-10-20',
-                                    'operation'     => 'KeywordHotelSearch',
-                                    'keyword'       => keyword
-      })
-      @json_data = JSON.parse data
-    rescue HTTPClient::BadResponseError => e
-    rescue HTTPClient::TimeoutError => e
-    end
+    @json_data = RakutenService.hotel_search(params['name'])
 
     respond_to do |format|
       format.html { render :nothing => true }
