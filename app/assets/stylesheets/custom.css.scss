@@ -141,6 +141,13 @@ html,body{
   line-height: 1.5em;
 }
 
+//dialog
+body.modal-open,
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+  margin-right: 0;
+}
+
 
 //flag icon
 .ui-state-default > .title:before {
