@@ -26,7 +26,7 @@ $(function() {
     var postData = { name: $("#search-hotel input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
     var postUrl  = "/newplan/search-hotel.json";
 
-    $("#hotel-card-sortable > li").remove();
+    $("#hotel-card-sortable li").remove();
 
     jQuery.post(postUrl, postData, searchHotelCallback).fail(failFunc);
     return false;
@@ -39,8 +39,8 @@ $(function() {
       li.append("<span class=\"title\">" + this["hotelBasicInfo"]["hotelName"] + "</span>");
       li.append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>");
       $("#hotel-card-sortable").append(li);
-      $("#search-hotel > input[name=keyword]").val("");
     });
+    $("#search-hotel input[name=keyword]").val("");
   }
 
 
