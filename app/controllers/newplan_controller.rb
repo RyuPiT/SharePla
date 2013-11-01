@@ -3,11 +3,11 @@ class NewplanController < ApplicationController
   end
 
   def add
-    @json_data = RakutenService.hotel_search(params['name'])
+    word = { name: params['name'] }
 
     respond_to do |format|
       format.html { render nothing: true }
-      format.json { render json: @json_data }
+      format.json { render json: word }
     end
   end
 
