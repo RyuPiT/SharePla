@@ -19,7 +19,7 @@ $(function() {
     li.append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>");
 
     $("#main-card-sortable").append(li);
-    $("#addplan > input[name=keyword]").val("");
+    $("#addplan input[name=keyword]").val("");
   }
 
   $("#search-hotel").submit(function() {
