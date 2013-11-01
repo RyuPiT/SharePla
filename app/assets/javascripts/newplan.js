@@ -22,6 +22,26 @@ $(function() {
     $("#addplan > input[name=keyword]").val("");
   }
 
+  $("#search-hotel").submit(function() {
+    var postData = { name: $("#search-hotel > input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
+    var postUrl  = "/newplan/search-hotel.json";
+
+    jQuery.post(postUrl, postData, searchHotelCallback).fail(failFunc);
+    return false;
+  });
+
+  function searchHotelCallback(data) {
+    $.each(data["Body"]["KeywordHotelSearch"]["hotel"], function() {
+      var li = $("<li>");
+      li.addClass("ui-state-hotel");
+      li.append("<span class=\"title\">" + this["hotelBasicInfo"]["hotelName"] + "</span>");
+      li.append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>");
+      $("#hotel-card-sortable").append(li);
+      $("#search-hotel > input[name=keyword]").val("");
+    });
+  }
+
+
   $("#saveplan").submit(function() {
     var postData   = { plan: { title: $("input[name=plan-title]").val(), desc: $("textarea[name=plan-desc]").val(), "days": getAllCard() }, authenticity_token: getCSRFtoken() };
     var postUrl    = "/newplan/save.json";
