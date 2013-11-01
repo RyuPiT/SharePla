@@ -12,7 +12,7 @@ require 'open-uri'
   end
 
   def string
-    url  = params[:uri]
+    url  = params[:uri].to_s
     meta = '<meta http-equiv="content-type" content="text/html; charset=utf-8" />'
     html = meta + open(url).read
     pdf  = WickedPdf.new.pdf_from_string(html)
