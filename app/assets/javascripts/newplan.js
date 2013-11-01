@@ -3,7 +3,7 @@
 
 $(function() {
   $("#addplan").submit(function() {
-    var postData = { name: $("#addplan > input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
+    var postData = { name: $("#addplan input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
     var postUrl  = "/newplan/add.json";
 
     jQuery.post(postUrl, postData, addplanCallback).fail(failFunc);
