@@ -21,8 +21,6 @@
           <div class="plan-detail">
             <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"></textarea>
             <ol id="main-card-sortable" class="droptrue">
-              <li class="ui-state-default"><span class="title">羽田空港</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></li>
-              <li class="ui-state-default"><span class="title">羽田空港</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></li>
             </ol>
           </div><!-- .plan-detail -->
           </form><!--form id="saveplan" -->
@@ -44,7 +42,7 @@
           <div class="col-sm-6" id="card-serch">
             <div class="travel-serch">
               <h4>ホテル検索</h4>
-              <form action="<%= newplan_path %>" id="hotel-search" method="POST">
+              <form action="<%= newplan_path %>" id="search-hotel" method="POST">
                 <div class="row">
                   <div class="col-sm-10">
                     <input type="input" name="keyword" class="form-control" placeholder="地域、ホテル名" required>
@@ -56,10 +54,8 @@
                 </div><!-- .row -->
               </form><!-- search-hotel -->
               <ol id="hotel-card-sortable"  class="droptrue">
-                <li class="ui-state-hotel"><span class="title">アワーズイン阪急</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></li>
-                <li class="ui-state-hotel"><span class="title">アワーズイン阪急</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></li>
               </ol>
-            </div>
+            </div><!-- travel-serch -->
           </div><!-- .col-sm-6 -->
         </div><!-- .row -->
       </div><!-- contents -->

@@ -11,6 +11,15 @@ class NewplanController < ApplicationController
     end
   end
 
+  def search_hotel
+    @json_data = RakutenService.hotel_search(params['name'])
+
+    respond_to do |format|
+      format.html { render nothing: true }
+      format.json { render json: @json_data }
+    end
+  end
+
   def save
     arr = []
 
