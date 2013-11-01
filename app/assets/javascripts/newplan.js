@@ -14,7 +14,7 @@ $(function() {
     var li = $("<li>");
     li.addClass("ui-state-default");
     //add card-title
-    li.append("<span class=\"title\">" + data["Header"]["Args"]["Arg"]["keyword"]["value"] + "</span>");
+    li.append("<span class=\"title\">" + data['name'] + "</span>");
     //add delete-botton
     li.append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>");
 
