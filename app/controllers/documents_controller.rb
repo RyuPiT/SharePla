@@ -30,7 +30,6 @@ require 'nokogiri'
    send_data(File.read(save_path), :filename => download_title, :disposition=> 'inline')
 # download pdf file
 #    send_file('tmp/pdf/ticket.pdf') 
-#    render :nothing => true
   end
 end
 

@@ -17,7 +17,7 @@
   <div class="container">
     <div class="contents">
       <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-6">
           <div class="plan-detail">
             <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"></textarea>
             <ol id="main-card-sortable" class="droptrue">
@@ -29,21 +29,26 @@
 
           <div id="planpost">
             <form action="<%= newplan_path %>" id="addplan" method="POST">
-              <input type="input" name="keyword" required>
-              <input type="submit" value="追加">
+              <input type="input" name="keyword" class="form-control" placeholder="目的地" required>
+              <input type="submit" class="btn btn-default" value="追加">
               <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
             </form>
           </div><!-- #planpost -->
-          </div><!-- .col-sm-8 -->
-          <div class="col-sm-4">
+          </div><!-- .col-sm-6 -->
+          <div class="col-sm-6" id="card-serch">
             <div class="travel-serch">
-              ホテル検索
+              <h4>ホテル検索</h4>
+              <form action="<%= newplan_path %>" id="hotel-search" method="POST">
+                <input type="input" name="keyword" class="form-control" placeholder="地域、ホテル名" required>
+                <input type="submit" class="btn btn-default" value="検索">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              </form>
               <ol id="hotel-card-sortable"  class="droptrue">
-                <li class="ui-state-default"><span class="title">アワーズイン阪急</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></li>
-                <li class="ui-state-default"><span class="title">アワーズイン阪急</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></li>
+                <li class="ui-state-hotel"><span class="title">アワーズイン阪急</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></li>
+                <li class="ui-state-hotel"><span class="title">アワーズイン阪急</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></li>
               </ol>
             </div>
-          </div><!-- .col-sm-4 -->
+          </div><!-- .col-sm-6 -->
         </div><!-- .row -->
       </div><!-- contents -->
     </div><!-- container -->
