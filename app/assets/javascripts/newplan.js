@@ -18,9 +18,29 @@ $(function() {
     //add delete-botton
     li.append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>");
 
-    $("#sortable").append(li);
+    $("#main-card-sortable").append(li);
     $("#addplan > input[name=keyword]").val("");
   }
+
+  $("#search-hotel").submit(function() {
+    var postData = { name: $("#search-hotel > input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
+    var postUrl  = "/newplan/search-hotel.json";
+
+    jQuery.post(postUrl, postData, searchHotelCallback).fail(failFunc);
+    return false;
+  });
+
+  function searchHotelCallback(data) {
+    $.each(data["Body"]["KeywordHotelSearch"]["hotel"], function() {
+      var li = $("<li>");
+      li.addClass("ui-state-hotel");
+      li.append("<span class=\"title\">" + this["hotelBasicInfo"]["hotelName"] + "</span>");
+      li.append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>");
+      $("#hotel-card-sortable").append(li);
+      $("#search-hotel > input[name=keyword]").val("");
+    });
+  }
+
 
   $("#saveplan").submit(function() {
     var postData   = { plan: { title: $("input[name=plan-title]").val(), desc: $("textarea[name=plan-desc]").val(), "days": getAllCard() }, authenticity_token: getCSRFtoken() };
@@ -41,10 +61,10 @@ $(function() {
 
   function getAllCard() {
     var allCard = new Array();
-    var size     = $("#sortable > li ").length;
+    var size     = $("#main-card-sortable > li ").length;
     for(var i = 0; i < size; i++){
       var json = { };
-      json["title"] = $("#sortable > li > .title").eq(i).text();
+      json["title"] = $("#main-card-sortable > li > .title").eq(i).text();
       allCard[i] = json;
     }
     return allCard;
@@ -53,11 +73,19 @@ $(function() {
 
 //plan-list sort
 $(function() {
-  $("#sortable").sortable({
-    placeholder: "ui-state-highlight"
+  $( "ol.droptrue" ).sortable({
+    connectWith: "ol"
   });
-  $("#sortable").disableSelection();
+
+  $( "ol.dropfalse" ).sortable({
+    connectWith: "ol",
+    dropOnEmpty: false
+    });
+
+  $( "#main-card-sortable, #hotel-card-sortable" ).disableSelection();
 });
+
+
 
 //textarea autosize
 $(document).ready(function(){

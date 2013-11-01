@@ -10,7 +10,7 @@ $font-color: #305060;
 
 
 html,body{
-  //footer position buttom 
+  //footer position buttom
   height:100%;
 }
 
@@ -79,12 +79,8 @@ html,body{
 }
 
 //jquery_ui_theme sortable
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default{
-  background: $main-color;
-  border: 1px solid $main-color;
-  color: $font-color;
+@mixin ui-state {
+ color: $font-color;
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -96,12 +92,38 @@ html,body{
     &:hover {
       color: $dark-color;
       box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
-      margin: 5px 9px 8px 1px;
       cursor:pointer;
       cursor:hand;
-      $main-gradient: #daeafa;
+    }
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default{
+  @include ui-state;
+  $main-gradient: #daeafa;
+  background: $main-color;
+  border: 1px solid $main-color;
+
+    &:hover {
       background: -moz-linear-gradient(top,$main-gradient 0%,$main-color);
       background: -webkit-gradient(linear, left top, left bottom, from($main-gradient), to($main-color));
+    }
+
+}
+
+.ui-state-hotel,
+.ui-widget-content .ui-state-hotel,
+.ui-widget-header .ui-state-hotel{
+  @include ui-state;
+  $hotel-card: #dafbbd;
+  $hotel-card-gradient: #e3fccd;
+  background: $hotel-card;
+  border: 1px solid $hotel-card;
+
+    &:hover {
+      background: -moz-linear-gradient(top,$hotel-card-gradient 0%,$hotel-card);
+      background: -webkit-gradient(linear, left top, left bottom, from($hotel-card-gradient), to($hotel-card));
     }
 
 }
@@ -123,6 +145,13 @@ html,body{
 //flag icon
 .ui-state-default > .title:before {
   content: "\e034";
+  font-family: 'Glyphicons Halflings';
+  padding: 0 10px 0;
+}
+
+//home icon
+.ui-state-hotel > .title:before {
+  content: "\e021";
   font-family: 'Glyphicons Halflings';
   padding: 0 10px 0;
 }

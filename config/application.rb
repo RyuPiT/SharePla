@@ -30,5 +30,7 @@ module SharePla
 
     # Precompile additional assets
     config.assets.precompile += %w( .svg .eot .woff .ttf )
+
+    config.autoload_paths += %W(#{Rails.root}/app/services)
   end
 end
