@@ -67,6 +67,7 @@ GEM
     font-awesome-rails (4.0.0.0)
       railties (>= 3.2, < 5.0)
     hike (1.2.3)
+    httpclient (2.3.4.1)
     i18n (0.6.5)
     jbuilder (1.5.2)
       activesupport (>= 3.0.0)
@@ -160,6 +161,9 @@ GEM
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    wicked_pdf (0.9.7)
+      rails
+    wkhtmltopdf-binary (0.9.9.1)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -171,6 +175,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
   font-awesome-rails
+  httpclient
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
@@ -184,3 +189,5 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   uglifier (>= 1.3.0)
+  wicked_pdf
+  wkhtmltopdf-binary

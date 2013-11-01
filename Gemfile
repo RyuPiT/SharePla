@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 ruby '2.0.0'
 
+# for rakuten API
+gem 'httpclient'
 
 group :test do
   gem 'rake'
@@ -65,3 +67,6 @@ gem 'font-awesome-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
