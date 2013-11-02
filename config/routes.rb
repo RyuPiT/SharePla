@@ -1,4 +1,5 @@
 SharePla::Application.routes.draw do
+  get "plan/index"
   root 'top#index'
   match '/newplan'             , to: 'newplan#index'        , via: 'get'
   match '/newplan/add'         , to: 'newplan#add'          , via: 'post'
