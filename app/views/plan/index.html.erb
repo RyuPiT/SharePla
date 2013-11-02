@@ -15,7 +15,7 @@
             <% end %>
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           </div>
-          <div type="hidden" class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
+          <div type="hidden" id="area-tags-box" class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
             <span class="label label-default">沖縄</span>
             <span class="label label-default">東京</span>
           </div>
@@ -83,148 +83,7 @@
               </div><!-- .tab-pane -->
               <div class="tab-pane" id="place">観光地を選ぶことができる予定です。</div>
               <div class="tab-pane" id="tag">
-                <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 北海道
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 青森県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 岩手県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 宮城県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 秋田県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 山形県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 福島県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 茨城県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 茨城県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 群馬県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 埼玉県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 千葉県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 東京都
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 神奈川県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 新潟県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 富山県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 石川県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 福井県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 山梨県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 長野県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 岐阜県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 静岡県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 愛知県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 三重県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 滋賀県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 京都府
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 大阪府
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 兵庫県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 奈良県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 和歌山県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 鳥取県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 島根県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 岡山県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 広島県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 山口県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 徳島県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 香川県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 愛媛県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 高知県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 福岡県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 佐賀県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 長崎県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 熊本県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 大分県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 宮崎県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 鹿児島県
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox"> 沖縄県
-                  </label>
+                <div class="btn-group" id="prefectures"  data-toggle="buttons">
                 </div>
               </div>
             </div><!-- tab-content -->
