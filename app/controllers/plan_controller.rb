@@ -38,6 +38,10 @@ class PlanController < ApplicationController
     end
   end
 
+  def clone
+    render nothing: true
+  end
+
   private
 
   def plan_params
