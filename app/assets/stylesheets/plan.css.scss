@@ -1,3 +1,32 @@
 // Place all the styles related to the plan controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#plan-list > .navbar-fixed-top {
+  top: 50px;
+  padding: 10px 0 10px;
+  background-color: #f0f0f0;
+}
+
+textarea {
+  margin: 5px 0 10px;
+  resize:none;
+}
+
+#main-card-sortable,
+#hotel-card-sortable {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ui-state-highlight {
+  height: 1.5em;
+  line-height: 1.2em;
+}
+
+.contents {
+  margin-top: 130px;
+}
+
+#card-serch {
+  border-left: 1px solid #ddd;
+}
