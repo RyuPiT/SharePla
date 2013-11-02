@@ -1,3 +1,4 @@
+require 'tmpdir'
 class DocumentsController < ApplicationController
 require 'open-uri'
 #require 'nokogiri'
@@ -12,14 +13,17 @@ require 'open-uri'
   end
 
   def string
-    url  = params[:uri].to_s
+    @plan = Plan.find(params['id'])
     meta = '<meta http-equiv="content-type" content="text/html; charset=utf-8" />'
-    html = meta + open(url).read
+    body = render_to_body :template => 'top/show',
+                          :locals => {:plan => @plan},
+                          :layout => false
+    html = meta + body
     pdf  = WickedPdf.new.pdf_from_string(html)
 
     tmp_path  = 'tmp/pdf'
-    pdf_name  = url.split("/")[-1] + ".pdf"
-    save_path = Rails.root.join(tmp_path, pdf_name)
+    pdf_name  = "#{@plan.id}.pdf"
+    save_path = "#{Dir.mktmpdir}/#{pdf_name}"
     File.open(save_path, 'wb') do |file|
       file << pdf
     end
