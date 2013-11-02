@@ -9,6 +9,7 @@
 
   <form action="<%= pdf_string_path %>" id="postUri" method="POST">
     <input type="hidden" name="uri" value="<%= request.url %>">
+    <input type="hidden" name="id" value="<%= @plan.id %>">
     <input type="submit" value="PDF">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   </form>
