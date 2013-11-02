@@ -21,12 +21,13 @@
           <div class="plan-detail">
             <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"></textarea>
             <ol id="main-card-sortable" class="droptrue">
+              <li class="ui-state-default"><span class="title">ホーム</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></li
             </ol>
           </div><!-- .plan-detail -->
           </form><!--form id="saveplan" -->
 
           <div id="planpost">
-            <form action="<%= newplan_path %>" id="addplan" method="POST">
+            <form action="<%= plan_add_path %>" id="addplan" method="POST">
               <div class="row">
                 <div class="col-sm-10">
                   <input type="input" name="keyword" class="form-control" placeholder="目的地" required>
@@ -48,7 +49,7 @@
               </ul>
               <div class="tab-content" style="margin-top:10px">
                 <div class="tab-pane active" id="hotel">
-                  <form action="<%= newplan_path %>" id="search-hotel" method="POST">
+                  <form action="<%= plan_search_hotel_path %>" id="search-hotel" method="POST">
                     <div class="row">
                       <div class="col-sm-10">
                         <input type="input" name="keyword" class="form-control" placeholder="地域、ホテル名" required>
