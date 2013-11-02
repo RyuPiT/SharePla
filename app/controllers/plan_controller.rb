@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class PlanController < ApplicationController
   before_action :set_plan, only: :clone
 
@@ -49,7 +50,8 @@ class PlanController < ApplicationController
   def plan_params
     {
       'title'       => params['plan']['title'],
-      'description' => params['plan']['desc']
+      'description' => params['plan']['desc'],
+      'area_tags'   => params['plan']['area_tags']
     }
   end
 
