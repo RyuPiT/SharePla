@@ -1,4 +1,6 @@
 class PlanController < ApplicationController
+  before_action :set_plan, only: :clone
+
   def index
   end
 
@@ -38,6 +40,10 @@ class PlanController < ApplicationController
     end
   end
 
+  def clone
+    render template: "plan/index"
+  end
+
   private
 
   def plan_params
@@ -45,5 +51,9 @@ class PlanController < ApplicationController
       'title'       => params['plan']['title'],
       'description' => params['plan']['desc']
     }
+  end
+
+  def set_plan
+    @plan = Plan.find(params['id'])
   end
 end
