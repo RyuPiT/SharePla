@@ -4,7 +4,7 @@
 $(function() {
   $("#addplan").submit(function() {
     var postData = { name: $("#addplan input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
-    var postUrl  = "/newplan/add.json";
+    var postUrl  = "/plan/add.json";
 
     jQuery.post(postUrl, postData, addplanCallback).fail(failFunc);
     return false;
@@ -24,7 +24,7 @@ $(function() {
 
   $("#search-hotel").submit(function() {
     var postData = { name: $("#search-hotel input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
-    var postUrl  = "/newplan/search-hotel.json";
+    var postUrl  = "/plan/search/hotel.json";
 
     $("#hotel-card-sortable li").remove();
 
@@ -69,7 +69,7 @@ $(function() {
 
   $("#saveplan").submit(function() {
     var postData   = { plan: { title: $("input[name=plan-title]").val(), desc: $("textarea[name=plan-desc]").val(), "days": getAllCard() }, authenticity_token: getCSRFtoken() };
-    var postUrl    = "/newplan/save.json";
+    var postUrl    = "/plan/save.json";
     var returnType = "text";
 
     jQuery.post(postUrl, postData, saveplanCallback, returnType).fail(failFunc);

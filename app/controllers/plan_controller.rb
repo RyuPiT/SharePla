@@ -1,4 +1,4 @@
-class NewplanController < ApplicationController
+class PlanController < ApplicationController
   def index
   end
 
