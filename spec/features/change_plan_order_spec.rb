@@ -17,12 +17,21 @@ feature 'ユーザーはプラン内の目的地の順序を並び替えるこ�
     fill_in '目的地', with: '魚屋'
     click_on '追加'
 
-    click_on 'プラン保存'
   end
 
   scenario '肉を食べると、魚を食べるを並び替えると、並び替えた順序で保存される' do
+    # drag_to でならびかえ
+    source = page.find('.ui-state-default', text: '肉屋')
+    target = page.find('.ui-state-default', text: '魚屋')
+    source.drag_to(target)
+
+    # 保存して
+    click_on 'プラン保存'
+
+    # 保存したプランを見ると
     click_on title
 
+    # 肉屋と魚屋が並び替えられています!
     destinations = page.all('.ui-state-default').map {|e| e.text }
     expect(destinations).to eq %w(ホーム 魚屋 肉屋)
   end
