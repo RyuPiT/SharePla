@@ -29,4 +29,4 @@ doc/
 # ignore mongo database files under db/
 db/journal/
 db/mongod.lock
-db/share_pla_development.*
+db/share_pla_*
