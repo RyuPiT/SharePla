@@ -13,6 +13,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'turnip'
 end
 gem 'rails_12factor', group: :production
 
