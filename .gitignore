@@ -25,3 +25,8 @@ doc/
 .DS_Store
 .idea
 .secret
+
+# ignore mongo database files under db/
+db/journal/
+db/mongod.lock
+db/share_pla_development.*
