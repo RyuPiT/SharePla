@@ -145,6 +145,6 @@ $(function(){
        label.addClass("btn btn-primary");
 
        label.append(input);
-       $("#prefectures").append(label)
+       $("#prefectures").append(label);
    });
 });
