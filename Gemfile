@@ -11,6 +11,7 @@ group :test do
   gem 'rake'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'selenium-webdriver'
 end
 gem 'rails_12factor', group: :production
 
