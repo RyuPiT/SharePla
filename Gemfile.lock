@@ -63,6 +63,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    database_cleaner (1.2.0)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (2.0.2)
@@ -184,6 +185,7 @@ DEPENDENCIES
   anjlab-bootstrap-rails!
   capybara
   coffee-rails (~> 4.0.0)
+  database_cleaner
   font-awesome-rails
   httpclient
   jbuilder (~> 1.2)
