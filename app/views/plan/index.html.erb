@@ -20,11 +20,7 @@
             <span class="label label-default">東京</span>
           </div>
         </div><!-- .row -->
-        <% if @plan.nil? then %>
-          <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"></textarea>
-        <% else %>
-          <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"><%= @plan['description'] %></textarea>
-        <% end %>
+          <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"><%= @plan.try(:description) %></textarea>
       </div><!-- .container -->
     </div> <!-- .navbar-fixed-top -->
     <div class="container">
