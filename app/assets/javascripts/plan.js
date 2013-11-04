@@ -86,12 +86,18 @@ $(function() {
 
   function getAllCard() {
     var allCard = new Array();
-    var size     = $("#main-card-sortable > li ").length;
+    var htmlTag = "#main-card-sortable > li";
+    var size    = $(htmlTag).length;
+    var keys    = ["title"];
+
     for(var i = 0; i < size; i++){
-      var json = { };
-      json["title"] = $("#main-card-sortable > li > .title").eq(i).text();
-      allCard[i] = json;
+      var oneCard = { };
+      $.each(keys, function(j, val) {
+        oneCard[val] = $(htmlTag).children("." + val).eq(i).text();
+      });
+      allCard[i] = oneCard;
     }
+
     return allCard;
   }
 
