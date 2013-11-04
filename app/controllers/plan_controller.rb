@@ -24,8 +24,6 @@ class PlanController < ApplicationController
   end
 
   def save
-    arr = []
-
     @plan = Plan.new(plan_params)
 
     params['plan']['days'].each do |key,value|
