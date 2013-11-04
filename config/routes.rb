@@ -6,7 +6,7 @@ SharePla::Application.routes.draw do
   match '/plan/save',         to: 'plan#save',         via: 'post'
   match '/plan/search/hotel', to: 'plan#search_hotel', via: 'post'
   match '/plan/show/:id',     to: 'top#show',          via: 'get',  as: :plan
-  match '/plan/clone/:id',    to: 'plan#clone',        via: 'post', as: :plan_clone
+  match '/plan/clone',        to: 'plan#clone',        via: 'post', as: :plan_clone
 
   match '/pdf/sample', to: 'documents#sample', via: 'get'
   match '/pdf/string', to: 'documents#string', via: 'post'
