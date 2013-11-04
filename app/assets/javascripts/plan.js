@@ -96,12 +96,7 @@ $(function() {
   }
 
   function getAllAreaTags() {
-    var allAreaTags = new Array();
-    var size     = $("#area-tags-box > span ").length;
-    for(var i = 0; i < size; i++){
-      allAreaTags[i] = $("#area-tags-box > span").eq(i).text();
-    }
-    return allAreaTags;
+    return $.map($('#area-tags-box > span'), function(val) { return $(val).text(); });
   }
 });
 
