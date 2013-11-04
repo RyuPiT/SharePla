@@ -1,0 +1,96 @@
+<div id="plan-list">
+  <div class="navbar-fixed-top">
+    <div class="container">
+      <form class="form-inline" id="saveplan" method="POST">
+        <div class="row">
+          <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+            <button type="submit" class="btn btn-default btn-lg">プラン保存</button>
+          </div>
+          <div class="col-xs-6 col-sm-7 col-md-7 col-lg-7"><!-- <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10"></div>-->
+            <label class="sr-only">プランタイトル</label><!-- non-display -->
+            <% if @plan.nil? then %>
+              <input type="input" name="plan-title" class="form-control input-lg" placeholder="プランタイトル" required>
+            <% else %>
+              <input type="input" name="plan-title" class="form-control input-lg" value=<%= @plan['title'] %> required>
+            <% end %>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          </div>
+          <div type="hidden" id="area-tags-box" class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
+            <span class="label label-default">沖縄</span>
+            <span class="label label-default">東京</span>
+          </div>
+        </div><!-- .row -->
+        <% if @plan.nil? then %>
+          <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"></textarea>
+        <% else %>
+          <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"><%= @plan['description'] %></textarea>
+        <% end %>
+      </div><!-- .container -->
+    </div> <!-- .navbar-fixed-top -->
+    <div class="container">
+      <div class="contents">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="plan-detail">
+              <ol id="main-card-sortable" class="droptrue">
+                <% if @plan.nil? then %>
+                  <li class="ui-state-default"><span class="title">ホーム</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></li>
+                <% else %>
+                  <% @plan[:days].each do |item| %>
+                    <li class="ui-state-default"><span class="title"><%= item['title'] %></span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></li>
+                  <% end %>
+                <% end %>
+              </ol>
+            </div><!-- .plan-detail -->
+          </form><!--form id="saveplan" -->
+
+          <div id="planpost">
+            <form action="<%= plan_add_path %>" id="addplan" method="POST">
+              <div class="row">
+                <div class="col-sm-10">
+                  <input type="input" name="keyword" class="form-control" placeholder="目的地" required>
+                </div>
+                <div class="col-sm-2">
+                  <input type="submit" class="btn btn-default" value="追加">
+                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                </div>
+              </div><!-- .row -->
+            </form><!-- #addplan -->
+          </div><!-- #planpost -->
+        </div><!-- .col-sm-6 -->
+        <div class="col-sm-6" id="card-serch">
+          <div class="travel-serch">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#hotel" data-toggle="tab">ホテル検索</a></li>
+              <li><a href="#place" data-toggle="tab">観光地</a></li>
+              <li><a href="#tag" data-toggle="tab">タグ</a></li>
+            </ul>
+            <div class="tab-content" style="margin-top:10px">
+              <div class="tab-pane active" id="hotel">
+                <form action="<%= plan_search_hotel_path %>" id="search-hotel" method="POST">
+                  <div class="row">
+                    <div class="col-sm-10">
+                      <input type="input" name="keyword" class="form-control" placeholder="地域、ホテル名" required>
+                    </div>
+                    <div class="col-sm-2">
+                      <input type="submit" class="btn btn-default" value="検索">
+                      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    </div>
+                  </div><!-- .row -->
+                </form><!-- search-hotel -->
+                <ol id="hotel-card-sortable"  class="droptrue">
+                </ol>
+              </div><!-- .tab-pane -->
+              <div class="tab-pane" id="place">観光地を選ぶことができる予定です。</div>
+              <div class="tab-pane" id="tag">
+                <div class="btn-group" id="prefectures"  data-toggle="buttons">
+                </div>
+              </div>
+            </div><!-- tab-content -->
+          </div><!-- travel-serch -->
+        </div><!-- .col-sm-6 -->
+      </div><!-- .row -->
+    </div><!-- contents -->
+  </div><!-- container -->
+</div><!-- #plan-list -->
+
