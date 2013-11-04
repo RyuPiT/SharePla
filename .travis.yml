@@ -8,3 +8,5 @@ deploy:
   app: dry-plains-9898
   on:
     repo: RyuPiT/SharePla
+services:
+  - mongodb
