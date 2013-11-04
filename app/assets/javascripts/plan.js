@@ -3,7 +3,7 @@
 
 $(function() {
   $("#addplan").submit(function() {
-    var postData = { name: $("#addplan input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
+    var postData = { "name": $("#addplan input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
     var postUrl  = "/plan/add.json";
 
     jQuery.post(postUrl, postData, addplanCallback).fail(failFunc);
@@ -23,7 +23,7 @@ $(function() {
   }
 
   $("#search-hotel").submit(function() {
-    var postData = { name: $("#search-hotel input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
+    var postData = { "name": $("#search-hotel input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
     var postUrl  = "/plan/search/hotel.json";
 
     $("#hotel-card-sortable li").remove();
@@ -68,7 +68,7 @@ $(function() {
 
 
   $("#saveplan").submit(function() {
-    var postData   = { plan: { title: $("input[name=plan-title]").val(), desc: $("textarea[name=plan-desc]").val(), "days": getAllCard(), area_tags: getAllAreaTags() }, authenticity_token: getCSRFtoken() };
+    var postData   = { "plan": { "title": $("input[name=plan-title]").val(), "desc": $("textarea[name=plan-desc]").val(), "days": getAllCard(), "area_tags": getAllAreaTags() }, "authenticity_token": getCSRFtoken() };
     var postUrl    = "/plan/save.json";
     var returnType = "text";
 
