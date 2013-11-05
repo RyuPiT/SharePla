@@ -23,7 +23,8 @@ $(function() {
   }
 
   $("#prefectures > p > label").bind("click",function() {
-    var prefecture = $(this).text();
+    var rawText    = $(this).text();
+    var prefecture = $.trim(rawText);
     if ($(this).hasClass("active")) {
       $("#area-tags-box > span[name="+prefecture+"]").remove();
       return;
