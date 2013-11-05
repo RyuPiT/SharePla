@@ -45,6 +45,7 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include Capybara::DSL
+  Capybara.javascript_driver = :webkit
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
