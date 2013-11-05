@@ -10,3 +10,7 @@ deploy:
     repo: RyuPiT/SharePla
 services:
   - mongodb
+before_script:
+  - RAILS_ENV=test rake
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
