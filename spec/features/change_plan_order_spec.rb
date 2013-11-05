@@ -21,8 +21,8 @@ feature 'ユーザーはプラン内の目的地の順序を並び替えるこ�
 
   scenario '肉を食べると、魚を食べるを並び替えると、並び替えた順序で保存される' do
     # drag_to でならびかえ
-    source = page.find('.ui-state-default', text: '肉屋')
-    target = page.find('.ui-state-default', text: '魚屋')
+    source = page.find('.ui-state-default', text: '魚屋')
+    target = page.find('.ui-state-default', text: '肉屋')
     source.drag_to(target)
 
     # 保存して
