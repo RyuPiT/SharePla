@@ -22,6 +22,18 @@ $(function() {
     $("#addplan input[name=keyword]").val("");
   }
 
+  $("#prefectures > p > label").bind("click",function() {
+    var prefecture = $(this).text();
+    if ($(this).hasClass("active")) {
+      $("#area-tags-box > span[name="+prefecture+"]").remove();
+      return;
+    }
+    var span = $("<span name="+prefecture+">");
+    span.append(prefecture);
+    span.addClass("label label-default");
+    $("#area-tags-box").append(span);
+  });
+
   $("#search-hotel").submit(function() {
     var postData = { "name": $("#search-hotel input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
     var postUrl  = "/plan/search/hotel.json";
@@ -61,7 +73,7 @@ $(function() {
       + "</div><!-- .modal-dialog -->"
       + "</div><!-- .modal fade -->";
 
-      $("#hotel-card-sortable").append(dialog);
+    $("#hotel-card-sortable").append(dialog);
     });
     $("#search-hotel input[name=keyword]").val("");
   }
