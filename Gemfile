@@ -14,6 +14,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'turnip'
+  gem "capybara-webkit"
 end
 gem 'rails_12factor', group: :production
 
