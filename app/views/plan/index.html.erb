@@ -16,11 +16,9 @@
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           </div>
           <div type="hidden" id="area-tags-box" class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
-            <span class="label label-default">沖縄</span>
-            <span class="label label-default">東京</span>
           </div>
         </div><!-- .row -->
-          <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"><%= @plan.try(:description) %></textarea>
+        <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"><%= @plan.try(:description) %></textarea>
       </div><!-- .container -->
     </div> <!-- .navbar-fixed-top -->
     <div class="container">
@@ -80,6 +78,16 @@
               <div class="tab-pane" id="place">観光地を選ぶことができる予定です。</div>
               <div class="tab-pane" id="tag">
                 <div class="btn-group" id="prefectures"  data-toggle="buttons">
+                  <% @all_area.each do |area, prefectures| %>
+                    <p>
+                      <%= area %> <br>
+                      <% prefectures.each do |prefecture| %>
+                        <label class="btn btn-primary">
+                          <input type="checkbox"> <%= prefecture %>
+                        </label>
+                      <% end %>
+                    </p>
+                  <% end %>
                 </div>
               </div>
             </div><!-- tab-content -->
