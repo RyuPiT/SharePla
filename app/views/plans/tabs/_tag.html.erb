@@ -4,7 +4,7 @@
 <% content_for :plan_tab_contents do %>
   <div class="tab-pane" id="tag">
     <div class="btn-group" id="prefectures"  data-toggle="buttons">
-      <% @all_area.each do |area, prefectures| %>
+      <% Japan.areas.each do |area, prefectures| %>
       <!-- 北海道、東北、関東、中部など地域区分に分ける -->
       <div class="area-division">
         <p><%= area %></p>
