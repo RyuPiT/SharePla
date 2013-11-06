@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="page-header">
+    <h1><%= @plan.title %></h1>
+    <h2><%= @plan.description %></h2>
+  </div>
+  <% @plan.days.each do |day| %>
+      <li class="ui-state-default"><%= day.title %></li>
+  <% end %>
+
+  <%= link_to plan_path @plan, format: :pdf do %>
+    <button>PDF</button>
+  <% end %>
+  <form action="<%= new_plan_path %>" method="GET">
+    <input type="hidden" value="<%= @plan.id %>" name="id">
+    <input type="submit" value="clone">
+  </form>
+</div>
