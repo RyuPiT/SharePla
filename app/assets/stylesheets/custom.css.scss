@@ -168,6 +168,11 @@ body.modal-open,
   float: left;
 }
 
+//checkbox box-hidden
+[data-toggle="buttons"] > p > .btn > input[type="checkbox"] {
+  display: none;
+}
+
 /* footer position bottom */
 
 footer {

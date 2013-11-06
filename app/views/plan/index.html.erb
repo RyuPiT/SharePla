@@ -15,7 +15,7 @@
             <% end %>
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           </div>
-          <div type="hidden" id="area-tags-box" class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
+          <div id="area-tags-box" class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
           </div>
         </div><!-- .row -->
         <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"><%= @plan.try(:description) %></textarea>
