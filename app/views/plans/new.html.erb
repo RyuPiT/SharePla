@@ -26,15 +26,14 @@
         </div><!-- .col-sm-6 -->
         <div class="col-sm-6" id="card-serch">
           <div class="travel-serch">
+            <% render 'plans/tabs/hotel' %>
+            <% render 'plans/tabs/place' %>
+            <% render 'plans/tabs/tag' %>
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#hotel" data-toggle="tab">ホテル検索</a></li>
-              <li><a href="#place" data-toggle="tab">観光地</a></li>
-              <li><a href="#tag" data-toggle="tab">タグ</a></li>
+              <%= yield :plan_tab_navs %>
             </ul>
             <div class="tab-content" style="margin-top:10px">
-              <%= render 'plans/tabs/hotel' %>
-              <%= render 'plans/tabs/place' %>
-              <%= render 'plans/tabs/tag' %>
+              <%= yield :plan_tab_contents %>
             </div><!-- tab-content -->
           </div><!-- travel-serch -->
         </div><!-- .col-sm-6 -->
