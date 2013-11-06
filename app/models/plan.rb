@@ -8,7 +8,7 @@ class Plan
   field :thumbnail,   type: String
   field :title,       type: String
 
-  embeds_many :days
+  embeds_many :cards
 
   validates :title, presence: true
 end

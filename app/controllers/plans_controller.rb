@@ -32,8 +32,8 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
 
-    params[:plan][:days].each do |key,value|
-      @plan.days.push(Day.new(value))
+    params[:plan][:cards].each do |key,value|
+      @plan.cards.push(Card.new(value))
     end
 
     respond_to do |format|
