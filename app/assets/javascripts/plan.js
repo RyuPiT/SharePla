@@ -22,7 +22,7 @@ $(function() {
     $("#addplan input[name=keyword]").val("");
   }
 
-  $("#prefectures > p > label").bind("click",function() {
+  $("#prefectures > .area-division > label").bind("click",function() {
     var rawText    = $(this).text();
     var prefecture = $.trim(rawText);
     if ($(this).hasClass("active")) {

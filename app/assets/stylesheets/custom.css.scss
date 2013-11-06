@@ -163,6 +163,15 @@ body.modal-open,
   padding: 0 10px 0;
 }
 
+//area-label
+.label-default {
+  float: left;
+}
+
+//checkbox box-hidden
+[data-toggle="buttons"] > .area-division > .btn > input[type="checkbox"] {
+  display: none;
+}
 
 /* footer position bottom */
 
