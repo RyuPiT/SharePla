@@ -39,7 +39,7 @@
           </form><!--form id="saveplan" -->
 
           <div id="planpost">
-            <form action="<%= plan_add_path %>" id="addplan" method="POST">
+            <form action="<%= plans_add_path %>" id="addplan" method="POST">
               <div class="row">
                 <div class="col-sm-10">
                   <input type="input" name="keyword" class="form-control" placeholder="目的地" required>
@@ -61,7 +61,7 @@
             </ul>
             <div class="tab-content" style="margin-top:10px">
               <div class="tab-pane active" id="hotel">
-                <form action="<%= plan_search_hotel_path %>" id="search-hotel" method="POST">
+                <form action="<%= plans_search_hotel_path %>" id="search-hotel" method="POST">
                   <div class="row">
                     <div class="col-sm-10">
                       <input type="input" name="keyword" class="form-control" placeholder="地域、ホテル名" required>

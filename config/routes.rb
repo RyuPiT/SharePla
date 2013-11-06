@@ -1,12 +1,12 @@
 SharePla::Application.routes.draw do
   root 'top#index'
 
-  get  '/plan/new',          to: 'plan#index'
-  post '/plan/add',          to: 'plan#add'
-  post '/plan/save',         to: 'plan#save'
-  post '/plan/search/hotel', to: 'plan#search_hotel'
-  get  '/plan/show/:id',     to: 'top#show',         as: :plan
-  post '/plan/clone',        to: 'plan#clone',       as: :plan_clone
+  get  '/plans/new',          to: 'plans#index'
+  post '/plans/add',          to: 'plans#add'
+  post '/plans/save',         to: 'plans#save'
+  post '/plans/search/hotel', to: 'plans#search_hotel'
+  get  '/plans/show/:id',     to: 'top#show',          as: :plan
+  post '/plans/clone',        to: 'plans#clone',       as: :plans_clone
 
   get  '/pdf/sample',  to: 'documents#sample'
   get  '/static/',     to: 'top#static'

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-class PlanController < ApplicationController
+class PlansController < ApplicationController
   before_action :set_plan, only: :clone
   before_action :set_area, only: [:index, :clone]
 

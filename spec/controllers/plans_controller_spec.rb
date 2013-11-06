@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'newplan/index.html.erb' do
-  describe PlanController do
+  describe PlansController do
     before do
       get :index
     end
@@ -11,7 +11,7 @@ describe 'newplan/index.html.erb' do
     end
   end
 
-  describe PlanController do
+  describe PlansController do
     before do
       @plan = {
         "name" => "新宿プリンスホテル"
@@ -28,7 +28,7 @@ describe 'newplan/index.html.erb' do
     end
   end
 
-  describe PlanController do
+  describe PlansController do
     before do
       @plan = {
         "name" => nil

@@ -7,7 +7,7 @@ feature 'ユーザーは新しくプランを作成し保存出来る', js: true
     expect(current_path).to eq root_path
 
     click_on 'New Plan!'
-    expect(current_path).to eq plan_new_path
+    expect(current_path).to eq plans_new_path
 
     fill_in 'プランタイトル', with: title
     click_on 'プラン保存'
