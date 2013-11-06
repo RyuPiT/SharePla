@@ -3,7 +3,7 @@
 
 $(function() {
   $("#addplan").submit(function() {
-    var postData = { name: $("#addplan input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
+    var postData = { "name": $("#addplan input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
     var postUrl  = "/plan/add.json";
 
     jQuery.post(postUrl, postData, addplanCallback).fail(failFunc);
@@ -22,8 +22,21 @@ $(function() {
     $("#addplan input[name=keyword]").val("");
   }
 
+  $("#prefectures > p > label").bind("click",function() {
+    var rawText    = $(this).text();
+    var prefecture = $.trim(rawText);
+    if ($(this).hasClass("active")) {
+      $("#area-tags-box > span[name="+prefecture+"]").remove();
+      return;
+    }
+    var span = $("<span name="+prefecture+">");
+    span.append(prefecture);
+    span.addClass("label label-default");
+    $("#area-tags-box").append(span);
+  });
+
   $("#search-hotel").submit(function() {
-    var postData = { name: $("#search-hotel input[name=keyword]").val(), authenticity_token: getCSRFtoken() };
+    var postData = { "name": $("#search-hotel input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
     var postUrl  = "/plan/search/hotel.json";
 
     $("#hotel-card-sortable li").remove();
@@ -61,14 +74,14 @@ $(function() {
       + "</div><!-- .modal-dialog -->"
       + "</div><!-- .modal fade -->";
 
-      $("#hotel-card-sortable").append(dialog);
+    $("#hotel-card-sortable").append(dialog);
     });
     $("#search-hotel input[name=keyword]").val("");
   }
 
 
   $("#saveplan").submit(function() {
-    var postData   = { plan: { title: $("input[name=plan-title]").val(), desc: $("textarea[name=plan-desc]").val(), "days": getAllCard(), area_tags: getAllAreaTags() }, authenticity_token: getCSRFtoken() };
+    var postData   = { "plan": { "title": $("input[name=plan-title]").val(), "desc": $("textarea[name=plan-desc]").val(), "days": getAllCard(), "area_tags": getAllAreaTags() }, "authenticity_token": getCSRFtoken() };
     var postUrl    = "/plan/save.json";
     var returnType = "text";
 
@@ -86,22 +99,23 @@ $(function() {
 
   function getAllCard() {
     var allCard = new Array();
-    var size     = $("#main-card-sortable > li ").length;
+    var htmlTag = "#main-card-sortable > li";
+    var size    = $(htmlTag).length;
+    var keys    = ["title"];
+
     for(var i = 0; i < size; i++){
-      var json = { };
-      json["title"] = $("#main-card-sortable > li > .title").eq(i).text();
-      allCard[i] = json;
+      var oneCard = { };
+      $.each(keys, function(j, val) {
+        oneCard[val] = $(htmlTag).children("." + val).eq(i).text();
+      });
+      allCard[i] = oneCard;
     }
+
     return allCard;
   }
 
   function getAllAreaTags() {
-    var allAreaTags = new Array();
-    var size     = $("#area-tags-box > span ").length;
-    for(var i = 0; i < size; i++){
-      allAreaTags[i] = $("#area-tags-box > span").eq(i).text();
-    }
-    return allAreaTags;
+    return $.map($('#area-tags-box > span'), function(val) { return $(val).text(); });
   }
 });
 
@@ -114,38 +128,12 @@ $(function() {
   $( "ol.dropfalse" ).sortable({
     connectWith: "ol",
     dropOnEmpty: false
-    });
+  });
 
   $( "#main-card-sortable, #hotel-card-sortable" ).disableSelection();
 });
 
-
-
 //textarea autosize
 $(document).ready(function(){
-    $('textarea').autosize();
-});
-
-
-$(function(){
-    alert("yoshiaki");
-    var prefectures = ["北海道",
-                       "青森県","岩手県","宮城県","秋田県","山形県","福島県",
-                       "茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県",
-                       "新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県",
-                       "三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県",
-                       "鳥取県","島根県","岡山県","広島県","山口県",
-                       "徳島県","香川県","愛媛県","高知県",
-                       "福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県",
-                       "沖縄県"];
-   $.each(prefectures, function(){
-       var label = $("<label>");
-       var input = "<input type=\"checkbox\">" + this;
-
-
-       label.addClass("btn btn-primary");
-
-       label.append(input);
-       $("#prefectures").append(label)
-   });
+  $('textarea').autosize();
 });
