@@ -1,17 +1,10 @@
 SharePla::Application.routes.draw do
-  root 'top#index'
+  root 'plans#index'
 
-  match '/plan/new',          to: 'plan#index',        via: 'get'
-  match '/plan/add',          to: 'plan#add',          via: 'post'
-  match '/plan/save',         to: 'plan#save',         via: 'post'
-  match '/plan/search/hotel', to: 'plan#search_hotel', via: 'post'
-  match '/plan/show/:id',     to: 'top#show',          via: 'get',  as: :plan
-  match '/plan/clone',        to: 'plan#clone',        via: 'post', as: :plan_clone
-
-  match '/pdf/sample', to: 'documents#sample', via: 'get'
-  match '/static/',    to: 'top#static',       via: 'get'
-  get '/pdf/:id.pdf',  to: 'documents#string', as: 'pdf'
-  match '/pdf/create', to: 'documents#create', via: 'post'
+  resources :plans, only: %i[create new show] do
+    post 'clone',        on: :member
+    post 'search_hotel', on: :collection
+  end
 
   #get "hello/to/:name" => "hello#to"
   # The priority is based upon order of creation: first created -> highest priority.

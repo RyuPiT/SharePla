@@ -5,7 +5,7 @@ class Plan
   field :area_tags,   type: Array
   field :tags,        type: Array
   field :description, type: String
-  field :sumbnail,    type: String
+  field :thumbnail,   type: String
   field :title,       type: String
 
   embeds_many :days

@@ -7,7 +7,7 @@ describe Plan do
       area_tags: ["okinawa"],
       days: [ Day.new(title: "test") ],
       description: "desc test",
-      sumbnail: "sumbnail test",
+      thumbnail: "sumbnail test",
       tags: ["a","b"],
       title: "title test"
     )

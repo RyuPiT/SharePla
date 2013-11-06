@@ -5,7 +5,7 @@
     <% end %>
      <h1>Welcome SharePla</h1>
   </div>
-  <%= link_to 'New Plan!', plan_new_path %>
+  <%= link_to 'New Plan!', new_plan_path %>
 
   <!-- show list plan-title -->
   <table class="table table-striped">
@@ -15,10 +15,10 @@
       </tr>
     </thead>
     <tbody>
-      <% if ! @plans.nil? %>
-        <% @plans.each do |json| %>
+      <% if @plans %>
+        <% @plans.each do |plan| %>
           <tr>
-            <td><%= link_to json['title'], json %></td>
+            <td><%= link_to plan['title'], plan%></td>
           </tr>
         <% end %>
       <% end %>
