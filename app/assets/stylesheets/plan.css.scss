@@ -31,6 +31,12 @@ textarea {
   border-left: 1px solid #ddd;
 }
 
-#prefectures > p > .btn-primary {
+#prefectures > .area-division > .btn-primary {
   margin-top: 3px;
+}
+
+#prefectures > .area-division > p {
+  margin: 10px 0 5px 0;
+  color: #305060;
+  border-bottom: 1px solid #f0f0f0;
 }
