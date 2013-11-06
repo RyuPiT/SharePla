@@ -1,25 +1,7 @@
 <div id="plan-list">
   <div class="navbar-fixed-top">
     <div class="container">
-      <form class="form-inline" id="saveplan" method="POST">
-        <div class="row">
-          <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
-            <button type="submit" class="btn btn-default btn-lg">プラン保存</button>
-          </div>
-          <div class="col-xs-6 col-sm-7 col-md-7 col-lg-7"><!-- <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10"></div>-->
-            <label class="sr-only">プランタイトル</label><!-- non-display -->
-            <% if @plan %>
-              <input type="input" name="plan-title" class="form-control input-lg" value=<%= @plan['title'] %> required>
-            <% else %>
-              <input type="input" name="plan-title" class="form-control input-lg" placeholder="プランタイトル" required>
-            <% end %>
-            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-          </div>
-          <div id="area-tags-box" class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
-          </div>
-        </div><!-- .row -->
-        <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"><%= @plan.try(:description) %></textarea>
-      </form><!--form id="saveplan" -->
+      <%= render 'saveplan_form' %>
     </div><!-- .container -->
   </div> <!-- .navbar-fixed-top -->
   <div class="container">
