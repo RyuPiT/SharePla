@@ -4,12 +4,12 @@ describe Plan do
   #pending "add some examples to (or delete) #{__FILE__}"
   it "is valid with all field" do
     plan = Plan.new(
-      area_tags: ["okinawa"],
-      days: [ Day.new(title: "test") ],
+      area_tags:   ["okinawa"],
+      cards:        [ Card.new(title: "test") ],
       description: "desc test",
-      thumbnail: "sumbnail test",
-      tags: ["a","b"],
-      title: "title test"
+      thumbnail:   "sumbnail test",
+      tags:        ["a","b"],
+      title:       "title test"
     )
     expect(plan).to be_valid
   end

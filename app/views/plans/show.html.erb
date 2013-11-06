@@ -3,7 +3,7 @@
     <h1><%= @plan.title %></h1>
     <h2><%= @plan.description %></h2>
   </div>
-  <% @plan.days.each do |day| %>
+  <% @plan.cards.each do |day| %>
       <li class="ui-state-default"><%= day.title %></li>
   <% end %>
 
