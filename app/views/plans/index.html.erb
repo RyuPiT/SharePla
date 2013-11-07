@@ -18,7 +18,7 @@
       <% if @plans %>
         <% @plans.each do |plan| %>
           <tr>
-            <td><%= link_to plan['title'], plan%></td>
+            <td><%= link_to plan[:title], plan%></td>
           </tr>
         <% end %>
       <% end %>
