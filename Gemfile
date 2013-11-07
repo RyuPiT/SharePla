@@ -11,6 +11,10 @@ group :test do
   gem 'rake'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'turnip'
+  gem "capybara-webkit"
 end
 gem 'rails_12factor', group: :production
 

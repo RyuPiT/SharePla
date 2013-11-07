@@ -3,10 +3,9 @@
 
 $(function() {
   $("#addplan").submit(function() {
-    var postData = { "name": $("#addplan input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
-    var postUrl  = "/plan/add.json";
+    var postData = { "name": $("#addplan input[name=keyword]").val() };
 
-    jQuery.post(postUrl, postData, addplanCallback).fail(failFunc);
+    addplanCallback(postData);
     return false;
   });
 
@@ -22,7 +21,7 @@ $(function() {
     $("#addplan input[name=keyword]").val("");
   }
 
-  $("#prefectures > p > label").bind("click",function() {
+  $("#prefectures > .area-division > label").bind("click",function() {
     var rawText    = $(this).text();
     var prefecture = $.trim(rawText);
     if ($(this).hasClass("active")) {
@@ -37,7 +36,7 @@ $(function() {
 
   $("#search-hotel").submit(function() {
     var postData = { "name": $("#search-hotel input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
-    var postUrl  = "/plan/search/hotel.json";
+    var postUrl  = "/plans/search_hotel.json";
 
     $("#hotel-card-sortable li").remove();
 
@@ -81,8 +80,8 @@ $(function() {
 
 
   $("#saveplan").submit(function() {
-    var postData   = { "plan": { "title": $("input[name=plan-title]").val(), "desc": $("textarea[name=plan-desc]").val(), "days": getAllCard(), "area_tags": getAllAreaTags() }, "authenticity_token": getCSRFtoken() };
-    var postUrl    = "/plan/save.json";
+    var postData   = { "plan": { "title": $("input[name=plan-title]").val(), "descriptioin": $("textarea[name=plan-desc]").val(), "cards": getAllCard(), "area_tags": getAllAreaTags() }, "authenticity_token": getCSRFtoken() };
+    var postUrl    = "/plans.json";
     var returnType = "text";
 
     jQuery.post(postUrl, postData, saveplanCallback, returnType).fail(failFunc);

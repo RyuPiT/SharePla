@@ -24,9 +24,19 @@ textarea {
 }
 
 .contents {
-  margin-top: 200px;
+  margin: 200px 0 60px 0;
 }
 
 #card-serch {
   border-left: 1px solid #ddd;
+}
+
+#prefectures > .area-division > .btn-primary {
+  margin-top: 3px;
+}
+
+#prefectures > .area-division > p {
+  margin: 10px 0 5px 0;
+  color: #305060;
+  border-bottom: 1px solid #f0f0f0;
 }

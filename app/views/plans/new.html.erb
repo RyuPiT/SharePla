@@ -1,0 +1,44 @@
+<div id="plan-list">
+  <div class="navbar-fixed-top">
+    <div class="container">
+      <%= render 'saveplan_form' %>
+    </div><!-- .container -->
+  </div> <!-- .navbar-fixed-top -->
+  <div class="container">
+    <div class="contents">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="plan-detail">
+            <ol id="main-card-sortable" class="droptrue">
+              <% if @plan %>
+                <% @plan[:days].each do |item| %>
+                  <li class="ui-state-default"><span class="title"><%= item['title'] %></span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></li>
+                <% end %>
+              <% else %>
+                <li class="ui-state-default"><span class="title">ホーム</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></li>
+              <% end %>
+            </ol>
+          </div><!-- .plan-detail -->
+
+          <div id="planpost">
+            <%= render 'addplan_form' %>
+          </div><!-- #planpost -->
+        </div><!-- .col-sm-6 -->
+        <div class="col-sm-6" id="card-serch">
+          <div class="travel-serch">
+            <% render 'plans/tabs/hotel' %>
+            <% render 'plans/tabs/place' %>
+            <% render 'plans/tabs/tag' %>
+            <ul class="nav nav-tabs">
+              <%= yield :plan_tab_navs %>
+            </ul>
+            <div class="tab-content" style="margin-top:10px">
+              <%= yield :plan_tab_contents %>
+            </div><!-- tab-content -->
+          </div><!-- travel-serch -->
+        </div><!-- .col-sm-6 -->
+      </div><!-- .row -->
+    </div><!-- contents -->
+  </div><!-- container -->
+</div><!-- #plan-list -->
+
