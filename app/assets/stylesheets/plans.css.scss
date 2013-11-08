@@ -13,6 +13,7 @@ textarea {
 }
 
 #main-card-sortable,
+#distination-card-sortable,
 #hotel-card-sortable {
   list-style-type: none;
   padding: 0;
@@ -49,4 +50,10 @@ textarea {
 #plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail,
 #plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable{
   height: 99%;
+}
+
+#distination > p {
+  color: #a0a0a0;
+  font-size: 17px;
+  padding: 20px 5px 5px 0;
 }

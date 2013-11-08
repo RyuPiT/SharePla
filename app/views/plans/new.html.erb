@@ -33,12 +33,10 @@
             </ol>
           </div><!-- .plan-detail -->
 
-          <div id="planpost">
-            <%= render 'addplan_form' %>
-          </div><!-- #planpost -->
         </div><!-- .col-sm-6 -->
         <div class="col-sm-6" id="card-serch">
           <div class="travel-serch">
+            <% render 'plans/tabs/distination' %>
             <% render 'plans/tabs/hotel' %>
             <% render 'plans/tabs/place' %>
             <% render 'plans/tabs/tag' %>
