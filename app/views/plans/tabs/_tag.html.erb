@@ -9,10 +9,16 @@
         <div class="area-division">
           <p><%= area %></p>
           <% prefectures.each do |prefecture| %>
-            <% if @plan[:area_tags].include?(prefecture) %>
-              <label class="btn btn-primary active">
-                <input type="checkbox"> <%= prefecture %>
-              </label>
+            <% if @plan && @plan[:area_tags] %>
+              <% if @plan[:area_tags].include?(prefecture) %>
+                <label class="btn btn-primary active">
+                  <input type="checkbox"> <%= prefecture %>
+                </label>
+              <% else %>
+                <label class="btn btn-primary">
+                  <input type="checkbox"> <%= prefecture %>
+                </label>
+              <% end %>
             <% else %>
               <label class="btn btn-primary">
                 <input type="checkbox"> <%= prefecture %>
