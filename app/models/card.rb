@@ -3,8 +3,8 @@ class Card
   field :title,     type: String
   field :day_id,    type: Integer, default: 1
   field :card_type, type: String
-  field :lat,       type: Float
-  field :lon,       type: Float
+  field :latitude,  type: Float
+  field :longitude, type: Float
 
   embedded_in :plan
 end
