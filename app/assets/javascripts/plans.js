@@ -80,7 +80,7 @@ $(function() {
 
 
   $("#saveplan").submit(function() {
-    var postData   = { "plan": { "title": $("input[name=plan-title]").val(), "descriptioin": $("textarea[name=plan-desc]").val(), "cards": getAllCard(), "area_tags": getAllAreaTags() }, "authenticity_token": getCSRFtoken() };
+    var postData   = { "plan": { "title": $("input[name=plan-title]").val(), "description": $("textarea[name=plan-desc]").val(), "cards": getAllCard(), "area_tags": getAllAreaTags() }, "authenticity_token": getCSRFtoken() };
     var postUrl    = "/plans.json";
     var returnType = "text";
 
