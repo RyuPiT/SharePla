@@ -10,8 +10,12 @@
       <% end %>
     </div>
   </div>
-  <% @plan.cards.each do |day| %>
-      <li class="ui-state-default"><%= day.title %></li>
+  <% @plan.cards.each do |card| %>
+    <% if card.card_type == "Hotel" %>
+      <li class="ui-state-hotel"><%= card.title %></li>
+    <% else %>
+      <li class="ui-state-default"><%= card.title %></li>
+    <% end %>
   <% end %>
 
   <%= link_to plan_path @plan, format: :pdf do %>
