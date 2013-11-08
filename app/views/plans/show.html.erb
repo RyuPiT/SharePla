@@ -2,6 +2,13 @@
   <div class="page-header">
     <h1><%= @plan.title %></h1>
     <h2><%= @plan.description %></h2>
+    <div id="area-tags-box" class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
+      <% if @plan %>
+        <% (@plan[:area_tags] || []).each do |tag| %>
+          <span name="<%= tag %>" class="label label-default"><%= tag %></span>
+        <%end%>
+      <% end %>
+    </div>
   </div>
   <% @plan.cards.each do |day| %>
       <li class="ui-state-default"><%= day.title %></li>
