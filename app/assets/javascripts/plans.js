@@ -50,6 +50,9 @@ $(function() {
       li.addClass("ui-state-hotel");
       //add card-title
       li.append("<span class=\"title\"><a data-toggle=\"modal\"href=\"#Modal" + this["hotelBasicInfo"]["hotelNo"] + "\">" + this["hotelBasicInfo"]["hotelName"] + "</a></span>");
+      li.append("<span style=\"visibility: hidden;\" class=\"card_type\">Hotel</span>");
+      li.append("<span style=\"visibility: hidden;\" class=\"longitude\">" + this["hotelBasicInfo"]["longitude"] + "</span>");
+      li.append("<span style=\"visibility: hidden;\" class=\"latitude\">" + this["hotelBasicInfo"]["latitude"] + "</span>");
       //add delete-botton
       li.append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>");
 
@@ -100,7 +103,7 @@ $(function() {
     var allCard = new Array();
     var htmlTag = "#main-card-sortable > li";
     var size    = $(htmlTag).length;
-    var keys    = ["title"];
+    var keys    = ["title","card_type","longitude","latitude"];
 
     for(var i = 0; i < size; i++){
       var oneCard = { };
