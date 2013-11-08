@@ -11,8 +11,8 @@
           <div class="plan-detail">
             <ol id="main-card-sortable" class="droptrue">
               <% if @plan %>
-                <% @plan[:days].each do |item| %>
-                  <li class="ui-state-default"><span class="title"><%= item[:title] %></span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></li>
+                <% @plan.cards.each do |card| %>
+                  <li class="ui-state-default"><span class="title"><%= card[:title] %></span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></li>
                 <% end %>
               <% else %>
                 <li class="ui-state-default"><span class="title">ホーム</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></li>
