@@ -6,13 +6,18 @@
     <div class="col-xs-6 col-sm-7 col-md-7 col-lg-7"><!-- <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10"></div>-->
       <label class="sr-only">プランタイトル</label><!-- non-display -->
       <% if @plan %>
-        <input type="input" name="plan-title" class="form-control input-lg" value=<%= @plan['title'] %> required>
+        <input type="input" name="plan-title" class="form-control input-lg" value=<%= @plan[:title] %> required>
       <% else %>
         <input type="input" name="plan-title" class="form-control input-lg" placeholder="プランタイトル" required>
       <% end %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     </div>
     <div id="area-tags-box" class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
+      <% if @plan %>
+        <% (@plan[:area_tags] || []).each do |tag| %>
+          <span name="<%= tag %>" class="label label-default"><%= tag %></span>
+        <%end%>
+      <% end %>
     </div>
   </div><!-- .row -->
   <textarea name="plan-desc" class="form-control" id="exampleInput" placeholder="プランの説明（場所、時間、予算等）"><%= @plan.try(:description) %></textarea>
