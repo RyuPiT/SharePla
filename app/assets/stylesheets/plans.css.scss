@@ -13,6 +13,7 @@ textarea {
 }
 
 #main-card-sortable,
+#distination-card-sortable,
 #hotel-card-sortable {
   list-style-type: none;
   padding: 0;
@@ -24,7 +25,7 @@ textarea {
 }
 
 .contents {
-  margin: 200px 0 60px 0;
+  padding-top: 200px;
 }
 
 #card-serch {
@@ -39,4 +40,20 @@ textarea {
   margin: 10px 0 5px 0;
   color: #305060;
   border-bottom: 1px solid #f0f0f0;
+}
+
+#plan-list,
+#plan-list > .container,
+#plan-list > .container > .contents,
+#plan-list > .container > .contents > .row,
+#plan-list > .container > .contents > .row > .col-sm-6,
+#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail,
+#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable{
+  height: 99%;
+}
+
+#distination > p {
+  color: #a0a0a0;
+  font-size: 17px;
+  padding: 20px 5px 5px 0;
 }

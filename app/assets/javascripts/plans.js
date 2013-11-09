@@ -124,7 +124,8 @@ $(function() {
 //plan-list sort
 $(function() {
   $( "ol.droptrue" ).sortable({
-    connectWith: "ol"
+    connectWith: "ol",
+    placeholder: "ui-state-highlight"
   });
 
   $( "ol.dropfalse" ).sortable({
@@ -132,7 +133,11 @@ $(function() {
     dropOnEmpty: false
   });
 
-  $( "#main-card-sortable, #hotel-card-sortable" ).disableSelection();
+  $( "#main-card-sortable, #hotel-card-sortable, #distination-card-sortable" ).disableSelection();
+  $( "#main-card-sortable" ).droppable({
+      activeClass: "ui-state-hover",
+      hoverClass: "ui-state-active",
+  });
 });
 
 //textarea autosize
