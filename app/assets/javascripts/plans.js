@@ -34,8 +34,8 @@ $(function() {
     $("#area-tags-box").append(span);
   });
 
-  $("#search-hotel").submit(function() {
-    var postData = { "name": $("#search-hotel input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
+  $("#hotel-search").submit(function() {
+    var postData = { "name": $("#hotel-search input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
     var postUrl  = "/plans/hotel_search.json";
 
     $("#hotel-card-sortable li").remove();
@@ -78,7 +78,7 @@ $(function() {
 
     $("#hotel-card-sortable").append(dialog);
     });
-    $("#search-hotel input[name=keyword]").val("");
+    $("#hotel-search input[name=keyword]").val("");
   }
 
 
