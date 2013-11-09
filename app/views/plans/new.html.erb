@@ -11,8 +11,21 @@
           <div class="plan-detail">
             <ol id="main-card-sortable" class="droptrue">
               <% if @plan %>
-                <% @plan[:days].each do |item| %>
-                  <li class="ui-state-default"><span class="title"><%= item[:title] %></span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></li>
+                <% @plan.cards.each do |card| %>
+                  <% if card.card_type == "Hotel" %>
+                    <li class="ui-state-hotel">
+                      <span class="title"><%= card.title %></span>
+                      <span style="visibility: hidden;" class="card_type"><%= card.card_type %></span>
+                      <span style="visibility: hidden;" class="longitude"><%= card.longitude %></span>
+                      <span style="visibility: hidden;" class="latitude"><%= card.latitude %></span>
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                    </li>
+                  <% else %>
+                    <li class="ui-state-default">
+                      <span class="title"><%= card.title %></span>
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                    </li>
+                  <% end %>
                 <% end %>
               <% else %>
                 <li class="ui-state-default"><span class="title">ホーム</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></li>

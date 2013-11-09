@@ -46,7 +46,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:title, :description, :area_tags)
+    params.require(:plan).permit(:title, :description, area_tags: [])
   end
 
   def set_plan
