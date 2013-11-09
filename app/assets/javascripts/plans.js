@@ -36,15 +36,15 @@ $(function() {
 
   $("#search-hotel").submit(function() {
     var postData = { "name": $("#search-hotel input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
-    var postUrl  = "/plans/search_hotel.json";
+    var postUrl  = "/plans/hotel_search.json";
 
     $("#hotel-card-sortable li").remove();
 
-    jQuery.post(postUrl, postData, searchHotelCallback).fail(failFunc);
+    jQuery.post(postUrl, postData, hotelSearchCallback).fail(failFunc);
     return false;
   });
 
-  function searchHotelCallback(data) {
+  function hotelSearchCallback(data) {
     $.each(data["Body"]["KeywordHotelSearch"]["hotel"], function() {
       var li = $("<li>");
       li.addClass("ui-state-hotel");
