@@ -3,7 +3,7 @@ SharePla::Application.routes.draw do
 
   resources :plans, only: %i[create new show] do
     post 'clone',        on: :member
-    post 'search_hotel', on: :collection
+    post 'hotel_search', on: :collection
   end
 
   #get "hello/to/:name" => "hello#to"
