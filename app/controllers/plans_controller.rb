@@ -28,7 +28,8 @@ class PlansController < ApplicationController
   end
 
   def touring_search
-    @json_data = GoogleService.touring_search(params[:name]);
+    @json_data = { main: GoogleService.touring_search(params[:name]) }
+    @json_data.store("search_word", params[:name])
 
     respond_to do |format|
       format.html { render nothing: true }
