@@ -26,6 +26,7 @@ $(function() {
     var prefecture = $.trim(rawText);
     if ($(this).hasClass("active")) {
       $("#area-tags-box > span[name="+prefecture+"]").remove();
+      removeTouringSpot(prefecture);
       return;
     }
     var span = $("<span name="+prefecture+">");
@@ -128,11 +129,13 @@ $(function() {
 
     jQuery.post(postUrl, postData, touringSpotSearchCallback).fail(failFunc);
   }
+
   function touringSpotSearchCallback(data) {
     console.log(data);
-    $.each(data, function() {
+    $.each(data["main"], function() {
       var li = $("<li>");
       li.addClass("ui-state-default");
+      li.attr("name",data["search_word"]);
       //add card-title
       li.append("<span class=\"title\">" + this["name"] + "</span>");
       li.append("<span style=\"visibility: hidden;\" class=\"card_type\">Touris</span>");
@@ -143,6 +146,10 @@ $(function() {
 
       $("#tourist-card-sortable").append(li);
     });
+  }
+
+  function removeTouringSpot(prefecture) {
+    $("#tourist-card-sortable > li[name="+prefecture+"]").remove();
   }
 });
 
