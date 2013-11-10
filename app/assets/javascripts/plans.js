@@ -32,6 +32,8 @@ $(function() {
     span.append(prefecture);
     span.addClass("label label-default");
     $("#area-tags-box").append(span);
+
+    addTouringSpot(prefecture);
   });
 
   $("#search-hotel").submit(function() {
@@ -118,6 +120,29 @@ $(function() {
 
   function getAllAreaTags() {
     return $.map($('#area-tags-box > span'), function(val) { return $(val).text(); });
+  }
+
+  function addTouringSpot(prefecture) {
+    var postData = { "name": prefecture };
+    var postUrl  = "/plans/touring_search.json";
+
+    jQuery.post(postUrl, postData, touringSpotSearchCallback).fail(failFunc);
+  }
+  function touringSpotSearchCallback(data) {
+    console.log(data);
+    $.each(data, function() {
+      var li = $("<li>");
+      li.addClass("ui-state-default");
+      //add card-title
+      li.append("<span class=\"title\">" + this["name"] + "</span>");
+      li.append("<span style=\"visibility: hidden;\" class=\"card_type\">Touris</span>");
+      li.append("<span style=\"visibility: hidden;\" class=\"longitude\">" + this["lingitude"] + "</span>");
+      li.append("<span style=\"visibility: hidden;\" class=\"latitude\">" + this["latitude"] + "</span>");
+      //add delete-botton
+      li.append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>");
+
+      $("#tourist-card-sortable").append(li);
+    });
   }
 });
 
