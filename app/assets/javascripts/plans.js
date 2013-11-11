@@ -26,12 +26,15 @@ $(function() {
     var prefecture = $.trim(rawText);
     if ($(this).hasClass("active")) {
       $("#area-tags-box > span[name="+prefecture+"]").remove();
+      removeTouringSpot(prefecture);
       return;
     }
     var span = $("<span name="+prefecture+">");
     span.append(prefecture);
     span.addClass("label label-default");
     $("#area-tags-box").append(span);
+
+    addTouringSpot(prefecture);
   });
 
   $("#hotel-search").submit(function() {
@@ -119,6 +122,35 @@ $(function() {
   function getAllAreaTags() {
     return $.map($('#area-tags-box > span'), function(val) { return $(val).text(); });
   }
+
+  function addTouringSpot(prefecture) {
+    var postData = { "name": prefecture };
+    var postUrl  = "/plans/touring_search.json";
+
+    jQuery.post(postUrl, postData, touringSpotSearchCallback).fail(failFunc);
+  }
+
+  function touringSpotSearchCallback(data) {
+    console.log(data);
+    $.each(data["main"], function() {
+      var li = $("<li>");
+      li.addClass("ui-state-default");
+      li.attr("name",data["search_word"]);
+      //add card-title
+      li.append("<span class=\"title\">" + this["name"] + "</span>");
+      li.append("<span style=\"visibility: hidden;\" class=\"card_type\">Touris</span>");
+      li.append("<span style=\"visibility: hidden;\" class=\"longitude\">" + this["lingitude"] + "</span>");
+      li.append("<span style=\"visibility: hidden;\" class=\"latitude\">" + this["latitude"] + "</span>");
+      //add delete-botton
+      li.append("<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>");
+
+      $("#tourist-card-sortable").append(li);
+    });
+  }
+
+  function removeTouringSpot(prefecture) {
+    $("#tourist-card-sortable > li[name="+prefecture+"]").remove();
+  }
 });
 
 //plan-list sort
@@ -135,8 +167,8 @@ $(function() {
 
   $( "#main-card-sortable, #hotel-card-sortable, #distination-card-sortable" ).disableSelection();
   $( "#main-card-sortable" ).droppable({
-      activeClass: "ui-state-hover",
-      hoverClass: "ui-state-active",
+    activeClass: "ui-state-hover",
+    hoverClass: "ui-state-active",
   });
 });
 
