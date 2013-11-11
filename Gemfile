@@ -7,6 +7,9 @@ ruby '2.0.0'
 # for rakuten API
 gem 'httpclient'
 
+# for GooglePlaces
+gem 'google_places'
+
 group :test do
   gem 'rake'
   gem 'rspec-rails'
