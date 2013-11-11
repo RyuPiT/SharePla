@@ -40,11 +40,11 @@ $(function() {
 
     $("#hotel-card-sortable li").remove();
 
-    jQuery.post(postUrl, postData, hotelSearchCallback).fail(failFunc);
+    jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
   });
 
-  function hotelSearchCallback(data) {
+  function apiCallback(data) {
     $.each(data["Body"]["KeywordHotelSearch"]["hotel"], function() {
       var li = $("<li>");
       li.addClass("ui-state-hotel");
