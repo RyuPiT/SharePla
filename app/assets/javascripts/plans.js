@@ -171,8 +171,3 @@ $(function() {
     hoverClass: "ui-state-active",
   });
 });
-
-//textarea autosize
-$(function(){
-  $('textarea').autosize();
-});
