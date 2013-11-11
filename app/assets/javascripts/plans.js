@@ -25,11 +25,11 @@ $(function() {
     var rawText    = $(this).text();
     var prefecture = $.trim(rawText);
     if ($(this).hasClass('active')) {
-      $('#area-tags-box > span[name='+prefecture+']').remove();
+      $('#area-tags-box > span[name=' + prefecture + ']').remove();
       removeTouringSpot(prefecture);
       return;
     }
-    var span = $('<span name='+prefecture+'>');
+    var span = $('<span name=' + prefecture + '>');
     span.append(prefecture);
     span.addClass('label label-default');
     $('#area-tags-box').append(span);
@@ -62,18 +62,18 @@ $(function() {
       $('#hotel-card-sortable').append(li);
 
       //modal window
-      var dialog = '<div class="modal fade" id="Modal' + this['hotelBasicInfo']['hotelNo'] +  '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">        <div class="modal-dialog">'
+      var dialog = '<div class="modal fade" id="Modal' + this['hotelBasicInfo']['hotelNo'] + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">        <div class="modal-dialog">'
       + '<div class="modal-content">'
       + '<div class="modal-header">'
       + '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
       + '<h4 class="modal-title">' + this['hotelBasicInfo']['hotelName'] + '</h4>'
       + '</div><!-- .model-header -->'
       + '<div class="modal-body">'
-      + '<img src="' +  this['hotelBasicInfo']['hotelImageUrl'] + '">'
+      + '<img src="' + this['hotelBasicInfo']['hotelImageUrl'] + '">'
       + '</div><!-- .modal-body -->'
       + '<div class="modal-footer">'
       + '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>'
-      + '<a href="' + this['hotelBasicInfo']['hotelInformationUrl'] +  '" class="btn btn-primary" target="_blank">予約</button>'
+      + '<a href="' + this['hotelBasicInfo']['hotelInformationUrl'] + '" class="btn btn-primary" target="_blank">予約</button>'
       + '</div><!-- .modal-content -->'
       + '</div><!-- .modal-content -->'
       + '</div><!-- .modal-dialog -->'
@@ -149,7 +149,7 @@ $(function() {
   }
 
   function removeTouringSpot(prefecture) {
-    $('#tourist-card-sortable > li[name='+prefecture+']').remove();
+    $('#tourist-card-sortable > li[name=' + prefecture + ']').remove();
   }
 });
 
