@@ -2,25 +2,27 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
+
+  // add card event
   $('#addplan').submit(function() {
     var postData = { 'name': $('#addplan input[name=keyword]').val() };
-
-    addplanCallback(postData);
+    addCardToPlan(postData);
     return false;
   });
 
-  function addplanCallback(data) {
+  function addCardToPlan(data) {
     var li = $('<li>');
     li.addClass('ui-state-default');
     //add card-title
+    //add delete-function-botton on right side
     li.append('<span class="title">' + data['name'] + '</span>');
-    //add delete-botton
     li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
 
     $('#main-card-sortable').append(li);
     $('#addplan input[name=keyword]').val('');
   }
 
+  // area tag clicked event
   $('#prefectures > .area-division > label').bind('click',function() {
     var rawText    = $(this).text();
     var prefecture = $.trim(rawText);
@@ -36,6 +38,10 @@ $(function() {
 
     addTouringSpot(prefecture);
   });
+
+
+
+
 
   $('#hotel-search').submit(function() {
     var postData = { 'name': $('#hotel-search input[name=keyword]').val(), 'authenticity_token': getCSRFtoken() };
@@ -84,6 +90,38 @@ $(function() {
     $('#hotel-search input[name=keyword]').val('');
   }
 
+  function addTouringSpot(prefecture) {
+    var postData = { 'search_word': prefecture };
+    var postUrl  = '/plans/places_search.json';
+
+    jQuery.post(postUrl, postData, touringSpotSearchCallback).fail(failFunc);
+  }
+
+  function touringSpotSearchCallback(data) {
+    console.log(data);
+    $.each(data['main'], function() {
+      var li = $('<li>');
+      li.addClass('ui-state-default');
+      li.attr('name',data['posted_data']);
+      //add card-title
+      li.append('<span class="title">' + this['name'] + '</span>');
+      li.append('<span style="visibility: hidden;" class="card_type">Touring</span>');
+      li.append('<span style="visibility: hidden;" class="longitude">' + this['lingitude'] + '</span>');
+      li.append('<span style="visibility: hidden;" class="latitude">' + this['latitude'] + '</span>');
+      //add delete-botton
+      li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
+
+      $('#tourist-card-sortable').append(li);
+    });
+  }
+
+  function removeTouringSpot(prefecture) {
+    $('#tourist-card-sortable > li[name=' + prefecture + ']').remove();
+  }
+
+
+
+
 
   $('#saveplan').submit(function() {
     var postData   = { 'plan': { 'title': $('input[name=plan-title]').val(), 'description': $('textarea[name=plan-desc]').val(), 'cards': getAllCard(), 'area_tags': getAllAreaTags() }, 'authenticity_token': getCSRFtoken() };
@@ -123,34 +161,6 @@ $(function() {
     return $.map($('#area-tags-box > span'), function(val) { return $(val).text(); });
   }
 
-  function addTouringSpot(prefecture) {
-    var postData = { 'search_word': prefecture };
-    var postUrl  = '/plans/places_search.json';
-
-    jQuery.post(postUrl, postData, touringSpotSearchCallback).fail(failFunc);
-  }
-
-  function touringSpotSearchCallback(data) {
-    console.log(data);
-    $.each(data['main'], function() {
-      var li = $('<li>');
-      li.addClass('ui-state-default');
-      li.attr('name',data['posted_data']);
-      //add card-title
-      li.append('<span class="title">' + this['name'] + '</span>');
-      li.append('<span style="visibility: hidden;" class="card_type">Touring</span>');
-      li.append('<span style="visibility: hidden;" class="longitude">' + this['lingitude'] + '</span>');
-      li.append('<span style="visibility: hidden;" class="latitude">' + this['latitude'] + '</span>');
-      //add delete-botton
-      li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
-
-      $('#tourist-card-sortable').append(li);
-    });
-  }
-
-  function removeTouringSpot(prefecture) {
-    $('#tourist-card-sortable > li[name=' + prefecture + ']').remove();
-  }
 });
 
 //plan-list sort
