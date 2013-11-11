@@ -17,6 +17,7 @@
 //= require jquery.ui.mouse.js
 //= require jquery.ui.sortable.js
 //= require jquery.ui.draggable.js
+//= require jquery.ui.droppable.js
 //= require_tree .
 //= require twitter/bootstrap
 

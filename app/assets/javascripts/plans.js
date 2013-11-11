@@ -34,17 +34,17 @@ $(function() {
     $("#area-tags-box").append(span);
   });
 
-  $("#search-hotel").submit(function() {
-    var postData = { "name": $("#search-hotel input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
-    var postUrl  = "/plans/search_hotel.json";
+  $("#hotel-search").submit(function() {
+    var postData = { "name": $("#hotel-search input[name=keyword]").val(), "authenticity_token": getCSRFtoken() };
+    var postUrl  = "/plans/hotel_search.json";
 
     $("#hotel-card-sortable li").remove();
 
-    jQuery.post(postUrl, postData, searchHotelCallback).fail(failFunc);
+    jQuery.post(postUrl, postData, hotelSearchCallback).fail(failFunc);
     return false;
   });
 
-  function searchHotelCallback(data) {
+  function hotelSearchCallback(data) {
     $.each(data["Body"]["KeywordHotelSearch"]["hotel"], function() {
       var li = $("<li>");
       li.addClass("ui-state-hotel");
@@ -78,7 +78,7 @@ $(function() {
 
     $("#hotel-card-sortable").append(dialog);
     });
-    $("#search-hotel input[name=keyword]").val("");
+    $("#hotel-search input[name=keyword]").val("");
   }
 
 
@@ -108,7 +108,7 @@ $(function() {
     for(var i = 0; i < size; i++){
       var oneCard = { };
       $.each(keys, function(j, val) {
-        oneCard[val] = $(htmlTag).children("." + val).eq(i).text();
+        oneCard[val] = $(htmlTag).eq(i).children("." + val).text();
       });
       allCard[i] = oneCard;
     }
@@ -124,7 +124,8 @@ $(function() {
 //plan-list sort
 $(function() {
   $( "ol.droptrue" ).sortable({
-    connectWith: "ol"
+    connectWith: "ol",
+    placeholder: "ui-state-highlight"
   });
 
   $( "ol.dropfalse" ).sortable({
@@ -132,7 +133,11 @@ $(function() {
     dropOnEmpty: false
   });
 
-  $( "#main-card-sortable, #hotel-card-sortable" ).disableSelection();
+  $( "#main-card-sortable, #hotel-card-sortable, #distination-card-sortable" ).disableSelection();
+  $( "#main-card-sortable" ).droppable({
+      activeClass: "ui-state-hover",
+      hoverClass: "ui-state-active",
+  });
 });
 
 //textarea autosize

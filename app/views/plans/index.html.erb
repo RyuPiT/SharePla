@@ -3,7 +3,26 @@
     <% if flash[:notice] %>
     <div class="alert alert-success alert-dismissable"><button id="jquery-ui-hide" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= h(flash[:notice]) %></div>
     <% end %>
-     <h1>Welcome SharePla</h1>
+    <h1>Welcome SharePla</h1>
+    <div class="collapse navbar-collapse target">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://sharepla.herokuapp.com" data-text="SharePla" data-lang="ja" data-hashtags="SharePla">ツイート</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </li>
+        <li>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-like" data-href="http://sharepla.herokuapp.com" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+        </li>
+      </ul>
+    </div>
   </div>
   <%= link_to 'New Plan!', new_plan_path %>
 
