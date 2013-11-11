@@ -138,7 +138,7 @@ $(function() {
       li.attr("name",data["search_word"]);
       //add card-title
       li.append("<span class=\"title\">" + this["name"] + "</span>");
-      li.append("<span style=\"visibility: hidden;\" class=\"card_type\">Touris</span>");
+      li.append("<span style=\"visibility: hidden;\" class=\"card_type\">Touring</span>");
       li.append("<span style=\"visibility: hidden;\" class=\"longitude\">" + this["lingitude"] + "</span>");
       li.append("<span style=\"visibility: hidden;\" class=\"latitude\">" + this["latitude"] + "</span>");
       //add delete-botton
