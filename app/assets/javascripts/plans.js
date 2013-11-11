@@ -173,6 +173,6 @@ $(function() {
 });
 
 //textarea autosize
-$(document).ready(function(){
+$(function(){
   $('textarea').autosize();
 });
