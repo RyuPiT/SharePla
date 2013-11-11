@@ -110,8 +110,8 @@ $(function() {
 
     for(var i = 0; i < size; i++){
       var oneCard = { };
-      $.each(keys, function(j, val) {
-        oneCard[val] = $(htmlTag).eq(i).children("." + val).text();
+      $.each(keys, function() {
+        oneCard[this] = $(htmlTag).eq(i).children("." + this).text();
       });
       allCard[i] = oneCard;
     }
