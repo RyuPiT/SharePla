@@ -1,6 +1,14 @@
 // Place all the styles related to the plan controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// plan/index.erb.html
+#new-plan-button {
+ text-align: center;
+}
+
+
+// plan/new.erb.html
 #plan-list > .navbar-fixed-top {
   top: 50px;
   padding: 10px 0 10px;

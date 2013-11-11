@@ -24,8 +24,9 @@
       </ul>
     </div>
   </div>
-  <%= link_to 'New Plan!', new_plan_path %>
-
+  <div id="new-plan-button">
+    <%= link_to 'New Plan!', new_plan_path, class: "btn btn-primary btn-lg" %>
+  </div>
   <!-- show list plan-title -->
   <table class="table table-striped">
     <thead>
