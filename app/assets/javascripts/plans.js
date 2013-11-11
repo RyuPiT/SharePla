@@ -39,13 +39,9 @@ $(function() {
     addTouringSpot(prefecture);
   });
 
-
-
-
-
-  $('#hotel-search').submit(function() {
-    var postData = { 'name': $('#hotel-search input[name=keyword]').val(), 'authenticity_token': getCSRFtoken() };
-    var postUrl  = '/plans/hotel_search.json';
+  $('#hotels-search').submit(function() {
+    var postData = { 'name': $('#hotels-search input[name=keyword]').val(), 'authenticity_token': getCSRFtoken() };
+    var postUrl  = '/plans/hotels_search.json';
 
     $('#hotel-card-sortable li').remove();
 
@@ -87,7 +83,7 @@ $(function() {
 
     $('#hotel-card-sortable').append(dialog);
     });
-    $('#hotel-search input[name=keyword]').val('');
+    $('#hotels-search input[name=keyword]').val('');
   }
 
   function addTouringSpot(prefecture) {
@@ -118,10 +114,6 @@ $(function() {
   function removeTouringSpot(prefecture) {
     $('#tourist-card-sortable > li[name=' + prefecture + ']').remove();
   }
-
-
-
-
 
   $('#saveplan').submit(function() {
     var postData   = { 'plan': { 'title': $('input[name=plan-title]').val(), 'description': $('textarea[name=plan-desc]').val(), 'cards': getAllCard(), 'area_tags': getAllAreaTags() }, 'authenticity_token': getCSRFtoken() };
