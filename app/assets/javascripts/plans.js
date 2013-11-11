@@ -135,7 +135,7 @@ $(function() {
     $.each(data["main"], function() {
       var li = $("<li>");
       li.addClass("ui-state-default");
-      li.attr("name",data["search_word"]);
+      li.attr("name",data["posted_data"]);
       //add card-title
       li.append("<span class=\"title\">" + this["name"] + "</span>");
       li.append("<span style=\"visibility: hidden;\" class=\"card_type\">Touring</span>");
