@@ -18,7 +18,7 @@ class PlansController < ApplicationController
     end
   end
 
-  def hotel_search
+  def hotels_search
     @json_data = RakutenService.hotel_search(params[:name])
 
     respond_to do |format|
