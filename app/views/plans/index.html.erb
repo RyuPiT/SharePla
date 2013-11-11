@@ -42,7 +42,7 @@
     </thead>
     <tbody>
       <% if @plans %>
-        <% @plans.each do |plan| %>
+        <% @plans.reverse.each do |plan| %>
           <tr>
             <td><%= link_to plan[:title], plan%></td>
           </tr>
