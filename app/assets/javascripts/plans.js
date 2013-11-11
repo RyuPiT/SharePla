@@ -125,7 +125,7 @@ $(function() {
 
   function addTouringSpot(prefecture) {
     var postData = { "name": prefecture };
-    var postUrl  = "/plans/touring_search.json";
+    var postUrl  = "/plans/places_search.json";
 
     jQuery.post(postUrl, postData, touringSpotSearchCallback).fail(failFunc);
   }
