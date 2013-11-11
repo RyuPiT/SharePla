@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // plan/index.erb.html
+.sns-botton > li{
+  list-style: none;
+  display:block;
+}
+
 #new-plan-button {
  text-align: center;
 }
