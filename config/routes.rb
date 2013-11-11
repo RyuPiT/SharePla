@@ -2,9 +2,10 @@ SharePla::Application.routes.draw do
   root 'plans#index'
 
   resources :plans, only: %i[create new show] do
-    post 'clone',        on: :member
-    post 'hotel_search', on: :collection
-    post 'map_search',   on: :collection
+    post 'clone',          on: :member
+    post 'hotel_search',   on: :collection
+    post 'touring_search', on: :collection
+    post 'map_search',     on: :collection
   end
 
   #get "hello/to/:name" => "hello#to"
