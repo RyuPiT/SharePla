@@ -10,15 +10,12 @@ class GoogleService
   private
 
   def self.format_data
-    formatted_data = []
-    @raw_data.each do |data|
-      hash_data = {
+    @raw_data.map { |data|
+      {
         name:      data.name,
         latitude:  data.lat,
         longitude: data.lng
       }
-      formatted_data.push(hash_data);
-    end
-    formatted_data
+    }
   end
 end
