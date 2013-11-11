@@ -4,7 +4,7 @@
 
 <% content_for :plan_tab_contents do %>
   <div class="tab-pane" id="hotel">
-    <form action="<%= hotel_search_plans_path %>" id="hotel-search" method="POST">
+    <form action="<%= hotels_search_plans_path %>" id="hotels-search" method="POST">
       <div class="row">
         <div class="col-sm-10">
           <input type="input" name="keyword" class="form-control" placeholder="地域、ホテル名" required>
@@ -14,7 +14,7 @@
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         </div>
       </div><!-- .row -->
-    </form><!-- hotel-search -->
+    </form><!-- hotels-search -->
     <ol id="hotel-card-sortable"  class="droptrue">
     </ol>
   </div><!-- .tab-pane -->

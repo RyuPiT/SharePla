@@ -37,9 +37,9 @@ $(function() {
     addTouringSpot(prefecture);
   });
 
-  $('#hotel-search').submit(function() {
-    var postData = { 'name': $('#hotel-search input[name=keyword]').val(), 'authenticity_token': getCSRFtoken() };
-    var postUrl  = '/plans/hotel_search.json';
+  $('#hotels-search').submit(function() {
+    var postData = { 'name': $('#hotels-search input[name=keyword]').val(), 'authenticity_token': getCSRFtoken() };
+    var postUrl  = '/plans/hotels_search.json';
 
     $('#hotel-card-sortable li').remove();
 
@@ -81,7 +81,7 @@ $(function() {
 
     $('#hotel-card-sortable').append(dialog);
     });
-    $('#hotel-search input[name=keyword]').val('');
+    $('#hotels-search input[name=keyword]').val('');
   }
 
 
