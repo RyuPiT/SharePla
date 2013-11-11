@@ -29,8 +29,8 @@ class PlansController < ApplicationController
 
   def places_search
     @json_data = {
-      main: GoogleService.places_search(params[:name]),
-      search_word: params[:name]
+      main:        GoogleService.places_search(params[:search_word]),
+      search_word: params[:search_word]
     }
 
     respond_to do |format|
