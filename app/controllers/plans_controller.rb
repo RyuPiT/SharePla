@@ -47,7 +47,6 @@ class PlansController < ApplicationController
       format.html { render nothing: true }
       format.json { render json: @json_data }
     end
-
   end
 
   def create
