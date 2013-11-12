@@ -5,7 +5,8 @@ class RakutenService
     httpClient = HTTPClient.new
     begin
       json_data = JSON.parse httpClient.get_content(RakutenService::API_ENDPOINT, hotel_search_params(keyword))
-      formated_data         = {meta: 'Hotel'}
+      type      = 'Hotel'
+      formated_data         = {meta: {search_word: keyword, type: type}}
       formated_data[:cards] = extract_cards json_data
       return formated_data
     rescue HTTPClient::BadResponseError => e

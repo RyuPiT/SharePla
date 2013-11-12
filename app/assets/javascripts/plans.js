@@ -23,7 +23,7 @@ $(function() {
 
   // data = plans_controller's @json_data = services/api_service.rb's formated_data
   function apiCallback(data) {
-    var cardType = data['meta'];
+    var cardType = data['meta']['type'];
     $.each(data['cards'], function() {
       var main      = 'main';
       var name      = this[main]['name'];
@@ -38,7 +38,7 @@ $(function() {
       li.append('<' + hiddenSpan + ' class="longitude">' + longitude + '</span>');
       li.append('<' + hiddenSpan + ' class="latitude">'  + latitude  + '</span>');
       li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
-      tabCallback[cardType](li, this);
+      tabCallback[cardType](li, data['meta'], this);
     });
     loopEndCallback[cardType]();
   }
@@ -86,7 +86,9 @@ $(function() {
   });
 
   // Touring 
-  function touringCardFunc(li, data) {
+  function touringCardFunc(li, metaData, data) {
+    var searchWord = metaData['search_word'];
+    li.attr('name', searchWord);
     $('#tourist-card-sortable').append(li);
   }
   function touringLoopEnd() {
@@ -94,7 +96,7 @@ $(function() {
   }
 
   // Hotel
-  function hotelCardFunc(li, data) {
+  function hotelCardFunc(li, metaData, data) {
     $('#hotel-card-sortable').append(li);
     var sub      = 'sub';
     var hotelNo  = data[sub]['number'];
