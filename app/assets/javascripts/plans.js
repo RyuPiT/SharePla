@@ -45,12 +45,14 @@ $(function() {
 
   var tabCallback = {
     Hotel:   hotelCardFunc,
-    Touring: touringCardFunc
+    Touring: touringCardFunc,
+    Map:     mapCardFunc
   }
 
   var loopEndCallback = {
     Hotel:   hotelLoopEnd,
     Touring: touringLoopEnd
+    Map:     mapLoopEnd
   }
 
   // area tag clicked event
@@ -84,6 +86,26 @@ $(function() {
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
   });
+
+  // map search clicked event
+  $('#map-search').submit(function() {
+    var postData = { search_word: $('#map-search input[name=keyword]').val() };
+    var postUrl  = '/plans/map_search.json';
+    console.log(postData);
+    $('#map-card-sortable li').remove();
+    jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
+    return false;
+  });
+
+  // Map
+  function touringCardFunc(li, metaData, data) {
+    var searchWord = metaData['search_word'];
+    li.attr('name', searchWord);
+    $('#map-card-sortable').append(li);
+  }
+  function touringLoopEnd() {
+    $('#map-search input[name=keyword]').val('');
+  }
 
   // Touring 
   function touringCardFunc(li, metaData, data) {

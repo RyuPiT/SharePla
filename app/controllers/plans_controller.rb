@@ -38,6 +38,18 @@ class PlansController < ApplicationController
     end
   end
 
+  def map_search
+    keyword    = params[:search_word]
+    type       = 'Touring'
+    @json_data = GoogleService.places_search(keyword, type)
+
+    respond_to do |format|
+      format.html { render nothing: true }
+      format.json { render json: @json_data }
+    end
+
+  end
+
   def create
     @plan = Plan.new(plan_params)
 
