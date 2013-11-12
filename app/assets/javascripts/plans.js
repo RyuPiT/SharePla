@@ -3,7 +3,7 @@
 
 $(function() {
 
-  // add card event
+  // [add clicked] or [enter when focus text field of place to go] event
   $('#addplan').submit(function() {
     var postData = { 'name': $('#addplan input[name=keyword]').val() };
     addCardToPlan(postData);
@@ -20,6 +20,53 @@ $(function() {
 
     $('#main-card-sortable').append(li);
     $('#addplan input[name=keyword]').val('');
+  }
+
+  // data = plans_controller's @json_data = services/api_service.rb's formated_data
+  function apiCallback(data) {
+    var type = data['meta'];
+    $.each(data['cards'], function() {
+      var main      = 'main';
+      var sub       = 'sub';
+      var name      = this[main]['name'];
+      var latitude  = this[main]['latitude'];
+      var longitude = this[main]['longitude'];
+      var hotelNo   = this[sub]['number'];
+      var imageUrl  = this[sub]['image_url'];
+      var infoUrl   = this[sub]['info_url'];
+
+      var li = $('<li>');
+      li.addClass('ui-state-hotel');
+      li.append('<span class="title"><a data-toggle="modal"href="#Modal' + hotelNo + '">' + name + '</a></span>');
+      li.append('<span style="visibility: hidden;" class="card_type">' + type      + '</span>');
+      li.append('<span style="visibility: hidden;" class="longitude">' + longitude + '</span>');
+      li.append('<span style="visibility: hidden;" class="latitude">'  + latitude  + '</span>');
+      li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
+
+      $('#hotel-card-sortable').append(li);
+
+      //modal window
+      var dialog = '<div class="modal fade" id="Modal' + hotelNo + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">        <div class="modal-dialog">'
+      + '<div class="modal-content">'
+      + '<div class="modal-header">'
+      + '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
+      + '<h4 class="modal-title">' + name + '</h4>'
+      + '</div><!-- .model-header -->'
+      + '<div class="modal-body">'
+      + '<img src="' + imageUrl + '">'
+      + '</div><!-- .modal-body -->'
+      + '<div class="modal-footer">'
+      + '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>'
+      + '<a href="' + infoUrl + '" class="btn btn-primary" target="_blank">予約</button>'
+      + '</div><!-- .modal-content -->'
+      + '</div><!-- .modal-content -->'
+      + '</div><!-- .modal-dialog -->'
+      + '</div><!-- .modal fade -->';
+
+    $('#hotel-card-sortable').append(dialog);
+    });
+
+    $('#hotels-search input[name=keyword]').val('');
   }
 
   // area tag clicked event
@@ -39,53 +86,6 @@ $(function() {
     addTouringSpot(prefecture);
   });
 
-  $('#hotels-search').submit(function() {
-    var postData = { 'name': $('#hotels-search input[name=keyword]').val(), 'authenticity_token': getCSRFtoken() };
-    var postUrl  = '/plans/hotels_search.json';
-
-    $('#hotel-card-sortable li').remove();
-
-    jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
-    return false;
-  });
-
-  function apiCallback(data) {
-    $.each(data['Body']['KeywordHotelSearch']['hotel'], function() {
-      var li = $('<li>');
-      li.addClass('ui-state-hotel');
-      //add card-title
-      li.append('<span class="title"><a data-toggle="modal"href="#Modal' + this['hotelBasicInfo']['hotelNo'] + '">' + this['hotelBasicInfo']['hotelName'] + '</a></span>');
-      li.append('<span style="visibility: hidden;" class="card_type">Hotel</span>');
-      li.append('<span style="visibility: hidden;" class="longitude">' + this['hotelBasicInfo']['longitude'] + '</span>');
-      li.append('<span style="visibility: hidden;" class="latitude">' + this['hotelBasicInfo']['latitude'] + '</span>');
-      //add delete-botton
-      li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
-
-      $('#hotel-card-sortable').append(li);
-
-      //modal window
-      var dialog = '<div class="modal fade" id="Modal' + this['hotelBasicInfo']['hotelNo'] + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">        <div class="modal-dialog">'
-      + '<div class="modal-content">'
-      + '<div class="modal-header">'
-      + '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
-      + '<h4 class="modal-title">' + this['hotelBasicInfo']['hotelName'] + '</h4>'
-      + '</div><!-- .model-header -->'
-      + '<div class="modal-body">'
-      + '<img src="' + this['hotelBasicInfo']['hotelImageUrl'] + '">'
-      + '</div><!-- .modal-body -->'
-      + '<div class="modal-footer">'
-      + '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>'
-      + '<a href="' + this['hotelBasicInfo']['hotelInformationUrl'] + '" class="btn btn-primary" target="_blank">予約</button>'
-      + '</div><!-- .modal-content -->'
-      + '</div><!-- .modal-content -->'
-      + '</div><!-- .modal-dialog -->'
-      + '</div><!-- .modal fade -->';
-
-    $('#hotel-card-sortable').append(dialog);
-    });
-    $('#hotels-search input[name=keyword]').val('');
-  }
-
   function addTouringSpot(prefecture) {
     var postData = { 'search_word': prefecture };
     var postUrl  = '/plans/places_search.json';
@@ -103,8 +103,8 @@ $(function() {
       li.append('<span class="title">' + this['name'] + '</span>');
       li.append('<span style="visibility: hidden;" class="card_type">Touring</span>');
       li.append('<span style="visibility: hidden;" class="longitude">' + this['lingitude'] + '</span>');
-      li.append('<span style="visibility: hidden;" class="latitude">' + this['latitude'] + '</span>');
-      //add delete-botton
+      li.append('<span style="visibility: hidden;" class="latitude">'  + this['latitude']  + '</span>');
+      //add delete-button
       li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
 
       $('#tourist-card-sortable').append(li);
@@ -115,6 +115,21 @@ $(function() {
     $('#tourist-card-sortable > li[name=' + prefecture + ']').remove();
   }
 
+  // hotel search clicked event
+  $('#hotels-search').submit(function() {
+    var postData = { 'name': $('#hotels-search input[name=keyword]').val(), 'authenticity_token': getCSRFtoken() };
+    var postUrl  = '/plans/hotels_search.json';
+    $('#hotel-card-sortable li').remove();
+    jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
+    return false;
+  });
+
+  // for hotel
+  var hotelOnlyMethod = function() {
+     
+  }
+
+  // save clicked event
   $('#saveplan').submit(function() {
     var postData   = { 'plan': { 'title': $('input[name=plan-title]').val(), 'description': $('textarea[name=plan-desc]').val(), 'cards': getAllCard(), 'area_tags': getAllAreaTags() }, 'authenticity_token': getCSRFtoken() };
     var postUrl    = '/plans.json';
@@ -132,12 +147,12 @@ $(function() {
     alert('post failed');
   }
 
+  // return card list from main card list
   function getAllCard() {
     var allCard = new Array();
     var htmlTag = '#main-card-sortable > li';
     var size    = $(htmlTag).length;
     var keys    = ['title','card_type','longitude','latitude'];
-
     for(var i = 0; i < size; i++){
       var oneCard = { };
       $.each(keys, function() {
@@ -145,10 +160,10 @@ $(function() {
       });
       allCard[i] = oneCard;
     }
-
     return allCard;
   }
 
+  // return all prefecture array
   function getAllAreaTags() {
     return $.map($('#area-tags-box > span'), function(val) { return $(val).text(); });
   }
