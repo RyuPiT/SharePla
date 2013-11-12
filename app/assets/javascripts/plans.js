@@ -51,7 +51,7 @@ $(function() {
 
   var loopEndCallback = {
     Hotel:   hotelLoopEnd,
-    Touring: touringLoopEnd
+    Touring: touringLoopEnd,
     Map:     mapLoopEnd
   }
 
@@ -98,12 +98,11 @@ $(function() {
   });
 
   // Map
-  function touringCardFunc(li, metaData, data) {
+  function mapCardFunc(li, metaData, data) {
     var searchWord = metaData['search_word'];
-    li.attr('name', searchWord);
     $('#map-card-sortable').append(li);
   }
-  function touringLoopEnd() {
+  function mapLoopEnd() {
     $('#map-search input[name=keyword]').val('');
   }
 
@@ -114,7 +113,6 @@ $(function() {
     $('#tourist-card-sortable').append(li);
   }
   function touringLoopEnd() {
-    $('#hotels-search input[name=keyword]').val('');
   }
 
   // Hotel
