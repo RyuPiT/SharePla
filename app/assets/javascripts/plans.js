@@ -10,7 +10,11 @@ $(function() {
   });
 
   function addplanCallback(data) {
-    var li = $("<li>");
+    var li = $("<li>").hide().animate({ pacity:0.7 }, function() {
+      $(this).show("slide");
+    });
+
+
     li.addClass("ui-state-default");
     //add card-title
     li.append("<span class=\"title\">" + data['name'] + "</span>");
