@@ -94,9 +94,9 @@ $(function() {
   }
 
   function touringSpotSearchCallback(data) {
-    console.log(data);
+    console.log(data['meta']);
     var cardType = data['meta'];
-    $.each(data, function() {
+    $.each(data['cards'], function() {
       var main      = 'main';
       var name      = this[main]['name'];
       var latitude  = this[main]['latitude'];

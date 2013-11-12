@@ -5,6 +5,7 @@ class GoogleService
     raw_data = @client.spots_by_query(keyword, input: 'Japan', language: 'ja')
     formated_data         = {meta: 'Touring'}
     formated_data[:cards] = extract_cards raw_data
+    formated_data
   end
 
   private
