@@ -47,13 +47,13 @@ $(function() {
     Hotel:   hotelCardFunc,
     Touring: touringCardFunc,
     Map:     mapCardFunc
-  }
+  };
 
   var loopEndCallback = {
     Hotel:   hotelLoopEnd,
     Touring: touringLoopEnd,
     Map:     mapLoopEnd
-  }
+  };
 
   // area tag clicked event
   $('#prefectures > .area-division > label').bind('click',function() {
@@ -91,7 +91,6 @@ $(function() {
   $('#map-search').submit(function() {
     var postData = { search_word: $('#map-search input[name=keyword]').val() };
     var postUrl  = '/plans/map_search.json';
-    console.log(postData);
     $('#map-card-sortable li').remove();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
