@@ -4,7 +4,7 @@
 $(function() {
   // [add clicked] or [enter when focus text field of place to go] event
   $('#addplan').submit(function() {
-    var postData = { 'name': $('#addplan input[name=keyword]').val() };
+    var postData = { name: $('#addplan input[name=keyword]').val() };
     addCardToPlan(postData);
     return false;
   });
@@ -61,7 +61,7 @@ $(function() {
     span.addClass('label label-default');
     $('#area-tags-box').append(span);
 
-    var postData = { 'search_word': prefecture };
+    var postData = { search_word: prefecture };
     var postUrl  = '/plans/places_search.json';
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
   });
@@ -72,7 +72,7 @@ $(function() {
 
   // hotel search clicked event
   $('#hotels-search').submit(function() {
-    var postData = { 'name': $('#hotels-search input[name=keyword]').val(), 'authenticity_token': getCSRFtoken() };
+    var postData = { name: $('#hotels-search input[name=keyword]').val() };
     var postUrl  = '/plans/hotels_search.json';
     $('#hotel-card-sortable li').remove();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
@@ -125,7 +125,7 @@ $(function() {
 
   // save clicked event
   $('#saveplan').submit(function() {
-    var postData   = { 'plan': { 'title': $('input[name=plan-title]').val(), 'description': $('textarea[name=plan-desc]').val(), 'cards': getAllCard(), 'area_tags': getAllAreaTags() }, 'authenticity_token': getCSRFtoken() };
+    var postData   = { plan: { title: $('input[name=plan-title]').val(), description: $('textarea[name=plan-desc]').val(), cards: getAllCard(), area_tags: getAllAreaTags() } };
     var postUrl    = '/plans.json';
     var returnType = 'text';
 
