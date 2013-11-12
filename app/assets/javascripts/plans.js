@@ -38,18 +38,18 @@ $(function() {
       li.append('<' + hiddenSpan + ' class="longitude">' + longitude + '</span>');
       li.append('<' + hiddenSpan + ' class="latitude">'  + latitude  + '</span>');
       li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
-      tabCallback[cardType](li, data['meta'], this);
+      tabCallbacks[cardType](li, data['meta'], this);
     });
-    loopEndCallback[cardType]();
+    loopEndCallbacks[cardType]();
   }
 
-  var tabCallback = {
+  var tabCallbacks = {
     Hotel:   hotelCardFunc,
     Touring: touringCardFunc,
     Map:     mapCardFunc
   };
 
-  var loopEndCallback = {
+  var loopEndCallbacks = {
     Hotel:   hotelLoopEnd,
     Touring: touringLoopEnd,
     Map:     mapLoopEnd
