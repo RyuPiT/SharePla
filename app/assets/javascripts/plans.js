@@ -123,7 +123,7 @@ $(function() {
 
   // hotel search clicked event
   $('#hotels-search').submit(function() {
-    var postData = { 'name': $('#hotels-search input[name=keyword]').val(), 'authenticity_token': getCSRFtoken() };
+    var postData = { 'name': $('#hotels-search input[name=keyword]').val() };
     var postUrl  = '/plans/hotels_search.json';
     $('#hotel-card-sortable li').remove();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
@@ -137,7 +137,7 @@ $(function() {
 
   // save clicked event
   $('#saveplan').submit(function() {
-    var postData   = { 'plan': { 'title': $('input[name=plan-title]').val(), 'description': $('textarea[name=plan-desc]').val(), 'cards': getAllCard(), 'area_tags': getAllAreaTags() }, 'authenticity_token': getCSRFtoken() };
+    var postData   = { 'plan': { 'title': $('input[name=plan-title]').val(), 'description': $('textarea[name=plan-desc]').val(), 'cards': getAllCard(), 'area_tags': getAllAreaTags() } };
     var postUrl    = '/plans.json';
     var returnType = 'text';
 
