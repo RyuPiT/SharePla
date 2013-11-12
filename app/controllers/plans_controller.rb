@@ -18,22 +18,22 @@ class PlansController < ApplicationController
     end
   end
 
-  def hotel_search
-    @json_data = RakutenService.hotel_search(params[:name])
+  def hotels_search
+    keyword = params[:name]
 
     respond_to do |format|
       format.html { render nothing: true }
-      format.json { render json: @json_data }
+      format.json { render json: hotels_data(keyword) }
     end
   end
 
-  def touring_search
-    @json_data = { main: GoogleService.touring_search(params[:name]) }
-    @json_data.store("search_word", params[:name])
+  def places_search
+    keyword     = params[:search_word]
+    type        = 'Touring'
 
     respond_to do |format|
       format.html { render nothing: true }
-      format.json { render json: @json_data }
+      format.json { render json: places_data(keyword, type) }
     end
   end
 
@@ -61,5 +61,13 @@ class PlansController < ApplicationController
 
   def set_plan
     @plan = Plan.find(params[:id])
+  end
+
+  def places_data(keyword, type)
+    GoogleService.places_search(keyword, type)
+  end
+
+  def hotels_data(keyword)
+    RakutenService.hotel_search(keyword)
   end
 end
