@@ -40,11 +40,17 @@ $(function() {
       li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
       tabCallback[cardType](li, this);
     });
+    loopEndCallback[cardType]();
   }
 
   var tabCallback = {
     Hotel:   hotelCardFunc,
     Touring: touringCardFunc
+  }
+
+  var loopEndCallback = {
+    Hotel:   hotelLoopEnd,
+    Touring: touringLoopEnd
   }
 
   // area tag clicked event
@@ -79,17 +85,17 @@ $(function() {
     return false;
   });
 
+  // Touring 
   function touringCardFunc(li, data) {
     $('#tourist-card-sortable').append(li);
   }
-
   function touringLoopEnd() {
-
+    $('#hotels-search input[name=keyword]').val('');
   }
 
+  // Hotel
   function hotelCardFunc(li, data) {
     $('#hotel-card-sortable').append(li);
-
     var sub      = 'sub';
     var hotelNo  = data[sub]['number'];
     var imageUrl = data[sub]['image_url'];
@@ -118,7 +124,6 @@ $(function() {
 
     $('#hotel-card-sortable').append(dialog);
   }
-
   function hotelLoopEnd() {
     $('#hotels-search input[name=keyword]').val('');
   }
