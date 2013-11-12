@@ -10,7 +10,7 @@ $(function() {
   });
 
   function addCardToPlan(data) {
-    var li = $("<li>").hide().animate({ pacity:0.7 }, function() {
+    var li = $("<li>").hide().animate({ pacity:1 }, function() {
       $(this).show("slide");
     });
     li.addClass('ui-state-default');
