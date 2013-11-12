@@ -3,17 +3,20 @@ class GoogleService
 
   def self.places_search(keyword)
     raw_data = @client.spots_by_query(keyword, input: 'Japan', language: 'ja')
-    format raw_data
+    formated_data         = {meta: 'Touring'}
+    formated_data[:cards] = extract_cards raw_data
   end
 
   private
 
-  def self.format raw_data
+  def self.extract_cards raw_data
     raw_data.map { |data|
       {
-        name:      data.name,
-        latitude:  data.lat,
-        longitude: data.lng
+        main: {
+          name:      data.name,
+          latitude:  data.lat,
+          longitude: data.lng
+        }
       }
     }
   end

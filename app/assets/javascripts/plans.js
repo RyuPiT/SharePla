@@ -24,13 +24,13 @@ $(function() {
 
   // data = plans_controller's @json_data = services/api_service.rb's formated_data
   function apiCallback(data) {
-    var type = data['meta'];
+    var cardType = data['meta'];
     $.each(data['cards'], function() {
       var main      = 'main';
-      var sub       = 'sub';
       var name      = this[main]['name'];
       var latitude  = this[main]['latitude'];
       var longitude = this[main]['longitude'];
+      var sub       = 'sub';
       var hotelNo   = this[sub]['number'];
       var imageUrl  = this[sub]['image_url'];
       var infoUrl   = this[sub]['info_url'];
@@ -38,7 +38,7 @@ $(function() {
       var li = $('<li>');
       li.addClass('ui-state-hotel');
       li.append('<span class="title"><a data-toggle="modal"href="#Modal' + hotelNo + '">' + name + '</a></span>');
-      li.append('<span style="visibility: hidden;" class="card_type">' + type      + '</span>');
+      li.append('<span style="visibility: hidden;" class="card_type">' + cardType  + '</span>');
       li.append('<span style="visibility: hidden;" class="longitude">' + longitude + '</span>');
       li.append('<span style="visibility: hidden;" class="latitude">'  + latitude  + '</span>');
       li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
@@ -95,15 +95,21 @@ $(function() {
 
   function touringSpotSearchCallback(data) {
     console.log(data);
-    $.each(data['main'], function() {
+    var cardType = data['meta'];
+    $.each(data, function() {
+      var main      = 'main';
+      var name      = this[main]['name'];
+      var latitude  = this[main]['latitude'];
+      var longitude = this[main]['longitude'];
+
       var li = $('<li>');
       li.addClass('ui-state-default');
       li.attr('name',data['posted_data']);
       //add card-title
-      li.append('<span class="title">' + this['name'] + '</span>');
-      li.append('<span style="visibility: hidden;" class="card_type">Touring</span>');
-      li.append('<span style="visibility: hidden;" class="longitude">' + this['lingitude'] + '</span>');
-      li.append('<span style="visibility: hidden;" class="latitude">'  + this['latitude']  + '</span>');
+      li.append('<span class="title">' + name + '</span>');
+      li.append('<span style="visibility: hidden;" class="card_type">' + cardType  + '</span>');
+      li.append('<span style="visibility: hidden;" class="longitude">' + latitude  + '</span>');
+      li.append('<span style="visibility: hidden;" class="latitude">'  + longitude + '</span>');
       //add delete-button
       li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
 
