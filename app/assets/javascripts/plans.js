@@ -10,7 +10,9 @@ $(function() {
   });
 
   function addCardToPlan(data) {
-    var li = $('<li>');
+    var li = $("<li>").hide().animate({ pacity:1 }, function() {
+      $(this).show("slide");
+    });
     li.addClass('ui-state-default');
     //add card-title
     //add delete-function-botton on right side
@@ -38,17 +40,17 @@ $(function() {
       li.append('<' + hiddenSpan + ' class="longitude">' + longitude + '</span>');
       li.append('<' + hiddenSpan + ' class="latitude">'  + latitude  + '</span>');
       li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
-      tabCallback[cardType](li, data['meta'], this);
+      tabCallbacks[cardType](li, data['meta'], this);
     });
-    loopEndCallback[cardType]();
+    loopEndCallbacks[cardType]();
   }
 
-  var tabCallback = {
+  var tabCallbacks = {
     Hotel:   hotelCardFunc,
     Touring: touringCardFunc
   }
 
-  var loopEndCallback = {
+  var loopEndCallbacks = {
     Hotel:   hotelLoopEnd,
     Touring: touringLoopEnd
   }
