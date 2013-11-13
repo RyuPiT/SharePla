@@ -87,7 +87,7 @@ $(function() {
     return false;
   });
 
-  // Touring 
+  // Touring
   function touringCardFunc(li, metaData, data) {
     var searchWord = metaData['search_word'];
     li.attr('name', searchWord);
