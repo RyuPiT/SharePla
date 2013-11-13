@@ -31,15 +31,19 @@ $(function() {
       var name      = this[main]['name'];
       var latitude  = this[main]['latitude'];
       var longitude = this[main]['longitude'];
-
       var hiddenSpan = 'span style="visibility: hidden;"';
-      var li = $('<li>');
-      li.addClass('ui-state-hotel');
-      li.append('<span class="title"><a>' + name + '</a></span>');
-      li.append('<' + hiddenSpan + ' class="card_type">' + cardType  + '</span>');
-      li.append('<' + hiddenSpan + ' class="longitude">' + longitude + '</span>');
-      li.append('<' + hiddenSpan + ' class="latitude">'  + latitude  + '</span>');
-      li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
+
+      var li         = $('<li>');
+      li.addClass('ui-state-hotel'); // TODO: #67
+
+      var addContent = '';
+      addContent += '<span class="title"><a>' + name + '</a></span>';
+      addContent += '<' + hiddenSpan + ' class="card_type">' + cardType  + '</span>';
+      addContent += '<' + hiddenSpan + ' class="longitude">' + longitude + '</span>';
+      addContent += '<' + hiddenSpan + ' class="latitude">'  + latitude  + '</span>';
+      addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+
+      li.append(addContent);
       tabCallbacks[cardType](li, data['meta'], this);
     });
     loopEndCallbacks[cardType]();
@@ -155,13 +159,13 @@ $(function() {
   // return card list from main card list
   function getAllCard() {
     var allCard = new Array();
-    var htmlTag = '#main-card-sortable > li';
-    var size    = $(htmlTag).length;
+    var htmlTag = $('#main-card-sortable > li');
+    var size    = htmlTag.length;
     var keys    = ['title','card_type','longitude','latitude'];
     for(var i = 0; i < size; i++){
       var oneCard = { };
       $.each(keys, function() {
-        oneCard[this] = $(htmlTag).eq(i).children('.' + this).text();
+        oneCard[this] = htmlTag.eq(i).children('.' + this).text();
       });
       allCard[i] = oneCard;
     }
