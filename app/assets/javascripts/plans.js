@@ -10,7 +10,9 @@ $(function() {
   });
 
   function addCardToPlan(data) {
-    var li = $('<li>');
+    var li = $("<li>").hide().animate({ pacity:1 }, function() {
+      $(this).show("slide");
+    });
     li.addClass('ui-state-default');
     //add card-title
     //add delete-function-botton on right side
@@ -23,7 +25,7 @@ $(function() {
 
   // data = plans_controller's @json_data = services/api_service.rb's formated_data
   function apiCallback(data) {
-    var cardType = data['meta'];
+    var cardType = data['meta']['type'];
     $.each(data['cards'], function() {
       var main      = 'main';
       var name      = this[main]['name'];
@@ -38,13 +40,19 @@ $(function() {
       li.append('<' + hiddenSpan + ' class="longitude">' + longitude + '</span>');
       li.append('<' + hiddenSpan + ' class="latitude">'  + latitude  + '</span>');
       li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
-      tabCallback[cardType](li, this);
+      tabCallbacks[cardType](li, data['meta'], this);
     });
+    loopEndCallbacks[cardType]();
   }
 
-  var tabCallback = {
+  var tabCallbacks = {
     Hotel:   hotelCardFunc,
     Touring: touringCardFunc
+  }
+
+  var loopEndCallbacks = {
+    Hotel:   hotelLoopEnd,
+    Touring: touringLoopEnd
   }
 
   // area tag clicked event
@@ -79,17 +87,19 @@ $(function() {
     return false;
   });
 
-  function touringCardFunc(li, data) {
+  // Touring 
+  function touringCardFunc(li, metaData, data) {
+    var searchWord = metaData['search_word'];
+    li.attr('name', searchWord);
     $('#tourist-card-sortable').append(li);
   }
-
   function touringLoopEnd() {
-
+    $('#hotels-search input[name=keyword]').val('');
   }
 
-  function hotelCardFunc(li, data) {
+  // Hotel
+  function hotelCardFunc(li, metaData, data) {
     $('#hotel-card-sortable').append(li);
-
     var sub      = 'sub';
     var hotelNo  = data[sub]['number'];
     var imageUrl = data[sub]['image_url'];
@@ -118,7 +128,6 @@ $(function() {
 
     $('#hotel-card-sortable').append(dialog);
   }
-
   function hotelLoopEnd() {
     $('#hotels-search input[name=keyword]').val('');
   }
