@@ -25,13 +25,14 @@ $(function() {
 
   // data = plans_controller's @json_data = services/api_service.rb's formated_data
   function apiCallback(data) {
-    var cardType = data['meta']['type'];
+    var cardType   = data['meta']['type'];
+    var main       = 'main';
+    var hiddenSpan = 'span style="visibility: hidden;"';
+
     $.each(data['cards'], function() {
-      var main      = 'main';
       var name      = this[main]['name'];
       var latitude  = this[main]['latitude'];
       var longitude = this[main]['longitude'];
-      var hiddenSpan = 'span style="visibility: hidden;"';
 
       var li         = $('<li>');
       li.addClass('ui-state-hotel'); // TODO: #67
