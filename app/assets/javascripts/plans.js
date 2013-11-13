@@ -109,22 +109,24 @@ $(function() {
     aSelector.attr('href','#Modal' + hotelNo);
     aSelector.attr('data-toggle','modal');
     //modal window
-    var dialog = '<div class="modal fade" id="Modal' + hotelNo + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">        <div class="modal-dialog">'
-      + '<div class="modal-content">'
-      + '<div class="modal-header">'
-      + '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
-      + '<h4 class="modal-title">' + name + '</h4>'
-      + '</div><!-- .model-header -->'
-      + '<div class="modal-body">'
-      + '<img src="' + imageUrl + '">'
-      + '</div><!-- .modal-body -->'
-      + '<div class="modal-footer">'
-      + '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>'
-      + '<a href="' + infoUrl + '" class="btn btn-primary" target="_blank">予約</button>'
-      + '</div><!-- .modal-content -->'
-      + '</div><!-- .modal-content -->'
-      + '</div><!-- .modal-dialog -->'
-      + '</div><!-- .modal fade -->';
+    var dialog = '';
+    dialog += '<div class="modal fade" id="Modal' + hotelNo + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+    dialog += '<div class="modal-dialog">';
+    dialog += '<div class="modal-content">';
+    dialog += '<div class="modal-header">';
+    dialog += '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
+    dialog += '<h4 class="modal-title">' + name + '</h4>';
+    dialog += '</div>';// .model-header
+    dialog += '<div class="modal-body">';
+    dialog += '<img src="' + imageUrl + '">';
+    dialog += '</div>';// .modal-body
+    dialog += '<div class="modal-footer">';
+    dialog += '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>';
+    dialog += '<a href="' + infoUrl + '" class="btn btn-primary" target="_blank">予約</button>';
+    dialog += '</div>';// .modal-content
+    dialog += '</div>';// .modal-content
+    dialog += '</div>';// .modal-dialog
+    dialog += '</div>';// .modal fade
 
     $('#hotel-card-sortable').append(dialog);
   }
