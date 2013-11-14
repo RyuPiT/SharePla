@@ -10,11 +10,11 @@ function initialize(){
 	  mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-    
+
   // ユーザのマーカーアイコンを変更
   var markerImage = new google.maps.MarkerImage(
 	  // 画像の場所
-	  "http://blog-imgs-44.fc2.com/p/c/r/pcrice/mark2.png",
+    //"http://blog-imgs-44.fc2.com/p/c/r/pcrice/mark2.png",
 	  // マーカーのサイズ
 	  new google.maps.Size(20, 24),
 	  // 画像の基準位置
@@ -58,9 +58,10 @@ function initialize(){
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   service.textSearch(request, callback);
+
 }
 // Windowがロードされたとき表示させる
-google.maps.event.addDomListener(window, 'load', initialize);
+//google.maps.event.addDomListener(window, 'load', initialize);
 
 // プレイス検索のコールバック関数
 function callback(results, status){
@@ -84,4 +85,9 @@ function createMarker(place) {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
   });
+}
+
+function checkResize(){
+  alert("test");
+  google.maps.event.trigger(map, 'resize');
 }
