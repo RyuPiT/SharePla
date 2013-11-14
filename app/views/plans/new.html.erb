@@ -34,20 +34,22 @@
           </div><!-- .plan-detail -->
 
         </div><!-- .col-sm-6 -->
-        <div class="col-sm-6" id="card-serch">
-          <div class="travel-serch">
-            <% render 'plans/tabs/distination' %>
-            <% render 'plans/tabs/hotel' %>
-            <% render 'plans/tabs/place' %>
-            <% render 'plans/tabs/tag' %>
-            <% render 'plans/tabs/map' %>
-            <ul class="nav nav-tabs">
-              <%= yield :plan_tab_navs %>
-            </ul>
-            <div class="tab-content">
-              <%= yield :plan_tab_contents %>
-            </div><!-- tab-content -->
-          </div><!-- travel-serch -->
+        <div class="col-sm-6">
+	  <div id="card-serch">
+            <div class="travel-serch">
+              <% render 'plans/tabs/distination' %>
+              <% render 'plans/tabs/hotel' %>
+              <% render 'plans/tabs/place' %>
+              <% render 'plans/tabs/tag' %>
+              <% render 'plans/tabs/map' %>
+              <ul class="nav nav-tabs">
+		<%= yield :plan_tab_navs %>
+              </ul>
+              <div class="tab-content">
+		<%= yield :plan_tab_contents %>
+              </div><!-- tab-content -->
+            </div><!-- travel-serch -->
+	  </div><!-- #card-serch -->
         </div><!-- .col-sm-6 -->
       </div><!-- .row -->
     </div><!-- contents -->
