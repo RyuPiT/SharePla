@@ -43,6 +43,7 @@ textarea {
 
 #card-serch {
   border-left: 1px solid #ddd;
+  overflow: scroll;
 }
 
 #prefectures > .area-division > .btn-primary {
@@ -69,4 +70,12 @@ textarea {
   color: #a0a0a0;
   font-size: 17px;
   padding: 20px 5px 5px 0;
+}
+
+.tab-content {
+  margin-top:10px;
+}
+
+.plan-detail {
+overflow: scroll;
 }
