@@ -39,7 +39,7 @@ class PlansController < ApplicationController
 
   def map_search
     keyword    = params[:search_word]
-    type       = 'Touring'
+    type       = 'Map'
 
     respond_to do |format|
       format.html { render nothing: true }
