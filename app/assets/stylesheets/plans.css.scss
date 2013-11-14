@@ -42,7 +42,6 @@ textarea {
 }
 
 #card-search {
-  border-left: 1px solid #ddd;
   height: 99%;
   overflow: scroll;
 }
@@ -79,4 +78,8 @@ textarea {
 
 .plan-detail {
   overflow: scroll;
+}
+
+#sideber-left {
+  border-left: 1px solid #ddd;
 }
