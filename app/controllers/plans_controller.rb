@@ -43,7 +43,7 @@ class PlansController < ApplicationController
 
     respond_to do |format|
       format.html { render nothing: true }
-      format.json { render json: places_search(keyword, type) }
+      format.json { render json: places_data(keyword, type) }
     end
   end
 
