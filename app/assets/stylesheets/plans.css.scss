@@ -62,9 +62,12 @@ textarea {
 #plan-list > .container > .contents,
 #plan-list > .container > .contents > .row,
 #plan-list > .container > .contents > .row > .col-sm-6,
-#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail,
-#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable{
+#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail {
   height: 99%;
+}
+
+#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable {
+  height: 96%;
 }
 
 #distination > p {
@@ -86,5 +89,5 @@ textarea {
 }
 
 .travel-search {
-  width: 99%;
+  width: 92%;
 }
