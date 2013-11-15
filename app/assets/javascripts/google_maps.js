@@ -2,7 +2,7 @@ var map; // マップ
 var infowindow; // マーカーの詳細表示
 
 // マップオブジェクトを作成し、マーカーを表示
-function initialize(){
+function initialize(searchWard){
   myLatLng = new google.maps.LatLng(35.681382, 139.766084);
   var mapOptions = {
 	  center: myLatLng,
@@ -47,14 +47,14 @@ function initialize(){
     
   // サークル表示（半径10k）
   var circle = new google.maps.Circle(circleOptions); 
-    
+
   // プレイス検索
   var request = {
 	  location: myLatLng,
 	  radius: '10000',
-	  query:'郵便局'
+	  query: searchWard
   };
-
+    
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   service.textSearch(request, callback);

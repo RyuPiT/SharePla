@@ -92,6 +92,7 @@ $(function() {
     var postData = { search_word: $('#map-search input[name=keyword]').val() };
     var postUrl  = '/plans/map_search.json';
     $('#map-card-sortable li').remove();
+    initialize($('#map-search input[name=keyword]').val());
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
   });
