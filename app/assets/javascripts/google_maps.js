@@ -6,7 +6,7 @@ var lat;
 var lng;
 
 function initialize(){
-  　if (typeof lat == 'undefined'){
+  if (typeof lat == 'undefined'){
     //init
     lat = 35.681382;
     lng = 139.766084;
