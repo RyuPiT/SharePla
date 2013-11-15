@@ -10,7 +10,9 @@ $(function() {
   });
 
   function addCardToPlan(data) {
-    var li = $('<li>');
+    var li = $("<li>").hide().animate({ pacity:1 }, function() {
+      $(this).show("slide");
+    });
     li.addClass('ui-state-default');
     //add card-title
     //add delete-function-botton on right side
@@ -23,21 +25,26 @@ $(function() {
 
   // data = plans_controller's @json_data = services/api_service.rb's formated_data
   function apiCallback(data) {
-    var cardType = data['meta']['type'];
+    var cardType   = data['meta']['type'];
+    var main       = 'main';
+    var hiddenSpan = 'span style="visibility: hidden;"';
+
     $.each(data['cards'], function() {
-      var main      = 'main';
       var name      = this[main]['name'];
       var latitude  = this[main]['latitude'];
       var longitude = this[main]['longitude'];
 
-      var hiddenSpan = 'span style="visibility: hidden;"';
-      var li = $('<li>');
-      li.addClass('ui-state-hotel');
-      li.append('<span class="title"><a>' + name + '</a></span>');
-      li.append('<' + hiddenSpan + ' class="card_type">' + cardType  + '</span>');
-      li.append('<' + hiddenSpan + ' class="longitude">' + longitude + '</span>');
-      li.append('<' + hiddenSpan + ' class="latitude">'  + latitude  + '</span>');
-      li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
+      var li         = $('<li>');
+      li.addClass('ui-state-hotel'); // TODO: #67
+
+      var addContent = '';
+      addContent += '<span class="title"><a>' + name + '</a></span>';
+      addContent += '<' + hiddenSpan + ' class="card_type">' + cardType  + '</span>';
+      addContent += '<' + hiddenSpan + ' class="longitude">' + longitude + '</span>';
+      addContent += '<' + hiddenSpan + ' class="latitude">'  + latitude  + '</span>';
+      addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+
+      li.append(addContent);
       tabCallbacks[cardType](li, data['meta'], this);
     });
     loopEndCallbacks[cardType]();
@@ -85,7 +92,7 @@ $(function() {
     return false;
   });
 
-  // Touring 
+  // Touring
   function touringCardFunc(li, metaData, data) {
     var searchWord = metaData['search_word'];
     li.attr('name', searchWord);
@@ -107,22 +114,24 @@ $(function() {
     aSelector.attr('href','#Modal' + hotelNo);
     aSelector.attr('data-toggle','modal');
     //modal window
-    var dialog = '<div class="modal fade" id="Modal' + hotelNo + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">        <div class="modal-dialog">'
-      + '<div class="modal-content">'
-      + '<div class="modal-header">'
-      + '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
-      + '<h4 class="modal-title">' + name + '</h4>'
-      + '</div><!-- .model-header -->'
-      + '<div class="modal-body">'
-      + '<img src="' + imageUrl + '">'
-      + '</div><!-- .modal-body -->'
-      + '<div class="modal-footer">'
-      + '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>'
-      + '<a href="' + infoUrl + '" class="btn btn-primary" target="_blank">予約</button>'
-      + '</div><!-- .modal-content -->'
-      + '</div><!-- .modal-content -->'
-      + '</div><!-- .modal-dialog -->'
-      + '</div><!-- .modal fade -->';
+    var dialog = '';
+    dialog += '<div class="modal fade" id="Modal' + hotelNo + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+    dialog += '<div class="modal-dialog">';
+    dialog += '<div class="modal-content">';
+    dialog += '<div class="modal-header">';
+    dialog += '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
+    dialog += '<h4 class="modal-title">' + name + '</h4>';
+    dialog += '</div>';// .model-header
+    dialog += '<div class="modal-body">';
+    dialog += '<img src="' + imageUrl + '">';
+    dialog += '</div>';// .modal-body
+    dialog += '<div class="modal-footer">';
+    dialog += '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>';
+    dialog += '<a href="' + infoUrl + '" class="btn btn-primary" target="_blank">予約</button>';
+    dialog += '</div>';// .modal-content
+    dialog += '</div>';// .modal-content
+    dialog += '</div>';// .modal-dialog
+    dialog += '</div>';// .modal fade
 
     $('#hotel-card-sortable').append(dialog);
   }
@@ -151,13 +160,13 @@ $(function() {
   // return card list from main card list
   function getAllCard() {
     var allCard = new Array();
-    var htmlTag = '#main-card-sortable > li';
-    var size    = $(htmlTag).length;
+    var htmlTag = $('#main-card-sortable > li');
+    var size    = htmlTag.length;
     var keys    = ['title','card_type','longitude','latitude'];
     for(var i = 0; i < size; i++){
       var oneCard = { };
       $.each(keys, function() {
-        oneCard[this] = $(htmlTag).eq(i).children('.' + this).text();
+        oneCard[this] = htmlTag.eq(i).children('.' + this).text();
       });
       allCard[i] = oneCard;
     }
