@@ -1,9 +1,17 @@
 var map; // マップ
 var infowindow; // マーカーの詳細表示
 var myLatLng;
+var latlng;
+var lat;
+var lng;
 
 function initialize(){
-  myLatLng = new google.maps.LatLng(35.681382, 139.766084);
+　if (typeof lat == 'undefined'){
+    //init
+    lat = 35.681382;
+    lng = 139.766084;
+  }
+  myLatLng = new google.maps.LatLng(lat, lng);
   var mapOptions = {
 	  center: myLatLng,
 	  zoom:11,
@@ -14,7 +22,7 @@ function initialize(){
   // ユーザのマーカーアイコンを変更
   var markerImage = new google.maps.MarkerImage(
 	  // 画像の場所
-    //"http://blog-imgs-44.fc2.com/p/c/r/pcrice/mark2.png",
+    "http://blog-imgs-44.fc2.com/p/c/r/pcrice/mark2.png",
 	  // マーカーのサイズ
 	  new google.maps.Size(20, 24),
 	  // 画像の基準位置
@@ -33,33 +41,17 @@ function initialize(){
 	  icon: markerImage
   });
     
-  // サークルオプションの設定
-  var circleOptions = { 
-	  center: myLatLng, 
-	  map: map,
-	  radius: 10000, 
-	  strokeWeight: 3, 
-	  strokeColor: "#cd5c5c", 
-	  strokeOpacity: 0.5, 
-	  fillColor: "#e9967a", 
-	  fillOpacity: 0.5 
-  }; 
-    
-  // サークル表示（半径10k）
-  var circle = new google.maps.Circle(circleOptions); 
-  
 }
 
 
 // マップオブジェクトを作成し、マーカーを表示
 function textSearch(searchWard){
+　latlng = map.getCenter();
+　lat = latlng.lat();
+　lng = latlng.lng();
   initialize();
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    });
-  };
-  // プレイス検索
+  
+  // テキスト検索
   var request = {
 	  location: myLatLng,
 	  radius: '10000',
