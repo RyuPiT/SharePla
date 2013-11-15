@@ -1,5 +1,5 @@
 <% content_for :plan_tab_navs do %>
-  <li><a href="#map" data-toggle="tab">地図検索</a></li>
+  <li><a href="#map" data-toggle="tab" onclick="initialize()">地図検索</a></li>
 <% end %>
 
 <% content_for :plan_tab_contents do %>
@@ -11,10 +11,11 @@
         </div>
         <div class="col-sm-2">
           <input type="submit" class="btn btn-default" value="検索">
-          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         </div>
       </div><!-- .row -->
     </form><!-- map_search  -->
+
+    <div id="map-canvas" style="width:400px; height:500px"></div>
     <ol id="map-card-sortable"  class="droptrue">
     </ol>
   </div><!-- .tab-pane -->

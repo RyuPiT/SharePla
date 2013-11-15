@@ -55,13 +55,15 @@ $(function() {
 
   var tabCallbacks = {
     Hotel:   hotelCardFunc,
-    Touring: touringCardFunc
-  }
+    Touring: touringCardFunc,
+    Map:     mapCardFunc
+  };
 
   var loopEndCallbacks = {
     Hotel:   hotelLoopEnd,
-    Touring: touringLoopEnd
-  }
+    Touring: touringLoopEnd,
+    Map:     mapLoopEnd
+  };
 
   // area tag clicked event
   $('#prefectures > .area-division > label').bind('click',function() {
@@ -99,14 +101,34 @@ $(function() {
     return false;
   });
 
-  // Touring
+  // map search clicked event
+  $('#map-search').submit(function() {
+    var postData = { search_word: $('#map-search input[name=keyword]').val() };
+    var postUrl  = '/plans/map_search.json';
+    $('#map-card-sortable li').remove();
+    clearMarkers();
+    jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
+    return false;
+  });
+
+  // Map
+  function mapCardFunc(li, metaData, data) {
+    $('#map-card-sortable').append(li);
+    // put marker
+    putMarker(data);
+  }
+
+  function mapLoopEnd() {
+    $('#map-search input[name=keyword]').val('');
+    bindZoomMap();
+  }
+
   function touringCardFunc(li, metaData, data) {
     var searchWord = metaData['search_word'];
     li.attr('name', searchWord);
     $('#tourist-card-sortable').append(li);
   }
   function touringLoopEnd() {
-    $('#hotels-search input[name=keyword]').val('');
   }
 
   // Hotel
@@ -185,6 +207,13 @@ $(function() {
     return $.map($('#area-tags-box > span'), function(val) { return $(val).text(); });
   }
 
+  function bindZoomMap() {
+    $('#map-card-sortable > .ui-state-hotel').bind('click', function() {
+      var latStr = $(this).children('.latitude').text();
+      var lngStr = $(this).children('.longitude').text();
+      zoomMap(Number(latStr), Number(lngStr));
+    });
+  }
 });
 
 //plan-list sort
@@ -194,13 +223,13 @@ $(function() {
     placeholder: 'ui-state-highlight'
   });
 
-  $( 'ol.dropfalse' ).sortable({
+  $('ol.dropfalse').sortable({
     connectWith: 'ol',
     dropOnEmpty: false
   });
 
-  $( '#main-card-sortable, #hotel-card-sortable, #distination-card-sortable' ).disableSelection();
-  $( '#main-card-sortable' ).droppable({
+  $('#main-card-sortable, #hotel-card-sortable, #distination-card-sortable').disableSelection();
+  $('#main-card-sortable').droppable({
     activeClass: 'ui-state-hover',
     hoverClass: 'ui-state-active',
   });
