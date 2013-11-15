@@ -13,9 +13,11 @@ feature 'ユーザーはプラン内の目的地の順序を並び替えるこ�
 
     fill_in '目的地', with: '肉屋'
     click_on '追加'
+    sleep 1
 
     fill_in '目的地', with: '魚屋'
     click_on '追加'
+    sleep 1
 
   end
 
@@ -33,6 +35,6 @@ feature 'ユーザーはプラン内の目的地の順序を並び替えるこ�
 
     # 肉屋と魚屋が並び替えられています!
     destinations = page.all('.ui-state-default').map {|e| e.text }
-    expect(destinations).to eq %w(ホーム 肉屋 魚屋)
+    expect(destinations).to eq %w(ホーム 魚屋 肉屋)
   end
 end

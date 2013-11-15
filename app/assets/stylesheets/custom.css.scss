@@ -86,7 +86,8 @@ html,body{
   -webkit-border-radius: 8px;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
   margin: 5px 0 8px;
-  padding: 7px;
+  padding: 2px;
+  width: 99%;
   font-size: 1.2em;
 
     &:hover {
@@ -174,7 +175,6 @@ body.modal-open,
 }
 
 /* footer position bottom */
-
 footer {
   padding: 15px 15px 0px 15px;
   margin-top: 70px;
