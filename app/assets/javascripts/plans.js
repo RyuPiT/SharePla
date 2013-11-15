@@ -92,18 +92,21 @@ $(function() {
     var postData = { search_word: $('#map-search input[name=keyword]').val() };
     var postUrl  = '/plans/map_search.json';
     $('#map-card-sortable li').remove();
-    textSearch($('#map-search input[name=keyword]').val());
+    clearMarkers();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
   });
 
   // Map
   function mapCardFunc(li, metaData, data) {
-    var searchWord = metaData['search_word'];
     $('#map-card-sortable').append(li);
+    // put marker
+    putMarker(data);
   }
+
   function mapLoopEnd() {
     $('#map-search input[name=keyword]').val('');
+    bindZoomMap();
   }
 
   // Touring 
@@ -189,6 +192,13 @@ $(function() {
     return $.map($('#area-tags-box > span'), function(val) { return $(val).text(); });
   }
 
+  function bindZoomMap() {
+    $('#map-card-sortable > .ui-state-hotel').bind('click', function() {
+      var latStr = $(this).children('.latitude').text();
+      var lngStr = $(this).children('.longitude').text();
+      zoomMap(Number(latStr), Number(lngStr));
+    });
+  }
 });
 
 //plan-list sort
@@ -209,4 +219,3 @@ $(function() {
     hoverClass: 'ui-state-active',
   });
 });
-
