@@ -46,9 +46,9 @@ function initialize(){
 
 // マップオブジェクトを作成し、マーカーを表示
 function textSearch(searchWard){
-  　latlng = map.getCenter();
-  　lat = latlng.lat();
-  　lng = latlng.lng();
+  latlng = map.getCenter();
+  lat = latlng.lat();
+  lng = latlng.lng();
   initialize();
 
   // テキスト検索
@@ -88,4 +88,3 @@ function createMarker(place) {
     infowindow.open(map, this);
   });
 }
-
