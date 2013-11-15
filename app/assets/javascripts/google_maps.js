@@ -70,13 +70,13 @@ function callback(results, status){
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
-      createMarker(results[i]);
+      putMarker(results[i]);
     }
   }
 }
 
 // プレイス検索のときに表示するマーカー
-function createMarker(place) {
+function putMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
