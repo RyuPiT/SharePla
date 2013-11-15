@@ -9,15 +9,16 @@ feature 'ユーザーはプラン内の目的地の順序を並び替えるこ�
     visit root_path
     click_on 'New Plan!'
 
+    # animation を切る
+    page.execute_script('jQuery.fx.off = true;')
+
     fill_in 'プランタイトル', with: title
 
     fill_in '目的地', with: '肉屋'
     click_on '追加'
-    sleep 1
 
     fill_in '目的地', with: '魚屋'
     click_on '追加'
-    sleep 1
 
   end
 
