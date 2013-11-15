@@ -56,5 +56,5 @@ function clearMarkers() {
 function zoomMap(latitude, longitude) {
   var latlng = new google.maps.LatLng(latitude, longitude);
   map.setCenter(latlng);
-  map.setZoom(11);
+  map.setZoom(15);
 }
