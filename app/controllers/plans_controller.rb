@@ -37,6 +37,16 @@ class PlansController < ApplicationController
     end
   end
 
+  def map_search
+    keyword    = params[:search_word]
+    type       = 'Map'
+
+    respond_to do |format|
+      format.html { render nothing: true }
+      format.json { render json: places_data(keyword, type) }
+    end
+  end
+
   def create
     @plan = Plan.new(plan_params)
 
