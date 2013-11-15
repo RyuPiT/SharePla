@@ -208,13 +208,13 @@ $(function() {
     placeholder: 'ui-state-highlight'
   });
 
-  $( 'ol.dropfalse' ).sortable({
+  $('ol.dropfalse').sortable({
     connectWith: 'ol',
     dropOnEmpty: false
   });
 
-  $( '#main-card-sortable, #hotel-card-sortable, #distination-card-sortable' ).disableSelection();
-  $( '#main-card-sortable' ).droppable({
+  $('#main-card-sortable, #hotel-card-sortable, #distination-card-sortable').disableSelection();
+  $('#main-card-sortable').droppable({
     activeClass: 'ui-state-hover',
     hoverClass: 'ui-state-active',
   });

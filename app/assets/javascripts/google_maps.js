@@ -19,8 +19,8 @@ function initialize(){
   }
   myLatLng = new google.maps.LatLng(lat, lng);
   var mapOptions = {
-    center: myLatLng,
-    zoom:5,
+    center:    myLatLng,
+    zoom:      5,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -34,7 +34,7 @@ function putMarker(data) {
   var latlng = new google.maps.LatLng(latitude, longitude);
   var marker = new google.maps.Marker({
     position: latlng,
-      map:      map
+    map:      map
   });
   markerList.push(marker);
 
