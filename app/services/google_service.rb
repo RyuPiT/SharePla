@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class GoogleService
   @add_words = {Touring: ' 観光', Map: ''}
   @client = GooglePlaces::Client.new(ENV['GooglePlacesApiKey'])

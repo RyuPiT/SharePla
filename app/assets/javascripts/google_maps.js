@@ -1,8 +1,8 @@
 var map; // マップ
 var infowindow; // マーカーの詳細表示
+var myLatLng;
 
-// マップオブジェクトを作成し、マーカーを表示
-function initialize(searchWard){
+function initialize(){
   myLatLng = new google.maps.LatLng(35.681382, 139.766084);
   var mapOptions = {
 	  center: myLatLng,
@@ -47,14 +47,24 @@ function initialize(searchWard){
     
   // サークル表示（半径10k）
   var circle = new google.maps.Circle(circleOptions); 
+  
+}
 
+
+// マップオブジェクトを作成し、マーカーを表示
+function textSearch(searchWard){
+  initialize();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    });
+  };
   // プレイス検索
   var request = {
 	  location: myLatLng,
 	  radius: '10000',
 	  query: searchWard
   };
-    
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   service.textSearch(request, callback);
@@ -87,7 +97,3 @@ function createMarker(place) {
   });
 }
 
-function checkResize(){
-  alert("test");
-  google.maps.event.trigger(map, 'resize');
-}
