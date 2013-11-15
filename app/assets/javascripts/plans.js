@@ -73,6 +73,10 @@ $(function() {
       return;
     }
     var span = $('<span name=' + prefecture + '>');
+    span.hide().animate({ pacity:1 }, function() {
+        $(this).show("highlight");
+      });
+
     span.append(prefecture);
     span.addClass('label label-default');
     $('#area-tags-box').append(span);
