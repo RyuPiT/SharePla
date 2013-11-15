@@ -117,8 +117,8 @@ html,body{
 .ui-widget-content .ui-state-hotel,
 .ui-widget-header .ui-state-hotel{
   @include ui-state;
-  $hotel-card: #dafbbd;
-  $hotel-card-gradient: #e3fccd;
+  $hotel-card: #e2f7ce;
+  $hotel-card-gradient: #efffdf;
   background: $hotel-card;
   border: 1px solid $hotel-card;
 
