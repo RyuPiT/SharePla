@@ -4,6 +4,7 @@ class Opinion
 
   field :comment, type: String
   field :title,   type: String
+  field :like,    type: Integer, default: 0
 
   validates :comment, presence: true
 end
