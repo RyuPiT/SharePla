@@ -3,6 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // plan/index.erb.html
+
+$boader-color:        #e1e1e1;
+$main-color:          #d0e0f0;
+$attention-color:     #a6d233;
+$glay-color:          #e8e8e8;
+$dark-color:          #608090;
+$dark-color-gradient: #7191a1;
+$font-color:          #305060;
+
+
 .sns-botton > li{
   list-style: none;
   display:block;
@@ -12,6 +22,38 @@
  text-align: center;
 }
 
+.top-list-title {
+  background-color: $main-color;
+  padding: 10px 10px 30px 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 30px;
+  }
+  a {
+    width: 100%;
+    height: 100%;
+    float: right;
+  }
+  &:hover {
+    background-color: $attention-color;
+  }
+  span {
+    margin-right: 3px;
+  }
+}
+
+.table {
+  margin-top: 30px;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+.table tbody > tr > td {
+  border: none;
+}
 
 // plan/new.erb.html
 #plan-list > .navbar-fixed-top {
@@ -62,9 +104,12 @@ textarea {
 #plan-list > .container > .contents,
 #plan-list > .container > .contents > .row,
 #plan-list > .container > .contents > .row > .col-sm-6,
-#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail,
-#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable{
+#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail {
   height: 99%;
+}
+
+#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable {
+  height: 96%;
 }
 
 #distination > p {
@@ -86,5 +131,5 @@ textarea {
 }
 
 .travel-search {
-  width: 99%;
+  width: 92%;
 }

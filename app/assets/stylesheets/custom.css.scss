@@ -1,12 +1,13 @@
 @import "font-awesome";
 $icon-font-path: "/assets/";
 
-$boader-color: #e1e1e1;
-$main-color: #d0e0f0;
-$attention-color: #a6d233;
-$glay-color: #e8e8e8;
-$dark-color: #608090;
-$font-color: #305060;
+$boader-color:        #e1e1e1;
+$main-color:          #d0e0f0;
+$attention-color:     #a6d233;
+$glay-color:          #e8e8e8;
+$dark-color:          #608090;
+$dark-color-gradient: #7191a1;
+$font-color:          #305060;
 
 
 html,body{
@@ -29,7 +30,7 @@ html,body{
 
 //navigation bar backgound-color
 .navbar {
-  background-image: -webkit-gradient(linear,left 0,left 100%,from(#7191a1),to($dark-color));
+  background-image: -webkit-gradient(linear,left 0,left 100%,from($dark-color-gradient),to($dark-color));
   background-image: linear-gradient(to bottom,#7191a1 0,$dark-color 100%);
 }
 
@@ -117,8 +118,8 @@ html,body{
 .ui-widget-content .ui-state-hotel,
 .ui-widget-header .ui-state-hotel{
   @include ui-state;
-  $hotel-card: #dafbbd;
-  $hotel-card-gradient: #e3fccd;
+  $hotel-card: #e2f7ce;
+  $hotel-card-gradient: #efffdf;
   background: $hotel-card;
   border: 1px solid $hotel-card;
 
@@ -172,6 +173,20 @@ body.modal-open,
 //checkbox box-hidden
 [data-toggle="buttons"] > .area-division > .btn > input[type="checkbox"] {
   display: none;
+}
+
+.btn-primary {
+  background-image: -webkit-gradient(linear,left 0,left 100%,from($dark-color-gradient),to($dark-color));
+  background-image: -webkit-linear-gradient(top,$dark-color-gradient,0%,$dark-color,100%);
+  background-image: -moz-linear-gradient(top,$dark-color-gradient 0,$dark-color 100%);
+  background-image: linear-gradient(to bottom,$dark-color-gradient 0,$dark-color 100%);
+  background-repeat: repeat-x;
+  border-color: $dark-color;
+}
+
+.btn-primary:active, .btn-primary.active {
+  background-color: #B5B7B9;
+  border-color: #F3F3F3;
 }
 
 /* footer position bottom */

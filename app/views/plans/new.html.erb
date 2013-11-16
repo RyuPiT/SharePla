@@ -8,6 +8,24 @@
     <div class="contents">
       <div class="row">
         <div class="col-sm-6">
+          <div id="card-search">
+            <div class="travel-search">
+              <% render 'plans/tabs/distination' %>
+              <% render 'plans/tabs/hotel' %>
+              <% render 'plans/tabs/place' %>
+              <% render 'plans/tabs/tag' %>
+              <% render 'plans/tabs/map' %>
+              <ul class="nav nav-tabs">
+                <%= yield :plan_tab_navs %>
+              </ul>
+              <div class="tab-content">
+                <%= yield :plan_tab_contents %>
+              </div><!-- tab-content -->
+            </div><!-- travel-search -->
+          </div><!-- #card-search -->
+        </div><!-- .col-sm-6 -->
+
+        <div class="col-sm-6" id="sideber-left">
           <div class="plan-detail">
             <ol id="main-card-sortable" class="droptrue">
               <% if @plan %>
@@ -32,24 +50,6 @@
               <% end %>
             </ol>
           </div><!-- .plan-detail -->
-
-        </div><!-- .col-sm-6 -->
-        <div class="col-sm-6" id="sideber-left">
-          <div id="card-search">
-            <div class="travel-search">
-              <% render 'plans/tabs/distination' %>
-              <% render 'plans/tabs/hotel' %>
-              <% render 'plans/tabs/place' %>
-              <% render 'plans/tabs/tag' %>
-              <% render 'plans/tabs/map' %>
-              <ul class="nav nav-tabs">
-                <%= yield :plan_tab_navs %>
-              </ul>
-              <div class="tab-content">
-                <%= yield :plan_tab_contents %>
-              </div><!-- tab-content -->
-            </div><!-- travel-search -->
-          </div><!-- #card-search -->
         </div><!-- .col-sm-6 -->
       </div><!-- .row -->
     </div><!-- contents -->

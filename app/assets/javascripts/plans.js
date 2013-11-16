@@ -34,7 +34,10 @@ $(function() {
       var latitude  = this[main]['latitude'];
       var longitude = this[main]['longitude'];
 
-      var li         = $('<li>');
+      var li        = $('<li>')
+      li.hide().animate({ pacity:1 }, function() {
+        $(this).show("slide");
+      });
       li.addClass('ui-state-hotel'); // TODO: #67
 
       var addContent = '';
@@ -72,6 +75,10 @@ $(function() {
       return;
     }
     var span = $('<span name=' + prefecture + '>');
+    span.hide().animate({ pacity:1 }, function() {
+        $(this).show("highlight");
+      });
+
     span.append(prefecture);
     span.addClass('label label-default');
     $('#area-tags-box').append(span);
@@ -145,7 +152,7 @@ $(function() {
     dialog += '<h4 class="modal-title">' + name + '</h4>';
     dialog += '</div>';// .model-header
     dialog += '<div class="modal-body">';
-    dialog += '<img src="' + imageUrl + '">';
+    dialog += '<img src="' + imageUrl + '" class="img-rounded" height="200px">';
     dialog += '</div>';// .modal-body
     dialog += '<div class="modal-footer">';
     dialog += '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>';
