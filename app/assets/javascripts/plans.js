@@ -209,4 +209,3 @@ $(function() {
     hoverClass: 'ui-state-active',
   });
 });
-
