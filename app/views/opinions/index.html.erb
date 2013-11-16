@@ -1,2 +1,16 @@
-<h1>Opinions#index</h1>
-<p>Find me in app/views/opinions/index.html.erb</p>
+<div class="container">
+  <div class="page-header">
+    <h1>ご意見版</h1>
+    <p>実装して欲しい機能やコメントなど、なんでもご投稿ください</p>
+  </div>
+  <%= form_for(@new_opinion) do |f| %>
+    <%= f.text_field :title,   class: 'form-control', placeholder: 'タイトル',   required: true %>
+    <%= f.text_area  :comment, class: 'form-control', placeholder: '意見や要望', required: true %>
+    <%= f.submit     :comment, class: 'btn btn-primary' %>
+  <% end %>
+  <% @opinions.reverse.each do |opinion| %>
+    <h4><%= opinion[:title] %></h4>
+    <p><%= opinion[:comment] %></p>
+    <p>作成日:<%= opinion.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+  <% end %>
+</div>
