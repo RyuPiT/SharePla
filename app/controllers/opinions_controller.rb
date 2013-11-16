@@ -1,7 +1,7 @@
 class OpinionsController < ApplicationController
   def index
-    @opinions    = Opinion.all
     @new_opinion = Opinion.new
+    @opinions    = Opinion.all
   end
 
   def create
@@ -10,8 +10,10 @@ class OpinionsController < ApplicationController
     respond_to do |format|
       if @opinion.save
         flash[:notice] = "投稿しました"
-        format.html { render nothing: true }
-        format.json { render nothing: true }
+        index # @new_opinionの初期化と@opinionsの再設定
+        format.html {
+          render action: 'index'
+        }
       end
     end
   end
