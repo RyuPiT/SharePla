@@ -231,6 +231,13 @@ $(function() {
   $('#main-card-sortable, #hotel-card-sortable, #distination-card-sortable').disableSelection();
   $('#main-card-sortable').droppable({
     activeClass: 'ui-state-hover',
-    hoverClass: 'ui-state-active',
+    hoverClass: 'ui-state-active'
+  });
+});
+
+$(function() {
+  $('#time > .btn').bind('click', function() {
+    var timeTxt = $(this).text();
+    console.log(timeTxt);
   });
 });
