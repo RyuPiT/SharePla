@@ -13,5 +13,7 @@ $(function(){
 });
 
 function opinionLikeCallback(data) {
+  var likes = $('.opinion-list button[name='+data['id']+'] span').text();
+  $('.opinion-list button[name='+data['id']+'] span').text(parseInt(likes) + 1);
   $('.opinion-list button[name='+data['id']+']').addClass('disabled');
 }
