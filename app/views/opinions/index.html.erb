@@ -14,7 +14,7 @@
   <% @opinions.reverse.each do |opinion| %>
     <div class="opinion-list">
       <h4><%= opinion[:title] %></h4>
-      <p class="opinion-comment"><%= simple_format(opinion[:comment]) %></p>
+      <%= simple_format(opinion[:comment], class: "opinion-comment") %>
       <p class="opinion-date">作成日:<%= opinion.created_at.strftime('%Y/%m/%d %H:%M') %></p>
       <% if @ids.blank? then %>
         <button class="btn btn-primary" style="float: right;" name="<%= opinion[:id] %>" value="<%= opinion[:id] %>">iine! 
