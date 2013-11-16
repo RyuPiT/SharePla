@@ -75,6 +75,11 @@ textarea {
   padding: 0;
 }
 
+#main-card-sortable > .ui-state-default {
+  margin-left: 70px;
+  width: 86%;
+}
+
 .ui-state-highlight {
   height: 1.5em;
   line-height: 1.2em;
