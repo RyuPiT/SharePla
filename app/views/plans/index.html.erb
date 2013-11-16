@@ -48,7 +48,7 @@
                 <span name="<%= tag %>" class="label label-default"><%= tag %></span>
               <% end %>
               <h4><%= plan[:title] %></h4>
-              <p>作成日:<%= plan[:created_at].month %>/<%= plan[:created_at].day %> <%= plan[:created_at].hour %>:<%= plan[:created_at].min %>:<%= plan[:created_at].sec %></p>
+              <p>作成日:<%= plan[:created_at].strftime('%Y/%m/%d %H:%M') %></p>
               <%= link_to "プランを見る", plan %>
             </div>
           </td>
