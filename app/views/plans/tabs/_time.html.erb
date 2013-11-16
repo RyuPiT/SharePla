@@ -1,0 +1,14 @@
+<% content_for :plan_tab_navs do %>
+  <li><a href="#time" data-toggle="tab">時間</a></li>
+<% end %>
+
+<% content_for :plan_tab_contents do %>
+  <div class="tab-pane" id="time">
+    <% Day.hours.each_with_index do |hour, idx| %>
+      <div class="btn btn-primary"><%= hour %></div>
+      <% if ((idx+1)%4 == 0) then%>
+        <br>
+      <% end %>
+    <% end %>
+  </div><!-- .tab-pane -->
+<% end %>
