@@ -138,3 +138,29 @@ textarea {
 .travel-search {
   width: 92%;
 }
+
+.time-card {
+  background: #fff;
+  border: none;
+}
+
+.time-card .hour{
+  background-color: #608090;
+  padding: 6px;
+  color: #ddd;
+  border-radius: 8px 8px 0px 0px;
+  -moz-border-radius: 8px 8px 0px 0px;
+  -webkit-border-radius: 8px 8px 0px 0px;
+  width: 60px;
+}
+
+.time-border {
+  margin-top: -1px;
+  margin-bottom: -32px;
+  border: 0;
+  border-top: 1px solid #608090;
+  margin-left: 45px;
+  border-radius: 1px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 8px;
+}
