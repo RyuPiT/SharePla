@@ -1,4 +1,5 @@
 SharePla::Application.routes.draw do
+  get "opinions/index"
   root 'plans#index'
 
   resources :plans, only: %i[create new show] do
