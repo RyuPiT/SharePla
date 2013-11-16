@@ -1,7 +1,7 @@
 <div class="container">
   <div class="page-header">
     <% if flash[:notice] %>
-    <div class="alert alert-success alert-dismissable"><button id="jquery-ui-hide" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= h(flash[:notice]) %></div>
+      <div class="alert alert-success alert-dismissable"><button id="jquery-ui-hide" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= h(flash[:notice]) %></div>
     <% end %>
     <h1>ご意見版</h1>
     <p>実装して欲しい機能やコメントなど、なんでもご投稿ください</p>
@@ -13,9 +13,10 @@
   <% end %>
   <% @opinions.reverse.each do |opinion| %>
     <div class="opinion-list">
-    <h4><%= opinion[:title] %></h4>
-    <p class="opinion-comment"><%= opinion[:comment] %></p>
-    <p class="opinion-date">作成日:<%= opinion.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+      <h4><%= opinion[:title] %></h4>
+      <p class="opinion-comment"><%= opinion[:comment] %></p>
+      <p class="opinion-date">作成日:<%= opinion.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+      <button class="btn btn-primary" style="float: right;" name="<%= opinion[:id] %>" value="<%= opinion[:id] %>">iine!</button>
     </div>
   <% end %>
 </div>

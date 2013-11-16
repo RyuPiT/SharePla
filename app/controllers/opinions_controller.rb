@@ -1,4 +1,6 @@
 class OpinionsController < ApplicationController
+  before_action :set_opinion, only: :like
+
   def index
     @new_opinion = Opinion.new
     @opinions    = Opinion.all
@@ -18,13 +20,24 @@ class OpinionsController < ApplicationController
     end
   end
 
+  def like
+    json_data = { id: params[:id] }
+    likes = @opinion[:likes] + 1
+
+    @opinion.update(likes: likes)
+
+    respond_to do |format|
+      format.json { render json: json_data }
+    end
+  end
+
   private
 
   def opinion_params
     params.require(:opinion).permit(:comment, :title)
   end
 
-  def set_plan
+  def set_opinion
     @opinion = Opinion.find(params[:id])
   end
 end
