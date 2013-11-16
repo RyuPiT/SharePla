@@ -1,5 +1,4 @@
 SharePla::Application.routes.draw do
-  get "opinions/index"
   root 'plans#index'
 
   resources :plans, only: %i[create new show] do
@@ -8,6 +7,8 @@ SharePla::Application.routes.draw do
     post 'places_search', on: :collection
     post 'map_search',    on: :collection
   end
+
+  resources :opinions, only: %i[create new show index]
 
   #get "hello/to/:name" => "hello#to"
   # The priority is based upon order of creation: first created -> highest priority.
