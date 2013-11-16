@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// plan/index.erb.html
 
 $boader-color:        #e1e1e1;
 $main-color:          #d0e0f0;
@@ -13,6 +12,7 @@ $dark-color-gradient: #7191a1;
 $font-color:          #305060;
 
 
+// plan/index.erb.html
 .sns-botton > li{
   list-style: none;
   display:block;
@@ -75,6 +75,11 @@ textarea {
   padding: 0;
 }
 
+#main-card-sortable > .ui-state-default {
+  margin-left: 70px;
+  width: 86%;
+}
+
 .ui-state-highlight {
   height: 1.5em;
   line-height: 1.2em;
@@ -132,4 +137,30 @@ textarea {
 
 .travel-search {
   width: 92%;
+}
+
+.time-card {
+  background: #fff;
+  border: none;
+}
+
+.time-card .hour{
+  background-color: #608090;
+  padding: 6px;
+  color: #ddd;
+  border-radius: 8px 8px 0px 0px;
+  -moz-border-radius: 8px 8px 0px 0px;
+  -webkit-border-radius: 8px 8px 0px 0px;
+  width: 60px;
+}
+
+.time-border {
+  margin-top: -1px;
+  margin-bottom: -32px;
+  border: 0;
+  border-top: 1px solid #608090;
+  margin-left: 45px;
+  border-radius: 1px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 8px;
 }
