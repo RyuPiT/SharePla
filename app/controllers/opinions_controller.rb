@@ -4,6 +4,7 @@ class OpinionsController < ApplicationController
   def index
     @new_opinion = Opinion.new
     @opinions    = Opinion.all
+    @ids         = session[:ids] if session[:ids].present?
   end
 
   def create
@@ -25,6 +26,11 @@ class OpinionsController < ApplicationController
     likes = @opinion[:likes] + 1
 
     @opinion.update(likes: likes)
+    if session[:ids].nil?
+      session[:ids] = [ params[:id] ]
+    else
+      session[:ids].push(params[:id])
+    end
 
     respond_to do |format|
       format.json { render json: json_data }

@@ -16,7 +16,21 @@
       <h4><%= opinion[:title] %></h4>
       <p class="opinion-comment"><%= opinion[:comment] %></p>
       <p class="opinion-date">作成日:<%= opinion.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-      <button class="btn btn-primary" style="float: right;" name="<%= opinion[:id] %>" value="<%= opinion[:id] %>">iine!</button>
+      <% if @ids.blank? then %>
+        <button class="btn btn-primary" style="float: right;" name="<%= opinion[:id] %>" value="<%= opinion[:id] %>">iine! 
+          <span class="badge"><%= opinion[:likes] %></span>
+        </button>
+      <% else %>
+        <% if @ids.include?(opinion[:id].to_s) then %>
+          <button class="btn btn-primary disabled" style="float: right;" name="<%= opinion[:id] %>" value="<%= opinion[:id] %>">iine!
+            <span class="badge"><%= opinion[:likes] %></span>
+          </button>
+        <% else %>
+          <button class="btn btn-primary" style="float: right;" name="<%= opinion[:id] %>" value="<%= opinion[:id] %>">iine!
+            <span class="badge"><%= opinion[:likes] %></span>
+          </button>
+        <% end %>
+      <% end %>
     </div>
   <% end %>
 </div>
