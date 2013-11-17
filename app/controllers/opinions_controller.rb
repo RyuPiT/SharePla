@@ -14,16 +14,14 @@ class OpinionsController < ApplicationController
       if @opinion.save
         flash[:notice] = "投稿しました"
         index # @new_opinionの初期化と@opinionsの再設定
-        format.html {
-          render action: 'index'
-        }
+        format.html { render action: 'index' }
       end
     end
   end
 
   def like
     json_data = { id: params[:id] }
-    likes = @opinion[:likes] + 1
+    likes     = @opinion[:likes] + 1
 
     @opinion.update(likes: likes)
     if session[:ids].nil?
