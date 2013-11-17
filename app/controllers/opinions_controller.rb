@@ -1,6 +1,4 @@
 class OpinionsController < ApplicationController
-  before_action :set_opinion, only: :like
-
   def index
     @new_opinion = Opinion.new
     @opinions    = Opinion.all
@@ -20,18 +18,26 @@ class OpinionsController < ApplicationController
   end
 
   def like
-    json_data = { id: params[:id] }
-    likes     = @opinion[:likes] + 1
-
-    @opinion.update(likes: likes)
-    if session[:ids].nil?
-      session[:ids] = [ params[:id] ]
+    if session[:ids].present? && session[:ids].include?(params[:id]) then
+      is_duplicate = TRUE
+      bad_status   = { status: "bad" }
     else
-      session[:ids].push(params[:id])
+      set_opinion
+
+      is_duplicate = FALSE
+      json_data    = { status: "ok", id: params[:id] }
+      likes        = @opinion[:likes] + 1
+
+      @opinion.update(likes: likes)
+      add_id_to_session params[:id]
     end
 
     respond_to do |format|
-      format.json { render json: json_data }
+      if is_duplicate
+        format.json { render json: bad_status }
+      else
+        format.json { render json: json_data }
+      end
     end
   end
 
@@ -43,5 +49,13 @@ class OpinionsController < ApplicationController
 
   def set_opinion
     @opinion = Opinion.find(params[:id])
+  end
+
+  def add_id_to_session id
+    if session[:ids].nil?
+      session[:ids] = [id]
+    else
+      session[:ids].push(id)
+    end
   end
 end
