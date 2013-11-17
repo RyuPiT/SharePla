@@ -18,7 +18,7 @@ var opinion = {
     } else {
       var message = '';
       message += '<div class="alert alert-warning alert-dismissable">';
-      message += '<button id="jquery-ui-hide" type="button" class="close" data-dismiss="alert" aria-hidden="true">';
+      message += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">';
       message += '&times;</button>';
       message += 'すでにiine!されています';
       message += '</div>';
