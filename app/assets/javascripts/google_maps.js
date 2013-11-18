@@ -24,6 +24,7 @@ function initialize(){
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  $("#travel-map-tab a").attr('onclick','');
 }
 
 function putMarker(data) {
