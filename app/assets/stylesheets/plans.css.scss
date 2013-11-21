@@ -15,7 +15,7 @@ $font-color:          #305060;
 
 .sns-botton > li{
   list-style: none;
-  display:block;
+  display: block;
 }
 
 #new-plan-button {
@@ -30,6 +30,8 @@ $font-color:          #305060;
   float: left;
   width: 270px;
   margin: 5px;
+  cursor: pointer;
+  cursor: hand;
   h4 {
     overflow: hidden;
     text-overflow: ellipsis;
