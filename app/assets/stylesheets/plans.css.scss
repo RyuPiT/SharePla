@@ -26,11 +26,14 @@ $font-color:          #305060;
   background-color: $main-color;
   padding: 10px 10px 30px 10px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  list-style: none;
+  float: left;
+  width: 270px;
+  margin: 5px;
   h4 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-top: 30px;
   }
   a {
     width: 100%;
@@ -45,14 +48,13 @@ $font-color:          #305060;
   }
 }
 
-.table {
+.plans-list {
   margin-top: 30px;
-  table-layout: fixed;
-  word-wrap: break-word;
 }
 
-.table tbody > tr > td {
-  border: none;
+.area-tags {
+  overflow: auto;
+  height: 16px;
 }
 
 // plan/new.erb.html
