@@ -34,31 +34,21 @@
     <%= link_to 'New Plan!', new_plan_path, class: "btn btn-primary btn-lg" %>
   </div>
   <!-- show list plan-title -->
-  <table class="table">
-    <tbody>
-      <% if @plans %>
-        <% count = 0 %>
-        <% @plans.reverse.each do |plan| %>
-          <% if count%4 == 0 %>
-            <tr>
-          <% end %>
-          <td>
-            <div class="top-list-title">
-              <% (plan[:area_tags] || []).each do |tag| %>
-                <span name="<%= tag %>" class="label label-default"><%= tag %></span>
-              <% end %>
-              <h4><%= plan[:title] %></h4>
-              <p>作成日:<%= plan.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-              <%= link_to "プランを見る", plan %>
-            </div>
-          </td>
-          <% if count%4 == 3 %>
-            </tr>
-          <% end %>
-          <% count += 1 %>
+  <div class="plans-list">
+    <% if @plans %>
+      <% @plans.reverse.each do |plan| %>
+      <li class="top-list-title">
+        <div class="area-tags">
+          <% (plan[:area_tags] || []).each do |tag| %>
+          <span name="<%= tag %>" class="label label-default"><%= tag %></span>
         <% end %>
+        </div>
+        <h4><%= plan[:title] %></h4>
+        <p>作成日:<%= plan.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+        <%= link_to "プランを見る", plan %>
+      </li>
       <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </div>
 </div>
 
