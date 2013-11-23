@@ -75,6 +75,10 @@ textarea {
   padding: 0;
 }
 
+#main-card-sortable {
+  padding-top: 20px;
+  margin-top: 20px;
+}
 #main-card-sortable > .ui-state-default {
   margin-left: 70px;
   width: 86%;
@@ -163,4 +167,9 @@ textarea {
   border-radius: 1px;
   -moz-border-radius: 100px;
   -webkit-border-radius: 8px;
+}
+
+.sortable-card {
+  width: 98%;
+  padding-left: 70px;
 }
