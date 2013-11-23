@@ -1,0 +1,29 @@
+// Place all the styles related to the opinions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$glay-color:          #e8e8e8;
+
+.opinion-list {
+  border: 1px solid #aaa;
+  margin: 40px 0;
+  h4 {
+    padding: 10px;
+    border-bottom: 1px solid $glay-color;
+    background-color: $glay-color;
+    overflow: auto;
+    margin: 0;
+    &:before {
+      font-family: 'Fontello';
+      content: "a";
+      padding-right: 10px;
+    }
+  }
+  .opinion-date {
+    margin: 2px;
+    float: right;
+  }
+  .opinion-comment {
+    padding: 10px 20px 0px;
+    overflow: auto;
+  }
+}

@@ -8,6 +8,10 @@ SharePla::Application.routes.draw do
     post 'map_search',    on: :collection
   end
 
+  resources :opinions, only: %i[create index] do
+    post 'like', on: :collection
+  end
+
   #get "hello/to/:name" => "hello#to"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

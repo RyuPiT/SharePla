@@ -178,6 +178,12 @@ $(function() {
     return false;
   });
 
+  // box link
+  $('.plans-list > li').bind('click', function() {
+    window.location=$(this).find("a").attr("href");
+    return false;
+  });
+
   function saveplanCallback(data) {
     location.href = '/';
   }
