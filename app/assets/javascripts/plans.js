@@ -195,7 +195,7 @@ $(function() {
   // return card list from main card list
   function getAllCard() {
     var allCard = new Array();
-    var htmlTag = $('#main-card-sortable > li');
+    var htmlTag = $('#main-card-sortable > li > div');
     var size    = htmlTag.length;
     var keys    = ['title','card_type','longitude','latitude'];
     for(var i = 0; i < size; i++){
@@ -248,7 +248,7 @@ $(function() {
     var li = $('<li>');
     li.addClass('time-card');
     addContent  = '<hr class="time-border">'
-    addContent += '<div class="hour">' + timeTxt + '</div>' 
+    addContent += '<div class="hour"><span class="title">' + timeTxt + '</span></div>'
     li.append(addContent);
     $('#main-card-sortable').append(li);
   });
