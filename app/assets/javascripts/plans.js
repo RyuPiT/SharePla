@@ -31,7 +31,6 @@ $(function() {
   function apiCallback(data) {
     var cardType   = data['meta']['type'];
     var main       = 'main';
-    var hiddenSpan = 'span style="visibility: hidden;"';
 
     $.each(data['cards'], function() {
       var name      = this[main]['name'];
@@ -47,9 +46,9 @@ $(function() {
       var addContent = '';
       addContent += '<div class="ui-state-hotel">'
       addContent += '<span class="title"><a>' + name + '</a></span>';
-      addContent += '<' + hiddenSpan + ' class="card_type">' + cardType  + '</span>';
-      addContent += '<' + hiddenSpan + ' class="longitude">' + longitude + '</span>';
-      addContent += '<' + hiddenSpan + ' class="latitude">'  + latitude  + '</span>';
+      addContent += '<sapn class="card_type">' + cardType  + '</span>';
+      addContent += '<span class="longitude">' + longitude + '</span>';
+      addContent += '<span class="latitude">'  + latitude  + '</span>';
       addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
       addContent += '</div>'
 
@@ -195,7 +194,7 @@ $(function() {
   // return card list from main card list
   function getAllCard() {
     var allCard = new Array();
-    var htmlTag = $('#main-card-sortable > li');
+    var htmlTag = $('#main-card-sortable > li > div');
     var size    = htmlTag.length;
     var keys    = ['title','card_type','longitude','latitude'];
     for(var i = 0; i < size; i++){
@@ -248,7 +247,8 @@ $(function() {
     var li = $('<li>');
     li.addClass('time-card');
     addContent  = '<hr class="time-border">'
-    addContent += '<div class="hour">' + timeTxt + '</div>' 
+    addContent += '<div class="hour"><span class="title">' + timeTxt + '</span></div>'
+    addContent += '<span class="card_type">Time</span>'
     li.append(addContent);
     $('#main-card-sortable').append(li);
   });

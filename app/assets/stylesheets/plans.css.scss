@@ -145,31 +145,45 @@ textarea {
 .time-card {
   background: transparent;
   border: none;
-}
-
-.time-card .hour{
-  background-color: #608090;
-  padding: 6px;
-  color: #ddd;
-  border-radius: 8px 8px 0 0;
-  -moz-border-radius: 8px 8px 0px 0px;
-  -webkit-border-radius: 8px 8px 0 0;
-  width: 65px;
-  margin-top: 22px;
-}
-
-.time-border {
-  margin-top: 16px;
-  margin-bottom: -54px;
-  border: 0;
-  border: 5px solid #608090;
-  margin-left: 45px;
-  border-radius: 1px;
-  -moz-border-radius: 100px;
-  -webkit-border-radius: 8px;
+  margin-bottom: -19px;
+  margin-top: -9px;
+  .hour{
+    background-color: #608090;
+    padding: 6px;
+    color: #ddd;
+    border-radius: 8px 8px 0 0;
+    -moz-border-radius: 8px 8px 0px 0px;
+    -webkit-border-radius: 8px 8px 0 0;
+    width: 65px;
+    margin-top: 22px;
+    &:hover {
+      cursor:pointer;
+      cursor:hand;
+    }
+  }
+  .time-border {
+    margin-top: 16px;
+    margin-bottom: -54px;
+    border: 0;
+    border: 6px solid #608090;
+    margin-left: 45px;
+    border-radius: 1px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 8px;
+    &:hover {
+      cursor:pointer;
+      cursor:hand;
+    }
+  }
 }
 
 .sortable-card {
   width: 98%;
   padding-left: 70px;
+}
+
+.card_type,
+.longitude,
+.latitude {
+  visibility: hidden;
 }
