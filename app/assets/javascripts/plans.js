@@ -31,7 +31,6 @@ $(function() {
   function apiCallback(data) {
     var cardType   = data['meta']['type'];
     var main       = 'main';
-    var hiddenSpan = 'span style="visibility: hidden;"';
 
     $.each(data['cards'], function() {
       var name      = this[main]['name'];
@@ -47,9 +46,9 @@ $(function() {
       var addContent = '';
       addContent += '<div class="ui-state-hotel">'
       addContent += '<span class="title"><a>' + name + '</a></span>';
-      addContent += '<' + hiddenSpan + ' class="card_type">' + cardType  + '</span>';
-      addContent += '<' + hiddenSpan + ' class="longitude">' + longitude + '</span>';
-      addContent += '<' + hiddenSpan + ' class="latitude">'  + latitude  + '</span>';
+      addContent += '<sapn class="card_type">' + cardType  + '</span>';
+      addContent += '<span class="longitude">' + longitude + '</span>';
+      addContent += '<span class="latitude">'  + latitude  + '</span>';
       addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
       addContent += '</div>'
 
