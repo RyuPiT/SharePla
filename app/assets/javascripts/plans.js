@@ -245,5 +245,11 @@ $(function() {
   $('#time > .btn').bind('click', function() {
     var timeTxt = $(this).text();
     console.log(timeTxt);
+    var li = $('<li>');
+    li.addClass('time-card');
+    addContent  = '<hr class="time-border">'
+    addContent += '<div class="hour">' + timeTxt + '</div>' 
+    li.append(addContent);
+    $('#main-card-sortable').append(li);
   });
 });
