@@ -243,8 +243,7 @@ $(function() {
 $(function() {
   $('#time > .btn').bind('click', function() {
     var timeTxt = $(this).text();
-    console.log(timeTxt);
-    var li = $('<li>');
+    var li      = $('<li>');
     li.addClass('time-card');
     addContent  = '<hr class="time-border">'
     addContent += '<div class="hour"><span class="title">' + timeTxt + '</span></div>'
