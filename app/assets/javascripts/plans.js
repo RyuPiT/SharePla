@@ -249,6 +249,7 @@ $(function() {
     li.addClass('time-card');
     addContent  = '<hr class="time-border">'
     addContent += '<div class="hour"><span class="title">' + timeTxt + '</span></div>'
+    addContent += '<span class="card_type">Time</span>'
     li.append(addContent);
     $('#main-card-sortable').append(li);
   });
