@@ -13,12 +13,16 @@ $(function() {
     var li = $("<li>").hide().animate({ pacity:1 }, function() {
       $(this).show("slide");
     });
-    li.addClass('ui-state-default');
+    li.addClass('sortable-card');
     //add card-title
     //add delete-function-botton on right side
-    li.append('<span class="title">' + data['name'] + '</span>');
-    li.append('<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>');
+    var addContent = '';
+    addContent += '<div class="ui-state-default">';
+    addContent += '<span class="title">' + data['name'] + '</span>';
+    addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+    addContent += '</div>';//.ui-state-default
 
+    li.append(addContent);
     $('#main-card-sortable').append(li);
     $('#addplan input[name=keyword]').val('');
   }
@@ -27,7 +31,6 @@ $(function() {
   function apiCallback(data) {
     var cardType   = data['meta']['type'];
     var main       = 'main';
-    var hiddenSpan = 'span style="visibility: hidden;"';
 
     $.each(data['cards'], function() {
       var name      = this[main]['name'];
@@ -38,14 +41,16 @@ $(function() {
       li.hide().animate({ pacity:1 }, function() {
         $(this).show("slide");
       });
-      li.addClass('ui-state-hotel'); // TODO: #67
+      li.addClass('sortable-card'); // TODO: #67
 
       var addContent = '';
+      addContent += '<div class="ui-state-hotel">'
       addContent += '<span class="title"><a>' + name + '</a></span>';
-      addContent += '<' + hiddenSpan + ' class="card_type">' + cardType  + '</span>';
-      addContent += '<' + hiddenSpan + ' class="longitude">' + longitude + '</span>';
-      addContent += '<' + hiddenSpan + ' class="latitude">'  + latitude  + '</span>';
+      addContent += '<sapn class="card_type">' + cardType  + '</span>';
+      addContent += '<span class="longitude">' + longitude + '</span>';
+      addContent += '<span class="latitude">'  + latitude  + '</span>';
       addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+      addContent += '</div>'
 
       li.append(addContent);
       tabCallbacks[cardType](li, data['meta'], this);
@@ -195,7 +200,7 @@ $(function() {
   // return card list from main card list
   function getAllCard() {
     var allCard = new Array();
-    var htmlTag = $('#main-card-sortable > li');
+    var htmlTag = $('#main-card-sortable > li > div');
     var size    = htmlTag.length;
     var keys    = ['title','card_type','longitude','latitude'];
     for(var i = 0; i < size; i++){
@@ -214,7 +219,7 @@ $(function() {
   }
 
   function bindZoomMap() {
-    $('#map-card-sortable > .ui-state-hotel').bind('click', function() {
+    $('#map-card-sortable > .sortable-card >.ui-state-hotel').bind('click', function() {
       var latStr = $(this).children('.latitude').text();
       var lngStr = $(this).children('.longitude').text();
       zoomMap(Number(latStr), Number(lngStr));
@@ -237,6 +242,19 @@ $(function() {
   $('#main-card-sortable, #hotel-card-sortable, #distination-card-sortable').disableSelection();
   $('#main-card-sortable').droppable({
     activeClass: 'ui-state-hover',
-    hoverClass: 'ui-state-active',
+    hoverClass: 'ui-state-active'
+  });
+});
+
+$(function() {
+  $('#time > .btn').bind('click', function() {
+    var timeTxt = $(this).text();
+    var li      = $('<li>');
+    li.addClass('time-card');
+    addContent  = '<hr class="time-border">'
+    addContent += '<div class="hour"><span class="title">' + timeTxt + '</span></div>'
+    addContent += '<span class="card_type">Time</span>'
+    li.append(addContent);
+    $('#main-card-sortable').append(li);
   });
 });

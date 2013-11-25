@@ -15,6 +15,8 @@
               <% render 'plans/tabs/place' %>
               <% render 'plans/tabs/tag' %>
               <% render 'plans/tabs/map' %>
+              <% render 'plans/tabs/time' %>
+              <% render 'plans/tabs/route' %>
               <ul class="nav nav-tabs">
                 <%= yield :plan_tab_navs %>
               </ul>
@@ -46,7 +48,7 @@
               <% end %>
               <% end %>
               <% else %>
-              <li class="ui-state-default"><span class="title">ホーム</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></li>
+              <li class="sortable-card"><div class="ui-state-default"><span class="title">ホーム</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></li>
               <% end %>
             </ol>
           </div><!-- .plan-detail -->
@@ -55,4 +57,3 @@
     </div><!-- contents -->
   </div><!-- container -->
 </div><!-- #plan-list -->
-

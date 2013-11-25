@@ -81,7 +81,7 @@ html,body{
 
 //jquery_ui_theme sortable
 @mixin ui-state {
- color: $font-color;
+  color: $font-color;
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -163,6 +163,14 @@ body.modal-open,
   content: "\e021";
   font-family: 'Glyphicons Halflings';
   padding: 0 10px 0;
+}
+
+//time icon
+.hour:before {
+  content: "\e023";
+  font-family: 'Glyphicons Halflings';
+  padding: 0 2px 0;
+  font-size: 10px ;
 }
 
 //area-label

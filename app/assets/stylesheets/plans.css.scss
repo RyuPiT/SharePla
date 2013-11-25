@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// plan/index.erb.html
 
 $boader-color:        #e1e1e1;
 $main-color:          #d0e0f0;
@@ -13,6 +12,7 @@ $dark-color-gradient: #7191a1;
 $font-color:          #305060;
 
 
+// plan/index.erb.html
 .sns-botton > li{
   list-style: none;
   display: block;
@@ -79,6 +79,14 @@ textarea {
   padding: 0;
 }
 
+#main-card-sortable {
+  padding-top: 20px;
+}
+#main-card-sortable > .ui-state-default {
+  margin-left: 70px;
+  width: 86%;
+}
+
 .ui-state-highlight {
   height: 1.5em;
   line-height: 1.2em;
@@ -136,4 +144,50 @@ textarea {
 
 .travel-search {
   width: 92%;
+}
+
+.time-card {
+  background: transparent;
+  border: none;
+  margin-bottom: -19px;
+  margin-top: -9px;
+  .hour{
+    background-color: #608090;
+    padding: 6px;
+    color: #ddd;
+    border-radius: 8px 8px 0 0;
+    -moz-border-radius: 8px 8px 0px 0px;
+    -webkit-border-radius: 8px 8px 0 0;
+    width: 65px;
+    margin-top: 22px;
+    &:hover {
+      cursor:pointer;
+      cursor:hand;
+    }
+  }
+  .time-border {
+    margin-top: 16px;
+    margin-bottom: -54px;
+    border: 0;
+    border: 6px solid #608090;
+    margin-left: 45px;
+    border-radius: 1px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 8px;
+    &:hover {
+      cursor:pointer;
+      cursor:hand;
+    }
+  }
+}
+
+.sortable-card {
+  width: 98%;
+  padding-left: 70px;
+}
+
+.card_type,
+.longitude,
+.latitude {
+  visibility: hidden;
 }
