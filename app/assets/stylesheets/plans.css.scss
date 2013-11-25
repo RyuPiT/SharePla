@@ -98,7 +98,6 @@ textarea {
 
 #card-search {
   height: 99%;
-  overflow: scroll;
 }
 
 #prefectures > .area-division > .btn-primary {
@@ -133,6 +132,10 @@ textarea {
 a[href^="#message"]:before {
   font-family: 'Fontello';
   content: "a";
+}
+
+.tooltip {
+  width: 100px ;
 }
 
 .tab-content {
