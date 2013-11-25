@@ -258,3 +258,7 @@ $(function() {
     $('#main-card-sortable').append(li);
   });
 });
+
+$(function() {
+  $('.nav-tabs > li > a').tooltip();
+});

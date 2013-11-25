@@ -130,6 +130,11 @@ textarea {
   padding: 20px 5px 5px 0;
 }
 
+a[href^="#message"]:before {
+  font-family: 'Fontello';
+  content: "a";
+}
+
 .tab-content {
   margin-top:10px;
 }
