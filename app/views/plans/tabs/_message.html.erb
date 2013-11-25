@@ -1,9 +1,9 @@
 <% content_for :plan_tab_navs do %>
-  <li><a href="#message" data-toggle="tab" title="メッセージ"></a></li>
+  <li class="active"><a href="#message" data-toggle="tab" title="メッセージ"></a></li>
 <% end %>
 
 <% content_for :plan_tab_contents do %>
-  <div class="tab-pane" id="message">
+  <div class="tab-pane active" id="message">
     <h4>メッセージ</h4>
     <div id="planpost">
       <%= render 'addplan_form' %>
