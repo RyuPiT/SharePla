@@ -239,7 +239,7 @@ $(function() {
     dropOnEmpty: false
   });
 
-  $('#main-card-sortable, #hotel-card-sortable, #distination-card-sortable').disableSelection();
+  $('#main-card-sortable, #hotel-card-sortable, #message-card-sortable').disableSelection();
   $('#main-card-sortable').droppable({
     activeClass: 'ui-state-hover',
     hoverClass: 'ui-state-active'

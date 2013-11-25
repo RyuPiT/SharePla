@@ -1,8 +1,8 @@
 <% content_for :plan_tab_navs do %>
-  <li><a href="#tag" data-toggle="tab">タグ</a></li>
+  <li class="active"><a href="#tag" data-toggle="tab">タグ</a></li>
 <% end %>
 <% content_for :plan_tab_contents do %>
-  <div class="tab-pane" id="tag">
+  <div class="tab-pane active" id="tag">
     <div class="btn-group" id="prefectures"  data-toggle="buttons">
       <% Japan.areas.each do |area, prefectures| %>
         <!-- 北海道、東北、関東、中部など地域区分に分ける -->
