@@ -10,16 +10,18 @@
         <div class="col-sm-6">
           <div id="card-search">
             <div class="travel-search">
-              <% render 'plans/tabs/distination' %>
-              <% render 'plans/tabs/hotel' %>
-              <% render 'plans/tabs/place' %>
-              <% render 'plans/tabs/tag' %>
-              <% render 'plans/tabs/map' %>
-              <% render 'plans/tabs/time' %>
-              <% render 'plans/tabs/route' %>
-              <ul class="nav nav-tabs">
-                <%= yield :plan_tab_navs %>
-              </ul>
+              <div class="nav-tab-area">
+                <% render 'plans/tabs/message' %>
+                <% render 'plans/tabs/place' %>
+                <% render 'plans/tabs/map' %>
+                <% render 'plans/tabs/time' %>
+                <% render 'plans/tabs/route' %>
+                <% render 'plans/tabs/hotel' %>
+                <% render 'plans/tabs/tag' %>
+                <ul class="nav nav-tabs">
+                  <%= yield :plan_tab_navs %>
+                </ul>
+              </div>
               <div class="tab-content">
                 <%= yield :plan_tab_contents %>
               </div><!-- tab-content -->

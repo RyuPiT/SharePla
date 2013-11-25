@@ -1,0 +1,43 @@
+-#<div class="opinion-page">
+.container#opinion-page
+  .page-header
+
+    -# <% if flash[:notice] %>
+    - if flash[:notice]
+      .alert.alert-success.alert-dismissable
+        -# <button type="button", class="close", data-dismiss="alert", aria-hidden="true"> &times;
+        %button{ type: 'button', class: 'close', data: {dismiss: 'alert'}, aria: {hidden: :true} } &times;
+        -# <%= h(flash[:notice]) %>
+        = h(flash[:notice])
+
+    -# <h1> ご意見版 </h1>
+    -# <p> 実装~~~~ </p>
+    %h1 ご意見版
+    %p 実装して欲しい機能やコメントなど、 |
+    なんでもご投稿ください |
+
+    -# <%= form_for(@new_opinion) do |f| %>
+    = form_for(@new_opinion) do |f|
+      = f.text_field :title,   class: 'form-control', placeholder: 'タイトル',   required: true
+      = f.text_area  :comment, class: 'form-control', placeholder: '意見や要望', required: true
+      = f.submit     :comment, class: 'btn btn-primary'
+
+    - @opinions.reverse.each do |opinion|
+      .opinion-list
+        %h4= opinion[:title]
+        = simple_format(opinion[:comment], class: 'opinion-comment')
+        %p.opinion-date= '作成日: ' + opinion.created_at.strftime('%Y/%m/%d %H:%M')
+
+        - if @ids.blank? then
+          %button{ class: 'btn btn-primary opinion-iine', name: opinion[:id], value: opinion[:id] }
+            iine!
+            %span.badge= opinion[:likes]
+        - else
+          - if @ids.include?(opinion[:id].to_s) then
+            %button{ class: 'btn btn-primary opinion-iine disabled', name: opinion[:id], value: opinion[:id] }
+              iine!
+              %span.badge= opinion[:likes]
+          - else
+            %button{ class: 'btn btn-primary opinion-iine', name: opinion[:id], value: opinion[:id] }
+              iine!
+              %span.badge= opinion[:likes]

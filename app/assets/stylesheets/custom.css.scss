@@ -15,13 +15,13 @@ html,body{
   height:100%;
 }
 
-#wrap {
+.wrap {
   //footer position buttom
   position:relative;
   height:100%;
 }
 
-#wrap > .container {
+.wrap > .container {
   //footer more top
   padding: 0px 15px 80px;
 }
@@ -229,4 +229,10 @@ footer {
       margin-left: 10px;
     }
   }
+}
+
+.nav-tabs {
+  position: absolute;
+  z-index: 200;
+  width: 100%;
 }

@@ -1,14 +1,15 @@
 <% content_for :plan_tab_navs do %>
-  <li class="active"><a href="#distination" data-toggle="tab">目的地</a></li>
+  <li class="active"><a href="#message" data-toggle="tab" title="メッセージ"></a></li>
 <% end %>
 
 <% content_for :plan_tab_contents do %>
-  <div class="tab-pane active" id="distination">
+  <div class="tab-pane active" id="message">
+    <h4>メッセージ</h4>
     <div id="planpost">
       <%= render 'addplan_form' %>
     </div><!-- #planpost -->
     <p>Example:</p>
-    <ol id="distination-card-sortable" class="droptrue">
+    <ol id="message-card-sortable" class="droptrue">
       <li class="sortable-card"><div class="ui-state-default"><span class="title">羽田空港</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div></li>
       <li class="sortable-card"><div class="ui-state-default"><span class="title">成田空港</span><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div></li>
     </ol>

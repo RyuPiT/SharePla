@@ -1,9 +1,10 @@
 <% content_for :plan_tab_navs do %>
-  <li><a href="#hotel" data-toggle="tab">ホテル検索</a></li>
+  <li><a href="#hotel" data-toggle="tab" title="ホテル検索"></a></li>
 <% end %>
 
 <% content_for :plan_tab_contents do %>
   <div class="tab-pane" id="hotel">
+    <h4>ホテル検索</h4>
     <form action="<%= hotels_search_plans_path %>" id="hotels-search" method="POST">
       <div class="row">
         <div class="col-sm-10">

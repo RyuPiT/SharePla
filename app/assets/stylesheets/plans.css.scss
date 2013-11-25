@@ -64,6 +64,7 @@ $font-color:          #305060;
   top: 50px;
   padding: 10px 0 10px;
   background-color: #f0f0f0;
+  z-index: 200;
 }
 
 textarea {
@@ -72,7 +73,7 @@ textarea {
 }
 
 #main-card-sortable,
-#distination-card-sortable,
+#message-card-sortable,
 #hotel-card-sortable,
 #tourist-card-sortable {
   list-style-type: none;
@@ -99,6 +100,7 @@ textarea {
 #card-search {
   height: 99%;
   overflow: scroll;
+  width: 100%;
 }
 
 #prefectures > .area-division > .btn-primary {
@@ -124,14 +126,53 @@ textarea {
   height: 96%;
 }
 
-#distination > p {
+#message > p {
   color: #a0a0a0;
   font-size: 17px;
   padding: 20px 5px 5px 0;
 }
+//message icon
+a[href^="#message"]:before {
+  font-family: 'Fontello';
+  content: "a";
+}
+
+//hotel icon
+a[href^="#hotel"]:before {
+  font-family: 'Fontello';
+  content: "h";
+}
+
+//route icon
+a[href^="#route"]:before {
+  font-family: 'Fontello';
+  content: "r";
+}
+//time icon
+a[href^="#time"]:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e023";
+}
+//map icon
+a[href^="#map"]:before {
+  font-family: 'Fontello';
+  content: "m";
+}
+//place icon
+a[href^="#place"]:before {
+  font-family: 'Fontello';
+  content: "p";
+}
+
+.tooltip {
+  width: 100px ;
+}
 
 .tab-content {
-  margin-top:10px;
+  //margin-top:10px;
+  position: relative;
+  top: 60px;
+  z-index: 100;
 }
 
 .plan-detail {
@@ -143,7 +184,17 @@ textarea {
 }
 
 .travel-search {
-  width: 92%;
+  width: 100%;
+  margin-top: -10px;
+}
+
+.nav-tab-area {
+  width: 95%;
+  margin: auto auto;
+  position: absolute;
+  height: 20%;
+  background-color: white;
+  z-index: 200;
 }
 
 .time-card {
