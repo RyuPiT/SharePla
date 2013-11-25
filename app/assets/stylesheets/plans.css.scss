@@ -98,6 +98,7 @@ textarea {
 
 #card-search {
   height: 99%;
+  overflow: scroll;
 }
 
 #prefectures > .area-division > .btn-primary {
@@ -128,10 +129,37 @@ textarea {
   font-size: 17px;
   padding: 20px 5px 5px 0;
 }
-
+//message icon
 a[href^="#message"]:before {
   font-family: 'Fontello';
   content: "a";
+}
+
+//hotel icon
+a[href^="#hotel"]:before {
+  font-family: 'Fontello';
+  content: "h";
+}
+
+//route icon
+a[href^="#route"]:before {
+  font-family: 'Fontello';
+  content: "r";
+}
+//time icon
+a[href^="#time"]:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e023";
+}
+//map icon
+a[href^="#map"]:before {
+  font-family: 'Fontello';
+  content: "m";
+}
+//place icon
+a[href^="#place"]:before {
+  font-family: 'Fontello';
+  content: "p";
 }
 
 .tooltip {
