@@ -10,6 +10,8 @@ gem 'httpclient'
 # for GooglePlaces
 gem 'google_places'
 
+gem 'haml-rails'
+
 group :test do
   gem 'rake'
   gem 'rspec-rails'
