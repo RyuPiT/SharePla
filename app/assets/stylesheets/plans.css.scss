@@ -64,6 +64,7 @@ $font-color:          #305060;
   top: 50px;
   padding: 10px 0 10px;
   background-color: #f0f0f0;
+  z-index: 200;
 }
 
 textarea {
@@ -99,6 +100,7 @@ textarea {
 #card-search {
   height: 99%;
   overflow: scroll;
+  width: 100%;
 }
 
 #prefectures > .area-division > .btn-primary {
@@ -167,7 +169,10 @@ a[href^="#place"]:before {
 }
 
 .tab-content {
-  margin-top:10px;
+  //margin-top:10px;
+  position: relative;
+  top: 60px;
+  z-index: 100;
 }
 
 .plan-detail {
@@ -179,7 +184,17 @@ a[href^="#place"]:before {
 }
 
 .travel-search {
-  width: 92%;
+  width: 100%;
+  margin-top: -10px;
+}
+
+.nav-tab-area {
+  width: 95%;
+  margin: auto auto;
+  position: absolute;
+  height: 20%;
+  background-color: white;
+  z-index: 200;
 }
 
 .time-card {
