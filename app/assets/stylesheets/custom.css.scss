@@ -230,3 +230,9 @@ footer {
   z-index: 200;
   width: 100%;
 }
+
+.ui-state-hotel > button.close,
+.ui-state-default > button.close {
+  position: relative;
+  top: -26px;
+}

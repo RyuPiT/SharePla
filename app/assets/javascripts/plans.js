@@ -18,7 +18,7 @@ $(function() {
     //add delete-function-botton on right side
     var addContent = '';
     addContent += '<div class="ui-state-default">';
-    addContent += '<span class="title">' + data['name'] + '</span>';
+    addContent += '<div class="title">' + data['name'] + '</div>';
     addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
     addContent += '</div>';//.ui-state-default
 
@@ -45,10 +45,10 @@ $(function() {
 
       var addContent = '';
       addContent += '<div class="ui-state-hotel">'
-      addContent += '<span class="title"><a>' + name + '</a></span>';
-      addContent += '<sapn class="card_type">' + cardType  + '</span>';
-      addContent += '<span class="longitude">' + longitude + '</span>';
-      addContent += '<span class="latitude">'  + latitude  + '</span>';
+      addContent += '<div class="card_type">' + cardType  + '</div>';
+      addContent += '<div class="longitude">' + longitude + '</div>';
+      addContent += '<div class="latitude">'  + latitude  + '</div>';
+      addContent += '<div class="title"><a>' + name + '</a></div>';
       addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
       addContent += '</div>'
 

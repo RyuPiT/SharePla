@@ -183,7 +183,7 @@ a[href^="#place"]:before {
   font-size: 15px;
 }
 
-.tooltip {
+.nav-tabs .tooltip {
   width: 100px ;
 }
 
@@ -217,7 +217,7 @@ a[href^="#place"]:before {
   width: 95%;
   margin: auto auto;
   position: absolute;
-  height: 43px;
+  height: 45px;
   background-color: white;
   z-index: 200;
 }
@@ -261,15 +261,23 @@ a[href^="#place"]:before {
   }
 }
 
-.sortable-card {
+#main-card-sortable > .sortable-card {
   width: 98%;
   padding-left: 70px;
 }
 
+.tab-pane .sortable-card {
+  width: 98%;
+}
+
+#hotels-search {
+  width: 90%;
+}
 .card_type,
 .longitude,
 .latitude {
   visibility: hidden;
+  height: 0px;
 }
 
 #hidden-btn,
@@ -282,4 +290,11 @@ a[href^="#place"]:before {
   &:hover {
     opacity: 0.7;
   }
+}
+
+.title {
+  overflow: hidden;
+  margin-right: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
