@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  def hotels
+  def hotel
     keyword = params[:name]
 
     respond_to do |format|
@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
     end
   end
 
-  def places
+  def place
     keyword     = params[:search_word]
     type        = 'Touring'
 

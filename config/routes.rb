@@ -9,12 +9,12 @@ SharePla::Application.routes.draw do
     post 'like', on: :collection
   end
 
-  resource :searches, only: [] do
+  resource :searches, only: [], as: 'search' do
     collection do
-      post 'hotels'
-      post 'places'
+      post 'hotel'
+      post 'place'
       post 'map'
-      post 'routes'
+      post 'route'
     end
   end
 

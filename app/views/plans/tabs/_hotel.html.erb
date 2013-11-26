@@ -5,7 +5,7 @@
 <% content_for :plan_tab_contents do %>
   <div class="tab-pane" id="hotel">
     <h4>ホテル検索</h4>
-    <form action="<%= hotels_searches_path %>" id="hotels-search" method="POST">
+    <form action="<%= hotel_search_path %>" id="hotels-search" method="POST">
       <div class="row">
         <div class="col-sm-10">
           <input type="input" name="keyword" class="form-control" placeholder="地域、ホテル名" required>
