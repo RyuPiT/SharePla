@@ -18,35 +18,6 @@ class PlansController < ApplicationController
     end
   end
 
-  def hotels_search
-    keyword = params[:name]
-
-    respond_to do |format|
-      format.html { render nothing: true }
-      format.json { render json: hotels_data(keyword) }
-    end
-  end
-
-  def places_search
-    keyword     = params[:search_word]
-    type        = 'Touring'
-
-    respond_to do |format|
-      format.html { render nothing: true }
-      format.json { render json: places_data(keyword, type) }
-    end
-  end
-
-  def map_search
-    keyword    = params[:search_word]
-    type       = 'Map'
-
-    respond_to do |format|
-      format.html { render nothing: true }
-      format.json { render json: places_data(keyword, type) }
-    end
-  end
-
   def create
     @plan = Plan.new(plan_params)
 
@@ -71,13 +42,5 @@ class PlansController < ApplicationController
 
   def set_plan
     @plan = Plan.find(params[:id])
-  end
-
-  def places_data(keyword, type)
-    GoogleService.places_search(keyword, type)
-  end
-
-  def hotels_data(keyword)
-    RakutenService.hotel_search(keyword)
   end
 end

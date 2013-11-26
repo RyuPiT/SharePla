@@ -5,7 +5,7 @@
 <% content_for :plan_tab_contents do %>
   <div class="tab-pane" id="map">
     <h4>地図検索</h4>
-    <form action="<%= map_search_plans_path %>" id="map-search" method="POST">
+    <form action="<%= map_search_path %>" id="map-search" method="POST">
       <div class="row">
         <div class="col-sm-10">
           <input type="input" name="keyword" class="form-control" placeholder="グーグルマップのように" required>

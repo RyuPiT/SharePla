@@ -150,14 +150,6 @@ body.modal-open,
   margin-right: 0;
 }
 
-
-//flag icon
-.ui-state-default > .title:before {
-  content: "\e034";
-  font-family: 'Glyphicons Halflings';
-  padding: 0 10px 0;
-}
-
 //home icon
 .ui-state-hotel > .title:before {
   content: "\e021";
