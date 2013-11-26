@@ -131,10 +131,17 @@ textarea {
   font-size: 17px;
   padding: 20px 5px 5px 0;
 }
+
 //message icon
 a[href^="#message"]:before {
   font-family: 'Fontello';
   content: "a";
+}
+
+.ui-state-default > .title:before {
+  font-family: 'Fontello';
+  content: "a";
+  padding: 0 10px 0;
 }
 
 //hotel icon
@@ -169,10 +176,16 @@ a[href^="#place"]:before {
 }
 
 .tab-content {
-  //margin-top:10px;
   position: relative;
   top: 60px;
   z-index: 100;
+  > .active {
+    overflow-x: hidden;
+  }
+}
+
+#planpost {
+  width: 96%;
 }
 
 .plan-detail {
@@ -184,7 +197,7 @@ a[href^="#place"]:before {
 }
 
 .travel-search {
-  width: 100%;
+  width: 97%;
   margin-top: -10px;
 }
 
@@ -192,7 +205,7 @@ a[href^="#place"]:before {
   width: 95%;
   margin: auto auto;
   position: absolute;
-  height: 20%;
+  height: 43px;
   background-color: white;
   z-index: 200;
 }
@@ -229,6 +242,10 @@ a[href^="#place"]:before {
       cursor:pointer;
       cursor:hand;
     }
+  }
+  > .close {
+    margin-top: -19px;
+    padding-right: 6px;
   }
 }
 

@@ -12,10 +12,10 @@ feature 'ユーザーはプラン内の目的地の順序を並び替えるこ�
     page.execute_script('jQuery.fx.off = true;')
     fill_in 'プランタイトル', with: title
 
-    fill_in '目的地', with: '肉屋'
+    fill_in '一言コメント', with: '肉屋'
     click_on '追加'
 
-    fill_in '目的地', with: '魚屋'
+    fill_in '一言コメント', with: '魚屋'
     click_on '追加'
 
   end
