@@ -5,9 +5,9 @@
 <% content_for :plan_tab_contents do %>
   <div class="tab-pane" id="time">
     <h4>時間</h4>
-    <% Day.hours.each_with_index do |hour, idx| %>
+    <% Day.hours.each.with_index(1) do |hour, idx| %>
       <div class="btn btn-primary"><%= hour %></div>
-      <% if ((idx+1)%4 == 0) then%>
+      <% if (idx%4).zero? then%>
         <br>
       <% end %>
     <% end %>
