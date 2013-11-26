@@ -31,7 +31,7 @@ class SearchesController < ApplicationController
   private
 
   def places_data(keyword, type)
-    GoogleService.places_search(keyword, type)
+    GoogleService.place_search(keyword, type)
   end
 
   def hotels_data(keyword)
