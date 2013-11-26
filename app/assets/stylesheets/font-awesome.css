@@ -3,3 +3,9 @@
   src: url('/assets/twitter/glyphicons-halflings-regular-ab2f6984951c07fd89e6afdefabd93c7.eot');
   src: url('/assets/twitter/glyphicons-halflings-regular-ab2f6984951c07fd89e6afdefabd93c7.eot?#iefix') format('embedded-opentype'), url('/assets/twitter/glyphicons-halflings-regular-7a07f26f72466361ac9671de2d33fd1c.woff') format('woff'), url('/assets/twitter/glyphicons-halflings-regular-4b2130768da98222338d1519f9179528.ttf') format('truetype'), url('/assets/twitter/glyphicons-halflings-regular-24dfb40c91db789b8b8faba6886ac1ef.svg#glyphicons-halflingsregular') format('svg');
 }
+
+@font-face {
+  font-family: 'Fontello';
+  src: url('/assets/fontello-0309c85e1db9df0cdf3f72ed6719dcf6.eot');
+  src: url('/assets/fontello-0309c85e1db9df0cdf3f72ed6719dcf6.eot?#iefix') format('embedded-opentype'), url('/assets/fontello-78b12ca0b9822f63b33f3cae4bfa9997.woff') format('woff'), url('/assets/fontello-92c29bcc9f654b2d8981eabb978a9562.ttf') format('truetype'), url('/assets/fonts/fontello-58d5a2d876b4f524c81ca5e6268db2ee.svg#fontello') format('svg');
+}

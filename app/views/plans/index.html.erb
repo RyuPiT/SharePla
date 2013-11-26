@@ -1,7 +1,7 @@
 <div class="container">
   <div class="page-header">
     <% if flash[:notice] %>
-    <div class="alert alert-success alert-dismissable"><button id="jquery-ui-hide" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= h(flash[:notice]) %></div>
+    <div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><%= h(flash[:notice]) %></div>
     <% end %>
     <div class="row">
       <div class="col-sm-10">
@@ -34,21 +34,21 @@
     <%= link_to 'New Plan!', new_plan_path, class: "btn btn-primary btn-lg" %>
   </div>
   <!-- show list plan-title -->
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>プランタイトル</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% if @plans %>
-        <% @plans.reverse.each do |plan| %>
-          <tr>
-            <td><%= link_to plan[:title], plan%></td>
-          </tr>
+  <div class="plans-list">
+    <% if @plans %>
+      <% @plans.reverse.each do |plan| %>
+      <li class="top-list-title">
+        <div class="area-tags">
+          <% (plan[:area_tags] || []).each do |tag| %>
+          <span name="<%= tag %>" class="label label-default"><%= tag %></span>
         <% end %>
+        </div>
+        <h4><%= plan[:title] %></h4>
+        <p>作成日:<%= plan.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+        <%= link_to "プランを見る", plan %>
+      </li>
       <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </div>
 </div>
 
