@@ -170,6 +170,18 @@ a[href^="#place"]:before {
   font-family: 'Fontello';
   content: "p";
 }
+//up icon
+#hidden-btn:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e113";
+  font-size: 15px;
+}
+//down icon
+#show-btn:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e114";
+  font-size: 15px;
+}
 
 .tooltip {
   width: 100px ;
@@ -260,13 +272,14 @@ a[href^="#place"]:before {
   visibility: hidden;
 }
 
-#hideen-btn {
+#hidden-btn,
+#show-btn {
   float: right;
   margin-top: -24px;
   z-index: 0;
-  opacity: 0.7;
+  opacity: 1;
   background-color: #f0f0f0;
   &:hover {
-    opacity: 1;
+    opacity: 0.7;
   }
 }

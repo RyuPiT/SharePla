@@ -72,12 +72,14 @@ $(function() {
 
   //hidden-buton
   var flag = 0;
-  $('#hideen-btn').bind('click',function() {
+  $('#hidden-btn').bind('click',function() {
     if ( (flag%2) == 0) {
       $("#plan-title").hide();
+      $(this).attr('id', 'show-btn');
       $('.contents').css('padding-top','70px');
     }else{
       $("#plan-title").show();
+      $(this).attr('id', 'hidden-btn');
       $('.contents').css('padding-top','200px');
     }
     flag++;
