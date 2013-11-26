@@ -207,7 +207,7 @@ a[href^="#place"]:before {
   position: absolute;
   height: 43px;
   background-color: white;
-  z-index: 200;
+  //z-index: 200;
 }
 
 .time-card {
@@ -258,4 +258,15 @@ a[href^="#place"]:before {
 .longitude,
 .latitude {
   visibility: hidden;
+}
+
+#hideen-btn {
+  float: right;
+  margin-top: -24px;
+  z-index: 0;
+  opacity: 0.7;
+  background-color: #f0f0f0;
+  &:hover {
+    opacity: 1;
+  }
 }
