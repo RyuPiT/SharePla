@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// plan/index.erb.html
 
 $boader-color:        #e1e1e1;
 $main-color:          #d0e0f0;
@@ -13,6 +12,7 @@ $dark-color-gradient: #7191a1;
 $font-color:          #305060;
 
 
+// plan/index.erb.html
 .sns-botton > li{
   list-style: none;
   display: block;
@@ -64,6 +64,7 @@ $font-color:          #305060;
   top: 50px;
   padding: 10px 0 10px;
   background-color: #f0f0f0;
+  z-index: 200;
 }
 
 textarea {
@@ -72,11 +73,19 @@ textarea {
 }
 
 #main-card-sortable,
-#distination-card-sortable,
+#message-card-sortable,
 #hotel-card-sortable,
 #tourist-card-sortable {
   list-style-type: none;
   padding: 0;
+}
+
+#main-card-sortable {
+  padding-top: 20px;
+}
+#main-card-sortable > .ui-state-default {
+  margin-left: 70px;
+  width: 86%;
 }
 
 .ui-state-highlight {
@@ -91,6 +100,7 @@ textarea {
 #card-search {
   height: 99%;
   overflow: scroll;
+  width: 100%;
 }
 
 #prefectures > .area-division > .btn-primary {
@@ -116,14 +126,53 @@ textarea {
   height: 96%;
 }
 
-#distination > p {
+#message > p {
   color: #a0a0a0;
   font-size: 17px;
   padding: 20px 5px 5px 0;
 }
+//message icon
+a[href^="#message"]:before {
+  font-family: 'Fontello';
+  content: "a";
+}
+
+//hotel icon
+a[href^="#hotel"]:before {
+  font-family: 'Fontello';
+  content: "h";
+}
+
+//route icon
+a[href^="#route"]:before {
+  font-family: 'Fontello';
+  content: "r";
+}
+//time icon
+a[href^="#time"]:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e023";
+}
+//map icon
+a[href^="#map"]:before {
+  font-family: 'Fontello';
+  content: "m";
+}
+//place icon
+a[href^="#place"]:before {
+  font-family: 'Fontello';
+  content: "p";
+}
+
+.tooltip {
+  width: 100px ;
+}
 
 .tab-content {
-  margin-top:10px;
+  //margin-top:10px;
+  position: relative;
+  top: 60px;
+  z-index: 100;
 }
 
 .plan-detail {
@@ -135,5 +184,61 @@ textarea {
 }
 
 .travel-search {
-  width: 92%;
+  width: 100%;
+  margin-top: -10px;
+}
+
+.nav-tab-area {
+  width: 95%;
+  margin: auto auto;
+  position: absolute;
+  height: 43px;
+  background-color: white;
+  z-index: 200;
+}
+
+.time-card {
+  background: transparent;
+  border: none;
+  margin-bottom: -19px;
+  margin-top: -9px;
+  .hour{
+    background-color: #608090;
+    padding: 6px;
+    color: #ddd;
+    border-radius: 8px 8px 0 0;
+    -moz-border-radius: 8px 8px 0px 0px;
+    -webkit-border-radius: 8px 8px 0 0;
+    width: 65px;
+    margin-top: 22px;
+    &:hover {
+      cursor:pointer;
+      cursor:hand;
+    }
+  }
+  .time-border {
+    margin-top: 16px;
+    margin-bottom: -54px;
+    border: 0;
+    border: 6px solid #608090;
+    margin-left: 45px;
+    border-radius: 1px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 8px;
+    &:hover {
+      cursor:pointer;
+      cursor:hand;
+    }
+  }
+}
+
+.sortable-card {
+  width: 98%;
+  padding-left: 70px;
+}
+
+.card_type,
+.longitude,
+.latitude {
+  visibility: hidden;
 }

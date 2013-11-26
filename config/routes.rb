@@ -6,6 +6,7 @@ SharePla::Application.routes.draw do
     post 'hotels_search', on: :collection
     post 'places_search', on: :collection
     post 'map_search',    on: :collection
+    post 'route_search',  on: :collection
   end
 
   resources :opinions, only: %i[create index] do
