@@ -13,6 +13,15 @@ SharePla::Application.routes.draw do
     post 'like', on: :collection
   end
 
+  resource :searches do
+    collection do
+      post 'hotels'
+      post 'places'
+      post 'map'
+      post 'routes'
+    end
+  end
+
   #get "hello/to/:name" => "hello#to"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
