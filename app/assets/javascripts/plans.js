@@ -254,6 +254,7 @@ $(function() {
     addContent  = '<hr class="time-border">'
     addContent += '<div class="hour"><span class="title">' + timeTxt + '</span></div>'
     addContent += '<span class="card_type">Time</span>'
+    addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
     li.append(addContent);
     $('#main-card-sortable').append(li);
   });
