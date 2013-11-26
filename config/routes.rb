@@ -3,17 +3,13 @@ SharePla::Application.routes.draw do
 
   resources :plans, only: %i[create new show] do
     post 'clone',         on: :member
-    post 'hotels_search', on: :collection
-    post 'places_search', on: :collection
-    post 'map_search',    on: :collection
-    post 'route_search',  on: :collection
   end
 
   resources :opinions, only: %i[create index] do
     post 'like', on: :collection
   end
 
-  resource :searches do
+  resource :searches, only: [] do
     collection do
       post 'hotels'
       post 'places'

@@ -89,7 +89,7 @@ $(function() {
     $('#area-tags-box').append(span);
 
     var postData = { search_word: prefecture };
-    var postUrl  = '/plans/places_search.json';
+    var postUrl  = '/searches/places.json';
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
   });
 
@@ -100,7 +100,7 @@ $(function() {
   // hotel search clicked event
   $('#hotels-search').submit(function() {
     var postData = { name: $('#hotels-search input[name=keyword]').val() };
-    var postUrl  = '/plans/hotels_search.json';
+    var postUrl  = '/searches/hotels.json';
     $('#hotel-card-sortable li').remove();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
@@ -109,7 +109,7 @@ $(function() {
   // map search clicked event
   $('#map-search').submit(function() {
     var postData = { search_word: $('#map-search input[name=keyword]').val() };
-    var postUrl  = '/plans/map_search.json';
+    var postUrl  = '/searches/map.json';
     $('#map-card-sortable li').remove();
     clearMarkers();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
