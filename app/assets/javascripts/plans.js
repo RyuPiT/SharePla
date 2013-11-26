@@ -70,6 +70,19 @@ $(function() {
     Map:     mapLoopEnd
   };
 
+  //hidden-buton
+  var flag = 0;
+  $('#hideen-btn').bind('click',function() {
+    if ( (flag%2) == 0) {
+      $("#plan-title").hide();
+      $('.contents').css('padding-top','70px');
+    }else{
+      $("#plan-title").show();
+      $('.contents').css('padding-top','200px');
+    }
+    flag++;
+  });
+
   // area tag clicked event
   $('#prefectures > .area-division > label').bind('click',function() {
     var rawText    = $(this).text();

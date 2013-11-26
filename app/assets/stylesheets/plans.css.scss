@@ -259,3 +259,14 @@ a[href^="#place"]:before {
 .latitude {
   visibility: hidden;
 }
+
+#hideen-btn {
+  float: right;
+  margin-top: -24px;
+  z-index: 0;
+  opacity: 0.7;
+  background-color: #f0f0f0;
+  &:hover {
+    opacity: 1;
+  }
+}
