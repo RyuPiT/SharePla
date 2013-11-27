@@ -63,13 +63,25 @@ $font-color:          #305060;
 #plan-list > .navbar-fixed-top {
   top: 50px;
   padding: 10px 0 10px;
-  background-color: #f0f0f0;
+  background-color: #fefefe;
   z-index: 200;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5) inset;
 }
 
 textarea {
   margin: 5px 0 10px;
   resize:none;
+}
+
+#card-create > h4 {
+  background-color: #fefefe;
+  padding: 8px 0 8px 13px;
+  width: 115px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px 5px 0 0;
+  margin-top: -7px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 #main-card-sortable,
@@ -98,9 +110,15 @@ textarea {
 }
 
 #card-search {
-  height: 99%;
+  height: 98%;
   overflow: scroll;
   width: 100%;
+  background-color: #fefefe;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 0 5px 5px 5px;
+  margin-top: -10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 #prefectures > .area-division > .btn-primary {
@@ -123,7 +141,7 @@ textarea {
 }
 
 #plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable {
-  height: 96%;
+  height: 92%;
 }
 
 #message > p {
@@ -202,40 +220,49 @@ a[href^="#place"]:before {
 
 .plan-detail {
   overflow: scroll;
-  padding-top: 20px;
+  padding-top: 0px;
   padding-left: 6px;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  margin-top: 10px;
-  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 0 5px 5px 5px;
   position: relative;
-  //top: -27px;
-  background-color: #f0f0f0;
+  background-color: #fefefe;
+  top: -43px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 #sideber-left {
   border-left: 1px solid #ddd;
   h4 {
     position: relative;
-    top: -22px;
+    top: -33px;
     padding-left: 3px;
     font-size: 17px;
+    width: 142px;
+    background-color: #fefefe;
+    padding: 8px 0 8px 13px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px 5px 0 0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
   }
 }
 
 .travel-search {
   width: 97%;
   margin-top: -10px;
+  padding: 20px 0 0 10px;
 }
 
 .nav-tab-area {
-  width: 95%;
+  width: 90%;
   margin: auto auto;
   position: absolute;
-  height: 45px;
-  background-color: white;
+  height: 57px;
+  background-color: #fefefe;
   z-index: 200;
+  padding-top: 12px;
+  top: 28px;
 }
 
 .time-card {
@@ -301,8 +328,8 @@ a[href^="#place"]:before {
   float: right;
   margin-top: -24px;
   z-index: 0;
-  opacity: 1;
-  background-color: #f0f0f0;
+  background-color: #fefefe;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
   &:hover {
     opacity: 0.7;
   }
