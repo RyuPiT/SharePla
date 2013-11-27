@@ -1,0 +1,16 @@
+- content_for :plan_tab_navs do 
+  %li
+    %a{href: '#hotel', 'data-toggle' => 'tab', title: 'ホテル検索' }
+
+- content_for :plan_tab_contents do 
+  .tab-pane#hotel
+    %h4= 'ホテル検索'
+    %form#hotels-search{action: '#{hotel_search_path}', method: 'POST'}
+      .row
+        .col-sm-10
+          %input.form-control{type: 'input', name: 'keyword', 'placeholder' => '地域、ホテル名', required: 'true'}
+        .col-sm-2
+          %input.btn.btn-default{ type: 'submit', value: '検索'}
+          = hidden_field_tag :authenticity_token, form_authenticity_token
+    %ol.dropture#hotel-card-sortable    
+
