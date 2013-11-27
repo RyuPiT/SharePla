@@ -202,10 +202,26 @@ a[href^="#place"]:before {
 
 .plan-detail {
   overflow: scroll;
+  padding-top: 20px;
+  padding-left: 6px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  margin-top: 10px;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.6);
+  position: relative;
+  //top: -27px;
+  background-color: #f0f0f0;
 }
 
 #sideber-left {
   border-left: 1px solid #ddd;
+  h4 {
+    position: relative;
+    top: -22px;
+    padding-left: 3px;
+    font-size: 17px;
+  }
 }
 
 .travel-search {
