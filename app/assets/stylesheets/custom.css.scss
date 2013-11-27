@@ -32,6 +32,7 @@ html,body{
 .navbar {
   background-image: -webkit-gradient(linear,left 0,left 100%,from($dark-color-gradient),to($dark-color));
   background-image: linear-gradient(to bottom,#7191a1 0,$dark-color 100%);
+  z-index: 200;
 }
 
 //navigation bar font-color
@@ -148,6 +149,7 @@ body.modal-open,
 .modal-open .navbar-fixed-top,
 .modal-open .navbar-fixed-bottom {
   margin-right: 0;
+  z-index: 200;
 }
 
 //home icon
@@ -227,4 +229,10 @@ footer {
   position: absolute;
   z-index: 200;
   width: 100%;
+}
+
+.ui-state-hotel > button.close,
+.ui-state-default > button.close {
+  position: relative;
+  top: -26px;
 }
