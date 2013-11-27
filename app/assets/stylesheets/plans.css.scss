@@ -77,8 +77,8 @@ textarea {
   background-color: #fefefe;
   padding: 8px 0 8px 13px;
   width: 134px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
+  border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
   margin-top: -7px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
@@ -115,8 +115,8 @@ textarea {
   overflow: scroll;
   width: 100%;
   background-color: #fefefe;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
+  border-radius: 0 5px 5px 5px;
+  -moz-border-radius: 0 5px 5px 5px;
   -webkit-border-radius: 0 5px 5px 5px;
   margin-top: -10px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
@@ -238,8 +238,8 @@ a[href^="#place"]:before {
   overflow: scroll;
   padding-top: 0px;
   padding-left: 6px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
+  border-radius: 0 5px 5px 5px;
+  -moz-border-radius: 0 5px 5px 5px;
   -webkit-border-radius: 0 5px 5px 5px;
   position: relative;
   background-color: #fefefe;
@@ -257,8 +257,8 @@ a[href^="#place"]:before {
     width: 164px;
     background-color: #fefefe;
     padding: 8px 0 8px 13px;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
     vertical-align: top;
@@ -307,8 +307,8 @@ a[href^="#place"]:before {
     border: 0;
     border: 6px solid #608090;
     margin-left: 45px;
-    border-radius: 1px;
-    -moz-border-radius: 100px;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     &:hover {
       cursor:pointer;
@@ -348,7 +348,7 @@ a[href^="#place"]:before {
   background-color: #fefefe;
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
   &:hover {
-    opacity: 0.7;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
   }
 }
 
