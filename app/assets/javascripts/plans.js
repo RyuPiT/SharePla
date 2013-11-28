@@ -116,7 +116,7 @@ $(function() {
   $('#hotel-search').submit(function() {
     var postData = { name: $('#hotel-search input[name=keyword]').val() };
     var postUrl  = '/searches/hotel.json';
-    $('#hotel-card-sortable li').remove();
+    $('#hotel-search-result li').remove();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
   });
@@ -153,7 +153,7 @@ $(function() {
 
   // Hotel
   function hotelCardFunc(li, metaData, data) {
-    $('#hotel-card-sortable').append(li);
+    $('#hotel-search-result').append(li);
     var sub      = 'sub';
     var hotelNo  = data[sub]['number'];
     var imageUrl = data[sub]['image_url'];
@@ -182,7 +182,7 @@ $(function() {
     dialog += '</div>';// .modal-dialog
     dialog += '</div>';// .modal fade
 
-    $('#hotel-card-sortable').append(dialog);
+    $('#hotel-search-result').append(dialog);
   }
   function hotelLoopEnd() {
     $('#hotel-search input[name=keyword]').val('');
@@ -254,7 +254,7 @@ $(function() {
     dropOnEmpty: false
   });
 
-  $('#new-my-plan-cards, #hotel-card-sortable, #message-card-sortable').disableSelection();
+  $('#new-my-plan-cards, #hotel-search-result, #message-card-sortable').disableSelection();
   $('#new-my-plan-cards').droppable({
     activeClass: 'ui-state-hover',
     hoverClass: 'ui-state-active'
