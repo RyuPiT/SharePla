@@ -3,8 +3,8 @@
 
 $(function() {
   // [add clicked] or [enter when focus text field of place to go] event
-  $('#addplan').submit(function() {
-    var postData = { name: $('#addplan input[name=keyword]').val() };
+  $('#create-message-card').submit(function() {
+    var postData = { name: $('#create-message-card input[name=keyword]').val() };
     addCardToPlan(postData);
     return false;
   });
@@ -24,7 +24,7 @@ $(function() {
 
     li.append(addContent);
     $('#new-my-plan-cards').append(li);
-    $('#addplan input[name=keyword]').val('');
+    $('#create-message-card input[name=keyword]').val('');
   }
 
   // data = plans_controller's @json_data = services/api_service.rb's formated_data
