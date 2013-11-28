@@ -189,7 +189,7 @@ $(function() {
   }
 
   // save clicked event
-  $('#saveplan').submit(function() {
+  $('#save-plan').submit(function() {
     var postData   = { plan: { title: $('input[name=new-plan-header]').val(), description: $('textarea[name=plan-desc]').val(), cards: getAllCard(), area_tags: getAllAreaTags() } };
     var postUrl    = '/plans.json';
     var returnType = 'text';
