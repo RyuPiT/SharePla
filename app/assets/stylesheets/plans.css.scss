@@ -310,6 +310,7 @@ a[href^="#place"]:before {
     border-radius: 8px;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
+    margin-right: 9px;
     &:hover {
       cursor:pointer;
       cursor:hand;
@@ -317,7 +318,7 @@ a[href^="#place"]:before {
   }
   > .close {
     margin-top: -19px;
-    padding-right: 6px;
+    padding-right: 16px;
   }
 }
 
