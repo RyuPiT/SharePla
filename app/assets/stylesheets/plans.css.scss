@@ -101,6 +101,8 @@ textarea {
 #new-my-plan-cards {
   padding-top: 20px;
 }
+
+#show-my-plan-cards > .sortable-card,
 #new-my-plan-cards > .default-card {
   margin-left: 70px;
   width: 86%;
@@ -314,6 +316,10 @@ a[href^="#place"]:before {
     margin-top: -19px;
     padding-right: 16px;
   }
+}
+
+#show-my-plan-cards {
+  padding-left: 0px;
 }
 
 #new-my-plan-cards > .sortable-card {
