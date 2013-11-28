@@ -74,11 +74,11 @@ $(function() {
   var flag = 0;
   $('#hidden-btn').bind('click',function() {
     if ( (flag%2) == 0) {
-      $("#plan-title").hide();
+      $("#new-plan-header").hide();
       $(this).attr('id', 'show-btn');
       $('.contents').css('padding-top','70px');
     }else{
-      $("#plan-title").show();
+      $("#new-plan-header").show();
       $(this).attr('id', 'hidden-btn');
       $('.contents').css('padding-top','200px');
     }
@@ -190,7 +190,7 @@ $(function() {
 
   // save clicked event
   $('#saveplan').submit(function() {
-    var postData   = { plan: { title: $('input[name=plan-title]').val(), description: $('textarea[name=plan-desc]').val(), cards: getAllCard(), area_tags: getAllAreaTags() } };
+    var postData   = { plan: { title: $('input[name=new-plan-header]').val(), description: $('textarea[name=plan-desc]').val(), cards: getAllCard(), area_tags: getAllAreaTags() } };
     var postUrl    = '/plans.json';
     var returnType = 'text';
 
