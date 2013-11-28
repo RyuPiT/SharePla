@@ -32,9 +32,9 @@
                     %li.sortable-card
                       .hotel-card
                         .title= card.title
-                        .card_type{ style: 'visibility: hidden;' }= card.card_type
-                        .longitude{ style: 'visibility: hidden;' }= card.longitude
-                        .latitude{ style: 'visibility: hidden;' }= card.latitude
+                        .card_type= card.card_type
+                        .longitude= card.longitude
+                        .latitude= card.latitude
                         %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
                   - elsif card.card_type == 'Time'
                     %li.time-card
