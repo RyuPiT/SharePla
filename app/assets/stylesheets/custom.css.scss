@@ -235,6 +235,9 @@ footer {
 
 .ui-state-hotel > button.close,
 .ui-state-default > button.close {
-  position: relative;
-  top: -26px;
+  margin-top: -24px;
+}
+
+.label-default {
+  margin: 2px;
 }

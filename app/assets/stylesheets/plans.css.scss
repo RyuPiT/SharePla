@@ -56,7 +56,7 @@ $font-color:          #305060;
 
 .area-tags {
   overflow: auto;
-  height: 16px;
+  height: 21px;
 }
 
 // plan/new.erb.html
@@ -66,6 +66,11 @@ $font-color:          #305060;
   background-color: #fefefe;
   z-index: 200;
   box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5) inset;
+}
+
+#area-tags-box {
+  overflow-y: auto;
+  height: 37px;
 }
 
 textarea {
@@ -222,8 +227,7 @@ a[href^="#place"]:before {
 }
 
 .tab-content {
-  position: relative;
-  top: 60px;
+  margin-top: 60px;
   z-index: 100;
   > .active {
     overflow-x: hidden;
@@ -241,10 +245,9 @@ a[href^="#place"]:before {
   border-radius: 0 5px 5px 5px;
   -moz-border-radius: 0 5px 5px 5px;
   -webkit-border-radius: 0 5px 5px 5px;
-  position: relative;
   background-color: #fefefe;
-  top: -43px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  margin-top: -43px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 #sideber-left {
@@ -260,7 +263,7 @@ a[href^="#place"]:before {
     border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    border-right: 1px solid #aaa;
     vertical-align: top;
   }
 }
@@ -310,6 +313,7 @@ a[href^="#place"]:before {
     border-radius: 8px;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
+    margin-right: 9px;
     &:hover {
       cursor:pointer;
       cursor:hand;
@@ -317,7 +321,7 @@ a[href^="#place"]:before {
   }
   > .close {
     margin-top: -19px;
-    padding-right: 6px;
+    padding-right: 16px;
   }
 }
 
