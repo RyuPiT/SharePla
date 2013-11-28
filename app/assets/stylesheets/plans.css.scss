@@ -288,8 +288,8 @@ a[href^="#place"]:before {
 .time-card {
   background: transparent;
   border: none;
-  margin-bottom: -19px;
-  margin-top: -9px;
+  margin-bottom: 0px;
+  margin-top: -5px;
   .hour{
     background-color: #608090;
     padding: 6px;
@@ -361,4 +361,9 @@ a[href^="#place"]:before {
   margin-right: 15px;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.time-card .title {
+  overflow: hidden;
+  margin-right: 0px;
 }
