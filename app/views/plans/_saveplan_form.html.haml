@@ -15,4 +15,4 @@
         - (@plan[:area_tags] || []).each do |tag|
           %span{ name: tag, class: 'label label-default' }= tag
 
-  %textarea{ name: 'plan-desc', class: 'form-control', id: 'exampleInput', placeholder: 'プランの説明（場所、時間、予算等）' }=  @plan.try(:description)
+  %textarea.form-control{ name: 'plan-desc', placeholder: 'プランの説明（場所、時間、予算等）' }=  @plan.try(:description)
