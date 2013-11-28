@@ -78,7 +78,7 @@ textarea {
   resize:none;
 }
 
-#card-create > h4 {
+#create-card-block > h4 {
   background-color: #fefefe;
   padding: 8px 0 8px 13px;
   width: 134px;
@@ -207,7 +207,7 @@ a[href^="#place"]:before {
   font-size: 15px;
 }
 //card-carete icon
-#card-create > h4:before {
+#create-card-block > h4:before {
   font-family: 'Glyphicons Halflings';
   content: "\e177";
   font-size: 17px;
