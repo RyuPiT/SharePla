@@ -13,7 +13,7 @@ $font-color:          #305060;
 
 
 // plan/index.erb.html
-.sns-botton > li{
+.sns-button > li{
   list-style: none;
   display: block;
 }
@@ -63,13 +63,26 @@ $font-color:          #305060;
 #plan-list > .navbar-fixed-top {
   top: 50px;
   padding: 10px 0 10px;
-  background-color: #f0f0f0;
+  background-color: #fefefe;
   z-index: 200;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5) inset;
 }
 
 textarea {
   margin: 5px 0 10px;
   resize:none;
+}
+
+#card-create > h4 {
+  background-color: #fefefe;
+  padding: 8px 0 8px 13px;
+  width: 134px;
+  border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  margin-top: -7px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  vertical-align: top;
 }
 
 #main-card-sortable,
@@ -98,9 +111,15 @@ textarea {
 }
 
 #card-search {
-  height: 99%;
+  height: 98%;
   overflow: scroll;
   width: 100%;
+  background-color: #fefefe;
+  border-radius: 0 5px 5px 5px;
+  -moz-border-radius: 0 5px 5px 5px;
+  -webkit-border-radius: 0 5px 5px 5px;
+  margin-top: -10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 #prefectures > .area-division > .btn-primary {
@@ -123,7 +142,7 @@ textarea {
 }
 
 #plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable {
-  height: 96%;
+  height: 92%;
 }
 
 #message > p {
@@ -131,10 +150,17 @@ textarea {
   font-size: 17px;
   padding: 20px 5px 5px 0;
 }
+
 //message icon
 a[href^="#message"]:before {
   font-family: 'Fontello';
   content: "a";
+}
+
+.ui-state-default > .title:before {
+  font-family: 'Fontello';
+  content: "a";
+  padding: 0 10px 0;
 }
 
 //hotel icon
@@ -163,38 +189,97 @@ a[href^="#place"]:before {
   font-family: 'Fontello';
   content: "p";
 }
+//up icon
+#hidden-btn:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e113";
+  font-size: 15px;
+}
+//down icon
+#show-btn:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e114";
+  font-size: 15px;
+}
+//card-carete icon
+#card-create > h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e177";
+  font-size: 17px;
+  padding-right: 5px;
+}
 
-.tooltip {
+//your plane icon
+#sideber-left > h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e028";
+  font-size: 15px;
+  padding-right: 5px;
+}
+
+.nav-tabs .tooltip {
   width: 100px ;
 }
 
 .tab-content {
-  //margin-top:10px;
   position: relative;
   top: 60px;
   z-index: 100;
+  > .active {
+    overflow-x: hidden;
+  }
+}
+
+#planpost {
+  width: 96%;
 }
 
 .plan-detail {
   overflow: scroll;
+  padding-top: 0px;
+  padding-left: 6px;
+  border-radius: 0 5px 5px 5px;
+  -moz-border-radius: 0 5px 5px 5px;
+  -webkit-border-radius: 0 5px 5px 5px;
+  position: relative;
+  background-color: #fefefe;
+  top: -43px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 #sideber-left {
   border-left: 1px solid #ddd;
+  h4 {
+    position: relative;
+    top: -33px;
+    padding-left: 3px;
+    font-size: 17px;
+    width: 164px;
+    background-color: #fefefe;
+    padding: 8px 0 8px 13px;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    vertical-align: top;
+  }
 }
 
 .travel-search {
-  width: 100%;
+  width: 97%;
   margin-top: -10px;
+  padding: 20px 0 0 10px;
 }
 
 .nav-tab-area {
-  width: 95%;
+  width: 90%;
   margin: auto auto;
   position: absolute;
-  height: 20%;
-  background-color: white;
+  height: 57px;
+  background-color: #fefefe;
   z-index: 200;
+  padding-top: 12px;
+  top: 31px;
 }
 
 .time-card {
@@ -222,23 +307,54 @@ a[href^="#place"]:before {
     border: 0;
     border: 6px solid #608090;
     margin-left: 45px;
-    border-radius: 1px;
-    -moz-border-radius: 100px;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     &:hover {
       cursor:pointer;
       cursor:hand;
     }
   }
+  > .close {
+    margin-top: -19px;
+    padding-right: 6px;
+  }
 }
 
-.sortable-card {
+#main-card-sortable > .sortable-card {
   width: 98%;
   padding-left: 70px;
 }
 
+.tab-pane .sortable-card {
+  width: 98%;
+}
+
+#hotels-search {
+  width: 90%;
+}
 .card_type,
 .longitude,
 .latitude {
   visibility: hidden;
+  height: 0px;
+}
+
+#hidden-btn,
+#show-btn {
+  float: right;
+  margin-top: -24px;
+  z-index: 0;
+  background-color: #fefefe;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
+  &:hover {
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.title {
+  overflow: hidden;
+  margin-right: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

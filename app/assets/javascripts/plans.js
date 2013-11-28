@@ -18,7 +18,7 @@ $(function() {
     //add delete-function-botton on right side
     var addContent = '';
     addContent += '<div class="ui-state-default">';
-    addContent += '<span class="title">' + data['name'] + '</span>';
+    addContent += '<div class="title">' + data['name'] + '</div>';
     addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
     addContent += '</div>';//.ui-state-default
 
@@ -45,10 +45,10 @@ $(function() {
 
       var addContent = '';
       addContent += '<div class="ui-state-hotel">'
-      addContent += '<span class="title"><a>' + name + '</a></span>';
-      addContent += '<sapn class="card_type">' + cardType  + '</span>';
-      addContent += '<span class="longitude">' + longitude + '</span>';
-      addContent += '<span class="latitude">'  + latitude  + '</span>';
+      addContent += '<div class="card_type">' + cardType  + '</div>';
+      addContent += '<div class="longitude">' + longitude + '</div>';
+      addContent += '<div class="latitude">'  + latitude  + '</div>';
+      addContent += '<div class="title"><a>' + name + '</a></div>';
       addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
       addContent += '</div>'
 
@@ -70,6 +70,21 @@ $(function() {
     Map:     mapLoopEnd
   };
 
+  //hidden-buton
+  var flag = 0;
+  $('#hidden-btn').bind('click',function() {
+    if ( (flag%2) == 0) {
+      $("#plan-title").hide();
+      $(this).attr('id', 'show-btn');
+      $('.contents').css('padding-top','70px');
+    }else{
+      $("#plan-title").show();
+      $(this).attr('id', 'hidden-btn');
+      $('.contents').css('padding-top','200px');
+    }
+    flag++;
+  });
+
   // area tag clicked event
   $('#prefectures > .area-division > label').bind('click',function() {
     var rawText    = $(this).text();
@@ -89,7 +104,7 @@ $(function() {
     $('#area-tags-box').append(span);
 
     var postData = { search_word: prefecture };
-    var postUrl  = '/plans/places_search.json';
+    var postUrl  = '/searches/place.json';
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
   });
 
@@ -100,7 +115,7 @@ $(function() {
   // hotel search clicked event
   $('#hotels-search').submit(function() {
     var postData = { name: $('#hotels-search input[name=keyword]').val() };
-    var postUrl  = '/plans/hotels_search.json';
+    var postUrl  = '/searches/hotel.json';
     $('#hotel-card-sortable li').remove();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
@@ -109,7 +124,7 @@ $(function() {
   // map search clicked event
   $('#map-search').submit(function() {
     var postData = { search_word: $('#map-search input[name=keyword]').val() };
-    var postUrl  = '/plans/map_search.json';
+    var postUrl  = '/searches/map.json';
     $('#map-card-sortable li').remove();
     clearMarkers();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
@@ -254,6 +269,7 @@ $(function() {
     addContent  = '<hr class="time-border">'
     addContent += '<div class="hour"><span class="title">' + timeTxt + '</span></div>'
     addContent += '<span class="card_type">Time</span>'
+    addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
     li.append(addContent);
     $('#main-card-sortable').append(li);
   });
