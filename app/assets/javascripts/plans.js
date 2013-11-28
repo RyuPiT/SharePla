@@ -113,8 +113,8 @@ $(function() {
   }
 
   // hotel search clicked event
-  $('#hotels-search').submit(function() {
-    var postData = { name: $('#hotels-search input[name=keyword]').val() };
+  $('#hotel-search').submit(function() {
+    var postData = { name: $('#hotel-search input[name=keyword]').val() };
     var postUrl  = '/searches/hotel.json';
     $('#hotel-card-sortable li').remove();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
@@ -185,7 +185,7 @@ $(function() {
     $('#hotel-card-sortable').append(dialog);
   }
   function hotelLoopEnd() {
-    $('#hotels-search input[name=keyword]').val('');
+    $('#hotel-search input[name=keyword]').val('');
   }
 
   // save clicked event
