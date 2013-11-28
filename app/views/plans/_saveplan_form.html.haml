@@ -4,9 +4,6 @@
       %button{ type: 'submit', class: 'btn btn-default btn-lg' }
         プラン保存
     .col-xs-6.col-sm-7.col-md-7.col-lg-7
-      -# このlabelって必要???
-      %label.sr-only
-        プランタイトル
       - if @plan
         %input{ type: 'input', name: 'plan-title', class: 'form-control input-lg', value: @plan[:title], required: 'true' }
       - else
