@@ -1,0 +1,24 @@
+- content_for :plan_tab_navs do
+  %li
+    %a{data: {toggle: 'tab'}, href: '#tag', title: '地域タグ'} タグ
+
+- content_for :plan_tab_contents do
+  #tag.tab-pane
+    #prefectures.btn-group{'data-toggle' => 'buttons'}
+      - Japan.areas.each do |area, prefectures|
+        .area-division
+          %p= area
+          - prefectures.each do |prefecture|
+            - if @plan && @plan[:area_tags]
+              - if @plan[:area_tags].include?(prefecture)
+                %label.btn.btn-primary.active
+                  %input{type: 'checkbox'}
+                    = prefecture
+              - else
+                %label.btn.btn-primary
+                  %input{type: 'checkbox'}
+                    = prefecture
+            - else
+              %label.btn.btn-primary
+                %input{type: 'checkbox'}
+                  = prefecture
