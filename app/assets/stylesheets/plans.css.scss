@@ -60,7 +60,7 @@ $font-color:          #305060;
 }
 
 // plan/new.erb.html
-#plan-list > .navbar-fixed-top {
+#new-plan-page > .navbar-fixed-top {
   top: 50px;
   padding: 10px 0 10px;
   background-color: #fefefe;
@@ -137,16 +137,16 @@ textarea {
   border-bottom: 1px solid #f0f0f0;
 }
 
-#plan-list,
-#plan-list > .container,
-#plan-list > .container > .contents,
-#plan-list > .container > .contents > .row,
-#plan-list > .container > .contents > .row > .col-sm-6,
-#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail {
+#new-plan-page,
+#new-plan-page > .container,
+#new-plan-page > .container > .contents,
+#new-plan-page > .container > .contents > .row,
+#new-plan-page > .container > .contents > .row > .col-sm-6,
+#new-plan-page > .container > .contents > .row > .col-sm-6 > .plan-detail {
   height: 99%;
 }
 
-#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable {
+#new-plan-page > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable {
   height: 92%;
 }
 

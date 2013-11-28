@@ -242,7 +242,7 @@ $(function() {
   }
 });
 
-//plan-list sort
+//new-plan-page sort
 $(function() {
   $('ol.droptrue').sortable({
     connectWith: 'ol',
