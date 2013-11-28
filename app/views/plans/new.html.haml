@@ -41,8 +41,8 @@
                     %li.time-card
                       %hr.time-border
                       .hour
-                        %span.title= card.title
-                        %span.card_type= card.card_type
+                        .title= card.title
+                        .card_type= card.card_type
                       %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
                   - else
                     %li.sortable-card
