@@ -222,8 +222,7 @@ a[href^="#place"]:before {
 }
 
 .tab-content {
-  position: relative;
-  top: 60px;
+  margin-top: 60px;
   z-index: 100;
   > .active {
     overflow-x: hidden;
