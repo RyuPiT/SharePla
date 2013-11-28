@@ -23,7 +23,7 @@ $(function() {
     addContent += '</div>';//.ui-state-default
 
     li.append(addContent);
-    $('#main-card-sortable').append(li);
+    $('#new-my-plan-cards').append(li);
     $('#addplan input[name=keyword]').val('');
   }
 
@@ -215,7 +215,7 @@ $(function() {
   // return card list from main card list
   function getAllCard() {
     var allCard = new Array();
-    var htmlTag = $('#main-card-sortable > li > div');
+    var htmlTag = $('#new-my-plan-cards > li > div');
     var size    = htmlTag.length;
     var keys    = ['title','card_type','longitude','latitude'];
     for(var i = 0; i < size; i++){
@@ -254,8 +254,8 @@ $(function() {
     dropOnEmpty: false
   });
 
-  $('#main-card-sortable, #hotel-card-sortable, #message-card-sortable').disableSelection();
-  $('#main-card-sortable').droppable({
+  $('#new-my-plan-cards, #hotel-card-sortable, #message-card-sortable').disableSelection();
+  $('#new-my-plan-cards').droppable({
     activeClass: 'ui-state-hover',
     hoverClass: 'ui-state-active'
   });
@@ -274,7 +274,7 @@ $(function() {
     addContent += '</div>';
     addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
     li.append(addContent);
-    $('#main-card-sortable').append(li);
+    $('#new-my-plan-cards').append(li);
   });
 });
 

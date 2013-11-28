@@ -90,7 +90,7 @@ textarea {
   vertical-align: top;
 }
 
-#main-card-sortable,
+#new-my-plan-cards,
 #message-card-sortable,
 #hotel-card-sortable,
 #tourist-card-sortable {
@@ -98,10 +98,10 @@ textarea {
   padding: 0;
 }
 
-#main-card-sortable {
+#new-my-plan-cards {
   padding-top: 20px;
 }
-#main-card-sortable > .ui-state-default {
+#new-my-plan-cards > .ui-state-default {
   margin-left: 70px;
   width: 86%;
 }
@@ -146,7 +146,7 @@ textarea {
   height: 99%;
 }
 
-#new-plan-page > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable {
+#new-my-plan-cards {
   height: 92%;
 }
 
@@ -325,7 +325,7 @@ a[href^="#place"]:before {
   }
 }
 
-#main-card-sortable > .sortable-card {
+#new-my-plan-cards > .sortable-card {
   width: 98%;
   padding-left: 70px;
 }
