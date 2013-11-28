@@ -10,18 +10,17 @@
         #create-card-block.col-sm-6
           %h4 カード作成
           #card-search
-            .travel-search
-              .nav-tab-area
-                - render 'plans/tabs/message'
-                - render 'plans/tabs/place'
-                - render 'plans/tabs/map'
-                - render 'plans/tabs/time'
-                - render 'plans/tabs/route'
-                - render 'plans/tabs/hotel'
-                - render 'plans/tabs/tag'
-                %ul.nav.nav-tabs= yield :plan_tab_navs
-              .tab-content
-                = yield :plan_tab_contents
+            .nav-tab-area
+              - render 'plans/tabs/message'
+              - render 'plans/tabs/place'
+              - render 'plans/tabs/map'
+              - render 'plans/tabs/time'
+              - render 'plans/tabs/route'
+              - render 'plans/tabs/hotel'
+              - render 'plans/tabs/tag'
+              %ul.nav.nav-tabs= yield :plan_tab_navs
+            .tab-content
+              = yield :plan_tab_contents
 
         #my-plan-block.col-sm-6
           %h4 あなたのプラン
