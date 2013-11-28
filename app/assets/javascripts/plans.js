@@ -125,7 +125,7 @@ $(function() {
   $('#map-search').submit(function() {
     var postData = { search_word: $('#map-search input[name=keyword]').val() };
     var postUrl  = '/searches/map.json';
-    $('#map-card-sortable li').remove();
+    $('#map-search-result li').remove();
     clearMarkers();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
@@ -133,7 +133,7 @@ $(function() {
 
   // Map
   function mapCardFunc(li, metaData, data) {
-    $('#map-card-sortable').append(li);
+    $('#map-search-result').append(li);
     // put marker
     putMarker(data);
   }
@@ -234,7 +234,7 @@ $(function() {
   }
 
   function bindZoomMap() {
-    $('#map-card-sortable > .sortable-card >.hotel-card').bind('click', function() {
+    $('#map-search-result > .sortable-card >.hotel-card').bind('click', function() {
       var latStr = $(this).children('.latitude').text();
       var lngStr = $(this).children('.longitude').text();
       zoomMap(Number(latStr), Number(lngStr));
