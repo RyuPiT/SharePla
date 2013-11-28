@@ -44,7 +44,7 @@ $(function() {
       li.addClass('sortable-card'); // TODO: #67
 
       var addContent = '';
-      addContent += '<div class="ui-state-hotel">'
+      addContent += '<div class="hotel-card">'
       addContent += '<div class="card_type">' + cardType  + '</div>';
       addContent += '<div class="longitude">' + longitude + '</div>';
       addContent += '<div class="latitude">'  + latitude  + '</div>';
@@ -234,7 +234,7 @@ $(function() {
   }
 
   function bindZoomMap() {
-    $('#map-card-sortable > .sortable-card >.ui-state-hotel').bind('click', function() {
+    $('#map-card-sortable > .sortable-card >.hotel-card').bind('click', function() {
       var latStr = $(this).children('.latitude').text();
       var lngStr = $(this).children('.longitude').text();
       zoomMap(Number(latStr), Number(lngStr));

@@ -31,7 +31,7 @@
                 - @plan.cards.each do |card|
                   - if card.card_type == 'Hotel'
                     %li.sortable-card
-                      .ui-state-hotel
+                      .hotel-card
                         .title= card.title
                         .card_type{ style: 'visibility: hidden;' }= card.card_type
                         .longitude{ style: 'visibility: hidden;' }= card.longitude

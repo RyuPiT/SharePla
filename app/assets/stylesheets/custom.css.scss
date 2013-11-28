@@ -117,9 +117,9 @@ html,body{
 
 }
 
-.ui-state-hotel,
-.ui-widget-content .ui-state-hotel,
-.ui-widget-header .ui-state-hotel{
+.hotel-card,
+.ui-widget-content .hotel-card,
+.ui-widget-header .hotel-card{
   @include ui-state;
   $hotel-card: #e2f7ce;
   $hotel-card-gradient: #efffdf;
@@ -155,7 +155,7 @@ body.modal-open,
 }
 
 //home icon
-.ui-state-hotel > .title:before {
+.hotel-card > .title:before {
   content: "\e021";
   font-family: 'Glyphicons Halflings';
   padding: 0 10px 0;
@@ -234,7 +234,7 @@ footer {
   width: 100%;
 }
 
-.ui-state-hotel > button.close,
+.hotel-card > button.close,
 .ui-state-default > button.close {
   margin-top: -24px;
 }
