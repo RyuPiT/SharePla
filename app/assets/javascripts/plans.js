@@ -254,7 +254,7 @@ $(function() {
     dropOnEmpty: false
   });
 
-  $('#new-my-plan-cards, #hotel-search-result, #message-card-sortable').disableSelection();
+  $('#new-my-plan-cards, #hotel-search-result, #example-message-card').disableSelection();
   $('#new-my-plan-cards').droppable({
     activeClass: 'ui-state-hover',
     hoverClass: 'ui-state-active'
