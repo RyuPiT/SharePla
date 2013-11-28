@@ -13,6 +13,8 @@ $font-color:          #305060;
 html,body{
   //footer position buttom
   height:100%;
+  color: $font-color;
+  background-color: #f0f0f0;
 }
 
 .wrap {
@@ -81,7 +83,7 @@ html,body{
 }
 
 //jquery_ui_theme sortable
-@mixin ui-state {
+@mixin card-style {
   color: $font-color;
   border-radius: 8px;
   -moz-border-radius: 8px;
@@ -100,10 +102,10 @@ html,body{
     }
 }
 
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default{
-  @include ui-state;
+.default-card,
+.ui-widget-content .default-card,
+.ui-widget-header .default-card{
+  @include card-style;
   $main-gradient: #daeafa;
   background: $main-color;
   border: 1px solid $main-color;
@@ -115,10 +117,10 @@ html,body{
 
 }
 
-.ui-state-hotel,
-.ui-widget-content .ui-state-hotel,
-.ui-widget-header .ui-state-hotel{
-  @include ui-state;
+.hotel-card,
+.ui-widget-content .hotel-card,
+.ui-widget-header .hotel-card{
+  @include card-style;
   $hotel-card: #e2f7ce;
   $hotel-card-gradient: #efffdf;
   background: $hotel-card;
@@ -153,7 +155,7 @@ body.modal-open,
 }
 
 //home icon
-.ui-state-hotel > .title:before {
+.hotel-card > .title:before {
   content: "\e021";
   font-family: 'Glyphicons Halflings';
   padding: 0 10px 0;
@@ -165,6 +167,7 @@ body.modal-open,
   font-family: 'Glyphicons Halflings';
   padding: 0 2px 0;
   font-size: 10px ;
+  float: left;
 }
 
 //area-label
@@ -231,8 +234,11 @@ footer {
   width: 100%;
 }
 
-.ui-state-hotel > button.close,
-.ui-state-default > button.close {
-  position: relative;
-  top: -26px;
+.hotel-card > button.close,
+.default-card > button.close {
+  margin-top: -24px;
+}
+
+.label-default {
+  margin: 2px;
 }

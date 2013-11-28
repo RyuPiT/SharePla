@@ -13,7 +13,7 @@ $font-color:          #305060;
 
 
 // plan/index.erb.html
-.sns-botton > li{
+.sns-button > li{
   list-style: none;
   display: block;
 }
@@ -56,15 +56,21 @@ $font-color:          #305060;
 
 .area-tags {
   overflow: auto;
-  height: 16px;
+  height: 21px;
 }
 
 // plan/new.erb.html
-#plan-list > .navbar-fixed-top {
+#new-plan-page > .navbar-fixed-top {
   top: 50px;
   padding: 10px 0 10px;
-  background-color: #f0f0f0;
+  background-color: #fefefe;
   z-index: 200;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5) inset;
+}
+
+#area-tags-box {
+  overflow-y: auto;
+  height: 37px;
 }
 
 textarea {
@@ -72,18 +78,30 @@ textarea {
   resize:none;
 }
 
-#main-card-sortable,
-#message-card-sortable,
-#hotel-card-sortable,
-#tourist-card-sortable {
+#create-card-block > h4 {
+  background-color: #fefefe;
+  padding: 8px 0 8px 13px;
+  width: 134px;
+  border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  margin-top: -7px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  vertical-align: top;
+}
+
+#new-my-plan-cards,
+#example-message-card,
+#hotel-search-result,
+#tourist-search-result {
   list-style-type: none;
   padding: 0;
 }
 
-#main-card-sortable {
+#new-my-plan-cards {
   padding-top: 20px;
 }
-#main-card-sortable > .ui-state-default {
+#new-my-plan-cards > .default-card {
   margin-left: 70px;
   width: 86%;
 }
@@ -98,9 +116,16 @@ textarea {
 }
 
 #card-search {
-  height: 99%;
+  padding: 20px 0 0 10px;
+  height: 98%;
   overflow: scroll;
   width: 100%;
+  background-color: #fefefe;
+  border-radius: 0 5px 5px 5px;
+  -moz-border-radius: 0 5px 5px 5px;
+  -webkit-border-radius: 0 5px 5px 5px;
+  margin-top: -10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 #prefectures > .area-division > .btn-primary {
@@ -113,17 +138,17 @@ textarea {
   border-bottom: 1px solid #f0f0f0;
 }
 
-#plan-list,
-#plan-list > .container,
-#plan-list > .container > .contents,
-#plan-list > .container > .contents > .row,
-#plan-list > .container > .contents > .row > .col-sm-6,
-#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail {
+#new-plan-page,
+#new-plan-page > .container,
+#new-plan-page > .container > .contents,
+#new-plan-page > .container > .contents > .row,
+#new-plan-page > .container > .contents > .row > .col-sm-6,
+#new-plan-page > .container > .contents > .row > .col-sm-6 > .plan-detail {
   height: 99%;
 }
 
-#plan-list > .container > .contents > .row > .col-sm-6 > .plan-detail > #main-card-sortable {
-  height: 96%;
+#new-my-plan-cards {
+  height: 92%;
 }
 
 #message > p {
@@ -138,7 +163,7 @@ a[href^="#message"]:before {
   content: "a";
 }
 
-.ui-state-default > .title:before {
+.default-card > .title:before {
   font-family: 'Fontello';
   content: "a";
   padding: 0 10px 0;
@@ -182,51 +207,80 @@ a[href^="#place"]:before {
   content: "\e114";
   font-size: 15px;
 }
+//card-carete icon
+#create-card-block > h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e177";
+  font-size: 17px;
+  padding-right: 5px;
+}
+
+//your plane icon
+#my-plan-block > h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e028";
+  font-size: 15px;
+  padding-right: 5px;
+}
 
 .nav-tabs .tooltip {
   width: 100px ;
 }
 
 .tab-content {
-  position: relative;
-  top: 60px;
+  margin-top: 40px;
   z-index: 100;
   > .active {
     overflow-x: hidden;
   }
 }
 
-#planpost {
-  width: 96%;
-}
-
 .plan-detail {
   overflow: scroll;
+  padding-top: 0px;
+  padding-left: 6px;
+  border-radius: 0 5px 5px 5px;
+  -moz-border-radius: 0 5px 5px 5px;
+  -webkit-border-radius: 0 5px 5px 5px;
+  background-color: #fefefe;
+  margin-top: -43px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
-#sideber-left {
+#my-plan-block {
   border-left: 1px solid #ddd;
-}
-
-.travel-search {
-  width: 97%;
-  margin-top: -10px;
+  h4 {
+    position: relative;
+    top: -33px;
+    padding-left: 3px;
+    font-size: 17px;
+    width: 164px;
+    background-color: #fefefe;
+    padding: 8px 0 8px 13px;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-right: 1px solid #aaa;
+    vertical-align: top;
+  }
 }
 
 .nav-tab-area {
-  width: 95%;
+  width: 91%;
   margin: auto auto;
   position: absolute;
-  height: 45px;
-  background-color: white;
+  height: 57px;
+  background-color: #fefefe;
   z-index: 200;
+  padding-top: 12px;
+  top: 30px;
 }
 
 .time-card {
   background: transparent;
   border: none;
-  margin-bottom: -19px;
-  margin-top: -9px;
+  margin-bottom: 0px;
+  margin-top: -5px;
   .hour{
     background-color: #608090;
     padding: 6px;
@@ -247,9 +301,10 @@ a[href^="#place"]:before {
     border: 0;
     border: 6px solid #608090;
     margin-left: 45px;
-    border-radius: 1px;
-    -moz-border-radius: 100px;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
+    margin-right: 9px;
     &:hover {
       cursor:pointer;
       cursor:hand;
@@ -257,11 +312,11 @@ a[href^="#place"]:before {
   }
   > .close {
     margin-top: -19px;
-    padding-right: 6px;
+    padding-right: 16px;
   }
 }
 
-#main-card-sortable > .sortable-card {
+#new-my-plan-cards > .sortable-card {
   width: 98%;
   padding-left: 70px;
 }
@@ -270,7 +325,7 @@ a[href^="#place"]:before {
   width: 98%;
 }
 
-#hotels-search {
+#hotel-search {
   width: 90%;
 }
 .card_type,
@@ -285,10 +340,10 @@ a[href^="#place"]:before {
   float: right;
   margin-top: -24px;
   z-index: 0;
-  opacity: 1;
-  background-color: #f0f0f0;
+  background-color: #fefefe;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
   &:hover {
-    opacity: 0.7;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -297,4 +352,9 @@ a[href^="#place"]:before {
   margin-right: 15px;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.time-card .title {
+  overflow: hidden;
+  margin-right: 0px;
 }

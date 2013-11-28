@@ -1,0 +1,12 @@
+- content_for :plan_tab_navs do
+  %li
+    %a{"data-toggle" => "tab", href: "#time", title: "時間"}
+
+- content_for :plan_tab_contents do
+  #time.tab-pane
+    %h4 時間
+    - Day.hours.each.with_index(1) do |hour, idx|
+      .btn.btn-primary
+        = hour
+      - if (idx%4).zero? then
+        %br
