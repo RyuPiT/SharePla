@@ -240,10 +240,9 @@ a[href^="#place"]:before {
   border-radius: 0 5px 5px 5px;
   -moz-border-radius: 0 5px 5px 5px;
   -webkit-border-radius: 0 5px 5px 5px;
-  position: relative;
   background-color: #fefefe;
-  top: -43px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  margin-top: -43px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 #sideber-left {
@@ -259,7 +258,7 @@ a[href^="#place"]:before {
     border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    border-right: 1px solid #aaa;
     vertical-align: top;
   }
 }
