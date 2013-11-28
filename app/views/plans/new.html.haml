@@ -5,9 +5,10 @@
 
   .container
     .contents
-      %sapn#hidden-btn.btn
+      %span#hidden-btn.btn /
       .row
         .col-sm-6
+          %h4 カード作成
           #card-search
             .travel-search
               .nav-tab-area
@@ -23,6 +24,7 @@
                 = yield :plan_tab_contents
 
         #sideber-left.col-sm-6
+          %h4 あなたのプラン
           .plan-detail
             %ol#main-card-sortable.droptrue
               - if @plan
