@@ -5,8 +5,7 @@
 - content_for :plan_tab_contents do 
   .tab-pane.active#message
     %h4= 'メッセージ'
-    #planpost
-      = render 'addplan_form'
+    = render 'addplan_form'
     %p= 'Example:'
     %ol#message-card-sortable.droptrue
       %li.sortable-card
