@@ -109,7 +109,7 @@ $(function() {
   });
 
   function removeTouringSpot(prefecture) {
-    $('#tourist-card-sortable > li[name=' + prefecture + ']').remove();
+    $('#tourist-search-result > li[name=' + prefecture + ']').remove();
   }
 
   // hotel search clicked event
@@ -146,7 +146,7 @@ $(function() {
   function touringCardFunc(li, metaData, data) {
     var searchWord = metaData['search_word'];
     li.attr('name', searchWord);
-    $('#tourist-card-sortable').append(li);
+    $('#tourist-search-result').append(li);
   }
   function touringLoopEnd() {
   }
