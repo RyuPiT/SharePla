@@ -8,9 +8,9 @@
           %span{ name: tag, class: 'label label-default'}= tag
   - @plan.cards.each do |card|
     - if card.card_type == 'Hotel'
-      %li.ui-state-hotel= card.title
+      %li.hotel-card= card.title
     - else
-      %li.ui-state-default= card.title
+      %li.default-card= card.title
   = link_to plan_path @plan, format: :pdf do
     %button.btn.btn-primary PDF
 

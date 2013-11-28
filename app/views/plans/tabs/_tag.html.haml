@@ -12,13 +12,10 @@
             - if @plan && @plan[:area_tags]
               - if @plan[:area_tags].include?(prefecture)
                 %label.btn.btn-primary.active
-                  %input{type: 'checkbox'}
-                    = prefecture
+                  %input{type: 'checkbox'}= prefecture
               - else
                 %label.btn.btn-primary
-                  %input{type: 'checkbox'}
-                    = prefecture
+                  %input{type: 'checkbox'}= prefecture
             - else
               %label.btn.btn-primary
-                %input{type: 'checkbox'}
-                  = prefecture
+                %input{type: 'checkbox'}= prefecture

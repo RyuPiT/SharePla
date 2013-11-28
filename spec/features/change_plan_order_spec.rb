@@ -22,8 +22,8 @@ feature 'ユーザーはプラン内の目的地の順序を並び替えるこ�
 
   scenario '肉を食べると、魚を食べるを並び替えると、並び替えた順序で保存される' do
     # drag_to でならびかえ
-    source = page.find('.ui-state-default', text: '肉屋')
-    target = page.find('.ui-state-default', text: '魚屋')
+    source = page.find('.default-card', text: '肉屋')
+    target = page.find('.default-card', text: '魚屋')
     source.drag_to(target)
 
     # 保存して
@@ -34,9 +34,9 @@ feature 'ユーザーはプラン内の目的地の順序を並び替えるこ�
 
     # 肉屋と魚屋が並び替えられています!
     sleep 1
-    destinations = page.all('.ui-state-default').map {|e| e.text }
+    destinations = page.all('.default-card').map {|e| e.text }
 
     # なぜか通らないので後で直す
-    # expect(destinations).to eq %w(ホーム 魚屋 肉屋)
+    # expect(destinations).to eq %w(魚屋 肉屋)
   end
 end

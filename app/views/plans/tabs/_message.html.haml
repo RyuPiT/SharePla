@@ -5,24 +5,23 @@
 - content_for :plan_tab_contents do 
   .tab-pane.active#message
     %h4= 'メッセージ'
-    #planpost
-      = render 'addplan_form'
+    = render 'create_message_form'
     %p= 'Example:'
-    %ol#message-card-sortable.droptrue
+    %ol#example-message-card.droptrue
       %li.sortable-card
-        .ui-state-default
+        .default-card
           .title バスケがしたいです
           %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times
       %li.sortable-card
-        .ui-state-default
+        .default-card
           .title 泣け、叫べ、そして死ね！
           %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times;
       %li.sortable-card
-        .ui-state-default
+        .default-card
           .title 歩道が広いではないか・・・行け
           %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times;
       %li.sortable-card
-        .ui-state-default
+        .default-card
           .title だが断る
           %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times;
 
