@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 require 'spec_helper'
-describe 'plans/index.html.erb' do
+describe 'plans/index.html.haml' do
   describe  do
     before do
       render
