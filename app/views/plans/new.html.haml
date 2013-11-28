@@ -30,16 +30,25 @@
               - if @plan
                 - @plan.cards.each do |card|
                   - if card.card_type == 'Hotel'
-                    %li.ui-state-hotel
-                      %span.title= card.title
-                      %span.card_type{ style: 'visibility: hidden;' }= card.card_type
-                      %span.longitude{ style: 'visibility: hidden;' }= card.longitude
-                      %span.latitude{ style: 'visibility: hidden;' }= card.latitude
+                    %li.sortable-card
+                      .ui-state-hotel
+                        .title= card.title
+                        .card_type{ style: 'visibility: hidden;' }= card.card_type
+                        .longitude{ style: 'visibility: hidden;' }= card.longitude
+                        .latitude{ style: 'visibility: hidden;' }= card.latitude
+                        %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
+                  - elsif card.card_type == 'Time'
+                    %li.time-card
+                      %hr.time-border
+                      .hour
+                        %span.title= card.title
+                        %span.card_type= card.card_type
                       %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
                   - else
-                    %li.ui-state-default
-                      %span.title= card.title
-                      %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
+                    %li.sortable-card
+                      .ui-state-default
+                        .title= card.title
+                        %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
               - else
                 %li.sortable-card
                   .ui-state-default

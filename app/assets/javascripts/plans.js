@@ -263,12 +263,15 @@ $(function() {
 
 $(function() {
   $('#time > .btn').bind('click', function() {
-    var timeTxt = $(this).text();
+    var rawTxt  = $(this).text();
+    var timeTxt = $.trim(rawTxt);
     var li      = $('<li>');
     li.addClass('time-card');
-    addContent  = '<hr class="time-border">'
-    addContent += '<div class="hour"><span class="title">' + timeTxt + '</span></div>'
-    addContent += '<span class="card_type">Time</span>'
+    addContent  = '<hr class="time-border">';
+    addContent += '<div class="hour">';
+    addContent += '<div class="title">' + timeTxt + '</div>';
+    addContent += '<div class="card_type">Time</div>';
+    addContent += '</div>';
     addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
     li.append(addContent);
     $('#main-card-sortable').append(li);
