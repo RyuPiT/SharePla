@@ -17,10 +17,10 @@ $(function() {
     //add card-title
     //add delete-function-botton on right side
     var addContent = '';
-    addContent += '<div class="ui-state-default">';
+    addContent += '<div class="default-card">';
     addContent += '<div class="title">' + data['name'] + '</div>';
     addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-    addContent += '</div>';//.ui-state-default
+    addContent += '</div>';//.default-card
 
     li.append(addContent);
     $('#new-my-plan-cards').append(li);

@@ -101,7 +101,7 @@ textarea {
 #new-my-plan-cards {
   padding-top: 20px;
 }
-#new-my-plan-cards > .ui-state-default {
+#new-my-plan-cards > .default-card {
   margin-left: 70px;
   width: 86%;
 }
@@ -162,7 +162,7 @@ a[href^="#message"]:before {
   content: "a";
 }
 
-.ui-state-default > .title:before {
+.default-card > .title:before {
   font-family: 'Fontello';
   content: "a";
   padding: 0 10px 0;

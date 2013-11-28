@@ -83,7 +83,7 @@ html,body{
 }
 
 //jquery_ui_theme sortable
-@mixin ui-state {
+@mixin card-style {
   color: $font-color;
   border-radius: 8px;
   -moz-border-radius: 8px;
@@ -102,10 +102,10 @@ html,body{
     }
 }
 
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default{
-  @include ui-state;
+.default-card,
+.ui-widget-content .default-card,
+.ui-widget-header .default-card{
+  @include card-style;
   $main-gradient: #daeafa;
   background: $main-color;
   border: 1px solid $main-color;
@@ -120,7 +120,7 @@ html,body{
 .hotel-card,
 .ui-widget-content .hotel-card,
 .ui-widget-header .hotel-card{
-  @include ui-state;
+  @include card-style;
   $hotel-card: #e2f7ce;
   $hotel-card-gradient: #efffdf;
   background: $hotel-card;
@@ -235,7 +235,7 @@ footer {
 }
 
 .hotel-card > button.close,
-.ui-state-default > button.close {
+.default-card > button.close {
   margin-top: -24px;
 }
 
