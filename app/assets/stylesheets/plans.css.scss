@@ -215,7 +215,7 @@ a[href^="#place"]:before {
 }
 
 //your plane icon
-#sideber-left > h4:before {
+#my-plan-block > h4:before {
   font-family: 'Glyphicons Halflings';
   content: "\e028";
   font-size: 15px;
@@ -250,7 +250,7 @@ a[href^="#place"]:before {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
-#sideber-left {
+#my-plan-block {
   border-left: 1px solid #ddd;
   h4 {
     position: relative;
