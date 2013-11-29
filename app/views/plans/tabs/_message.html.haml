@@ -8,47 +8,9 @@
     = render 'create_message_form'
     %p= 'Example:'
     %ol#example-message-card.droptrue
-      %li.sortable-card
-        .default-card
-          .title 荷物のチェック
-          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .default-card
-          .title ここは重要
-          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .default-card
-          .title おみやげを買う
-          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .default-card
-          .title この店には絶対に行きたい
-          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .default-card
-          .title 超おすすめ
-          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .default-card
-          .title 家に着くまでが旅行
-          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .default-card
-          .title ここでホラースポットもありかもしれない
-          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .default-card
-          .title お目当ての人の心をぐっと掴むチャンス
-          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .default-card
-          .title 良いムードになる
-          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .default-card
-          .title お酒に注意
-          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .default-card
-          .title アレルギーに注意
-          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
+      - Card.message_samples.each do |msg|
+        %li.sortable-card
+          .default-card
+            .title 
+              = msg
+              %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
