@@ -1,11 +1,5 @@
 #top-page-header.page-header
   .container
-    - if flash[:notice]
-      .alert.alert-success.alert-dismissable
-        %button{ type: 'button', class: 'close', data: {dismiss: 'alert'}, aria: {hiddeen: 'true'} }
-          &times;
-        =h(flash[:notice])
-
     %h1
       オリジナル
       %span.attention プラン
@@ -17,6 +11,12 @@
     %p PC専用
 .container
   = render 'sns_button'
+  - if flash[:notice]
+    .alert.alert-success.alert-dismissable
+      %button{ type: 'button', class: 'close', data: {dismiss: 'alert'}, aria: {hiddeen: 'true'} }
+        &times;
+      =h(flash[:notice])
+
   .plans-list
     - if @plans
       - @plans.reverse.each do |plan|
