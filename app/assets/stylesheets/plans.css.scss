@@ -13,14 +13,20 @@ $font-color:          #305060;
 
 
 // plan/index.erb.html
-.sns-button > li{
-  list-style: none;
-  display: block;
+.sns-button {
+  width: 100%;
+  height: 30px;
+   > li{
+    list-style: none;
+    display: block;
+    float: right;
+  }
 }
 
 #new-plan-button {
  text-align: center;
 }
+
 
 .top-list-title {
   background-color: $main-color;
