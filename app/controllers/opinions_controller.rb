@@ -10,7 +10,7 @@ class OpinionsController < ApplicationController
 
     respond_to do |format|
       if @opinion.save
-        flash[:notice] = "投稿しました"
+        flash[:notice] = '投稿しました'
         index # @new_opinionの初期化と@opinionsの再設定
         format.html { render action: 'index' }
       end
@@ -20,12 +20,12 @@ class OpinionsController < ApplicationController
   def like
     if session[:ids].present? && session[:ids].include?(params[:id]) then
       is_duplicate = TRUE
-      bad_status   = { status: "bad" }
+      bad_status   = { status: 'bad' }
     else
       set_opinion
 
       is_duplicate = FALSE
-      json_data    = { status: "ok", id: params[:id] }
+      json_data    = { status: 'ok', id: params[:id] }
       likes        = @opinion[:likes] + 1
 
       @opinion.update(likes: likes)
