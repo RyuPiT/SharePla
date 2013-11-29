@@ -4,12 +4,11 @@
 
 - content_for :plan_tab_contents do
   #map.tab-pane
-    %h4 地図検索
     %form#map-search{action: map_search_path, method: 'POST'}
       .row
         .col-sm-10
           %input.form-control{name: 'keyword', placeholder: 'グーグルマップのように', required: '', type: 'input'}
         .col-sm-2
           %input.btn.btn-default{type: 'submit', value: '検索'}
-    #map-canvas{style: 'width:400px; height:500px'}
+    #map-canvas
     %ol#map-search-result.droptrue
