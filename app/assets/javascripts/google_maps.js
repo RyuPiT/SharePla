@@ -59,3 +59,51 @@ function zoomMap(latitude, longitude) {
   map.setCenter(latlng);
   map.setZoom(15);
 }
+
+function getRoute(cards){
+  clearMarkers();
+  var directionsDisplay = new google.maps.DirectionsRenderer();
+  var directionsService = new google.maps.DirectionsService();
+  directionsDisplay.setMap(map);
+  var from;
+  var to;
+  var DirectionsWaypoint = [];
+  var request;
+  if (cards.length==0){
+    return;
+  } else if (cards.length == 1){ 
+    from = new google.maps.LatLng(Number(cards[0]['latitude']), Number(cards[0]['longitude']));
+    to = from;
+    request = {
+      origin: from,
+      destination: to,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+  } else if (cards.length < 11) { // google service is up to 10 Waypoint.
+    $.each(cards, function() {
+      var position = {
+        location: new google.maps.LatLng(Number(this['latitude']), Number(this['longitude'])),
+        stopover: false
+      };
+      DirectionsWaypoint.push(position);
+    });
+
+    from = DirectionsWaypoint.shift();
+    to = DirectionsWaypoint.pop();
+    request = {
+      origin: from['location'],
+      waypoints: DirectionsWaypoint,
+      destination: to['location'],
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+  } else {
+    alert("Way point is up to 10 positions");
+    return;
+  }
+
+  directionsService.route(request, function(response, status){
+    if(status == google.maps.DirectionsStatus.OK){
+      directionsDisplay.setDirections(response);
+    }
+  });
+}

@@ -243,7 +243,7 @@ $(function() {
 
   // route viewer
   $('#route-viewer > .row > .col-sm-2 > input.btn.btn-default').bind('click', function() {
-    var cards = getAllCard();
+      getRoute(getAllCard());
   });
 
 });
