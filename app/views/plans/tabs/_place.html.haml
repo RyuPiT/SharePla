@@ -1,10 +1,9 @@
 - content_for :plan_tab_navs do
   %li
-    %a{href: '#place', data:{toggle: 'tab'}, title:'観光地'}
+    %a{href: '#place', 'data-toggle' => 'tab', title:'観光地'}
 
 - content_for :plan_tab_contents do
   .tab-pane#place
     %h4 観光地
     %p 地域タグを選択してください。
     %ol#tourist-search-result.droptrue
-
