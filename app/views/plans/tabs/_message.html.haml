@@ -1,8 +1,8 @@
-- content_for :plan_tab_navs do 
+- content_for :plan_tab_navs do
   %li.active
-    %a{href: '#message', data: {toggle: 'tab'}, title: 'メッセージ' }
+    %a{href: '#message', 'data-toggle' => 'tab', title: 'メッセージ'}
 
-- content_for :plan_tab_contents do 
+- content_for :plan_tab_contents do
   .tab-pane.active#message
     %h4= 'メッセージ'
     = render 'create_message_form'
@@ -11,17 +11,16 @@
       %li.sortable-card
         .default-card
           .title バスケがしたいです
-          %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times
+          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
       %li.sortable-card
         .default-card
           .title 泣け、叫べ、そして死ね！
-          %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times;
+          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
       %li.sortable-card
         .default-card
           .title 歩道が広いではないか・・・行け
-          %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times;
+          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
       %li.sortable-card
         .default-card
           .title だが断る
-          %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times;
-
+          %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;
