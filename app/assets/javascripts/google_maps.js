@@ -67,38 +67,46 @@ function getRoute(cards){
   directionsDisplay.setMap(map);
   var from;
   var to;
-  var DirectionsWaypoint = [];
+  var points = [];
   var request;
   if (cards.length==0){
     return;
-  } else if (cards.length == 1){ 
-    from = new google.maps.LatLng(Number(cards[0]['latitude']), Number(cards[0]['longitude']));
-    to = from;
-    request = {
-      origin: from,
-      destination: to,
-      travelMode: google.maps.DirectionsTravelMode.DRIVING
-    };
-  } else if (cards.length < 11) { // google service is up to 10 Waypoint.
-    $.each(cards, function() {
-      var position = {
-        location: new google.maps.LatLng(Number(this['latitude']), Number(this['longitude'])),
-        stopover: false
-      };
-      DirectionsWaypoint.push(position);
-    });
-
-    from = DirectionsWaypoint.shift();
-    to = DirectionsWaypoint.pop();
-    request = {
-      origin: from['location'],
-      waypoints: DirectionsWaypoint,
-      destination: to['location'],
-      travelMode: google.maps.DirectionsTravelMode.DRIVING
-    };
   } else {
-    alert("Way point is up to 10 positions");
-    return;
+    $.each(cards, function() {
+      if ((this['latitude'] != "") && (this['longitude']  !="")){
+        var position = {
+          location: new google.maps.LatLng(Number(this['latitude']), Number(this['longitude'])),
+          stopover: false
+        };
+        points.push(position);
+      }
+    });
+    
+    var length = points.length;
+    if (length == 0){
+      console.log("0");
+      return;
+    } else if (length == 1){
+      from = points.shift()
+      to = from;
+      request = {
+        origin: from,
+        destination: to,
+        travelMode: google.maps.DirectionsTravelMode.DRIVING
+      }; 
+    } else if (length < 11){ // google service is up to 10 Waypoint.
+      from = points.shift();
+      to = points.pop();
+      request = {
+        origin: from['location'],
+        waypoints: points,
+        destination: to['location'],
+        travelMode: google.maps.DirectionsTravelMode.DRIVING
+      };
+    } else {
+      alert("Way points are up to 10 positions");
+      return;
+    }
   }
 
   directionsService.route(request, function(response, status){
