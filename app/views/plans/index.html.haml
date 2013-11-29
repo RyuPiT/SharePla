@@ -22,7 +22,7 @@
       - @plans.reverse.each do |plan|
         %li.top-list-title
           %h4= plan[:title]
-          = link_to '', plan
+          = link_to 'プランを見る', plan
           %p= '作成日' + plan.created_at.strftime('%Y/%m/%d %H:%M')
           .area-tags
             - (plan[:area_tags] || []).each do |tag|
