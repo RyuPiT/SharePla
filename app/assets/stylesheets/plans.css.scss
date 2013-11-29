@@ -116,7 +116,8 @@ textarea {
 #new-my-plan-cards,
 #example-message-card,
 #hotel-search-result,
-#tourist-search-result {
+#tourist-search-result,
+#map-search-result {
   list-style-type: none;
   padding: 0;
 }
@@ -220,6 +221,11 @@ a[href^="#place"]:before {
   font-family: 'Fontello';
   content: "p";
 }
+//place icon
+a[href^="#tag"]:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e135";
+}
 //up icon
 #hidden-btn:before {
   font-family: 'Glyphicons Halflings';
@@ -291,7 +297,7 @@ a[href^="#place"]:before {
 }
 
 .nav-tab-area {
-  width: 91%;
+  width: 89%;
   margin: auto auto;
   position: absolute;
   height: 57px;
@@ -386,6 +392,23 @@ a[href^="#place"]:before {
 .time-card .title {
   overflow: hidden;
   margin-right: 0px;
+}
+
+#create-message-card,
+#map-search,
+#hotel-serch {
+  width: 90%;
+}
+
+#map-canvas {
+  width: 98%;
+  height: 200px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin: 0 auto;
+  margin-top: 11px;
 }
 
 //show.html.haml
