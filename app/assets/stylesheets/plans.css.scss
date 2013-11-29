@@ -212,6 +212,7 @@ a[href^="#time"]:before {
   font-family: 'Glyphicons Halflings';
   content: "\e023";
 }
+
 //map icon
 a[href^="#map"]:before {
   font-family: 'Fontello';
@@ -306,6 +307,22 @@ a[href^="#tag"]:before {
   z-index: 200;
   padding-top: 12px;
   top: 30px;
+}
+
+#time {
+  hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .btn-primary {
+    margin: 2px 0 9px;
+    padding: 5px;
+    &:before {
+      font-family: 'Glyphicons Halflings';
+      content: "\e023";
+      font-size: 10px;
+    }
+  }
 }
 
 .time-card {
