@@ -1,6 +1,6 @@
 -#<div class="opinion-page">
-.container#opinion-page
-  .page-header
+.page-header
+  .container#opinion-page
 
     -# <% if flash[:notice] %>
     - if flash[:notice]
@@ -22,22 +22,20 @@
       = f.text_area  :comment, class: 'form-control', placeholder: '意見や要望', required: true
       = f.submit     :comment, class: 'btn btn-primary'
 
-    - @opinions.reverse.each do |opinion|
-      .opinion-list
-        %h4= opinion[:title]
-        = simple_format(opinion[:comment], class: 'opinion-comment')
-        %p.opinion-date= '作成日: ' + opinion.created_at.strftime('%Y/%m/%d %H:%M')
-
-        - if @ids.blank? then
-          %button{ class: 'btn btn-primary opinion-iine', name: opinion[:id], value: opinion[:id] }
-            iine!
+.container
+  - @opinions.reverse.each do |opinion|
+    .opinion-list
+      %h4= opinion[:title]
+      - if @ids.blank? then
+        %button{ class: 'btn opinion-iine', name: opinion[:id], value: opinion[:id] }
+          %span.badge= opinion[:likes]
+      - else
+        - if @ids.include?(opinion[:id].to_s) then
+          %button{ class: 'btn opinion-iine disabled', name: opinion[:id], value: opinion[:id] }
             %span.badge= opinion[:likes]
         - else
-          - if @ids.include?(opinion[:id].to_s) then
-            %button{ class: 'btn btn-primary opinion-iine disabled', name: opinion[:id], value: opinion[:id] }
-              iine!
-              %span.badge= opinion[:likes]
-          - else
-            %button{ class: 'btn btn-primary opinion-iine', name: opinion[:id], value: opinion[:id] }
-              iine!
-              %span.badge= opinion[:likes]
+          %button{ class: 'btn opinion-iine', name: opinion[:id], value: opinion[:id] }
+            %span.badge= opinion[:likes]
+      = simple_format(opinion[:comment], class: 'opinion-comment')
+      %p.opinion-date= '作成日: ' + opinion.created_at.strftime('%Y/%m/%d %H:%M')
+

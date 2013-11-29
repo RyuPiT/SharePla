@@ -10,7 +10,7 @@ $glay-color:          #e8e8e8;
 $dark-color:          #608090;
 $dark-color-gradient: #7191a1;
 $font-color:          #305060;
-
+$bgc-white:           #fefefe;
 
 // plan/index.erb.html
 .sns-button {
@@ -85,7 +85,7 @@ $font-color:          #305060;
 #new-plan-page > .navbar-fixed-top {
   top: 50px;
   padding: 10px 0 10px;
-  background-color: #fefefe;
+  background-color: $bgc-white;
   z-index: 200;
   box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5) inset;
 }
@@ -101,7 +101,7 @@ textarea {
 }
 
 #create-card-block > h4 {
-  background-color: #fefefe;
+  background-color: $bgc-white;
   padding: 8px 0 8px 13px;
   width: 134px;
   border-radius: 5px 5px 0 0;
@@ -144,7 +144,7 @@ textarea {
   height: 98%;
   overflow: scroll;
   width: 100%;
-  background-color: #fefefe;
+  background-color: $bgc-white;
   border-radius: 0 5px 5px 5px;
   -moz-border-radius: 0 5px 5px 5px;
   -webkit-border-radius: 0 5px 5px 5px;
@@ -266,7 +266,7 @@ a[href^="#place"]:before {
   border-radius: 0 5px 5px 5px;
   -moz-border-radius: 0 5px 5px 5px;
   -webkit-border-radius: 0 5px 5px 5px;
-  background-color: #fefefe;
+  background-color: $bgc-white;
   margin-top: -43px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
@@ -279,7 +279,7 @@ a[href^="#place"]:before {
     padding-left: 3px;
     font-size: 17px;
     width: 164px;
-    background-color: #fefefe;
+    background-color: $bgc-white;
     padding: 8px 0 8px 13px;
     border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -294,7 +294,7 @@ a[href^="#place"]:before {
   margin: auto auto;
   position: absolute;
   height: 57px;
-  background-color: #fefefe;
+  background-color: $bgc-white;
   z-index: 200;
   padding-top: 12px;
   top: 30px;
@@ -306,7 +306,7 @@ a[href^="#place"]:before {
   margin-bottom: 0px;
   margin-top: -5px;
   .hour{
-    background-color: #608090;
+    background-color: $dark-color;
     padding: 6px;
     color: #ddd;
     border-radius: 8px 8px 0 0;
@@ -323,7 +323,7 @@ a[href^="#place"]:before {
     margin-top: 16px;
     margin-bottom: -54px;
     border: 0;
-    border: 6px solid #608090;
+    border: 6px solid $dark-color;
     margin-left: 45px;
     border-radius: 8px;
     -moz-border-radius: 8px;
@@ -368,7 +368,7 @@ a[href^="#place"]:before {
   float: right;
   margin-top: -24px;
   z-index: 0;
-  background-color: #fefefe;
+  background-color: $bgc-white;
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
   &:hover {
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
