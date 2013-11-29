@@ -7,9 +7,9 @@
         =h(flash[:notice])
 
     %h1
-      オリジナルプランを
-      %span.attention 作成
-      し、みんなに
+      オリジナル
+      %span.attention プラン
+      を作成し、みんなに
       %span.attention 共有
       しよう
   #new-plan-button
@@ -21,9 +21,9 @@
     - if @plans
       - @plans.reverse.each do |plan|
         %li.top-list-title
+          %h4= plan[:title]
+          = link_to '', plan
+          %p= '作成日' + plan.created_at.strftime('%Y/%m/%d %H:%M')
           .area-tags
             - (plan[:area_tags] || []).each do |tag|
               %span{ name: tag, class: 'label label-default' }= tag
-          %h4= plan[:title]
-          %p= '作成日' + plan.created_at.strftime('%Y/%m/%d %H:%M')
-          = link_to '', plan

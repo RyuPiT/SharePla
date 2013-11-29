@@ -42,12 +42,14 @@ $font-color:          #305060;
   background-color: $main-color;
   padding: 10px 10px 30px 10px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   list-style: none;
   float: left;
   width: 270px;
   margin: 5px;
   cursor: pointer;
-  cursor: hand;
   h4 {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -59,7 +61,7 @@ $font-color:          #305060;
     float: right;
   }
   &:hover {
-    background-color: $attention-color;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
   }
   span {
     margin-right: 3px;
