@@ -74,11 +74,11 @@ $(function() {
   var flag = 0;
   $('#hidden-btn').bind('click',function() {
     if ( (flag%2) == 0) {
-      $("#new-plan-header").hide();
+      $("#save-plan > textarea").hide();
       $(this).attr('id', 'show-btn');
-      $('.contents').css('padding-top','70px');
+      $('.contents').css('padding-top','130px');
     }else{
-      $("#new-plan-header").show();
+      $("#save-plan > textarea").show();
       $(this).attr('id', 'hidden-btn');
       $('.contents').css('padding-top','200px');
     }
