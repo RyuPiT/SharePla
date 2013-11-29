@@ -6,10 +6,15 @@
           &times;
         =h(flash[:notice])
 
-    %h1 Welcome SharePla
+    %h1
+      オリジナルプランを
+      %span.attention 作成
+      し、みんなに
+      %span.attention 共有
+      しよう
   #new-plan-button
     = link_to 'New Plan!', new_plan_path, class: 'btn btn-primary btn-lg'
-
+    %p PC専用
 .container
   = render 'sns_button'
   .plans-list
