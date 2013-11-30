@@ -21,13 +21,13 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
 
-    params[:plan][:cards].each do |key,value|
+    params[:plan][:cards].each do |key, value|
       @plan.cards.push(Card.new(value))
     end
 
     respond_to do |format|
       if @plan.save
-        flash[:notice] = "保存しました"
+        flash[:notice] = '保存しました'
         format.html { render nothing: true }
         format.json { render nothing: true }
       end

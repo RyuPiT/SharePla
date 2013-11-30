@@ -10,28 +10,47 @@ $glay-color:          #e8e8e8;
 $dark-color:          #608090;
 $dark-color-gradient: #7191a1;
 $font-color:          #305060;
+$bgc-white:           #fefefe;
 
+// plan/index.html.haml
+.sns-button {
+  width: 100%;
+  height: 20px;
+   > li{
+    list-style: none;
+    display: block;
+    float: right;
+  }
+}
 
-// plan/index.erb.html
-.sns-button > li{
-  list-style: none;
-  display: block;
+.attention {
+  color: $attention-color;
+  font-size: 43px;
+}
+
+#top-page-header h1 {
+  margin: 0 auto;
+  text-align: center;
+  padding: 49px 0;
 }
 
 #new-plan-button {
  text-align: center;
 }
 
+
 .top-list-title {
   background-color: $main-color;
   padding: 10px 10px 30px 10px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   list-style: none;
   float: left;
   width: 270px;
   margin: 5px;
   cursor: pointer;
-  cursor: hand;
   h4 {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -43,7 +62,11 @@ $font-color:          #305060;
     float: right;
   }
   &:hover {
-    background-color: $attention-color;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
+  }
+  &:active {
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3) inset;
+    background-color: #cfdfef;
   }
   span {
     margin-right: 3px;
@@ -59,11 +82,11 @@ $font-color:          #305060;
   height: 21px;
 }
 
-// plan/new.erb.html
+// plan/new.html.haml
 #new-plan-page > .navbar-fixed-top {
   top: 50px;
   padding: 10px 0 10px;
-  background-color: #fefefe;
+  background-color: $bgc-white;
   z-index: 200;
   box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5) inset;
 }
@@ -79,7 +102,7 @@ textarea {
 }
 
 #create-card-block > h4 {
-  background-color: #fefefe;
+  background-color: $bgc-white;
   padding: 8px 0 8px 13px;
   width: 134px;
   border-radius: 5px 5px 0 0;
@@ -91,9 +114,11 @@ textarea {
 }
 
 #new-my-plan-cards,
+#show-my-plan-cards,
 #example-message-card,
 #hotel-search-result,
-#tourist-search-result {
+#tourist-search-result,
+#map-search-result {
   list-style-type: none;
   padding: 0;
 }
@@ -122,7 +147,7 @@ textarea {
   height: 98%;
   overflow: scroll;
   width: 100%;
-  background-color: #fefefe;
+  background-color: $bgc-white;
   border-radius: 0 5px 5px 5px;
   -moz-border-radius: 0 5px 5px 5px;
   -webkit-border-radius: 0 5px 5px 5px;
@@ -187,6 +212,7 @@ a[href^="#time"]:before {
   font-family: 'Glyphicons Halflings';
   content: "\e023";
 }
+
 //map icon
 a[href^="#map"]:before {
   font-family: 'Fontello';
@@ -196,6 +222,11 @@ a[href^="#map"]:before {
 a[href^="#place"]:before {
   font-family: 'Fontello';
   content: "p";
+}
+//place icon
+a[href^="#tag"]:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e135";
 }
 //up icon
 #hidden-btn:before {
@@ -244,7 +275,7 @@ a[href^="#place"]:before {
   border-radius: 0 5px 5px 5px;
   -moz-border-radius: 0 5px 5px 5px;
   -webkit-border-radius: 0 5px 5px 5px;
-  background-color: #fefefe;
+  background-color: $bgc-white;
   margin-top: -43px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
@@ -257,7 +288,7 @@ a[href^="#place"]:before {
     padding-left: 3px;
     font-size: 17px;
     width: 164px;
-    background-color: #fefefe;
+    background-color: $bgc-white;
     padding: 8px 0 8px 13px;
     border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -268,14 +299,30 @@ a[href^="#place"]:before {
 }
 
 .nav-tab-area {
-  width: 91%;
+  width: 89%;
   margin: auto auto;
   position: absolute;
   height: 57px;
-  background-color: #fefefe;
+  background-color: $bgc-white;
   z-index: 200;
   padding-top: 12px;
   top: 30px;
+}
+
+#time {
+  hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .btn-primary {
+    margin: 2px 0 9px;
+    padding: 5px;
+    &:before {
+      font-family: 'Glyphicons Halflings';
+      content: "\e023";
+      font-size: 10px;
+    }
+  }
 }
 
 .time-card {
@@ -284,7 +331,7 @@ a[href^="#place"]:before {
   margin-bottom: 0px;
   margin-top: -5px;
   .hour{
-    background-color: #608090;
+    background-color: $dark-color;
     padding: 6px;
     color: #ddd;
     border-radius: 8px 8px 0 0;
@@ -301,7 +348,7 @@ a[href^="#place"]:before {
     margin-top: 16px;
     margin-bottom: -54px;
     border: 0;
-    border: 6px solid #608090;
+    border: 6px solid $dark-color;
     margin-left: 45px;
     border-radius: 8px;
     -moz-border-radius: 8px;
@@ -346,7 +393,7 @@ a[href^="#place"]:before {
   float: right;
   margin-top: -24px;
   z-index: 0;
-  background-color: #fefefe;
+  background-color: $bgc-white;
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
   &:hover {
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
@@ -361,6 +408,70 @@ a[href^="#place"]:before {
 }
 
 .time-card .title {
-  overflow: hidden;
+  overflow: visible;
   margin-right: 0px;
 }
+
+#create-message-card,
+#map-search,
+#hotel-serch {
+  width: 90%;
+}
+
+#map-canvas {
+  width: 98%;
+  height: 200px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin: 0 auto;
+  margin-top: 11px;
+}
+
+//show.html.haml
+#area-tags {
+  float: left;
+  width: 100%;
+  position: relative;
+  top: -20px;
+  .label {
+    float: left;
+  }
+}
+#show-page-header h1 {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#btn-pdf,
+#btn-clone {
+  float: right;
+  padding: 2px 5px;
+  margin: 0 2px 0;
+  background-color: $attention-color;
+  border: 1px solid #888;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  &:hover {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  }
+  &:active {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4)inset;
+  }
+}
+
+#btn-pdf:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e022";
+  font-size: 11px;
+  padding-right: 2px;
+}
+
+
+#btn-clone:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e066";
+  font-size: 11px;
+  padding-right: 2px;
+}
+
