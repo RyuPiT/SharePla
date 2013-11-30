@@ -241,32 +241,6 @@ $(function() {
     });
   }
 
-  $('#route-search input:radio').change(function() {
-    var directionsService = new google.maps.DirectionsService();
-
-    var start = $('#route-search input[name=keyword-src]').val();
-    var end   = $('#route-search input[name=keyword-dst]').val();
-
-    var request = {
-      origin:      start,
-      destination: end,
-      travelMode:  this.name,
-      region:      'JP'
-    };
-
-    directionsService.route(request, function(response, status) {
-      if (status == google.maps.DirectionsStatus.OK) {
-        formatDirection(response);
-      }
-    });
-
-    return false;
-  });
-
-  $('#route-search').submit(function() {
-    return false;
-  });
-
   // route viewer
   $('#route-viewer').bind('click', function() {
     getRoute(getAllCard());
@@ -274,11 +248,6 @@ $(function() {
 
 });
 
-function formatDirection(data) {
-  $.each(data.routes, function(){
-    console.log(this);
-  });
-}
 //new-plan-page sort
 $(function() {
   $('ol.droptrue').sortable({
