@@ -2,14 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $glay-color:          #e8e8e8;
-
+$dark-color:          #608090;
+$main-color:          #d0e0f0;
+$bgc-white:           #fefefe;
+$attention-color:     #a6d233;
 .opinion-list {
   border: 1px solid #aaa;
   margin: 40px 0;
+  background-color: $bgc-white;
   h4 {
+    background-color: $main-color;
     padding: 10px;
     border-bottom: 1px solid $glay-color;
-    background-color: $glay-color;
     overflow: auto;
     margin: 0;
     &:before {
@@ -29,5 +33,27 @@ $glay-color:          #e8e8e8;
 }
 
 .opinion-iine {
+  padding: 6px 8px;
+  background-color: $dark-color;
   float: right;
+  position: relative;
+  top: -42px;
+  border-radius: 0px;
+  &:active {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5) inset;
+    background-color: #B8B8B8;
+  }
+  &:hover {
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.3) inset;
+  }
+  &:after {
+    font-family: 'Fontello';
+    content: "i";
+    font-size: 19px;
+  }
+}
+.opinion-list .disabled {
+  opacity: 0.65;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5) inset;
+  background-color: $attention-color;
 }

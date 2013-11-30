@@ -1,47 +1,54 @@
-#plan-list
-  #plan-title.navbar-fixed-top
+#new-plan-page
+  #new-plan-header.navbar-fixed-top
     .container
       = render 'saveplan_form'
 
   .container
     .contents
-      %span#hidden-btn.btn /
+      %span#hidden-btn.btn
       .row
-        .col-sm-6
+        #create-card-block.col-sm-6
           %h4 カード作成
           #card-search
-            .travel-search
-              .nav-tab-area
-                - render 'plans/tabs/message'
-                - render 'plans/tabs/place'
-                - render 'plans/tabs/map'
-                - render 'plans/tabs/time'
-                - render 'plans/tabs/route'
-                - render 'plans/tabs/hotel'
-                - render 'plans/tabs/tag'
-                %ul.nav.nav-tabs= yield :plan_tab_navs
-              .tab-content
-                = yield :plan_tab_contents
+            .nav-tab-area
+              - render 'plans/tabs/message'
+              - render 'plans/tabs/place'
+              - render 'plans/tabs/map'
+              - render 'plans/tabs/time'
+              - render 'plans/tabs/hotel'
+              - render 'plans/tabs/tag'
+              %ul.nav.nav-tabs= yield :plan_tab_navs
+            .tab-content
+              = yield :plan_tab_contents
 
-        #sideber-left.col-sm-6
+        #my-plan-block.col-sm-6
           %h4 あなたのプラン
           .plan-detail
-            %ol#main-card-sortable.droptrue
+            %ol#new-my-plan-cards.droptrue
               - if @plan
                 - @plan.cards.each do |card|
                   - if card.card_type == 'Hotel'
-                    %li.ui-state-hotel
-                      %span.title= card.title
-                      %span.card_type{ style: 'visibility: hidden;' }= card.card_type
-                      %span.longitude{ style: 'visibility: hidden;' }= card.longitude
-                      %span.latitude{ style: 'visibility: hidden;' }= card.latitude
+                    %li.sortable-card
+                      .hotel-card
+                        .title= card.title
+                        .card_type= card.card_type
+                        .longitude= card.longitude
+                        .latitude= card.latitude
+                        %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
+                  - elsif card.card_type == 'Time'
+                    %li.time-card
+                      %hr.time-border
+                      .hour
+                        .title= card.title
+                        .card_type= card.card_type
                       %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
                   - else
-                    %li.ui-state-default
-                      %span.title= card.title
-                      %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
+                    %li.sortable-card
+                      .default-card
+                        .title= card.title
+                        %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
               - else
                 %li.sortable-card
-                  .ui-state-default
+                  .default-card
                     .title スタートが良ければ、半分は成功したようなものだ
                     %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;

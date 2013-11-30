@@ -1,28 +1,16 @@
-- content_for :plan_tab_navs do 
+- content_for :plan_tab_navs do
   %li.active
-    %a{href: '#message', data: {toggle: 'tab'}, title: 'メッセージ' }
+    %a{href: '#message', 'data-toggle' => 'tab', title: 'メッセージ'}
 
-- content_for :plan_tab_contents do 
+- content_for :plan_tab_contents do
   .tab-pane.active#message
     %h4= 'メッセージ'
-    #planpost
-      = render 'addplan_form'
+    = render 'create_message_form'
     %p= 'Example:'
-    %ol#message-card-sortable.droptrue
-      %li.sortable-card
-        .ui-state-default
-          .title バスケがしたいです
-          %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times
-      %li.sortable-card
-        .ui-state-default
-          .title 泣け、叫べ、そして死ね！
-          %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .ui-state-default
-          .title 歩道が広いではないか・・・行け
-          %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times;
-      %li.sortable-card
-        .ui-state-default
-          .title だが断る
-          %button.close{type: 'button', data: {dismiss: 'alert'}, 'aria-hidden' => 'true'} &times;
-
+    %ol#example-message-card.droptrue
+      - Card.message_samples.each do |msg|
+        %li.sortable-card
+          .default-card
+            .title
+              = msg
+            %button.close{type: 'button', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'} &times;

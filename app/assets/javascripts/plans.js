@@ -3,8 +3,8 @@
 
 $(function() {
   // [add clicked] or [enter when focus text field of place to go] event
-  $('#addplan').submit(function() {
-    var postData = { name: $('#addplan input[name=keyword]').val() };
+  $('#create-message-card').submit(function() {
+    var postData = { name: $('#create-message-card input[name=keyword]').val() };
     addCardToPlan(postData);
     return false;
   });
@@ -17,14 +17,14 @@ $(function() {
     //add card-title
     //add delete-function-botton on right side
     var addContent = '';
-    addContent += '<div class="ui-state-default">';
+    addContent += '<div class="default-card">';
     addContent += '<div class="title">' + data['name'] + '</div>';
     addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-    addContent += '</div>';//.ui-state-default
+    addContent += '</div>';//.default-card
 
     li.append(addContent);
-    $('#main-card-sortable').append(li);
-    $('#addplan input[name=keyword]').val('');
+    $('#new-my-plan-cards').append(li);
+    $('#create-message-card input[name=keyword]').val('');
   }
 
   // data = plans_controller's @json_data = services/api_service.rb's formated_data
@@ -44,7 +44,7 @@ $(function() {
       li.addClass('sortable-card'); // TODO: #67
 
       var addContent = '';
-      addContent += '<div class="ui-state-hotel">'
+      addContent += '<div class="hotel-card">'
       addContent += '<div class="card_type">' + cardType  + '</div>';
       addContent += '<div class="longitude">' + longitude + '</div>';
       addContent += '<div class="latitude">'  + latitude  + '</div>';
@@ -74,11 +74,11 @@ $(function() {
   var flag = 0;
   $('#hidden-btn').bind('click',function() {
     if ( (flag%2) == 0) {
-      $("#plan-title").hide();
+      $("#save-plan > textarea").hide();
       $(this).attr('id', 'show-btn');
-      $('.contents').css('padding-top','70px');
+      $('.contents').css('padding-top','130px');
     }else{
-      $("#plan-title").show();
+      $("#save-plan > textarea").show();
       $(this).attr('id', 'hidden-btn');
       $('.contents').css('padding-top','200px');
     }
@@ -109,14 +109,14 @@ $(function() {
   });
 
   function removeTouringSpot(prefecture) {
-    $('#tourist-card-sortable > li[name=' + prefecture + ']').remove();
+    $('#tourist-search-result > li[name=' + prefecture + ']').remove();
   }
 
   // hotel search clicked event
-  $('#hotels-search').submit(function() {
-    var postData = { name: $('#hotels-search input[name=keyword]').val() };
+  $('#hotel-search').submit(function() {
+    var postData = { name: $('#hotel-search input[name=keyword]').val() };
     var postUrl  = '/searches/hotel.json';
-    $('#hotel-card-sortable li').remove();
+    $('#hotel-search-result li').remove();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
   });
@@ -125,7 +125,7 @@ $(function() {
   $('#map-search').submit(function() {
     var postData = { search_word: $('#map-search input[name=keyword]').val() };
     var postUrl  = '/searches/map.json';
-    $('#map-card-sortable li').remove();
+    $('#map-search-result li').remove();
     clearMarkers();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
@@ -133,7 +133,7 @@ $(function() {
 
   // Map
   function mapCardFunc(li, metaData, data) {
-    $('#map-card-sortable').append(li);
+    $('#map-search-result').append(li);
     // put marker
     putMarker(data);
   }
@@ -146,14 +146,14 @@ $(function() {
   function touringCardFunc(li, metaData, data) {
     var searchWord = metaData['search_word'];
     li.attr('name', searchWord);
-    $('#tourist-card-sortable').append(li);
+    $('#tourist-search-result').append(li);
   }
   function touringLoopEnd() {
   }
 
   // Hotel
   function hotelCardFunc(li, metaData, data) {
-    $('#hotel-card-sortable').append(li);
+    $('#hotel-search-result').append(li);
     var sub      = 'sub';
     var hotelNo  = data[sub]['number'];
     var imageUrl = data[sub]['image_url'];
@@ -182,14 +182,14 @@ $(function() {
     dialog += '</div>';// .modal-dialog
     dialog += '</div>';// .modal fade
 
-    $('#hotel-card-sortable').append(dialog);
+    $('#hotel-search-result').append(dialog);
   }
   function hotelLoopEnd() {
-    $('#hotels-search input[name=keyword]').val('');
+    $('#hotel-search input[name=keyword]').val('');
   }
 
   // save clicked event
-  $('#saveplan').submit(function() {
+  $('#save-plan').submit(function() {
     var postData   = { plan: { title: $('input[name=plan-title]').val(), description: $('textarea[name=plan-desc]').val(), cards: getAllCard(), area_tags: getAllAreaTags() } };
     var postUrl    = '/plans.json';
     var returnType = 'text';
@@ -215,7 +215,7 @@ $(function() {
   // return card list from main card list
   function getAllCard() {
     var allCard = new Array();
-    var htmlTag = $('#main-card-sortable > li > div');
+    var htmlTag = $('#new-my-plan-cards > li > div');
     var size    = htmlTag.length;
     var keys    = ['title','card_type','longitude','latitude'];
     for(var i = 0; i < size; i++){
@@ -234,15 +234,21 @@ $(function() {
   }
 
   function bindZoomMap() {
-    $('#map-card-sortable > .sortable-card >.ui-state-hotel').bind('click', function() {
+    $('#map-search-result > .sortable-card >.hotel-card').bind('click', function() {
       var latStr = $(this).children('.latitude').text();
       var lngStr = $(this).children('.longitude').text();
       zoomMap(Number(latStr), Number(lngStr));
     });
   }
+
+  // route viewer
+  $('#route-viewer').bind('click', function() {
+    getRoute(getAllCard());
+  });
+
 });
 
-//plan-list sort
+//new-plan-page sort
 $(function() {
   $('ol.droptrue').sortable({
     connectWith: 'ol',
@@ -254,8 +260,8 @@ $(function() {
     dropOnEmpty: false
   });
 
-  $('#main-card-sortable, #hotel-card-sortable, #message-card-sortable').disableSelection();
-  $('#main-card-sortable').droppable({
+  $('#new-my-plan-cards, #hotel-search-result, #example-message-card').disableSelection();
+  $('#new-my-plan-cards').droppable({
     activeClass: 'ui-state-hover',
     hoverClass: 'ui-state-active'
   });
@@ -263,15 +269,18 @@ $(function() {
 
 $(function() {
   $('#time > .btn').bind('click', function() {
-    var timeTxt = $(this).text();
+    var rawTxt  = $(this).text();
+    var timeTxt = $.trim(rawTxt);
     var li      = $('<li>');
     li.addClass('time-card');
-    addContent  = '<hr class="time-border">'
-    addContent += '<div class="hour"><span class="title">' + timeTxt + '</span></div>'
-    addContent += '<span class="card_type">Time</span>'
+    addContent  = '<hr class="time-border">';
+    addContent += '<div class="hour">';
+    addContent += '<div class="title">' + timeTxt + '</div>';
+    addContent += '<div class="card_type">Time</div>';
+    addContent += '</div>';
     addContent += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
     li.append(addContent);
-    $('#main-card-sortable').append(li);
+    $('#new-my-plan-cards').append(li);
   });
 });
 

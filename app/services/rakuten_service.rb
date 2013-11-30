@@ -4,9 +4,9 @@ class RakutenService
   def self.hotel_search(keyword)
     httpClient = HTTPClient.new
     begin
-      json_data = JSON.parse httpClient.get_content(RakutenService::API_ENDPOINT, hotel_search_params(keyword))
+      json_data = JSON.parse httpClient.get_content( RakutenService::API_ENDPOINT, hotel_search_params(keyword) )
       type      = 'Hotel'
-      formated_data         = {meta: {search_word: keyword, type: type}}
+      formated_data         = { meta: { search_word: keyword, type: type } }
       formated_data[:cards] = extract_cards json_data
       return formated_data
     rescue HTTPClient::BadResponseError => e
@@ -16,14 +16,14 @@ class RakutenService
   end
 
   def self.hotel_search_params(keyword)
-    raw_data = common_params.merge('operation' => 'KeywordHotelSearch', 'keyword' => keyword)
+    raw_data = common_params.merge( 'operation' => 'KeywordHotelSearch', 'keyword' => keyword, 'datumType' => 1 )
   end
 
   def self.common_params
     {
-      'developerId'   => ENV['RakutenDeveloperId'],
-      'affiliateId'   => ENV['RakutenAffiliateId'],
-      'version'       => '2009-10-20'
+      'developerId' => ENV['RakutenDeveloperId'],
+      'affiliateId' => ENV['RakutenAffiliateId'],
+      'version'     => '2009-10-20'
     }
   end
 
