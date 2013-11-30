@@ -8,8 +8,16 @@
     %form#route-search{action: route_search_path, method: 'POST'}
       .row
         .col-sm-10
+          .btn-group{ data: {toggle: 'button'} }
+            %label.btn.btn-primary
+              %input{ type: 'radio', name: 'WALKING' } 徒歩
+            %label.btn.btn-primary
+              %input{ type: 'radio', name: 'TRANSIT' } 公共交通機関
+            %label.btn.btn-primary
+              %input{ type: 'radio', name: 'DRIVING' } 車
           %input.form-control{name: 'keyword-src', placeholder: '始点', required: '', type: 'input'}
           %input.form-control{name: 'keyword-dst', placeholder: '終点', required: '', type: 'input'}
         .col-sm-2
           %input.btn.btn-default{type: 'submit', value: '検索'}
-        %ol#route-search-result.droptrue
+
+    %ol#route-search-result.droptrue
