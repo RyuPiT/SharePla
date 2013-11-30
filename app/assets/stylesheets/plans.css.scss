@@ -202,11 +202,6 @@ a[href^="#hotel"]:before {
   content: "h";
 }
 
-//route icon
-a[href^="#route"]:before {
-  font-family: 'Fontello';
-  content: "r";
-}
 //time icon
 a[href^="#time"]:before {
   font-family: 'Glyphicons Halflings';

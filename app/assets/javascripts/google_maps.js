@@ -79,7 +79,7 @@ function getRoute(cards){
       points.push(position);
     }
   });
-    
+
   var length = points.length;
   if (length == 0){
     return;
@@ -90,7 +90,7 @@ function getRoute(cards){
       origin: from,
       destination: to,
       travelMode: google.maps.DirectionsTravelMode.DRIVING
-    }; 
+    };
   } else if (length < 11){ // google service is up to 10 Waypoint.
     from = points.shift();
     to = points.pop();
