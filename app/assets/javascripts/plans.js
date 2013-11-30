@@ -243,23 +243,27 @@ $(function() {
 
   $('#route-search input:radio').change(function() {
     var directionsService = new google.maps.DirectionsService();
+
     var start = $('#route-search input[name=keyword-src]').val();
-    var end = $('#route-search input[name=keyword-dst]').val();
-    console.log(this.name);
-    console.log(google.maps.TravelMode.TRANSIT);
+    var end   = $('#route-search input[name=keyword-dst]').val();
+
     var request = {
       origin:      start,
       destination: end,
       travelMode:  this.name,
       region:      'JP'
     };
+
     directionsService.route(request, function(response, status) {
-      console.log(status);
       if (status == google.maps.DirectionsStatus.OK) {
         formatDirection(response);
       }
     });
 
+    return false;
+  });
+
+  $('#route-search').submit(function() {
     return false;
   });
 
