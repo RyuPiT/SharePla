@@ -16,7 +16,7 @@ class RakutenService
   end
 
   def self.hotel_search_params(keyword)
-    raw_data = common_params.merge( 'operation' => 'KeywordHotelSearch', 'keyword' => keyword )
+    raw_data = common_params.merge( 'operation' => 'KeywordHotelSearch', 'keyword' => keyword, 'datumType' => 1 )
   end
 
   def self.common_params
