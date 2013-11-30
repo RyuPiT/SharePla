@@ -5,8 +5,9 @@
 - content_for :plan_tab_contents do
   #time.tab-pane
     %h4 時間
+    %hr
     - Day.hours.each.with_index(1) do |hour, idx|
       .btn.btn-primary
         = hour
-      - if (idx%4).zero? then
-        %br
+      - if (idx%5).zero? then
+        %hr

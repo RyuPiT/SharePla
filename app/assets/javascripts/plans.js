@@ -240,6 +240,12 @@ $(function() {
       zoomMap(Number(latStr), Number(lngStr));
     });
   }
+
+  // route viewer
+  $('#route-viewer').bind('click', function() {
+    getRoute(getAllCard());
+  });
+
 });
 
 //new-plan-page sort
