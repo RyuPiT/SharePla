@@ -69,44 +69,39 @@ function getRoute(cards){
   var to;
   var points = [];
   var request;
-  if (cards.length==0){
-    return;
-  } else {
-    $.each(cards, function() {
-      if ((this['latitude'] != "") && (this['longitude']  !="")){
-        var position = {
-          location: new google.maps.LatLng(Number(this['latitude']), Number(this['longitude'])),
-          stopover: false
-        };
-        points.push(position);
-      }
-    });
-    
-    var length = points.length;
-    if (length == 0){
-      console.log("0");
-      return;
-    } else if (length == 1){
-      from = points.shift()
-      to = from;
-      request = {
-        origin: from,
-        destination: to,
-        travelMode: google.maps.DirectionsTravelMode.DRIVING
-      }; 
-    } else if (length < 11){ // google service is up to 10 Waypoint.
-      from = points.shift();
-      to = points.pop();
-      request = {
-        origin: from['location'],
-        waypoints: points,
-        destination: to['location'],
-        travelMode: google.maps.DirectionsTravelMode.DRIVING
+  $.each(cards, function() {
+    if ((this['latitude'] != "") && (this['longitude']  !="")){
+      var position = {
+        location: new google.maps.LatLng(Number(this['latitude']), Number(this['longitude'])),
+        stopover: true
       };
-    } else {
-      alert("Way points are up to 10 positions");
-      return;
+      points.push(position);
     }
+  });
+    
+  var length = points.length;
+  if (length == 0){
+    return;
+  } else if (length == 1){
+    from = points.shift()
+    to = from;
+    request = {
+      origin: from,
+      destination: to,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    }; 
+  } else if (length < 11){ // google service is up to 10 Waypoint.
+    from = points.shift();
+    to = points.pop();
+    request = {
+      origin: from['location'],
+      waypoints: points,
+      destination: to['location'],
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+  } else {
+    alert("Way points are up to 10 positions");
+    return;
   }
 
   directionsService.route(request, function(response, status){

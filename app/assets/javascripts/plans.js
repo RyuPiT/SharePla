@@ -242,8 +242,8 @@ $(function() {
   }
 
   // route viewer
-  $('#route-viewer > .row > .col-sm-2 > input.btn.btn-default').bind('click', function() {
-      getRoute(getAllCard());
+  $('#map-search > .row > .col-sm-2 > input#route-viewer.btn.btn-default').bind('click', function() {
+    getRoute(getAllCard());
   });
 
 });
