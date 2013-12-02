@@ -36,6 +36,7 @@
                         .longitude= card.longitude
                         .latitude= card.latitude
                         %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
+
                   - elsif card.card_type == 'Time'
                     %li.time-card
                       %hr.time-border
@@ -43,10 +44,14 @@
                         .title= card.title
                         .card_type= card.card_type
                       %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
+
                   - else
                     %li.sortable-card
                       .default-card
                         .title= card.title
+                        .card_type= card.card_type
+                        .longitude= card.longitude
+                        .latitude= card.latitude
                         %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
               - else
                 %li.sortable-card
