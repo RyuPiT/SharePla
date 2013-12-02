@@ -14,7 +14,7 @@
           %span{ name: tag, class: 'label label-default'}= tag
     %h4= @plan.description
     - @plan.cards.each do |card|
-      - if card.card_type == 'Hotel'
+      - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
         %li.sortable-card
           .hotel-card
             .title= card.title
