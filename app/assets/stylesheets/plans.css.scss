@@ -424,6 +424,17 @@ a[href^="#tag"]:before {
   margin-top: 11px;
 }
 
+#route-map {
+  width: 98%;
+  height: 400px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin: 0 auto;
+  margin-top: 11px;
+}
+
 //show.html.haml
 #area-tags {
   float: left;

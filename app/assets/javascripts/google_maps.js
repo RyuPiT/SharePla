@@ -1,4 +1,5 @@
 var map; // マップ
+var routeMap; // マップ
 var infowindow; // マーカーの詳細表示
 var myLatLng;
 var latlng;
@@ -11,7 +12,7 @@ var tokyoPosition = {
   longitude: 139.766084
 };
 
-function initialize(){
+function map_initialize(){
   if (typeof lat == 'undefined'){
     lat = tokyoPosition['latitude'];
     lng = tokyoPosition['longitude'];
@@ -25,6 +26,17 @@ function initialize(){
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
   $("#travel-map-tab a").attr('onclick','');
+}
+
+function route_initialize(){
+  var myRouteLatLng = new google.maps.LatLng(35.681382, 139.766084);
+  var mapRouteOptions = {
+    center:    myRouteLatLng,
+    zoom:      5,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  routeMap = new google.maps.Map(document.getElementById("route-map"), mapRouteOptions);
+  $("#route-tab a").attr('onclick','');
 }
 
 function putMarker(data) {
@@ -64,7 +76,7 @@ function getRoute(cards){
   clearMarkers();
   var directionsDisplay = new google.maps.DirectionsRenderer();
   var directionsService = new google.maps.DirectionsService();
-  directionsDisplay.setMap(map);
+  directionsDisplay.setMap(routeMap);
   var from;
   var to;
   var points = [];

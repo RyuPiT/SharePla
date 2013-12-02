@@ -242,7 +242,7 @@ $(function() {
   }
 
   // route viewer
-  $('#route-viewer').bind('click', function() {
+  $('#route-view-btn').bind('click', function() {
     getRoute(getAllCard());
   });
 
