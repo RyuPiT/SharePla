@@ -10,7 +10,8 @@ gem 'httpclient'
 # for GooglePlaces
 gem 'google_places'
 
-# for Twitter OAuth
+# for Twitter Oauth
+gem 'omniauth'
 gem 'omniauth-twitter'
 
 gem 'haml-rails'
@@ -82,7 +83,3 @@ gem 'font-awesome-rails'
 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-
-# Twitter Oauth
-gem 'omniauth'
-gem 'omniauth-twitter'
