@@ -81,13 +81,12 @@ function getRoute(cards){
   directionsDisplay.setMap(routeMap);
   var from;
   var to;
-  var points = [];
   var request;
 
-  points = $.map(cards, function(data) {
+  var points = $.map(cards, function(data) {
     if ((data['latitude'] != "") && (data['longitude'] != "")){
       return {
-        location: new google.maps.LatLng(data['latitude'], data['longitude']),
+        location: new google.maps.LatLng(+data['latitude'], +data['longitude']),
         stopover: true
       };
     }
@@ -104,8 +103,8 @@ function getRoute(cards){
     from = points.shift()
     to = from;
     request = {
-      origin:      from,
-      destination: to,
+      origin:      from['location'],
+      destination: to['location'],
       travelMode:  google.maps.DirectionsTravelMode.DRIVING
     };
   } else { // google service is up to 10 Waypoint.
