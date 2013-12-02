@@ -73,7 +73,6 @@ function zoomMap(latitude, longitude) {
 }
 
 function getRoute(cards){
-  clearMarkers();
   var directionsDisplay = new google.maps.DirectionsRenderer();
   var directionsService = new google.maps.DirectionsService();
   directionsDisplay.setMap(routeMap);
