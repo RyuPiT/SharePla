@@ -10,6 +10,9 @@ gem 'httpclient'
 # for GooglePlaces
 gem 'google_places'
 
+# for Twitter OAuth
+gem 'omniauth-twitter'
+
 gem 'haml-rails'
 
 group :test do
