@@ -223,6 +223,11 @@ a[href^="#tag"]:before {
   font-family: 'Glyphicons Halflings';
   content: "\e135";
 }
+//route icon
+a[href^="#route"]:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e178";
+}
 //up icon
 #hidden-btn:before {
   font-family: 'Glyphicons Halflings';

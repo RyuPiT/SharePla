@@ -5,14 +5,14 @@ var myLatLng;
 var latlng;
 var lat;
 var lng;
-var marker_list;
+var markerList;
 
 var tokyoPosition = {
   latitude:  35.681382,
   longitude: 139.766084
 };
 
-function map_initialize(){
+function mapInitialize(){
   if (typeof lat == 'undefined'){
     lat = tokyoPosition['latitude'];
     lng = tokyoPosition['longitude'];
@@ -28,7 +28,7 @@ function map_initialize(){
   $("#travel-map-tab a").attr('onclick','');
 }
 
-function route_initialize(){
+function routeInitialize(){
   var myRouteLatLng = new google.maps.LatLng(35.681382, 139.766084);
   var mapRouteOptions = {
     center:    myRouteLatLng,
