@@ -25,7 +25,7 @@ function mapInitialize(){
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-  $("#travel-map-tab a").attr('onclick','');
+  $("#travel-map-tab a").attr('onclick', '');
 }
 
 function routeInitialize(){
@@ -36,7 +36,7 @@ function routeInitialize(){
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   routeMap = new google.maps.Map(document.getElementById("route-map"), mapRouteOptions);
-  $("#route-tab a").attr('onclick','');
+  $("#route-tab a").attr('onclick', '');
 }
 
 function putMarker(data) {
@@ -81,20 +81,23 @@ function getRoute(cards){
   var points = [];
   var request;
 
-  $.each(cards, function() {
-    if ((this['latitude'] != "") && (this['longitude']  !="")){
-      var position = {
-        location: new google.maps.LatLng(Number(this['latitude']), Number(this['longitude'])),
+  points = $.map(cards, function(data) {
+    if ((data['latitude'] != "") && (data['longitude'] != "")){
+      return {
+        location: new google.maps.LatLng(data['latitude'], data['longitude']),
         stopover: true
       };
-      points.push(position);
     }
   });
 
   var length = points.length;
-  if (length == 0){
+  if (length == 0){ return; }
+  if (length > 10) {
+    alert("Way points are up to 10 positions");
     return;
-  } else if (length == 1){
+  }
+
+  if (length == 1){
     from = points.shift()
     to = from;
     request = {
@@ -102,7 +105,7 @@ function getRoute(cards){
       destination: to,
       travelMode: google.maps.DirectionsTravelMode.DRIVING
     };
-  } else if (length < 11){ // google service is up to 10 Waypoint.
+  } else { // google service is up to 10 Waypoint.
     from = points.shift();
     to = points.pop();
     request = {
@@ -111,9 +114,6 @@ function getRoute(cards){
       destination: to['location'],
       travelMode: google.maps.DirectionsTravelMode.DRIVING
     };
-  } else {
-    alert("Way points are up to 10 positions");
-    return;
   }
 
   directionsService.route(request, function(response, status){
