@@ -81,6 +81,20 @@ $bgc-white:           #fefefe;
   padding-top: 13px;
 }
 
+.top-tabs > li > a:hover {
+  background-color: #a0a0a0;
+  color: #eeeeee;
+}
+
+.top-tabs > li.active > a {
+  background-color: $dark-color;
+  color: #eeeeee;
+  &:hover {
+    background-color: $dark-color;
+    color: #eeeeee;
+  }
+}
+
 #myplans {
   padding-top: 47px;
 }
