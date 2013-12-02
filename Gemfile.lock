@@ -233,6 +233,7 @@ DEPENDENCIES
   jquery-ui-rails
   json
   mongoid!
+  omniauth
   omniauth-twitter
   rails (= 4.0.0)
   rails_12factor

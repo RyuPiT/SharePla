@@ -82,3 +82,7 @@ gem 'font-awesome-rails'
 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+# Twitter Oauth
+gem 'omniauth'
+gem 'omniauth-twitter'
