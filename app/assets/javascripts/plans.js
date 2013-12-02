@@ -242,8 +242,16 @@ $(function() {
   }
 
   // route viewer
-  $('#route-viewer').bind('click', function() {
+  $('#route-view-btn').bind('click', function() {
     getRoute(getAllCard());
+  });
+
+  $('#card-search a[data-toggle="tab"]').on('shown.bs.tab', function(data) {
+    var tabName = data.target.hash;
+    if(tabName == '#map')
+      google.maps.event.trigger(map, 'resize');
+    if(tabName == '#route')
+      google.maps.event.trigger(routeMap, 'resize');
   });
 
 });
