@@ -246,13 +246,17 @@ $(function() {
     getRoute(getAllCard());
   });
 
-  $('#card-search a[data-toggle="tab"]').on('shown.bs.tab', function(data) {
+  $('#card-search a[data-toggle="tab"]').one('shown.bs.tab', function(data) {
     var tabName = data.target.hash;
-    if(tabName == '#map') {
+    switch(tabName){
+    case '#map':
       google.maps.event.trigger(map, 'resize');
-    }
-    if(tabName == '#route') {
+      return;
+    case '#route':
       google.maps.event.trigger(routeMap, 'resize');
+      return;
+    default:
+      return;
     }
   });
 
