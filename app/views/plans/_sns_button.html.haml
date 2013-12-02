@@ -1,8 +1,12 @@
 %ul.sns-button
   %li
+    - if @plan
+      - sns_text = @plan.title
+    - else
+      - sns_text = 'SharePla あなたのプランをみんなのプランに'
     %a{ href: 'https://twitter.com/share',
       class: 'twitter-share-button',
-      data: { url: 'http://sharepla.herokuapp.com', text: 'SharePla', lang: 'ja', hashtags: 'SharePla'} } ツイート
+      data: { url: request.url , text: sns_text, lang: 'ja', hashtags: 'SharePla'} } ツイート
     :javascript
       !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
   %li
@@ -15,4 +19,4 @@
         js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
         fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    .fb-like{ data: { href: 'http://sharepla.herokuapp.com', layout: 'button_count', action: 'like', show: {faces: 'false'}, share: 'false' } }
+    .fb-like{ data: { href: request.url, layout: 'button_count', action: 'like', show: {faces: 'false'}, share: 'false' } }
