@@ -10,6 +10,9 @@ gem 'httpclient'
 # for GooglePlaces
 gem 'google_places'
 
+# for Twitter OAuth
+gem 'omniauth-twitter'
+
 gem 'haml-rails'
 
 group :test do
@@ -83,4 +86,3 @@ gem 'wkhtmltopdf-binary'
 # Twitter Oauth
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'settingslogic'
