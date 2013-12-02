@@ -1,10 +1,7 @@
 var map; // マップ
 var routeMap; // マップ
 var infowindow; // マーカーの詳細表示
-var myLatLng;
 var latlng;
-var lat;
-var lng;
 var markerList;
 
 var tokyoPosition = {
@@ -13,28 +10,34 @@ var tokyoPosition = {
 };
 
 function mapInitialize(){
+  var lat;
+  var lng;
+
   if (typeof lat == 'undefined'){
-    lat = tokyoPosition['latitude'];
-    lng = tokyoPosition['longitude'];
+    lat        = tokyoPosition['latitude'];
+    lng        = tokyoPosition['longitude'];
     markerList = new google.maps.MVCArray();
   }
+
   myLatLng = new google.maps.LatLng(lat, lng);
   var mapOptions = {
     center:    myLatLng,
     zoom:      5,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
   $("#travel-map-tab a").attr('onclick', '');
 }
 
 function routeInitialize(){
-  var myRouteLatLng = new google.maps.LatLng(35.681382, 139.766084);
+  var myRouteLatLng   = new google.maps.LatLng(35.681382, 139.766084);
   var mapRouteOptions = {
     center:    myRouteLatLng,
     zoom:      5,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+
   routeMap = new google.maps.Map(document.getElementById("route-map"), mapRouteOptions);
   $("#route-tab a").attr('onclick', '');
 }
@@ -101,18 +104,18 @@ function getRoute(cards){
     from = points.shift()
     to = from;
     request = {
-      origin: from,
+      origin:      from,
       destination: to,
-      travelMode: google.maps.DirectionsTravelMode.DRIVING
+      travelMode:  google.maps.DirectionsTravelMode.DRIVING
     };
   } else { // google service is up to 10 Waypoint.
     from = points.shift();
     to = points.pop();
     request = {
-      origin: from['location'],
-      waypoints: points,
+      origin:      from['location'],
+      waypoints:   points,
       destination: to['location'],
-      travelMode: google.maps.DirectionsTravelMode.DRIVING
+      travelMode:  google.maps.DirectionsTravelMode.DRIVING
     };
   }
 
