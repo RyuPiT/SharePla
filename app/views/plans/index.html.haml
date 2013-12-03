@@ -19,11 +19,11 @@
 
   %ul.nav.nav-tabs.top-tabs
     %li.active
-      %a{"data-toggle" => "tab", href: "#home"} 全体
+      %a{'data-toggle' => 'tab', href: '#home'} 全体
     %li
-      %a{"data-toggle" => "tab", href: "#myplans"} 自作
+      %a{'data-toggle' => 'tab', href: '#myplans'} 自作
 
-  .tab-content{style: "margin-top:10px"}
+  .tab-content{style: 'margin-top:10px'}
     #home.tab-pane.active
       = render partial: 'plans_list', locals: {plans: @plans.reverse}
 
