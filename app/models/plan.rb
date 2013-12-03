@@ -8,6 +8,9 @@ class Plan
   field :thumbnail,   type: String
   field :title,       type: String
 
+  field :provider, type: String
+  field :uid,      type: String
+
   embeds_many :cards
 
   validates :title, presence: true
