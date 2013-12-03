@@ -25,7 +25,8 @@
 
   .tab-content{style: 'margin-top:10px'}
     #home.tab-pane.active
-      = render partial: 'plans_list', locals: {plans: @plans.reverse}
+      - if @plans
+        = render partial: 'plans_list', locals: {plans: @plans.reverse}
 
     #myplans.tab-pane
       - if !current_user
@@ -33,4 +34,5 @@
           = link_to 'Sign in', 'auth/twitter'
         %p= 'Sign inした状態でプランを作成すると、自作タブで自分で作成したプランの一覧を見ることができます'
       - else
-        = render partial: 'plans_list', locals: {plans: @my_plans.reverse}
+        - if @my_plans
+          = render partial: 'plans_list', locals: {plans: @my_plans.reverse}
