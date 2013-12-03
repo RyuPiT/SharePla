@@ -2,7 +2,8 @@ class PlansController < ApplicationController
   before_action :set_plan, only: :show
 
   def index
-    @plans = Plan.all
+    @plans    = Plan.all
+    @my_plans = Plan.where( provider: session[:provider], uid: session[:user_id] )
   end
 
   def new
