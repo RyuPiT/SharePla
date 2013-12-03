@@ -223,6 +223,11 @@ a[href^="#tag"]:before {
   font-family: 'Glyphicons Halflings';
   content: "\e135";
 }
+//route icon
+a[href^="#route"]:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e178";
+}
 //up icon
 #hidden-btn:before {
   font-family: 'Glyphicons Halflings';
@@ -362,6 +367,7 @@ a[href^="#tag"]:before {
 
 #show-my-plan-cards {
   padding-left: 0px;
+  padding-top: 15px;
 }
 
 #new-my-plan-cards > .sortable-card {
@@ -416,6 +422,17 @@ a[href^="#tag"]:before {
 #map-canvas {
   width: 98%;
   height: 200px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin: 0 auto;
+  margin-top: 11px;
+}
+
+#route-map {
+  width: 98%;
+  height: 400px;
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
