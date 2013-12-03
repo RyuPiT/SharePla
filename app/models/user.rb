@@ -6,6 +6,7 @@ class User
   field :uid,         type: String
   field :screen_name, type: String
   field :name,        type: String
+  field :image_url,   type: String
 
 
   def self.find_by_provider_and_uid(provider,uid)
@@ -18,6 +19,7 @@ class User
       user.uid         = auth[:uid]
       user.screen_name = auth[:extra][:raw_info][:screen_name]
       user.name        = auth[:info][:name]
+      user.image_url   = auth[:info][:image]
     end
   end
 end
