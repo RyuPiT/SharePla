@@ -29,6 +29,8 @@
 
     #myplans.tab-pane
       - if !current_user
-        %p{ style: 'margin-top: 47px;' } ログインしてください
+        %p{ style: 'margin-top: 47px;' }
+          = link_to 'Sign in', 'auth/twitter'
+        %p= 'Sign inした状態でプランを作成すると、自作タブで自分で作成したプランの一覧を見ることができます'
       - else
         = render partial: 'plans_list', locals: {plans: @my_plans.reverse}
