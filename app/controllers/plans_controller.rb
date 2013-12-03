@@ -20,6 +20,8 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.new(plan_params)
+    @plan.provider = session[:provider]
+    @plan.uid = session[:user_id]
 
     params[:plan][:cards].each do |key, value|
       @plan.cards.push(Card.new(value))
