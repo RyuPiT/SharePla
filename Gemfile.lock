@@ -222,6 +222,7 @@ DEPENDENCIES
   jquery-ui-rails
   json
   mongoid!
+  nokogiri
   rails (= 4.0.0)
   rails_12factor
   rake
