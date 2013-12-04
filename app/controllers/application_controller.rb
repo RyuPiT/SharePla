@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 class ApplicationController < ActionController::Base
   require 'nokogiri'
   # Prevent CSRF attacks by raising an exception.
