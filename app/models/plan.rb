@@ -14,4 +14,8 @@ class Plan
   embeds_many :cards
 
   validates :title, presence: true
+
+  def self.find_my_plan(provider,uid)
+    where( provider: provider, uid: uid )
+  end
 end
