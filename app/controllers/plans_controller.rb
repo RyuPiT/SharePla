@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class PlansController < ApplicationController
   before_action :set_plan, only: :show
 
