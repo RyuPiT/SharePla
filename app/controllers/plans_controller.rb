@@ -3,8 +3,8 @@ class PlansController < ApplicationController
 
   def index
     @plans    = Plan.all
-    @my_plans = Plan.find_my_plan( session[:provider], session[:user_id] ) if session[:user_id]
-    @users    = user_info
+    @my_plans = Plan.find_my_plans( session[:provider], session[:user_id] ) if session[:user_id]
+    @users    = users_info
   end
 
   def new
@@ -48,7 +48,7 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
   end
 
-  def user_info
+  def users_info
     hash = Hash.new { |h,k| h[k] = Hash.new(&h.default_proc) }
     User.all.each do |user|
       hash[user[:provider]][user[:uid]] = { image_url: user[:image_url], screen_name: user[:screen_name] }
