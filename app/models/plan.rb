@@ -8,7 +8,14 @@ class Plan
   field :thumbnail,   type: String
   field :title,       type: String
 
+  field :provider, type: String
+  field :uid,      type: String
+
   embeds_many :cards
 
   validates :title, presence: true
+
+  def self.find_my_plans(provider, uid)
+    where( provider: provider, uid: uid )
+  end
 end

@@ -9,5 +9,9 @@
 
     %ul.nav.navbar-nav.navbar-right
       %li= link_to 'ご意見・コメントはこちら', opinions_path
-      %li
-        %a= 'Log in'
+      - if current_user
+        %li 
+          %img{src: current_user[:image_url], height: '25', width: '25'}
+        %li= link_to 'Sign out', signout_path
+      - else
+        %li= link_to 'Sign in', '/auth/twitter'

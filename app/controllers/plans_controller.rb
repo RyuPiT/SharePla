@@ -2,7 +2,9 @@ class PlansController < ApplicationController
   before_action :set_plan, only: :show
 
   def index
-    @plans = Plan.all
+    @plans    = Plan.all
+    @my_plans = Plan.find_my_plans( session[:provider], session[:user_id] ) if session[:user_id]
+    @users    = users_info
   end
 
   def new
@@ -20,6 +22,8 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.new(plan_params)
+    @plan.provider = session[:provider]
+    @plan.uid = session[:user_id]
 
     params[:plan][:cards].each do |key, value|
       @plan.cards.push(Card.new(value))
@@ -42,5 +46,13 @@ class PlansController < ApplicationController
 
   def set_plan
     @plan = Plan.find(params[:id])
+  end
+
+  def users_info
+    hash = Hash.new { |h,k| h[k] = Hash.new(&h.default_proc) }
+    User.all.each do |user|
+      hash[user[:provider]][user[:uid]] = { image_url: user[:image_url], screen_name: user[:screen_name] }
+    end
+    hash
   end
 end

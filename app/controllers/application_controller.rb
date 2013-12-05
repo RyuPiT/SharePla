@@ -15,4 +15,12 @@ class ApplicationController < ActionController::Base
     html = meta + doc.to_html
     pdf  = WickedPdf.new.pdf_from_string(html)
   end
+
+  def login_required
+    if session[:user_id]
+      @current_user = User.find_by(uid: session[:user_id])
+    else
+      redirect_to root_path
+    end
+  end
 end
