@@ -108,6 +108,55 @@ $bgc-white:           #fefefe;
   height: 21px;
 }
 
+// plan/login.html.haml
+#login-img {
+  float: right;
+  width: 550px;
+  height: 385px;
+}
+
+.carousel {
+  width: 550px;
+  height: 440px;
+  margin: 20px;
+  float: right;
+}
+
+.carousel-inner {
+  width: 550px;
+}
+.carousel-control:hover, .carousel-control:focus {
+  color: #555;
+}
+
+.carousel-indicators {
+  li {
+    border: 1px solid $font-color;
+  }
+  .active {
+    background-color: $dark-color;
+  }
+}
+.carousel-control.right,
+.carousel-control.left {
+  background-image: none;
+}
+
+#login-page-header {
+  height: 500px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+  margin-top: 87px;
+  border-radius: 15px;
+  h1 {
+    margin-left: 32px;
+    margin-top: 100px;
+  }
+  .btn-primary {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}
+
 // plan/new.html.haml
 #new-plan-page > .navbar-fixed-top {
   top: 50px;

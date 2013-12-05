@@ -7,6 +7,9 @@ class PlansController < ApplicationController
     @users    = users_info
   end
 
+  def login
+  end
+
   def new
     @plan = Plan.find(params[:id]) if params[:id]
   end
