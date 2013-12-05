@@ -3,6 +3,8 @@ var routeMap; // マップ
 var infowindow; // マーカーの詳細表示
 var latlng;
 var markerList;
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
 
 var tokyoPosition = {
   latitude:  35.681382,
@@ -31,6 +33,7 @@ function mapInitialize(){
 }
 
 function routeInitialize(){
+  directionsDisplay = new google.maps.DirectionsRenderer();
   var myRouteLatLng   = new google.maps.LatLng(35.681382, 139.766084);
   var mapRouteOptions = {
     center:    myRouteLatLng,
@@ -39,6 +42,7 @@ function routeInitialize(){
   };
 
   routeMap = new google.maps.Map(document.getElementById("route-map"), mapRouteOptions);
+  directionsDisplay.setMap(routeMap);
   $("#route-tab a").attr('onclick', '');
 }
 
@@ -76,9 +80,6 @@ function zoomMap(latitude, longitude) {
 }
 
 function getRoute(cards){
-  var directionsDisplay = new google.maps.DirectionsRenderer();
-  var directionsService = new google.maps.DirectionsService();
-  directionsDisplay.setMap(routeMap);
   var from;
   var to;
   var request;
