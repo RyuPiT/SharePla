@@ -90,6 +90,16 @@ $bgc-white:           #fefefe;
   height: 385px;
 }
 
+.carousel {
+  width: 600px;
+  height: 440px;
+  float: right;
+}
+
+.carousel-inner {
+  width: 600px;
+}
+
 #login-page-header {
   height: 500px;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);

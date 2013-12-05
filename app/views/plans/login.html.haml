@@ -1,6 +1,24 @@
 .container
   #login-page-header.page-header
-    = image_tag 'img-login.png', id: 'login-img', class: 'img-rounded'
+    #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+      %ol.carousel-indicators
+        %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+        %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+        %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+      .carousel-inner
+        .item.active
+          = image_tag 'img-login.png', id: 'login-img', class: 'img-rounded'
+          .carousel-caption
+        .item
+          = image_tag 'img-login.png', id: 'login-img', class: 'img-rounded'
+          .carousel-caption
+        .item
+          = image_tag 'img-login.png', id: 'login-img', class: 'img-rounded'
+          .carousel-caption
+      %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-example-generic"}
+        %span.glyphicon.glyphicon-chevron-left
+      %a.right.carousel-control{"data-slide" => "next", href: "#carousel-example-generic"}
+        %span.glyphicon.glyphicon-chevron-right
     %h1
       SharePla
     #new-plan-button
