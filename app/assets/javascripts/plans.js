@@ -302,5 +302,3 @@ function getAllCard(position_word) {
   }
   return allCard;
 }
-
-

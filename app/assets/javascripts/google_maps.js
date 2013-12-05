@@ -3,6 +3,7 @@ var routeMap; // マップ
 var infowindow; // マーカーの詳細表示
 var latlng;
 var markerList;
+// for route 
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
@@ -83,7 +84,7 @@ function getRoute(cards){
   var from;
   var to;
   var request;
-
+  
   var points = $.map(cards, function(data) {
     if ((data['latitude'] != "") && (data['longitude'] != "")){
       return {
@@ -121,6 +122,15 @@ function getRoute(cards){
 
   directionsService.route(request, function(response, status){
     if(status == google.maps.DirectionsStatus.OK){
+      // set card title
+      var i = 0;
+      $.each(response.routes[0].legs, function() {
+        this.start_address = cards[i].title;
+        this.end_address = cards[i+1].title;
+        console.log(this.start_address);
+        i++;
+      });
+
       directionsDisplay.setDirections(response);
     }
   });
