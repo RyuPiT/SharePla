@@ -126,5 +126,6 @@ function getRoute(cards){
 }
 
 function viewRoute(){
-  getRoute(getAllCard('#show-my-plan-cards > li > div'));
+  routeInitialize()
+  getRoute(routeInitialize());
 }
