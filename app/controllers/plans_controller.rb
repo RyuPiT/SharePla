@@ -5,6 +5,9 @@ class PlansController < ApplicationController
     @plans = Plan.all
   end
 
+  def login
+  end
+
   def new
     @plan = Plan.find(params[:id]) if params[:id]
   end

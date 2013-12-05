@@ -1,0 +1,18 @@
+#top-page-header.page-header
+  .container
+    %h1
+      オリジナル
+      %span.attention プラン
+      を作成し、みんなに
+      %span.attention 共有
+      しよう
+  #new-plan-button
+    = link_to 'New Plan!', new_plan_path, class: 'btn btn-primary btn-lg'
+    %p PC専用
+.container
+  = render 'sns_button'
+  - if flash[:notice]
+    .alert.alert-success.alert-dismissable
+      %button{ type: 'button', class: 'close', data: {dismiss: 'alert'}, aria: {hiddeen: 'true'} }
+        &times;
+      =h(flash[:notice])
