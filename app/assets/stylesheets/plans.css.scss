@@ -48,7 +48,7 @@ $bgc-white:           #fefefe;
   -webkit-border-radius: 5px;
   list-style: none;
   float: left;
-  width: 270px;
+  width: 225px;
   margin: 5px;
   cursor: pointer;
   h4 {
@@ -75,6 +75,32 @@ $bgc-white:           #fefefe;
 
 .plans-list {
   margin-top: 30px;
+}
+
+.navbar-right > li > img {
+    margin-top: 12px;
+}
+
+#home {
+  padding-top: 13px;
+}
+
+.top-tabs > li > a:hover {
+  background-color: #a0a0a0;
+  color: #eeeeee;
+}
+
+.top-tabs > li.active > a {
+  background-color: $dark-color;
+  color: #eeeeee;
+  &:hover {
+    background-color: $dark-color;
+    color: #eeeeee;
+  }
+}
+
+#myplans {
+  padding-top: 13px;
 }
 
 .area-tags {
@@ -367,7 +393,7 @@ a[href^="#route"]:before {
 
 #show-my-plan-cards {
   padding-left: 0px;
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
 #new-my-plan-cards > .sortable-card {

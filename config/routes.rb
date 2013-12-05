@@ -18,6 +18,10 @@ SharePla::Application.routes.draw do
     end
   end
 
+  get  '/auth/:provider/callback', to: 'sessions#callback'
+  post '/auth/:provider/callback', to: 'sessions#callback'
+  get  '/signout',                 to: 'sessions#destroy', as: :signout
+
   #get "hello/to/:name" => "hello#to"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

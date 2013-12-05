@@ -84,6 +84,7 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
+    hashie (2.0.5)
     hike (1.2.3)
     httparty (0.12.0)
       json (~> 1.8)
@@ -115,6 +116,16 @@ GEM
     multi_xml (0.5.5)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    oauth (0.4.7)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-twitter (1.0.1)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
     optionable (0.1.1)
     origin (1.1.0)
     polyglot (0.3.3)
@@ -222,6 +233,9 @@ DEPENDENCIES
   jquery-ui-rails
   json
   mongoid!
+  nokogiri
+  omniauth
+  omniauth-twitter
   rails (= 4.0.0)
   rails_12factor
   rake

@@ -1,0 +1,15 @@
+.plans-list
+  - plans.each do |plan|
+    %li.top-list-title
+      %h4= plan[:title]
+      = link_to 'プランを見る', plan
+      %p= '作成日' + plan.created_at.strftime('%Y/%m/%d %H:%M')
+      %p
+        %img{src: users[plan.provider][plan.uid][:image_url], height: '30', width: '30'}/
+        - if users[plan.provider][plan.uid][:screen_name].present?
+          = users[plan.provider][plan.uid][:screen_name]
+        - else
+          未登録ユーザ
+      .area-tags
+        - (plan[:area_tags] || []).each do |tag|
+          %span{ name: tag, class: 'label label-default' }= tag
