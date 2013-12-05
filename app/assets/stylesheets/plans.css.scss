@@ -82,6 +82,27 @@ $bgc-white:           #fefefe;
   height: 21px;
 }
 
+// plan/login.html.haml
+#login-img {
+  float: right;
+  margin: 30px;
+  width: 550px;
+  height: 385px;
+}
+
+#login-page-header {
+  height: 500px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+  margin-top: 87px;
+  border-radius: 15px;
+  h1 {
+    margin-left: 20px;
+  }
+  .btn-primary {
+    margin: 0 auto;
+  }
+}
+
 // plan/new.html.haml
 #new-plan-page > .navbar-fixed-top {
   top: 50px;

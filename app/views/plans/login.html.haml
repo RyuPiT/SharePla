@@ -1,15 +1,12 @@
-#top-page-header.page-header
-  .container
-    %h1
-      オリジナル
-      %span.attention プラン
-      を作成し、みんなに
-      %span.attention 共有
-      しよう
-  #new-plan-button
-    = link_to 'New Plan!', new_plan_path, class: 'btn btn-primary btn-lg'
-    %p PC専用
 .container
+  #login-page-header.page-header
+    = image_tag 'img-login.png', id: 'login-img', class: 'img-rounded'
+    %h1
+      SharePla
+    #new-plan-button
+      = link_to 'Twitterでログイン', root_path, class: 'btn btn-primary btn-lg'
+      = link_to 'お試し', root_path, class: 'btn btn-primary btn-lg'
+
   = render 'sns_button'
   - if flash[:notice]
     .alert.alert-success.alert-dismissable
