@@ -31,4 +31,6 @@
               .default-card
                 .title= card.title
     #map-block.col-sm-6
-      地図載せる
+      #route-map
+      %script{language: 'JavaScript'}
+        window.onload = routeInitialize();
