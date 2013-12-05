@@ -19,7 +19,10 @@
         - @plan.cards.each do |card|
           - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
             %li.sortable-card
-              .hotel-card
+              .hotel-card 
+                .card_type= card.card_type
+                .longitude= card.longitude
+                .latitude= card.latitude
                 .title= card.title
           - elsif card.card_type == 'Time'
             %li.time-card
