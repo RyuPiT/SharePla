@@ -125,12 +125,14 @@ function getRoute(cards){
       // set card title
       var i = 0;
       $.each(response.routes[0].legs, function() {
+        while(cards[i].card_type != "Map"){ i++;}
         this.start_address = cards[i].title;
-        this.end_address = cards[i+1].title;
-        console.log(this.start_address);
         i++;
       });
-
+      var last = response.routes[0].legs.pop();
+      while(cards[i].card_type != "Map"){ i++;}
+      last.end_address = cards[i].title;
+      response.routes[0].legs.push(last);
       directionsDisplay.setDirections(response);
     }
   });
