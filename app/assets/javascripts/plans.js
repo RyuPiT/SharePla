@@ -213,22 +213,6 @@ $(function() {
     alert('post failed');
   }
 
-  // return card list from main card list
-  function getAllCard(position_word) {
-    var allCard = new Array();
-    var htmlTag = $(position_word);
-    var size    = htmlTag.length;
-    var keys    = ['title','card_type','longitude','latitude'];
-    for(var i = 0; i < size; i++){
-      var oneCard = { };
-      $.each(keys, function() {
-        oneCard[this] = htmlTag.eq(i).children('.' + this).text();
-      });
-      allCard[i] = oneCard;
-    }
-    return allCard;
-  }
-
   // return all prefecture array
   function getAllAreaTags() {
     return $.map($('#area-tags-box > span'), function(val) { return $(val).text(); });
@@ -260,7 +244,7 @@ $(function() {
       return;
     }
   });
-
+  
 });
 
 //new-plan-page sort
@@ -302,3 +286,21 @@ $(function() {
 $(function() {
   $('.nav-tabs > li > a').tooltip();
 });
+
+// return card list from main card list
+function getAllCard(position_word) {
+  var allCard = new Array();
+  var htmlTag = $(position_word);
+  var size    = htmlTag.length;
+  var keys    = ['title','card_type','longitude','latitude'];
+  for(var i = 0; i < size; i++){
+    var oneCard = { };
+    $.each(keys, function() {
+      oneCard[this] = htmlTag.eq(i).children('.' + this).text();
+    });
+    allCard[i] = oneCard;
+  }
+  return allCard;
+}
+
+
