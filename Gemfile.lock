@@ -233,6 +233,7 @@ DEPENDENCIES
   jquery-ui-rails
   json
   mongoid!
+  nokogiri
   omniauth
   omniauth-twitter
   rails (= 4.0.0)

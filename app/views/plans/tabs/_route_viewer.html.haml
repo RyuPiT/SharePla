@@ -1,13 +1,13 @@
 - content_for :plan_tab_navs do
-  %li#travel-route-viewer-tab
-    %a{data:{toggle: 'tab'}, href: '#route-viewer', onclick: '',  title: 'ルート表示'}
+  %li#route-tab
+    %a{data:{toggle: 'tab'}, href: '#route', onclick: 'routeInitialize()',  title: 'ルート表示'}
 
 - content_for :plan_tab_contents do
-  #route-viewer.tab-pane
+  #route.tab-pane
     %h4 ルート表示
     .row
-      .col-sm-10
-        #route-viewer-canvas{style: 'width:400px; height:400px'}
       .col-sm-2
-        %input.btn.btn-default{type: 'submit', value: '表示'}
+        %input#route-view-btn.btn.btn-default{type: 'submit', value: '表示'}
+
+    #route-map
 

@@ -83,3 +83,4 @@ gem 'font-awesome-rails'
 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'nokogiri'

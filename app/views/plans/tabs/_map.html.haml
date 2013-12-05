@@ -1,6 +1,6 @@
 - content_for :plan_tab_navs do
   %li#travel-map-tab
-    %a{href: '#map', 'data-toggle' => 'tab', onclick: 'initialize()', title: '地図検索'}
+    %a{href: '#map', 'data-toggle' => 'tab', onclick: 'mapInitialize()', title: '地図検索'}
 
 - content_for :plan_tab_contents do
   #map.tab-pane
@@ -10,6 +10,5 @@
           %input.form-control{name: 'keyword', placeholder: 'グーグルマップのように', required: '', type: 'input'}
         .col-sm-2
           %input.btn.btn-default{type: 'submit', value: '検索'}
-          %input.btn.btn-default#route-viewer{type: 'button', value: 'ルート表示'}
     #map-canvas
     %ol#map-search-result.droptrue
