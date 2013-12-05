@@ -13,18 +13,22 @@
       - (@plan[:area_tags] || []).each do |tag|
         %span{ name: tag, class: 'label label-default'}= tag
   %h4= @plan.description
-  %ol#show-my-plan-cards
-    - @plan.cards.each do |card|
-      - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
-        %li.sortable-card
-          .hotel-card
-            .title= card.title
-      - elsif card.card_type == 'Time'
-        %li.time-card
-          %hr.time-border
-          .hour
-            .title= card.title
-      - else
-        %li.sortable-card
-          .default-card
-            .title= card.title
+  .row
+    #plan-block.col-sm-6
+      %ol#show-my-plan-cards
+        - @plan.cards.each do |card|
+          - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
+            %li.sortable-card
+              .hotel-card
+                .title= card.title
+          - elsif card.card_type == 'Time'
+            %li.time-card
+              %hr.time-border
+              .hour
+                .title= card.title
+          - else
+            %li.sortable-card
+              .default-card
+                .title= card.title
+    #map-block.col-sm-6
+      地図載せる
