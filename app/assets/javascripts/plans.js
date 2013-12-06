@@ -2,6 +2,7 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
+  var element = '#new-my-plan-cards > li > div';
   // [add clicked] or [enter when focus text field of place to go] event
   $('#create-message-card').submit(function() {
     var postData = { name: $('#create-message-card input[name=keyword]').val() };
@@ -190,7 +191,7 @@ $(function() {
 
   // save clicked event
   $('#save-plan').submit(function() {
-    var postData   = { plan: { title: $('input[name=plan-title]').val(), description: $('textarea[name=plan-desc]').val(), cards: getAllCard(), area_tags: getAllAreaTags() } };
+    var postData   = { plan: { title: $('input[name=plan-title]').val(), description: $('textarea[name=plan-desc]').val(), cards: getAllCard(element), area_tags: getAllAreaTags() } };
     var postUrl    = '/plans.json';
     var returnType = 'text';
 
@@ -212,22 +213,6 @@ $(function() {
     alert('post failed');
   }
 
-  // return card list from main card list
-  function getAllCard() {
-    var allCard = new Array();
-    var htmlTag = $('#new-my-plan-cards > li > div');
-    var size    = htmlTag.length;
-    var keys    = ['title','card_type','longitude','latitude'];
-    for(var i = 0; i < size; i++){
-      var oneCard = { };
-      $.each(keys, function() {
-        oneCard[this] = htmlTag.eq(i).children('.' + this).text();
-      });
-      allCard[i] = oneCard;
-    }
-    return allCard;
-  }
-
   // return all prefecture array
   function getAllAreaTags() {
     return $.map($('#area-tags-box > span'), function(val) { return $(val).text(); });
@@ -243,7 +228,7 @@ $(function() {
 
   // route viewer
   $('#route-view-btn').bind('click', function() {
-    getRoute(getAllCard());
+    getRoute(getAllCard(element));
   });
 
   $('#card-search a[data-toggle="tab"]').one('shown.bs.tab', function(data) {
@@ -259,7 +244,7 @@ $(function() {
       return;
     }
   });
-
+  
 });
 
 //new-plan-page sort
@@ -301,3 +286,19 @@ $(function() {
 $(function() {
   $('.nav-tabs > li > a').tooltip();
 });
+
+// return card list from main card list
+function getAllCard(position_word) {
+  var allCard = new Array();
+  var htmlTag = $(position_word);
+  var size    = htmlTag.length;
+  var keys    = ['title','card_type','longitude','latitude'];
+  for(var i = 0; i < size; i++){
+    var oneCard = { };
+    $.each(keys, function() {
+      oneCard[this] = htmlTag.eq(i).children('.' + this).text();
+    });
+    allCard[i] = oneCard;
+  }
+  return allCard;
+}
