@@ -12,11 +12,11 @@
           #card-search
             .nav-tab-area
               - render 'plans/tabs/message'
+              - render 'plans/tabs/tag'
               - render 'plans/tabs/place'
               - render 'plans/tabs/map'
               - render 'plans/tabs/time'
               - render 'plans/tabs/hotel'
-              - render 'plans/tabs/tag'
               - render 'plans/tabs/route_viewer'
               %ul.nav.nav-tabs= yield :plan_tab_navs
             .tab-content
