@@ -7,13 +7,13 @@
         %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
       .carousel-inner
         .item.active
-          = image_tag 'img-login.png', id: 'login-img', class: 'img-thumbnail'
+          = image_tag 'img-login01.png', id: 'login-img', class: 'img-thumbnail'
           .carousel-caption
         .item
-          = image_tag 'img-login.png', id: 'login-img', class: 'img-thumbnail'
+          = image_tag 'img-login02.png', id: 'login-img', class: 'img-thumbnail'
           .carousel-caption
         .item
-          = image_tag 'img-login.png', id: 'login-img', class: 'img-thumbnail'
+          = image_tag 'img-login03.png', id: 'login-img', class: 'img-thumbnail'
           .carousel-caption
       %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-example-generic"}
         %span.glyphicon.glyphicon-chevron-left
@@ -21,6 +21,8 @@
         %span.glyphicon.glyphicon-chevron-right
     %h1
       SharePla
+    %h4
+      あなたのプランをみんなのプランに
     #new-plan-button
       = link_to 'Twitterでログイン', root_path, class: 'btn btn-primary btn-lg'
       = link_to 'お試し', root_path, class: 'btn btn-primary btn-lg'
