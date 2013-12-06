@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'ユーザーはプラン内の目的地の順序を並び替えることが出来る', js: true do
-  given(:title) { 'プラン' }
+  given(:title) { '肉屋に行く' }
 
   # シナリオに至るまでの背景
   background do
