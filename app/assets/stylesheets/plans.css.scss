@@ -87,20 +87,21 @@ $bgc-white:           #fefefe;
   padding-top: 13px;
 }
 
-.top-tabs > li > a:hover {
-  background-color: #a0a0a0;
-  color: #eeeeee;
-}
-
-.top-tabs > li.active > a {
-  background-color: $dark-color;
-  color: #eeeeee;
-  &:hover {
-    background-color: $dark-color;
+.top-tabs {
+  z-index: 20;
+  > li > a:hover {
+    background-color: #a0a0a0;
     color: #eeeeee;
   }
+  > li.active > a {
+    background-color: $dark-color;
+    color: #eeeeee;
+    &:hover {
+      background-color: $dark-color;
+      color: #eeeeee;
+    }
+  }
 }
-
 #myplans {
   padding-top: 13px;
 }
@@ -536,6 +537,11 @@ a[href^="#route"]:before {
 #show-page-header h1 {
   margin: 0 auto;
   text-align: center;
+}
+
+#show-my-plan-cards .title {
+  text-overflow: clip;
+  white-space: normal;
 }
 
 #btn-pdf,
