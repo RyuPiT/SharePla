@@ -224,7 +224,14 @@ $(function() {
       var lngStr = $(this).children('.longitude').text();
       zoomMap(Number(latStr), Number(lngStr));
     });
+
   }
+  // duplicate code
+  $('#show-my-plan-cards > .sortable-card >.hotel-card').bind('click', function() {
+    var latStr = $(this).children('.latitude').text();
+    var lngStr = $(this).children('.longitude').text();
+    zoomRouteMap(Number(latStr), Number(lngStr));
+  });
 
   // route viewer
   $('#route-view-btn').bind('click', function() {

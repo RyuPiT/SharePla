@@ -80,6 +80,12 @@ function zoomMap(latitude, longitude) {
   map.setZoom(15);
 }
 
+function zoomRouteMap(latitude, longitude) {
+  var latlng = new google.maps.LatLng(latitude, longitude);
+  routeMap.setCenter(latlng);
+  routeMap.setZoom(15);
+}
+
 function getRoute(cards){
   var from;
   var to;
