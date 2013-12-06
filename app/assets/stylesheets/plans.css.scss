@@ -561,7 +561,6 @@ a[href^="#route"]:before {
   padding-right: 2px;
 }
 
-
 #btn-clone:before {
   font-family: 'Glyphicons Halflings';
   content: "\e066";
@@ -569,3 +568,30 @@ a[href^="#route"]:before {
   padding-right: 2px;
 }
 
+#show-my-plan-cards {
+  .default-card {
+    &:hover {
+      background: $main-color;
+      color: $font-color;
+      box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+      cursor: default;
+    }
+  }
+  .hotel-card {
+    $hotel-card: #e2f7ce;
+    &:hover {
+      box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+      background: $hotel-card;
+      color: $font-color;
+      cursor: default;
+    }
+  }
+  .time-card {
+    .hour:hover {
+      cursor: default;
+    }
+    .time-border:hover {
+      cursor: default;
+    }
+  }
+}
