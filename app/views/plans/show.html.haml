@@ -22,8 +22,7 @@
               .hotel-card 
                 .longitude= card.longitude
                 .latitude= card.latitude
-                .title
-                  %a #{card.title}
+                .title= card.title
           - elsif card.card_type == 'Time'
             %li.time-card
               %hr.time-border

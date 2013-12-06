@@ -220,19 +220,23 @@ $(function() {
 
   function bindZoomMap() {
     $('#map-search-result > .sortable-card >.hotel-card').bind('click', function() {
-      var latStr = $(this).children('.latitude').text();
-      var lngStr = $(this).children('.longitude').text();
-      zoomMap(Number(latStr), Number(lngStr));
+      var latlng = new google.maps.LatLng(
+                     Number($(this).children('.latitude').text()),
+                     Number($(this).children('.longitude').text())
+                   );
+      zoomMap("map", latlng);
     });
 
   }
   // duplicate code
   $('#show-my-plan-cards > .sortable-card >.hotel-card').bind('click', function() {
-    var latStr = $(this).children('.latitude').text();
-    var lngStr = $(this).children('.longitude').text();
-    zoomRouteMap(Number(latStr), Number(lngStr));
+    var latlng = new google.maps.LatLng(
+                   Number($(this).children('.latitude').text()),
+                   Number($(this).children('.longitude').text())
+                 );
+    zoomMap("routeMap", latlng);
   });
-
+  
   // route viewer
   $('#route-view-btn').bind('click', function() {
     getRoute(getAllCard(element));
