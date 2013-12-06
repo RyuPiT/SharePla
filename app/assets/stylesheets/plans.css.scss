@@ -532,6 +532,11 @@ a[href^="#route"]:before {
   text-align: center;
 }
 
+#show-my-plan-cards .title {
+  text-overflow: clip;
+  white-space: normal;
+}
+
 #btn-pdf,
 #btn-clone {
   float: right;
