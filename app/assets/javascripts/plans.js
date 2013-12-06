@@ -7,6 +7,7 @@ $(function() {
   $('#create-message-card').submit(function() {
     var postData = { name: $('#create-message-card input[name=keyword]').val() };
     addCardToPlan(postData);
+    focusAddPlanCard();
     return false;
   });
 
@@ -28,6 +29,15 @@ $(function() {
     $('#create-message-card input[name=keyword]').val('');
   }
 
+  function focusAddPlanCard(){
+    console.log($('#new-my-plan-cards').height()); // 207
+    console.log($('#new-my-plan-cards')[0].scrollHeight); // 797
+    //buttom ($('.plan-detail').scrollTop()) = $('#new-my-plan-cards')[0].scrollHeight - $('#new-my-plan-cards').height()
+    $('.plan-detail').scrollTop( $('#new-my-plan-cards')[0].scrollHeight + 80);
+  }
+  $('.plan-detail').scroll(function(){
+      console.log($('.plan-detail').scrollTop());
+  });
   // data = plans_controller's @json_data = services/api_service.rb's formated_data
   function apiCallback(data) {
     var cardType   = data['meta']['type'];
