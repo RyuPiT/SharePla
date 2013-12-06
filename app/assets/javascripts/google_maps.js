@@ -84,13 +84,16 @@ function getRoute(cards){
   var from;
   var to;
   var request;
-  
-  var points = $.map(cards, function(data) {
+  var names = new Array();
+  var points = new Array();
+
+  $.map(cards, function(data) {
     if ((data['latitude'] != "") && (data['longitude'] != "")){
-      return {
+      names.push(data['title']);
+      points.push({
         location: new google.maps.LatLng(+data['latitude'], +data['longitude']),
         stopover: true
-      };
+      });
     }
   });
 
@@ -124,15 +127,11 @@ function getRoute(cards){
     if(status == google.maps.DirectionsStatus.OK){
       // set card title
       var i = 0;
-      $.each(response.routes[0].legs, function() {
-        while(cards[i].card_type != "Map"){ i++;}
-        this.start_address = cards[i].title;
+      $.each(response.routes[0].legs, function(){
+        this.start_address = names[i];
+        this.end_address = names[i+1];
         i++;
       });
-      var last = response.routes[0].legs.pop();
-      while(cards[i].card_type != "Map"){ i++;}
-      last.end_address = cards[i].title;
-      response.routes[0].legs.push(last);
       directionsDisplay.setDirections(response);
     }
   });
