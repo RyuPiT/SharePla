@@ -238,7 +238,7 @@ $(function() {
                  );
     zoomMap("routeMap", latlng);
   });
-  
+
   // route viewer
   $('#route-view-btn').bind('click', function() {
     getRoute(getAllCard(element));
@@ -309,7 +309,7 @@ function getAllCard(position_word) {
   for(var i = 0; i < size; i++){
     var oneCard = { };
     $.each(keys, function() {
-      oneCard[this] = htmlTag.eq(i).children('.' + this).text();
+      oneCard[this] = $.trim(htmlTag.eq(i).children('.' + this).text());
     });
     allCard[i] = oneCard;
   }
