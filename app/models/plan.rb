@@ -12,7 +12,6 @@ class Plan
   field :uid,      type: String
 
   embeds_many :cards
-  embeds_many :comments
   validates :title, presence: true
 
   def self.find_my_plans(provider, uid)
