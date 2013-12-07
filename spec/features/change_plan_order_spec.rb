@@ -6,7 +6,7 @@ feature 'ユーザーはプラン内の目的地の順序を並び替えるこ�
   # シナリオに至るまでの背景
   background do
     # 新しくプランを作成し、肉を食べる、魚を食べる順番でプランを作成する
-    visit root_path
+    visit plans_path
     click_on '新しいプランを作成する'
 
     page.execute_script('jQuery.fx.off = true;')

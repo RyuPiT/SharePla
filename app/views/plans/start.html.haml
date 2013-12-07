@@ -1,5 +1,5 @@
 .container
-  #login-page-header.page-header
+  #start-page-header.page-header
     #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
       %ol.carousel-indicators
         %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
@@ -7,13 +7,13 @@
         %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
       .carousel-inner
         .item.active
-          = image_tag 'img-login01.png', id: 'login-img', class: 'img-thumbnail'
+          = image_tag 'img-start01.png', class: 'img-thumbnail start-img'
           .carousel-caption
         .item
-          = image_tag 'img-login02.png', id: 'login-img', class: 'img-thumbnail'
+          = image_tag 'img-start02.png', class: 'img-thumbnail start-img'
           .carousel-caption
         .item
-          = image_tag 'img-login03.png', id: 'login-img', class: 'img-thumbnail'
+          = image_tag 'img-start03.png', class: 'img-thumbnail start-img'
           .carousel-caption
       %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-example-generic"}
         %span.glyphicon.glyphicon-chevron-left
@@ -24,8 +24,8 @@
     %h4
       あなたのプランをみんなのプランに
     #new-plan-button
-      = link_to 'Twitterでログイン', root_path, class: 'btn btn-primary btn-lg'
-      = link_to 'お試し', root_path, class: 'btn btn-primary btn-lg'
+      = link_to 'Twitterでログイン', '/auth/twitter', class: 'btn btn-primary btn-lg'
+      = link_to 'お試し', plans_path, class: 'btn btn-primary btn-lg'
 
   = render 'sns_button'
   - if flash[:notice]
