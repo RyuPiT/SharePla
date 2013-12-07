@@ -7,20 +7,10 @@ $(function() {
   $('#create-message-card').submit(function() {
     var postData = { name: $('#create-message-card input[name=keyword]').val() };
     addCardToPlan(postData);
-    yahoo();
+    $('.plan-detail').scrollTop($('.plan-detail')[0].scrollHeight);
     return false;
   });
   
-  function yahoo(){test(function(){
-    alert();
-    $('.plan-detail').scrollTop($('.plan-detail')[0].scrollHeight);
-  })
-  function test(callback){
-    alert();
-    callback();
-    }
-  }
-
   function addCardToPlan(data) {
     var li = $("<li>").hide().animate({ pacity:1 }, function() {
       $(this).show("slide");
@@ -39,10 +29,6 @@ $(function() {
     $('#create-message-card input[name=keyword]').val('');
     return true;
   }
-
-  $('.plan-detail').scroll(function(){
-    //$('.plan-detail').scrollTop($('.plan-detail')[0].scrollHeight);
-  });
 
   // data = plans_controller's @json_data = services/api_service.rb's formated_data
   function apiCallback(data) {
