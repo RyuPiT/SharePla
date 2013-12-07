@@ -38,7 +38,9 @@ $bgc-white:           #fefefe;
  text-align: center;
 }
 
-
+.top-tabs {
+  width: 92%;
+}
 .top-list-title {
   background-color: $main-color;
   padding: 10px 10px 30px 10px;
@@ -85,20 +87,21 @@ $bgc-white:           #fefefe;
   padding-top: 13px;
 }
 
-.top-tabs > li > a:hover {
-  background-color: #a0a0a0;
-  color: #eeeeee;
-}
-
-.top-tabs > li.active > a {
-  background-color: $dark-color;
-  color: #eeeeee;
-  &:hover {
-    background-color: $dark-color;
+.top-tabs {
+  z-index: 20;
+  > li > a:hover {
+    background-color: #a0a0a0;
     color: #eeeeee;
   }
+  > li.active > a {
+    background-color: $dark-color;
+    color: #eeeeee;
+    &:hover {
+      background-color: $dark-color;
+      color: #eeeeee;
+    }
+  }
 }
-
 #myplans {
   padding-top: 13px;
 }
@@ -106,6 +109,60 @@ $bgc-white:           #fefefe;
 .area-tags {
   overflow: auto;
   height: 21px;
+}
+
+// plan/login.html.haml
+#login-img {
+  float: right;
+  width: 550px;
+  height: 385px;
+}
+
+.carousel {
+  width: 550px;
+  height: 440px;
+  margin: 20px;
+  float: right;
+}
+
+.carousel-inner {
+  width: 550px;
+}
+.carousel-control:hover, .carousel-control:focus {
+  color: #555;
+}
+
+.carousel-indicators {
+  li {
+    border: 1px solid $font-color;
+  }
+  .active {
+    background-color: $dark-color;
+  }
+}
+.carousel-control.right,
+.carousel-control.left {
+  background-image: none;
+}
+
+#login-page-header {
+  height: 500px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+  margin-top: 87px;
+  border-radius: 15px;
+  h1 {
+    margin-left: 32px;
+    margin-top: 100px;
+  }
+  h4 {
+    margin-left: 32px;
+    font-size: 17px;
+
+  }
+  .btn-primary {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
 }
 
 // plan/new.html.haml
@@ -446,7 +503,7 @@ a[href^="#route"]:before {
 }
 
 #map-canvas {
-  width: 98%;
+  width: 88%;
   height: 200px;
   border: 1px solid #dddddd;
   border-radius: 4px;
@@ -482,6 +539,11 @@ a[href^="#route"]:before {
   text-align: center;
 }
 
+#show-my-plan-cards .title {
+  text-overflow: clip;
+  white-space: normal;
+}
+
 #btn-pdf,
 #btn-clone {
   float: right;
@@ -505,7 +567,6 @@ a[href^="#route"]:before {
   padding-right: 2px;
 }
 
-
 #btn-clone:before {
   font-family: 'Glyphicons Halflings';
   content: "\e066";
@@ -513,3 +574,30 @@ a[href^="#route"]:before {
   padding-right: 2px;
 }
 
+#show-my-plan-cards {
+  .default-card {
+    &:hover {
+      background: $main-color;
+      color: $font-color;
+      box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+      cursor: default;
+    }
+  }
+  .hotel-card {
+    $hotel-card: #e2f7ce;
+    &:hover {
+      box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+      background: $hotel-card;
+      color: $font-color;
+      cursor: default;
+    }
+  }
+  .time-card {
+    .hour:hover {
+      cursor: default;
+    }
+    .time-border:hover {
+      cursor: default;
+    }
+  }
+}

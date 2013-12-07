@@ -12,11 +12,11 @@
           #card-search
             .nav-tab-area
               - render 'plans/tabs/message'
+              - render 'plans/tabs/tag'
               - render 'plans/tabs/place'
               - render 'plans/tabs/map'
               - render 'plans/tabs/time'
               - render 'plans/tabs/hotel'
-              - render 'plans/tabs/tag'
               - render 'plans/tabs/route_viewer'
               %ul.nav.nav-tabs= yield :plan_tab_navs
             .tab-content
@@ -28,7 +28,7 @@
             %ol#new-my-plan-cards.droptrue
               - if @plan
                 - @plan.cards.each do |card|
-                  - if card.card_type == 'Hotel'
+                  - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
                     %li.sortable-card
                       .hotel-card
                         .title= card.title
@@ -55,6 +55,4 @@
                         %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
               - else
                 %li.sortable-card
-                  .default-card
-                    .title スタートが良ければ、半分は成功したようなものだ
-                    %button.close{ aria: {hidden: 'true'}, data: {dismiss: 'alert'}, type: 'button' } &times;
+

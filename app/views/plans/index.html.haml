@@ -3,9 +3,9 @@
     %h1
       %span.attention 作る・見る・行く
 
-  #new-plan-button
-    = link_to '新しいプランを作成する', new_plan_path, class: 'btn btn-primary btn-lg'
-    %p PC専用
+    #new-plan-button
+      = link_to '新しいプランを作成する', new_plan_path, class: 'btn btn-primary btn-lg'
+      %p PC専用
 .container
   = render 'sns_button'
   - if flash[:notice]
