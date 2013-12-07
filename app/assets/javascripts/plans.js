@@ -193,7 +193,13 @@ $(function() {
 
   // save clicked event
   $('#save-plan').submit(function() {
-    var postData   = { plan: { title: $('input[name=plan-title]').val(), description: $('textarea[name=plan-desc]').val(), cards: getAllCard(element), area_tags: getAllAreaTags() } };
+    var allCard = getAllCard(element);
+    if(!allCard) {
+      alert('カードを追加してください');
+      return false;
+    }
+
+    var postData   = { plan: { title: $('input[name=plan-title]').val(), description: $('textarea[name=plan-desc]').val(), cards: allCard, area_tags: getAllAreaTags() } };
     var postUrl    = '/plans.json';
     var returnType = 'text';
 
@@ -241,7 +247,12 @@ $(function() {
 
   // route viewer
   $('#route-view-btn').bind('click', function() {
-    getRoute(getAllCard(element));
+    var allCard = getAllCard(element);
+    if(!allCard) {
+      alert('カードを追加してください');
+      return false;
+    }
+    getRoute(allCard);
   });
 
   $('#card-search a[data-toggle="tab"]').one('shown.bs.tab', function(data) {
@@ -257,7 +268,7 @@ $(function() {
       return;
     }
   });
-  
+
 });
 
 //new-plan-page sort
@@ -306,6 +317,11 @@ function getAllCard(position_word) {
   var htmlTag = $(position_word);
   var size    = htmlTag.length;
   var keys    = ['title','card_type','longitude','latitude'];
+
+  if(size == 0){
+    return false;
+  }
+
   for(var i = 0; i < size; i++){
     var oneCard = { };
     $.each(keys, function() {
