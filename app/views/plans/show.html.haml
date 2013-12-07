@@ -37,4 +37,4 @@
       %script{language: 'JavaScript'}
         window.onload = viewRoute;
 
-  = render partial: 'comment_list', locals: {comments: @plan.comments}
+  = render partial: 'comment_list', locals: {plan: @plan}

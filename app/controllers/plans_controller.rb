@@ -42,6 +42,9 @@ class PlansController < ApplicationController
     end
   end
 
+  def add_comment
+  end
+
   private
 
   def plan_params
