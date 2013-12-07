@@ -2,8 +2,9 @@ SharePla::Application.routes.draw do
   root 'plans#start'
 
   resources :plans, only: %i[create new show index] do
+    post 'clone',       on: :member
+    post 'add_comment', on: :member
   end
-  post '/plans/:id/add_comment', to: 'plans#add_comment'
 
   resources :opinions, only: %i[create index] do
     post 'like', on: :collection

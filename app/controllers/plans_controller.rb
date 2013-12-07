@@ -42,7 +42,10 @@ class PlansController < ApplicationController
     end
   end
 
-  def add_comment
+  def comment
+    render :text => "hello world!"
+    print params
+    # DBに保存の処理
   end
 
   private
