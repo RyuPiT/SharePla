@@ -20,7 +20,6 @@
           - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
             %li.sortable-card
               .hotel-card 
-                .card_type= card.card_type
                 .longitude= card.longitude
                 .latitude= card.latitude
                 .title= card.title
@@ -28,12 +27,10 @@
             %li.time-card
               %hr.time-border
               .hour
-                .card_type= card.card_type
                 .title= card.title
           - else
             %li.sortable-card
               .default-card
-                .card_type= card.card_type
                 .title= card.title
     #map-block.col-sm-6
       #route-map

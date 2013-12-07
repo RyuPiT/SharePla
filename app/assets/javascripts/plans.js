@@ -7,9 +7,10 @@ $(function() {
   $('#create-message-card').submit(function() {
     var postData = { name: $('#create-message-card input[name=keyword]').val() };
     addCardToPlan(postData);
+    $('.plan-detail').scrollTop($('.plan-detail')[0].scrollHeight);
     return false;
   });
-
+  
   function addCardToPlan(data) {
     var li = $("<li>").hide().animate({ pacity:1 }, function() {
       $(this).show("slide");
@@ -26,6 +27,7 @@ $(function() {
     li.append(addContent);
     $('#new-my-plan-cards').append(li);
     $('#create-message-card input[name=keyword]').val('');
+    return true;
   }
 
   // data = plans_controller's @json_data = services/api_service.rb's formated_data
@@ -220,12 +222,23 @@ $(function() {
 
   function bindZoomMap() {
     $('#map-search-result > .sortable-card >.hotel-card').bind('click', function() {
-      var latStr = $(this).children('.latitude').text();
-      var lngStr = $(this).children('.longitude').text();
-      zoomMap(Number(latStr), Number(lngStr));
+      var latlng = new google.maps.LatLng(
+                     Number($(this).children('.latitude').text()),
+                     Number($(this).children('.longitude').text())
+                   );
+      zoomMap("map", latlng);
     });
-  }
 
+  }
+  // duplicate code
+  $('#show-my-plan-cards > .sortable-card >.hotel-card').bind('click', function() {
+    var latlng = new google.maps.LatLng(
+                   Number($(this).children('.latitude').text()),
+                   Number($(this).children('.longitude').text())
+                 );
+    zoomMap("routeMap", latlng);
+  });
+  
   // route viewer
   $('#route-view-btn').bind('click', function() {
     getRoute(getAllCard(element));

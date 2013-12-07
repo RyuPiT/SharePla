@@ -74,10 +74,16 @@ function clearMarkers() {
   markerList = new google.maps.MVCArray();
 }
 
-function zoomMap(latitude, longitude) {
-  var latlng = new google.maps.LatLng(latitude, longitude);
-  map.setCenter(latlng);
-  map.setZoom(15);
+
+function zoomMap(mapName, latlng){
+  if (mapName == "routeMap"){
+    routeMap.setCenter(latlng);
+    routeMap.setZoom(15);
+  } else {
+    map.setCenter(latlng);
+    map.setZoom(15);
+  }
+  
 }
 
 function getRoute(cards){
