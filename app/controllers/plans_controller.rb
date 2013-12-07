@@ -8,6 +8,7 @@ class PlansController < ApplicationController
   end
 
   def start
+    redirect_to plans_path if session[:user_id]
   end
 
   def new

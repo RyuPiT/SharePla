@@ -1,9 +1,7 @@
 SharePla::Application.routes.draw do
-  root 'plans#index'
+  root 'plans#start'
 
-  get 'start', to: 'plans#start'
-
-  resources :plans, only: %i[create new show] do
+  resources :plans, only: %i[create new show index] do
     post 'clone',         on: :member
   end
 
