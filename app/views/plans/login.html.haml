@@ -1,0 +1,35 @@
+.container
+  #login-page-header.page-header
+    #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+      %ol.carousel-indicators
+        %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+        %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+        %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+      .carousel-inner
+        .item.active
+          = image_tag 'img-login01.png', id: 'login-img', class: 'img-thumbnail'
+          .carousel-caption
+        .item
+          = image_tag 'img-login02.png', id: 'login-img', class: 'img-thumbnail'
+          .carousel-caption
+        .item
+          = image_tag 'img-login03.png', id: 'login-img', class: 'img-thumbnail'
+          .carousel-caption
+      %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-example-generic"}
+        %span.glyphicon.glyphicon-chevron-left
+      %a.right.carousel-control{"data-slide" => "next", href: "#carousel-example-generic"}
+        %span.glyphicon.glyphicon-chevron-right
+    %h1
+      SharePla
+    %h4
+      あなたのプランをみんなのプランに
+    #new-plan-button
+      = link_to 'Twitterでログイン', root_path, class: 'btn btn-primary btn-lg'
+      = link_to 'お試し', root_path, class: 'btn btn-primary btn-lg'
+
+  = render 'sns_button'
+  - if flash[:notice]
+    .alert.alert-success.alert-dismissable
+      %button{ type: 'button', class: 'close', data: {dismiss: 'alert'}, aria: {hiddeen: 'true'} }
+        &times;
+      =h(flash[:notice])

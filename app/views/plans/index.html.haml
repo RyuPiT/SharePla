@@ -1,14 +1,11 @@
 #top-page-header.page-header
   .container
     %h1
-      オリジナル
-      %span.attention プラン
-      を作成し、みんなに
-      %span.attention 共有
-      しよう
-  #new-plan-button
-    = link_to 'New Plan!', new_plan_path, class: 'btn btn-primary btn-lg'
-    %p PC専用
+      %span.attention 作る・見る・行く
+
+    #new-plan-button
+      = link_to '新しいプランを作成する', new_plan_path, class: 'btn btn-primary btn-lg'
+      %p PC専用
 .container
   = render 'sns_button'
   - if flash[:notice]
@@ -17,13 +14,26 @@
         &times;
       =h(flash[:notice])
 
-  .plans-list
-    - if @plans
-      - @plans.reverse.each do |plan|
-        %li.top-list-title
-          %h4= plan[:title]
-          = link_to 'プランを見る', plan
-          %p= '作成日' + plan.created_at.strftime('%Y/%m/%d %H:%M')
-          .area-tags
-            - (plan[:area_tags] || []).each do |tag|
-              %span{ name: tag, class: 'label label-default' }= tag
+  %ul.nav.nav-tabs.top-tabs
+    %li.active
+      %a{'data-toggle' => 'tab', href: '#home'} 全体
+    %li
+      %a{'data-toggle' => 'tab', href: '#myplans'} 自作
+
+  .tab-content{style: 'margin-top:10px'}
+    #home.tab-pane.active
+      - if @plans
+        = render partial: 'plans_list', locals: {plans: @plans.reverse, users: @users}
+
+    #myplans.tab-pane
+      - if !current_user
+        %p{style: 'margin-top: 47px;'}
+          = link_to 'Sign in', 'auth/twitter'
+        %p= 'Sign inした状態でプランを作成すると、自作タブで自分で作成したプランの一覧を見ることができます'
+      - else
+        - if @my_plans.count == 0
+          %p{style: 'margin-top: 47px;'}
+            = link_to 'プランを作成', new_plan_path
+            してみましょう
+        - else
+          = render partial: 'plans_list', locals: {plans: @my_plans.reverse, users: @users}

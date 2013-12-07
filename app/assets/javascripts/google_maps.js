@@ -3,6 +3,9 @@ var routeMap; // マップ
 var infowindow; // マーカーの詳細表示
 var latlng;
 var markerList;
+// for route 
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
 
 var tokyoPosition = {
   latitude:  35.681382,
@@ -31,6 +34,7 @@ function mapInitialize(){
 }
 
 function routeInitialize(){
+  directionsDisplay = new google.maps.DirectionsRenderer();
   var myRouteLatLng   = new google.maps.LatLng(35.681382, 139.766084);
   var mapRouteOptions = {
     center:    myRouteLatLng,
@@ -39,6 +43,7 @@ function routeInitialize(){
   };
 
   routeMap = new google.maps.Map(document.getElementById("route-map"), mapRouteOptions);
+  directionsDisplay.setMap(routeMap);
   $("#route-tab a").attr('onclick', '');
 }
 
@@ -69,26 +74,32 @@ function clearMarkers() {
   markerList = new google.maps.MVCArray();
 }
 
-function zoomMap(latitude, longitude) {
-  var latlng = new google.maps.LatLng(latitude, longitude);
-  map.setCenter(latlng);
-  map.setZoom(15);
+
+function zoomMap(mapName, latlng){
+  if (mapName == "routeMap"){
+    routeMap.setCenter(latlng);
+    routeMap.setZoom(15);
+  } else {
+    map.setCenter(latlng);
+    map.setZoom(15);
+  }
+  
 }
 
 function getRoute(cards){
-  var directionsDisplay = new google.maps.DirectionsRenderer();
-  var directionsService = new google.maps.DirectionsService();
-  directionsDisplay.setMap(routeMap);
   var from;
   var to;
   var request;
+  var names = new Array();
+  var points = new Array();
 
-  var points = $.map(cards, function(data) {
+  $.map(cards, function(data) {
     if ((data['latitude'] != "") && (data['longitude'] != "")){
-      return {
+      names.push(data['title']);
+      points.push({
         location: new google.maps.LatLng(+data['latitude'], +data['longitude']),
         stopover: true
-      };
+      });
     }
   });
 
@@ -120,7 +131,19 @@ function getRoute(cards){
 
   directionsService.route(request, function(response, status){
     if(status == google.maps.DirectionsStatus.OK){
+      // set card title
+      var i = 0;
+      $.each(response.routes[0].legs, function(){
+        this.start_address = names[i];
+        this.end_address = names[i+1];
+        i++;
+      });
       directionsDisplay.setDirections(response);
     }
   });
+}
+
+function viewRoute(){
+  routeInitialize()
+  getRoute(getAllCard('#show-my-plan-cards > li > div'));
 }
