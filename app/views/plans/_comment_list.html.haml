@@ -1,5 +1,4 @@
 %form#set-comment{action: add_comment_plan_path, method: 'POST'}
-  %input{type: 'hidden', value: plan.id, name: 'id'}
   %textarea.form-control{type: 'input', name: 'comment', placeholder: 'レビュー', required: true}
   %button.btn.btn-default{type: 'submit'}
     レビューする
