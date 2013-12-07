@@ -208,7 +208,7 @@ $(function() {
   });
 
   function saveplanCallback(data) {
-    location.href = '/';
+    location.href = '/plans';
   }
 
   var failFunc = function() {
