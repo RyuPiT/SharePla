@@ -235,6 +235,19 @@ footer {
   z-index: 200;
   width: 334px;
   border-bottom: 0px;
+  margin-top: 1px;
+  li > a {
+    padding: 14px;
+  }
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  height: 39px;
+}
+
+.nav-tabs > li > a:hover {
+  height: 39px;
 }
 
 .hotel-card > button.close,
