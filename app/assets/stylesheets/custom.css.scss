@@ -233,7 +233,8 @@ footer {
 .nav-tabs {
   position: absolute;
   z-index: 200;
-  width: 100%;
+  width: 334px;
+  border-bottom: 0px;
 }
 
 .hotel-card > button.close,
