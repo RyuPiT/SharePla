@@ -7,7 +7,7 @@ class PlansController < ApplicationController
     @users    = users_info
   end
 
-  def login
+  def start
   end
 
   def new
