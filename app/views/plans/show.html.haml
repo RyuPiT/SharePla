@@ -36,3 +36,7 @@
       #route-map
       %script{language: 'JavaScript'}
         window.onload = viewRoute;
+
+  = form_for(@new_commnet) do |f|
+    = f.text_area  :comment, class: 'form-control', placeholder: '意見や要望', required: true
+    = f.submit     :comment, class: 'btn btn-primary'

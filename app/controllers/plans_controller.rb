@@ -49,6 +49,7 @@ class PlansController < ApplicationController
 
   def set_plan
     @plan = Plan.find(params[:id])
+    @new_commnet = Opinion.new
   end
 
   def users_info
