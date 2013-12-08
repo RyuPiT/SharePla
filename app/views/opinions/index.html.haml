@@ -1,22 +1,15 @@
--#<div class="opinion-page">
 .page-header
   .container#opinion-page
 
-    -# <% if flash[:notice] %>
     - if flash[:notice]
       .alert.alert-success.alert-dismissable
-        -# <button type="button", class="close", data-dismiss="alert", aria-hidden="true"> &times;
         %button{ type: 'button', class: 'close', data: {dismiss: 'alert'}, aria: {hidden: :true} } &times;
-        -# <%= h(flash[:notice]) %>
         = h(flash[:notice])
 
-    -# <h1> ご意見版 </h1>
-    -# <p> 実装~~~~ </p>
-    %h1 ご意見版
+    %h1 ご意見板
     %p 実装して欲しい機能やコメントなど、 |
     なんでもご投稿ください |
 
-    -# <%= form_for(@new_opinion) do |f| %>
     = form_for(@new_opinion) do |f|
       = f.text_field :title,   class: 'form-control', placeholder: 'タイトル',   required: true
       = f.text_area  :comment, class: 'form-control', placeholder: '意見や要望', required: true
