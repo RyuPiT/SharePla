@@ -2,7 +2,6 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
-  var element = '#new-my-plan-cards > li > div';
   // [add clicked] or [enter when focus text field of place to go] event
   $('#create-message-card').submit(function() {
     var postData = { name: $('#create-message-card input[name=keyword]').val() };
@@ -193,7 +192,7 @@ $(function() {
 
   // save clicked event
   $('#save-plan').submit(function() {
-    var allCard = getAllCard(element);
+    var allCard = getAllCard('#new-my-plan-cards > li > div');
     if(!allCard) {
       alert('カードを追加してください');
       return false;
@@ -247,7 +246,7 @@ $(function() {
 
   // route viewer
   $('#route-view-btn').bind('click', function() {
-    var allCard = getAllCard(element);
+    var allCard = getAllCard('#new-my-plan-cards > li > div');
     if(!allCard) {
       alert('カードを追加してください');
       return false;
