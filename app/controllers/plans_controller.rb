@@ -47,7 +47,7 @@ class PlansController < ApplicationController
     @new_comment = Comment.new()
     @new_comment.text = params[:comment]
     @plan.comments.push(@new_comment)
-    render action: 'show'
+    redirect_to action: 'show'
   end
 
   private
