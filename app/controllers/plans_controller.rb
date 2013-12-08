@@ -44,6 +44,10 @@ class PlansController < ApplicationController
 
   def add_comment
     # DBに保存の処理
+    @plan = Plan.find(params[:id])
+    @new_comment = Comment.new()
+    @new_comment.text = params[:comment]
+    #@plan.comments.push(@new_comment)
     redirect_to :action => 'show'
   end
 
