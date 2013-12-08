@@ -1,7 +1,7 @@
 SharePla::Application.routes.draw do
-  root 'plans#index'
+  root 'plans#start'
 
-  resources :plans, only: %i[create new show] do
+  resources :plans, only: %i[create new show index] do
     post 'clone',         on: :member
   end
 
@@ -17,6 +17,10 @@ SharePla::Application.routes.draw do
       post 'route'
     end
   end
+
+  get  '/auth/:provider/callback', to: 'sessions#callback'
+  post '/auth/:provider/callback', to: 'sessions#callback'
+  get  '/logout',                  to: 'sessions#destroy', as: :logout
 
   #get "hello/to/:name" => "hello#to"
   # The priority is based upon order of creation: first created -> highest priority.

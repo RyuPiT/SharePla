@@ -2,13 +2,15 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
+  var element = '#new-my-plan-cards > li > div';
   // [add clicked] or [enter when focus text field of place to go] event
   $('#create-message-card').submit(function() {
     var postData = { name: $('#create-message-card input[name=keyword]').val() };
     addCardToPlan(postData);
+    $('.plan-detail').scrollTop($('.plan-detail')[0].scrollHeight);
     return false;
   });
-
+  
   function addCardToPlan(data) {
     var li = $("<li>").hide().animate({ pacity:1 }, function() {
       $(this).show("slide");
@@ -25,6 +27,7 @@ $(function() {
     li.append(addContent);
     $('#new-my-plan-cards').append(li);
     $('#create-message-card input[name=keyword]').val('');
+    return true;
   }
 
   // data = plans_controller's @json_data = services/api_service.rb's formated_data
@@ -190,7 +193,13 @@ $(function() {
 
   // save clicked event
   $('#save-plan').submit(function() {
-    var postData   = { plan: { title: $('input[name=plan-title]').val(), description: $('textarea[name=plan-desc]').val(), cards: getAllCard(), area_tags: getAllAreaTags() } };
+    var allCard = getAllCard(element);
+    if(!allCard) {
+      alert('カードを追加してください');
+      return false;
+    }
+
+    var postData   = { plan: { title: $('input[name=plan-title]').val(), description: $('textarea[name=plan-desc]').val(), cards: allCard, area_tags: getAllAreaTags() } };
     var postUrl    = '/plans.json';
     var returnType = 'text';
 
@@ -205,27 +214,11 @@ $(function() {
   });
 
   function saveplanCallback(data) {
-    location.href = '/';
+    location.href = '/plans';
   }
 
   var failFunc = function() {
     alert('post failed');
-  }
-
-  // return card list from main card list
-  function getAllCard() {
-    var allCard = new Array();
-    var htmlTag = $('#new-my-plan-cards > li > div');
-    var size    = htmlTag.length;
-    var keys    = ['title','card_type','longitude','latitude'];
-    for(var i = 0; i < size; i++){
-      var oneCard = { };
-      $.each(keys, function() {
-        oneCard[this] = htmlTag.eq(i).children('.' + this).text();
-      });
-      allCard[i] = oneCard;
-    }
-    return allCard;
   }
 
   // return all prefecture array
@@ -235,15 +228,31 @@ $(function() {
 
   function bindZoomMap() {
     $('#map-search-result > .sortable-card >.hotel-card').bind('click', function() {
-      var latStr = $(this).children('.latitude').text();
-      var lngStr = $(this).children('.longitude').text();
-      zoomMap(Number(latStr), Number(lngStr));
+      var latlng = new google.maps.LatLng(
+                     Number($(this).children('.latitude').text()),
+                     Number($(this).children('.longitude').text())
+                   );
+      zoomMap("map", latlng);
     });
+
   }
+  // duplicate code
+  $('#show-my-plan-cards > .sortable-card >.hotel-card').bind('click', function() {
+    var latlng = new google.maps.LatLng(
+                   Number($(this).children('.latitude').text()),
+                   Number($(this).children('.longitude').text())
+                 );
+    zoomMap("routeMap", latlng);
+  });
 
   // route viewer
   $('#route-view-btn').bind('click', function() {
-    getRoute(getAllCard());
+    var allCard = getAllCard(element);
+    if(!allCard) {
+      alert('カードを追加してください');
+      return false;
+    }
+    getRoute(allCard);
   });
 
   $('#card-search a[data-toggle="tab"]').one('shown.bs.tab', function(data) {
@@ -301,3 +310,24 @@ $(function() {
 $(function() {
   $('.nav-tabs > li > a').tooltip();
 });
+
+// return card list from main card list
+function getAllCard(position_word) {
+  var allCard = new Array();
+  var htmlTag = $(position_word);
+  var size    = htmlTag.length;
+  var keys    = ['title','card_type','longitude','latitude'];
+
+  if(size == 0){
+    return false;
+  }
+
+  for(var i = 0; i < size; i++){
+    var oneCard = { };
+    $.each(keys, function() {
+      oneCard[this] = $.trim(htmlTag.eq(i).children('.' + this).text());
+    });
+    allCard[i] = oneCard;
+  }
+  return allCard;
+}
