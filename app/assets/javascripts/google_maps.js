@@ -30,6 +30,7 @@ function mapInitialize(){
   };
 
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  google.maps.event.addListener(map, 'dblclick', putOwnMarker);
   $("#travel-map-tab a").attr('onclick', '');
 }
 
@@ -45,6 +46,14 @@ function routeInitialize(){
   routeMap = new google.maps.Map(document.getElementById("route-map"), mapRouteOptions);
   directionsDisplay.setMap(routeMap);
   $("#route-tab a").attr('onclick', '');
+}
+
+function putOwnMarker(event) {
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
+    map:      map
+  });
+  markerList.push(marker);
 }
 
 function putMarker(data) {
