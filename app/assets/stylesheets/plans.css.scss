@@ -42,16 +42,16 @@ $bgc-white:           #fefefe;
   width: 940px;
 }
 .top-list-title {
-  background-color: $main-color;
-  padding: 10px 10px 30px 10px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  background-color: #fefefe;
+  padding: 10px 10px 0px 10px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3)inset;
+  border-radius: 0px 0px 5px 5px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  -webkit-border-radius: 0px 0px 5px 5px;
   list-style: none;
   float: left;
   width: 225px;
-  margin: 5px;
+  margin: 42px 5px 5px;
   cursor: pointer;
   h4 {
     overflow: hidden;
@@ -63,8 +63,36 @@ $bgc-white:           #fefefe;
     height: 100%;
     float: right;
   }
+  .twitter-info {
+    margin-top: -41px;
+    margin-left: -10px;
+    padding: 4px 7px 4px 7px;
+    width: 224px;
+    background-color: #d0e0f0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    img {
+      width: 25px;
+      height: 25px;
+      float: left;
+    }
+    .top-screen-name {
+      width: 183px;
+      overflow: scroll;
+      padding-left: 5px;
+      margin-top: 3px;
+    }
+  }
+  p {
+    float: right;
+  }
   &:hover {
-    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
+    background-color: #f0f0f0;
+    .twitter-info {
+      background-color: $attention-color;
+    }
   }
   &:active {
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3) inset;
