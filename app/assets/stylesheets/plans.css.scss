@@ -339,6 +339,14 @@ a[href^="#route"]:before {
   padding-right: 5px;
 }
 
+//review icon
+#review-h3:before {
+  font-family: 'Fontello';
+  content: "R";
+  padding: 0 7px 0;
+  font-size: 24px;
+}
+
 .nav-tabs .tooltip {
   width: 100px ;
 }
@@ -612,7 +620,7 @@ a[href^="#route"]:before {
 }
 #review-h3 {
   background-color: #d0e0f0;
-  width: 110px;
+  width: 150px;
   padding: 5px;
   margin-bottom: 0px;
   border-radius: 8px 8px 0px 0px;
