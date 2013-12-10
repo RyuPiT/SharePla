@@ -26,11 +26,12 @@ function mapInitialize(){
   var mapOptions = {
     center:    myLatLng,
     zoom:      5,
+    disableDoubleClickZoom: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-  google.maps.event.addListener(map, 'dblclick', putOwnMarker);
+  google.maps.event.addListener(map, 'rightclick', putOwnMarker);
   $("#travel-map-tab a").attr('onclick', '');
 }
 
