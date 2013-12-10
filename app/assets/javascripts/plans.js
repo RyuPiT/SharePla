@@ -2,7 +2,6 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
-  var element = '#new-my-plan-cards > li > div';
   // [add clicked] or [enter when focus text field of place to go] event
   $('#create-message-card').submit(function() {
     var postData = { name: $('#create-message-card input[name=keyword]').val() };
@@ -193,7 +192,13 @@ $(function() {
 
   // save clicked event
   $('#save-plan').submit(function() {
-    var postData   = { plan: { title: $('input[name=plan-title]').val(), description: $('textarea[name=plan-desc]').val(), cards: getAllCard(element), area_tags: getAllAreaTags() } };
+    var allCard = getAllCard('#new-my-plan-cards > li > div');
+    if(!allCard) {
+      alert('カードを追加してください');
+      return false;
+    }
+
+    var postData   = { plan: { title: $('input[name=plan-title]').val(), description: $('textarea[name=plan-desc]').val(), cards: allCard, area_tags: getAllAreaTags() } };
     var postUrl    = '/plans.json';
     var returnType = 'text';
 
@@ -238,10 +243,15 @@ $(function() {
                  );
     zoomMap("routeMap", latlng);
   });
-  
+
   // route viewer
   $('#route-view-btn').bind('click', function() {
-    getRoute(getAllCard(element));
+    var allCard = getAllCard('#new-my-plan-cards > li > div');
+    if(!allCard) {
+      alert('カードを追加してください');
+      return false;
+    }
+    getRoute(allCard);
   });
 
   $('#card-search a[data-toggle="tab"]').one('shown.bs.tab', function(data) {
@@ -257,7 +267,7 @@ $(function() {
       return;
     }
   });
-  
+
 });
 
 //new-plan-page sort
@@ -306,10 +316,15 @@ function getAllCard(position_word) {
   var htmlTag = $(position_word);
   var size    = htmlTag.length;
   var keys    = ['title','card_type','longitude','latitude'];
+
+  if(size == 0){
+    return false;
+  }
+
   for(var i = 0; i < size; i++){
     var oneCard = { };
     $.each(keys, function() {
-      oneCard[this] = htmlTag.eq(i).children('.' + this).text();
+      oneCard[this] = $.trim(htmlTag.eq(i).children('.' + this).text());
     });
     allCard[i] = oneCard;
   }

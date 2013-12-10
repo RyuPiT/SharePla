@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_action :set_plan, only: :show
+  before_action :set_plan, only: %i[show add_comment]
 
   def index
     @plans    = Plan.all
@@ -40,6 +40,14 @@ class PlansController < ApplicationController
         format.json { render nothing: true }
       end
     end
+  end
+
+  def add_comment
+    # DBに保存の処理
+    @new_comment = Comment.new()
+    @new_comment.text = params[:comment]
+    @plan.comments.push(@new_comment)
+    redirect_to action: 'show'
   end
 
   private
