@@ -58,6 +58,10 @@ $bgc-white:           #fefefe;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .comment-cont {
+    font-size: 16px;
+    width: 40px;
+  }
   a {
     width: 100%;
     height: 100%;
@@ -380,6 +384,13 @@ a[href^="#route"]:before {
   font-size: 24px;
 }
 
+.comment-cont:before {
+  font-family: 'Fontello';
+  content: "R";
+  padding: 0 7px 0;
+  font-size: 16px;
+
+}
 .nav-tabs .tooltip {
   width: 100px ;
 }
