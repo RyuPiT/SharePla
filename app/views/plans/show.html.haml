@@ -19,7 +19,7 @@
         - @plan.cards.each do |card|
           - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
             %li.sortable-card
-              .hotel-card 
+              .hotel-card
                 .longitude= card.longitude
                 .latitude= card.latitude
                 .title
@@ -38,4 +38,4 @@
       %script{language: 'JavaScript'}
         window.onload = viewRoute;
 
-  = render partial: 'comment_list', locals: {plan: @plan}
+= render partial: 'comment_list', locals: {plan: @plan}

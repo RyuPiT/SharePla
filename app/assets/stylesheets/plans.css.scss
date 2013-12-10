@@ -184,6 +184,11 @@ textarea {
   resize:none;
 }
 
+#map-block {
+  height: 154px;
+}
+
+#map-block > h4,
 #create-card-block > h4 {
   background-color: $bgc-white;
   padding: 8px 0 8px 13px;
@@ -339,6 +344,14 @@ a[href^="#route"]:before {
   padding-right: 5px;
 }
 
+//review icon
+#review-h3:before {
+  font-family: 'Fontello';
+  content: "R";
+  padding: 0 7px 0;
+  font-size: 24px;
+}
+
 .nav-tabs .tooltip {
   width: 100px ;
 }
@@ -383,13 +396,13 @@ a[href^="#route"]:before {
 
 .nav-tab-area {
   width: 91%;
-  margin: auto auto;
-  position: absolute;
   height: 57px;
-  background-color: $bgc-white;
+  background-color: transparent;
   z-index: 200;
-  padding-top: 12px;
+  padding-top: 0px;
   top: 30px;
+  margin-top: -60px;
+  margin-left: 126px;
 }
 
 #time {
@@ -600,4 +613,43 @@ a[href^="#route"]:before {
       cursor: default;
     }
   }
+}
+
+#review-post-area {
+  background-color: #d0e0f0;
+  padding: 16px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 0px 4px 0px 0px;
+  -moz-border-radius: 0px 4px 0px 0px;
+  -webkit-border-radius: 0px 4px 0px 0px;
+}
+#review-h3 {
+  background-color: #d0e0f0;
+  width: 150px;
+  padding: 5px;
+  margin-bottom: 0px;
+  border-radius: 8px 8px 0px 0px;
+  -moz-border-radius: 8px 8px 0 0;
+  -webkit-border-radius: 4px 4px 0px 0px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#review-list {
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5)inset;
+  background-color: #fefefe;
+  padding: 30px;
+}
+
+#review-list .opinion-comment {
+  padding: 2px 7px 0px 13px;
+  margin-bottom: 3px;
+}
+
+#review-list #opinion-list {
+  border-top: 0;
+  border-left: 4px solid $attention-color;
+  border-bottom: 1px solid #aaa;
+  border-right: 0;
+  background: transparent;
+  margin: 0 0 40px;
 }
