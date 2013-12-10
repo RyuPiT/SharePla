@@ -308,6 +308,7 @@ $(function() {
 
 $(function() {
   $('.nav-tabs > li > a').tooltip();
+  $('.comment-cont').tooltip();
 });
 
 // return card list from main card list

@@ -9,7 +9,7 @@
           %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
           .top-screen-name 未登録ユーザ
       %h4= plan[:title]
-      .coment-cont= plan.comments.count
+      .comment-cont{title: 'レビュー数'}= plan.comments.count
       .area-tags
         - (plan[:area_tags] || []).each do |tag|
           %span{ name: tag, class: 'label label-default' }= tag
