@@ -581,14 +581,16 @@ a[href^="#route"]:before {
   float: left;
   width: 100%;
   position: relative;
-  top: -20px;
   .label {
-    float: left;
+    float: right;
   }
 }
-#show-page-header h1 {
-  margin: 0 auto;
-  text-align: center;
+#show-page-header{
+  margin-bottom: 40px;
+  h1 {
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
 #show-my-plan-cards .title {
@@ -600,14 +602,18 @@ a[href^="#route"]:before {
 #btn-clone {
   float: right;
   padding: 2px 5px;
-  margin: 0 2px 0;
-  background-color: $attention-color;
-  border: 1px solid #888;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  margin-left: 4px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  position: relative;
+  top: 9px;
+  border-radius: 8px 8px 0 0;
+  font-size: 16px;
   &:hover {
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    background-color: $attention-color;
   }
   &:active {
+    background-color: #f0f0f0;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4)inset;
   }
 }
@@ -615,7 +621,7 @@ a[href^="#route"]:before {
 #btn-pdf:before {
   font-family: 'Glyphicons Halflings';
   content: "\e022";
-  font-size: 11px;
+  font-size: 13px;
   padding-right: 2px;
 }
 
@@ -676,7 +682,7 @@ a[href^="#route"]:before {
 #review-list {
   box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5)inset;
   background-color: #fefefe;
-  padding: 30px;
+  padding: 30px 30px 10px 30px;
 }
 
 #review-list .opinion-comment {
@@ -691,4 +697,39 @@ a[href^="#route"]:before {
   border-right: 0;
   background: transparent;
   margin: 0 0 40px;
+}
+
+#show-plan-area {
+  background-color: #fefefe;
+  border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4) inset;
+  padding: 20px;
+  h4 {
+    position: relative;
+    margin-top: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  .twitter-info {
+    margin-top: -64px;
+    margin-left: -20px;
+    padding: 4px 7px 4px 7px;
+    width: 940px;
+    background-color: #d0e0f0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    img {
+      width: 34px;
+      height: 34px;
+      float: left;
+    }
+    .top-screen-name {
+      margin-left: 40px;
+      margin-top: 3px;
+      font-size: 23px;
+    }
+  }
 }
