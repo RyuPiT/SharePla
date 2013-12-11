@@ -16,6 +16,7 @@ class PlansController < ApplicationController
   end
 
   def show
+    @users    = users_info
     respond_to do |format|
       format.pdf do
         send_data render_to_pdf, filename: "#{@plan.id}.pdf", disposition: 'inline'
