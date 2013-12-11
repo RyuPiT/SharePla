@@ -581,14 +581,17 @@ a[href^="#route"]:before {
   float: left;
   width: 100%;
   position: relative;
-  top: -20px;
+  margin-top: 15px;
   .label {
     float: left;
   }
 }
-#show-page-header h1 {
-  margin: 0 auto;
-  text-align: center;
+#show-page-header{
+  margin-bottom: 40px;
+  h1 {
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
 #show-my-plan-cards .title {
@@ -691,4 +694,38 @@ a[href^="#route"]:before {
   border-right: 0;
   background: transparent;
   margin: 0 0 40px;
+}
+
+#show-plan-area {
+  background-color: #fefefe;
+  border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4) inset;
+  padding: 20px;
+  h4 {
+    position: relative;
+    top: 10px;
+  }
+  .twitter-info {
+    margin-top: -64px;
+    margin-left: -20px;
+    padding: 4px 7px 4px 7px;
+    width: 940px;
+    background-color: #d0e0f0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    img {
+      width: 34px;
+      height: 34px;
+      float: left;
+    }
+    .top-screen-name {
+      margin-left: 40px;
+      margin-top: 3px;
+      font-size: 23px;
+    }
+  }
 }
