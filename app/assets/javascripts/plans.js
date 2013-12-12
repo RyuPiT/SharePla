@@ -207,7 +207,7 @@ $(function() {
   });
 
   // box link
-  $('.plans-list > li').bind('click', function() {
+  $('.plans-list > li > .plan-info').bind('click', function() {
     window.location=$(this).find("a").attr("href");
     return false;
   });
@@ -215,7 +215,6 @@ $(function() {
   function saveplanCallback(data) {
     location.href = '/plans';
   }
-
   var failFunc = function() {
     alert('post failed');
   }

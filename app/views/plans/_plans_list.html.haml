@@ -1,17 +1,30 @@
 .plans-list
   - plans.each do |plan|
     %li.top-list-title
-      %h4= plan[:title]
-      .area-tags
-        - (plan[:area_tags] || []).each do |tag|
-          %span{ name: tag, class: 'label label-default' }= tag
-      .comment-cont{title: 'レビュー数'}= plan.comments.count
-      .twitter-info
-        - if users[plan.provider][plan.uid][:screen_name].present?
-          %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
-          .top-screen-name= users[plan.provider][plan.uid][:screen_name]
-        - else
-          %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
-          .top-screen-name 未登録ユーザ
-      = link_to '', plan
-      %p= plan.created_at.strftime('%Y/%m/%d %H:%M')
+      .plan-info
+        %h4= plan[:title]
+        .area-tags
+          - (plan[:area_tags] || []).each do |tag|
+            %span{ name: tag, class: 'label label-default' }= tag
+        .comment-cont{title: 'レビュー数'}= plan.comments.count
+        .twitter-info
+          - if users[plan.provider][plan.uid][:screen_name].present?
+            %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
+            .top-screen-name= users[plan.provider][plan.uid][:screen_name]
+          - else
+            %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
+            .top-screen-name 未登録ユーザ
+        %p= plan.created_at.strftime('%Y/%m/%d %H:%M')
+        = link_to '', plan
+      %a.show-modal{'data-toggle' => 'modal', href: '#myModal'} チラ見する
+      #myModal.modal.fade{'aria-hidden' => 'true', 'aria-labelledby' => 'myModalLabel', role: 'dialog', tabindex: '-1'}
+        .modal-dialog
+          .modal-content
+            .modal-header
+              %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'modal', type: 'button'} &times;
+              %h4.modal-title モーダルのタイトル
+            .modal-body
+              %p モーダルのコンテンツ
+            .modal-footer
+              %button.btn.btn-default{'data-dismiss' => 'modal', type: 'button'} 閉じる
+              %button.btn.btn-primary{type: 'button'} 変更を保存
