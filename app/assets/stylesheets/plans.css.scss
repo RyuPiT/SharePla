@@ -121,6 +121,21 @@ $bgc-white:           #fefefe;
   }
 }
 
+#top-plan-detail {
+  p {
+    float: none;
+  }
+  a {
+    float: none;
+  }
+  #top-plan-block {
+    clear: right;
+  }
+  sortable-card > .title {
+    font-size: 14px;
+  }
+}
+
 .plans-list {
   margin-top: 30px;
 }
@@ -247,6 +262,7 @@ textarea {
   vertical-align: top;
 }
 
+#top-my-plan-cards,
 #new-my-plan-cards,
 #show-my-plan-cards,
 #example-message-card,
@@ -261,6 +277,7 @@ textarea {
   padding-top: 20px;
 }
 
+#top-my-plan-cards > .sortable-card,
 #show-my-plan-cards > .sortable-card,
 #new-my-plan-cards > .default-card {
   margin-left: 70px;
@@ -514,6 +531,7 @@ a[href^="#route"]:before {
   }
 }
 
+#top-my-plan-cards,
 #show-my-plan-cards {
   padding-left: 0px;
   padding-top: 15px;
@@ -606,7 +624,7 @@ a[href^="#route"]:before {
     text-align: center;
   }
 }
-
+#top-my-plan-cards .title,
 #show-my-plan-cards .title {
   text-overflow: clip;
   white-space: normal;
@@ -646,6 +664,7 @@ a[href^="#route"]:before {
   padding-right: 2px;
 }
 
+#top-my-plan-cards,
 #show-my-plan-cards {
   .default-card {
     &:hover {

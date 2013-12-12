@@ -16,8 +16,8 @@
             .top-screen-name 未登録ユーザ
         %p= plan.created_at.strftime('%Y/%m/%d %H:%M')
         = link_to '', plan
-      %a.show-modal{'data-toggle' => 'modal', href: '#myModal'} チラ見する
-      #myModal.modal.fade{'aria-hidden' => 'true', 'aria-labelledby' => 'myModalLabel', role: 'dialog', tabindex: '-1'}
+      %a.show-modal{'data-toggle' => 'modal', href: '#top-plan-detail'} チラ見する
+      #top-plan-detail.modal.fade{'aria-hidden' => 'true', 'aria-labelledby' => 'myModalLabel', role: 'dialog', tabindex: '-1'}
         .modal-dialog
           .modal-content
             .modal-header
@@ -31,29 +31,29 @@
                 - else
                   %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
                   .top-screen-name 未登録ユーザ
-              %h4= simple_format(plan.description)
               #area-tags
                 - if plan
                   - (plan[:area_tags] || []).each do |tag|
                     %span{ name: tag, class: 'label label-default'}= tag
-                #plan-block
-                  %ol#show-my-plan-cards
-                    - plan.cards.each do |card|
-                      - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
-                        %li.sortable-card
-                          .hotel-card
-                            .longitude= card.longitude
-                            .latitude= card.latitude
-                            .title
-                              %a #{card.title}
-                      - elsif card.card_type == 'Time'
-                        %li.time-card
-                          %hr.time-border
-                          .hour
-                            .title= card.title
-                      - else
-                        %li.sortable-card
-                          .default-card
-                            .title= card.title
+              %h5= simple_format(plan.description)
+              #top-plan-block
+                %ol#top-my-plan-cards
+                  - plan.cards.each do |card|
+                    - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
+                      %li.sortable-card
+                        .hotel-card
+                          .longitude= card.longitude
+                          .latitude= card.latitude
+                          .title
+                            %a #{card.title}
+                    - elsif card.card_type == 'Time'
+                      %li.time-card
+                        %hr.time-border
+                        .hour
+                          .title= card.title
+                    - else
+                      %li.sortable-card
+                        .default-card
+                          .title= card.title
             .modal-footer
               %button.btn.btn-default{'data-dismiss' => 'modal', type: 'button'} 閉じる
