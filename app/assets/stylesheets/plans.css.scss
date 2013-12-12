@@ -185,7 +185,14 @@ textarea {
 }
 
 #map-block {
-  height: 154px;
+  height: 210px;
+  margin-top: -11px;
+  background-color: #fefefe;
+  margin-bottom: 20px;
+  border-radius: 0 5px 5px 5px;
+  -moz-border-radius: 0 5px 5px 5px;
+  -webkit-border-radius: 0 5px 5px 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 #map-block > h4,
@@ -516,6 +523,7 @@ a[href^="#route"]:before {
   transition: all 0.2s ease-in-out;
   margin: 0 auto;
   margin-top: 11px;
+  top: 5px
 }
 
 #route-map {
