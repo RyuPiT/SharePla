@@ -300,6 +300,16 @@ $(function() {
   $('.nav-tabs > li > a').tooltip();
 });
 
+$(function() {
+  $('#map-block').resizable({
+    handles: 'se',
+    maxHeight: 470,
+    maxWidth: 455,
+    minHeight: 100,
+    minWidth: 455
+  });
+});
+
 // return card list from main card list
 function getAllCard(position_word) {
   var allCard = new Array();

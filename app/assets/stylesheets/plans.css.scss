@@ -185,7 +185,7 @@ textarea {
 }
 
 #map-block {
-  height: 210px;
+  height: 30%;
   margin-top: -11px;
   background-color: #fefefe;
   margin-bottom: 20px;
@@ -239,7 +239,7 @@ textarea {
 
 #card-search {
   padding: 20px 0 0 10px;
-  height: 98%;
+  height: 60%;
   overflow: scroll;
   width: 100%;
   background-color: $bgc-white;
@@ -394,7 +394,7 @@ a[href^="#route"]:before {
 }
 
 .nav-tab-area {
-  width: 91%;
+  width: 310px;
   height: 57px;
   background-color: transparent;
   z-index: 200;
@@ -515,8 +515,8 @@ a[href^="#route"]:before {
 }
 
 #map-canvas {
-  width: 88%;
-  height: 200px;
+  width: 95%;
+  height: 95%;
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
