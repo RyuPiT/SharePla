@@ -44,7 +44,7 @@ $bgc-white:           #fefefe;
 .top-list-title {
   background-color: #fefefe;
   padding: 10px 10px 0px 10px;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3)inset;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   border-radius: 0px 0px 5px 5px;
   -moz-border-radius: 0px 0px 5px 5px;
   -webkit-border-radius: 0px 0px 5px 5px;
@@ -57,10 +57,21 @@ $bgc-white:           #fefefe;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    background-color: #d0e0f0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    a-webkit-border-radius: 5px 5px 0px 0px;
+    margin-top: -41px;
+    padding: 7px 7px 4px 8px;
+    width: 225px;
+    margin-left: -10px;
   }
   .comment-cont {
     font-size: 16px;
     width: 40px;
+    float: right;
+    margin-top: 5px;
   }
   a {
     width: 100%;
@@ -68,22 +79,15 @@ $bgc-white:           #fefefe;
     float: right;
   }
   .twitter-info {
-    margin-top: -41px;
-    margin-left: -10px;
     padding: 4px 7px 4px 7px;
     width: 224px;
-    background-color: #d0e0f0;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-    border-radius: 5px 5px 0px 0px;
-    -moz-border-radius: 5px 5px 0px 0px;
-    -webkit-border-radius: 5px 5px 0px 0px;
     img {
       width: 25px;
       height: 25px;
       float: left;
     }
     .top-screen-name {
-      width: 183px;
+      width: 133px;
       overflow: scroll;
       padding-left: 5px;
       margin-top: 3px;
@@ -93,8 +97,8 @@ $bgc-white:           #fefefe;
     float: right;
   }
   &:hover {
-    background-color: #f0f0f0;
-    .twitter-info {
+    background-color: #ddd;
+    h4 {
       background-color: $attention-color;
     }
   }

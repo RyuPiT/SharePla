@@ -1,6 +1,11 @@
 .plans-list
   - plans.each do |plan|
     %li.top-list-title
+      %h4= plan[:title]
+      .area-tags
+        - (plan[:area_tags] || []).each do |tag|
+          %span{ name: tag, class: 'label label-default' }= tag
+      .comment-cont{title: 'レビュー数'}= plan.comments.count
       .twitter-info
         - if users[plan.provider][plan.uid][:screen_name].present?
           %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
@@ -8,10 +13,5 @@
         - else
           %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
           .top-screen-name 未登録ユーザ
-      %h4= plan[:title]
-      .comment-cont{title: 'レビュー数'}= plan.comments.count
-      .area-tags
-        - (plan[:area_tags] || []).each do |tag|
-          %span{ name: tag, class: 'label label-default' }= tag
       = link_to '', plan
       %p= plan.created_at.strftime('%Y/%m/%d %H:%M')
