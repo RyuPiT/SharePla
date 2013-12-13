@@ -28,8 +28,9 @@
               = yield :plan_tab_contents
 
         #my-plan-block.col-sm-6
-          %h4 
-            %input#route-view-btn.btn.btn-default{type: 'button', value: 'あなたのプラン'}
+          %input#route-view-btn.btn.btn-default{type: 'button', value: 'ルートの表示(10個まで)'}
+          %h4
+            あなたのプラン
           .plan-detail
             %ol#new-my-plan-cards.droptrue
               - if @plan

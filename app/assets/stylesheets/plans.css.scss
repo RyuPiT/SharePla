@@ -562,6 +562,12 @@ a[href^="#route"]:before {
     padding-right: 16px;
   }
 }
+#route-view-btn {
+  float: right;
+  position: absolute;
+  top: -22px;
+  left: 180px;
+}
 
 #top-my-plan-cards,
 #show-my-plan-cards {
