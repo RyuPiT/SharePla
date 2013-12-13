@@ -3,6 +3,7 @@ var routeMap; // マップ
 var infowindow; // マーカーの詳細表示
 var latlng;
 var markerList;
+var ownMarker;
 // for route 
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
@@ -50,7 +51,7 @@ function routeInitialize(){
 }
 
 function putOwnMarker(event) {
-  var marker = new google.maps.Marker({
+  ownMarker = new google.maps.Marker({
     position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
     map:      map
   });
