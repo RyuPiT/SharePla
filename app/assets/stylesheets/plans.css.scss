@@ -578,7 +578,7 @@ a[href^="#route"]:before {
   float: right;
   margin-top: -24px;
   z-index: 0;
-  background-color: $bgc-white;
+  background-color: $dark-color;
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
   &:hover {
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
