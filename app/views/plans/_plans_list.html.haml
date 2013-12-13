@@ -1,17 +1,69 @@
 .plans-list
+  - modal_count = 0
   - plans.each do |plan|
     %li.top-list-title
-      .twitter-info
-        - if users[plan.provider][plan.uid][:screen_name].present?
-          %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
-          .top-screen-name= users[plan.provider][plan.uid][:screen_name]
-        - else
-          %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
-          .top-screen-name 未登録ユーザ
-      %h4= plan[:title]
-      .comment-cont{title: 'レビュー数'}= plan.comments.count
-      .area-tags
-        - (plan[:area_tags] || []).each do |tag|
-          %span{ name: tag, class: 'label label-default' }= tag
-      = link_to '', plan
-      %p= plan.created_at.strftime('%Y/%m/%d %H:%M')
+      .plan-info
+        %h4= plan[:title]
+        .area-tags
+          - (plan[:area_tags] || []).each do |tag|
+            %span{ name: tag, class: 'label label-default' }= tag
+        .comment-cont{title: 'レビュー数'}= plan.comments.count
+        .twitter-info
+          - if users[plan.provider][plan.uid][:screen_name].present?
+            %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
+            .top-screen-name= users[plan.provider][plan.uid][:screen_name]
+          - else
+            %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
+            .top-screen-name 未登録ユーザ
+        %p= plan.created_at.strftime('%Y/%m/%d %H:%M')
+        = link_to '', plan
+      %a.show-modal{'data-toggle' => 'modal', href: "#top-plan-detail#{modal_count}"} チラ見する
+      %div(id="top-plan-detail#{modal_count}" aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" role="dialog" tabindex="-1")
+        .modal-dialog
+          #top-modal-content.modal-content
+            .modal-header
+              %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'modal', type: 'button'} &times;
+              %h3.modal-title= plan[:title]
+            .modal-body
+              - if modal_count != 0
+                %a.show-modal{class: 'left carousel-control', 'data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count-1}"}
+                  %span.glyphicon.glyphicon-chevron-left
+              - if modal_count != plans.count-1
+                %a.show-modal{class: 'right carousel-control','data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count+1}"}
+                  %span.glyphicon.glyphicon-chevron-right
+              .comment-cont{title: 'レビュー数'}= plan.comments.count
+              .twitter-info
+                - if users[plan.provider][plan.uid][:screen_name].present?
+                  %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
+                  .top-screen-name= users[plan.provider][plan.uid][:screen_name]
+                - else
+                  %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
+                  .top-screen-name 未登録ユーザ
+              #area-tags
+                - if plan
+                  - (plan[:area_tags] || []).each do |tag|
+                    %span{ name: tag, class: 'label label-default'}= tag
+              %h5= plan.description
+              #top-plan-block
+                %ol#top-my-plan-cards
+                  - plan.cards.each do |card|
+                    - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
+                      %li.sortable-card
+                        .hotel-card
+                          .longitude= card.longitude
+                          .latitude= card.latitude
+                          .title
+                            %a #{card.title}
+                    - elsif card.card_type == 'Time'
+                      %li.time-card
+                        %hr.time-border
+                        .hour
+                          .title= card.title
+                    - else
+                      %li.sortable-card
+                        .default-card
+                          .title= card.title
+            .modal-footer
+              = link_to 'もっと見る', plan, class: 'btn btn-primary'
+              %button.btn.btn-default{'data-dismiss' => 'modal', type: 'button'} 閉じる
+      - modal_count= modal_count + 1
