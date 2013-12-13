@@ -1,6 +1,6 @@
 - content_for :plan_tab_navs do
   %li#route-tab
-    %a{data:{toggle: 'tab'}, href: '#route', onclick: 'routeInitialize()',  title: 'ルート表示'}
+    %a{data:{toggle: 'tab'}, href: '#route',  title: 'ルート表示'}
 
 - content_for :plan_tab_contents do
   #route.tab-pane
@@ -8,6 +8,4 @@
     .row
       .col-sm-2
         %input#route-view-btn.btn.btn-default{type: 'submit', value: '表示'}
-
-    #route-map
 

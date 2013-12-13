@@ -274,8 +274,11 @@ $(function() {
     zoomMap("routeMap", latlng);
   });
 
-  // route viewer
+  // route viewer 
   $('#route-view-btn').bind('click', function() {
+    mapInitialize();
+    clearMarkers();
+    clearOwnMarker();
     var allCard = getAllCard('#new-my-plan-cards > li > div');
     if(!allCard) {
       alert('カードを追加してください');
