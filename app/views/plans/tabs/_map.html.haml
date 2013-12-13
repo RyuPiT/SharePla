@@ -1,8 +1,6 @@
 - content_for :plan_tab_navs do
   %li#travel-map-tab
     %a{href: '#map', 'data-toggle' => 'tab', title: '地図検索'}
-    %script{language: 'JavaScript'}
-      window.onload = mapInitialize;
 
 - content_for :plan_tab_contents do
   #map.tab-pane
@@ -12,5 +10,4 @@
           %input.form-control{name: 'keyword', placeholder: '地域・お店・建物etc', required: '', type: 'input'}
         .col-sm-2
           %input.btn.btn-default{type: 'submit', value: '検索'}
-    #map-canvas
     %ol#map-search-result.droptrue

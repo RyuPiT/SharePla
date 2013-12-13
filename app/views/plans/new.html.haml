@@ -11,6 +11,8 @@
           %h4 マップ
           #map-block
             #map-canvas
+          %script{language: 'JavaScript'}
+            window.onload = mapInitialize;
           %h4 カード作成
           #card-search
             .nav-tab-area
@@ -21,13 +23,13 @@
               - render 'plans/tabs/map_pin'
               - render 'plans/tabs/time'
               - render 'plans/tabs/hotel'
-              - render 'plans/tabs/route_viewer'
               %ul.nav.nav-tabs= yield :plan_tab_navs
             .tab-content
               = yield :plan_tab_contents
 
         #my-plan-block.col-sm-6
-          %h4 あなたのプラン
+          %h4 
+            %input#route-view-btn.btn.btn-default{type: 'button', value: 'あなたのプラン'}
           .plan-detail
             %ol#new-my-plan-cards.droptrue
               - if @plan
