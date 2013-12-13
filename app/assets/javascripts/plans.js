@@ -71,7 +71,7 @@ $(function() {
     Hotel:   hotelLoopEnd,
     Touring: touringLoopEnd,
     Map:     mapLoopEnd,
-    mark:    mapLoopEnd
+    mark:    markEnd
   };
 
   //hidden-buton
@@ -138,7 +138,7 @@ $(function() {
 
   // create own card                                                                                                                                
   $('#create-mark').bind('click', function() {
-    $('#map-search-result li').remove();
+    $('#map-pin-result li').remove();
     if (ownMarker == undefined){
       alert('地図にマークがありません');
       return;
@@ -152,7 +152,6 @@ $(function() {
       latitude: ownMarker.position.nb,
       longitude : ownMarker.position.ob
     };
-    document.mark.keyword.value = '';
     var card = {main: main};
     var cards = new Array();
     cards.push(card);
@@ -168,11 +167,16 @@ $(function() {
   }
 
   function markCardFunc(li, metaData, data) {
-    $('#map-search-result').append(li);
+    $('#map-pin-result').append(li);
   }
 
   function mapLoopEnd() {
     $('#map-search input[name=keyword]').val('');
+    bindZoomMap();
+  }
+
+  function markEnd() {
+    document.mark.keyword.value = '';
     bindZoomMap();
   }
 
@@ -273,8 +277,11 @@ $(function() {
     zoomMap("routeMap", latlng);
   });
 
-  // route viewer
+  // route viewer 
   $('#route-view-btn').bind('click', function() {
+    mapInitialize();
+    clearMarkers();
+    clearOwnMarker();
     var allCard = getAllCard('#new-my-plan-cards > li > div');
     if(!allCard) {
       alert('カードを追加してください');
@@ -348,6 +355,17 @@ $(function() {
     minHeight: 100,
     minWidth: 455
   });
+
+  $('.nav-tabs > li ').hover( function(){
+    if($(this).hasClass('hoverblock'))
+      return;
+    else
+      $(this).find('a').tab('show');
+  });
+   $('.nav-tabs > li').find('a').click( function(){
+     $(this).parent()
+        .siblings().addClass('hoverblock');
+   });
 });
 
 // return card list from main card list

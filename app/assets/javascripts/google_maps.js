@@ -27,12 +27,18 @@ function mapInitialize(){
   var mapOptions = {
     center:    myLatLng,
     zoom:      5,
-    disableDoubleClickZoom: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+  // for marker
   google.maps.event.addListener(map, 'rightclick', putOwnMarker);
+
+  // for route
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsDisplay.setMap(map)
+
   $("#travel-map-tab a").attr('onclick', '');
 }
 
@@ -47,10 +53,11 @@ function routeInitialize(){
 
   routeMap = new google.maps.Map(document.getElementById("route-map"), mapRouteOptions);
   directionsDisplay.setMap(routeMap);
-  $("#route-tab a").attr('onclick', '');
+
 }
 
 function putOwnMarker(event) {
+  mapInitialize();
   clearMarkers();
   clearOwnMarker();
   ownMarker = new google.maps.Marker({

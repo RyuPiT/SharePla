@@ -1,0 +1,14 @@
+- content_for :plan_tab_navs do
+  %li#travel-map-pin-tab
+    %a{href: '#pin-map', 'data-toggle' => 'tab', title: 'マップのピンを置いた場を追加'}
+
+- content_for :plan_tab_contents do
+  #pin-map.tab-pane
+    %p マップを右クリックし、ピンを置いてから入力して下さい。
+    %form#own-card{action: '', name: 'mark'}
+      .row
+        .col-sm-10
+          %input.form-control{name: 'keyword', placeholder: 'カードのタイトルを入力してください', required: '', type: 'input'}
+        .col-sm-2
+          %input.btn.btn-default#create-mark{type: 'button', value: '作成'}
+    %ol#map-pin-result.droptrue

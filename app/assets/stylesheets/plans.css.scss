@@ -286,6 +286,7 @@ textarea {
   vertical-align: top;
 }
 
+map-pin-result,
 #top-my-plan-cards,
 #new-my-plan-cards,
 #show-my-plan-cards,
@@ -388,6 +389,10 @@ a[href^="#time"]:before {
 }
 
 //map icon
+a[href^="#pin-map"]:before {
+  font-family: 'Fontello';
+  content: "P";
+}
 a[href^="#map"]:before {
   font-family: 'Fontello';
   content: "m";
@@ -455,7 +460,6 @@ a[href^="#route"]:before {
 }
 
 .tab-content {
-  margin-top: 40px;
   z-index: 100;
   > .active {
     overflow-x: hidden;
@@ -558,6 +562,12 @@ a[href^="#route"]:before {
     padding-right: 16px;
   }
 }
+#route-view-btn {
+  float: right;
+  position: absolute;
+  top: -22px;
+  left: 180px;
+}
 
 #top-my-plan-cards,
 #show-my-plan-cards {
@@ -608,6 +618,7 @@ a[href^="#route"]:before {
   margin-right: 0px;
 }
 
+#own-card,
 #create-message-card,
 #map-search,
 #hotel-serch {
