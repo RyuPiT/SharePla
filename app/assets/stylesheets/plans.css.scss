@@ -137,12 +137,15 @@ $bgc-white:           #fefefe;
   .carousel-control.right,
   .carousel-control.left {
     height: 65px;
-    width: 100px;
+    width: 140px;
   }
   .glyphicon-chevron-right,
   .glyphicon-chevron-left {
     top: 35%;
     left: 35%;
+  }
+  .label {
+    margin-top: 15px;
   }
 }
 

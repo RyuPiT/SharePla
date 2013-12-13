@@ -30,6 +30,7 @@
               - if modal_count != plans.count-1
                 %a.show-modal{class: 'right carousel-control','data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count+1}"}
                   %span.glyphicon.glyphicon-chevron-right
+              .comment-cont{title: 'レビュー数'}= plan.comments.count
               .twitter-info
                 - if users[plan.provider][plan.uid][:screen_name].present?
                   %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
@@ -41,7 +42,7 @@
                 - if plan
                   - (plan[:area_tags] || []).each do |tag|
                     %span{ name: tag, class: 'label label-default'}= tag
-              %h5= simple_format(plan.description)
+              %h5= plan.description
               #top-plan-block
                 %ol#top-my-plan-cards
                   - plan.cards.each do |card|
