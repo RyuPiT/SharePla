@@ -192,9 +192,8 @@ $(function() {
     var imageUrl = data[sub]['image_url'];
     var infoUrl  = data[sub]['info_url'];
 
-    var aSelector = $('li > .title > a');
-    aSelector.attr('href','#Modal' + hotelNo);
-    aSelector.attr('data-toggle','modal');
+    li.attr('href','#Modal' + hotelNo);
+    li.attr('data-toggle','modal');
     //modal window
     var dialog = '';
     dialog += '<div class="modal fade" id="Modal' + hotelNo + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
