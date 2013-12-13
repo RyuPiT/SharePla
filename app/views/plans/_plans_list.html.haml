@@ -25,6 +25,12 @@
               %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'modal', type: 'button'} &times;
               %h3.modal-title= plan[:title]
             .modal-body
+              - if modal_count != 0
+                %a.show-modal{class: 'left carousel-control', 'data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count-1}"}
+                  %span.glyphicon.glyphicon-chevron-left
+              - if modal_count != plans.count-1
+                %a.show-modal{class: 'right carousel-control','data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count+1}"}
+                  %span.glyphicon.glyphicon-chevron-right
               .twitter-info
                 - if users[plan.provider][plan.uid][:screen_name].present?
                   %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
@@ -57,9 +63,5 @@
                         .default-card
                           .title= card.title
             .modal-footer
-              - if modal_count != 0
-                %a.show-modal{'data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count-1}"} 次
-              - if modal_count != plans.count-1
-                %a.show-modal{'data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count+1}"} 前
               %button.btn.btn-default{'data-dismiss' => 'modal', type: 'button'} 閉じる
       - modal_count= modal_count + 1
