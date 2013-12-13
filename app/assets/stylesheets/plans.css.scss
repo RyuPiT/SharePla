@@ -39,39 +39,113 @@ $bgc-white:           #fefefe;
 }
 
 .top-tabs {
-  width: 92%;
+  width: 940px;
 }
+
 .top-list-title {
-  background-color: $main-color;
-  padding: 10px 10px 30px 10px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  background-color: #fefefe;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 0px 0px 5px 5px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  -webkit-border-radius: 0px 0px 5px 5px;
   list-style: none;
   float: left;
   width: 225px;
-  margin: 5px;
+  margin: 42px 5px 5px;
+  .plan-info{
   cursor: pointer;
+  padding: 10px 10px 0px 10px;
+  height: 91px;
+    &:hover {
+      background-color: #ddd;
+      h4 {
+        background-color: $attention-color;
+      }
+    }
+  }
+  .show-modal {
+    background-color: #eaeaea;
+    width: 225px;
+    text-align: center;
+    border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    boder-top: 1px solid #eee;
+    &:hover {
+      background-color: $attention-color;
+    }
+  }
   h4 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    background-color: #d0e0f0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    a-webkit-border-radius: 5px 5px 0px 0px;
+    margin-top: -41px;
+    padding: 7px 7px 4px 8px;
+    width: 225px;
+    margin-left: -10px;
+  }
+  .comment-cont {
+    font-size: 16px;
+    width: 40px;
+    float: right;
+    margin-top: 5px;
   }
   a {
-    width: 100%;
-    height: 100%;
     float: right;
   }
-  &:hover {
-    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
+  .twitter-info {
+    padding: 4px 7px 4px 7px;
+    width: 224px;
+    img {
+      width: 25px;
+      height: 25px;
+      float: left;
+    }
+    .top-screen-name {
+      width: 133px;
+      overflow: scroll;
+      padding-left: 5px;
+      margin-top: 3px;
+    }
   }
-  &:active {
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3) inset;
-    background-color: #cfdfef;
+  p {
+    float: right;
   }
   span {
     margin-right: 3px;
+  }
+}
+
+#top-modal-content {
+  p {
+    float: none;
+  }
+  a {
+    float: none;
+  }
+  #top-plan-block {
+    clear: right;
+  }
+  .sortable-card .title {
+    font-size: 14px;
+  }
+  .carousel-control.right,
+  .carousel-control.left {
+    height: 65px;
+    width: 140px;
+  }
+  .glyphicon-chevron-right,
+  .glyphicon-chevron-left {
+    top: 35%;
+    left: 35%;
+  }
+  .label {
+    margin-top: 15px;
   }
 }
 
@@ -184,6 +258,22 @@ textarea {
   resize:none;
 }
 
+#map-block {
+  height: 30%;
+  margin-top: -11px;
+  background-color: #fefefe;
+  margin-bottom: 20px;
+  border-radius: 0 5px 5px 5px;
+  -moz-border-radius: 0 5px 5px 5px;
+  -webkit-border-radius: 0 5px 5px 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+#show-map-block {
+  height: 386px;
+}
+
+#map-block > h4,
 #create-card-block > h4 {
   background-color: $bgc-white;
   padding: 8px 0 8px 13px;
@@ -196,6 +286,8 @@ textarea {
   vertical-align: top;
 }
 
+map-pin-result,
+#top-my-plan-cards,
 #new-my-plan-cards,
 #show-my-plan-cards,
 #example-message-card,
@@ -208,6 +300,11 @@ textarea {
 
 #new-my-plan-cards {
   padding-top: 20px;
+}
+
+#top-my-plan-cards > .sortable-card{
+  margin-left: 79px;
+  width: 86%;
 }
 
 #show-my-plan-cards > .sortable-card,
@@ -227,7 +324,7 @@ textarea {
 
 #card-search {
   padding: 20px 0 0 10px;
-  height: 98%;
+  height: 60%;
   overflow: scroll;
   width: 100%;
   background-color: $bgc-white;
@@ -292,6 +389,10 @@ a[href^="#time"]:before {
 }
 
 //map icon
+a[href^="#pin-map"]:before {
+  font-family: 'Fontello';
+  content: "P";
+}
 a[href^="#map"]:before {
   font-family: 'Fontello';
   content: "m";
@@ -339,12 +440,26 @@ a[href^="#route"]:before {
   padding-right: 5px;
 }
 
+//review icon
+#review-h3:before {
+  font-family: 'Fontello';
+  content: "R";
+  padding: 0 7px 0;
+  font-size: 24px;
+}
+
+.comment-cont:before {
+  font-family: 'Fontello';
+  content: "R";
+  padding: 0 7px 0;
+  font-size: 16px;
+
+}
 .nav-tabs .tooltip {
   width: 100px ;
 }
 
 .tab-content {
-  margin-top: 40px;
   z-index: 100;
   > .active {
     overflow-x: hidden;
@@ -382,14 +497,14 @@ a[href^="#route"]:before {
 }
 
 .nav-tab-area {
-  width: 91%;
-  margin: auto auto;
-  position: absolute;
+  width: 310px;
   height: 57px;
-  background-color: $bgc-white;
+  background-color: transparent;
   z-index: 200;
-  padding-top: 12px;
+  padding-top: 0px;
   top: 30px;
+  margin-top: -60px;
+  margin-left: 126px;
 }
 
 #time {
@@ -447,7 +562,14 @@ a[href^="#route"]:before {
     padding-right: 16px;
   }
 }
+#route-view-btn {
+  float: right;
+  position: absolute;
+  top: -22px;
+  left: 180px;
+}
 
+#top-my-plan-cards,
 #show-my-plan-cards {
   padding-left: 0px;
   padding-top: 15px;
@@ -477,7 +599,7 @@ a[href^="#route"]:before {
   float: right;
   margin-top: -24px;
   z-index: 0;
-  background-color: $bgc-white;
+  background-color: $dark-color;
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
   &:hover {
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
@@ -496,6 +618,7 @@ a[href^="#route"]:before {
   margin-right: 0px;
 }
 
+#own-card,
 #create-message-card,
 #map-search,
 #hotel-serch {
@@ -503,14 +626,15 @@ a[href^="#route"]:before {
 }
 
 #map-canvas {
-  width: 88%;
-  height: 200px;
+  width: 95%;
+  height: 95%;
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   margin: 0 auto;
   margin-top: 11px;
+  top: 5px
 }
 
 #route-map {
@@ -529,16 +653,18 @@ a[href^="#route"]:before {
   float: left;
   width: 100%;
   position: relative;
-  top: -20px;
   .label {
-    float: left;
+    float: right;
   }
 }
-#show-page-header h1 {
-  margin: 0 auto;
-  text-align: center;
+#show-page-header{
+  margin-bottom: 40px;
+  h1 {
+    margin: 0 auto;
+    text-align: center;
+  }
 }
-
+#top-my-plan-cards .title,
 #show-my-plan-cards .title {
   text-overflow: clip;
   white-space: normal;
@@ -548,14 +674,18 @@ a[href^="#route"]:before {
 #btn-clone {
   float: right;
   padding: 2px 5px;
-  margin: 0 2px 0;
-  background-color: $attention-color;
-  border: 1px solid #888;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  margin-left: 4px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  position: relative;
+  top: 9px;
+  border-radius: 8px 8px 0 0;
+  font-size: 16px;
   &:hover {
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    background-color: $attention-color;
   }
   &:active {
+    background-color: #f0f0f0;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4)inset;
   }
 }
@@ -563,7 +693,7 @@ a[href^="#route"]:before {
 #btn-pdf:before {
   font-family: 'Glyphicons Halflings';
   content: "\e022";
-  font-size: 11px;
+  font-size: 13px;
   padding-right: 2px;
 }
 
@@ -574,6 +704,7 @@ a[href^="#route"]:before {
   padding-right: 2px;
 }
 
+#top-my-plan-cards,
 #show-my-plan-cards {
   .default-card {
     &:hover {
@@ -598,6 +729,81 @@ a[href^="#route"]:before {
     }
     .time-border:hover {
       cursor: default;
+    }
+  }
+}
+
+#review-post-area {
+  background-color: #d0e0f0;
+  padding: 16px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 0px 4px 0px 0px;
+  -moz-border-radius: 0px 4px 0px 0px;
+  -webkit-border-radius: 0px 4px 0px 0px;
+}
+#review-h3 {
+  background-color: #d0e0f0;
+  width: 150px;
+  padding: 5px;
+  margin-bottom: 0px;
+  border-radius: 8px 8px 0px 0px;
+  -moz-border-radius: 8px 8px 0 0;
+  -webkit-border-radius: 4px 4px 0px 0px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#review-list {
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5)inset;
+  background-color: #fefefe;
+  padding: 30px 30px 10px 30px;
+}
+
+#review-list .opinion-comment {
+  padding: 2px 7px 0px 13px;
+  margin-bottom: 3px;
+}
+
+#review-list #opinion-list {
+  border-top: 0;
+  border-left: 4px solid $attention-color;
+  border-bottom: 1px solid #aaa;
+  border-right: 0;
+  background: transparent;
+  margin: 0 0 40px;
+}
+
+#show-plan-area {
+  background-color: #fefefe;
+  border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4) inset;
+  padding: 20px;
+  min-height: 460px;
+  h4 {
+    position: relative;
+    margin-top: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  .twitter-info {
+    margin-top: -64px;
+    margin-left: -20px;
+    padding: 4px 7px 4px 7px;
+    width: 940px;
+    background-color: #d0e0f0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    img {
+      width: 34px;
+      height: 34px;
+      float: left;
+    }
+    .top-screen-name {
+      margin-left: 40px;
+      margin-top: 3px;
+      font-size: 23px;
     }
   }
 }

@@ -33,7 +33,9 @@ html,body{
 //navigation bar backgound-color
 .navbar {
   background-image: -webkit-gradient(linear,left 0,left 100%,from($dark-color-gradient),to($dark-color));
-  background-image: linear-gradient(to bottom,#7191a1 0,$dark-color 100%);
+  background-image: linear-gradient(to bottom,$dark-color-gradient 0,$dark-color 100%);
+  background-image: -webkit-linear-gradient(top,$dark-color-gradient,0%,$dark-color,100%);
+  background-image: -moz-linear-gradient(top,$dark-color-gradient 0,$dark-color 100%);
   z-index: 200;
 }
 
@@ -233,7 +235,21 @@ footer {
 .nav-tabs {
   position: absolute;
   z-index: 200;
-  width: 100%;
+  width: 334px;
+  border-bottom: 0px;
+  margin-top: 1px;
+  li > a {
+    padding: 14px;
+  }
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  height: 39px;
+}
+
+.nav-tabs > li > a:hover {
+  height: 39px;
 }
 
 .hotel-card > button.close,

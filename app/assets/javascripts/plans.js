@@ -63,13 +63,15 @@ $(function() {
   var tabCallbacks = {
     Hotel:   hotelCardFunc,
     Touring: touringCardFunc,
-    Map:     mapCardFunc
+    Map:     mapCardFunc,
+    mark:    markCardFunc
   };
 
   var loopEndCallbacks = {
     Hotel:   hotelLoopEnd,
     Touring: touringLoopEnd,
-    Map:     mapLoopEnd
+    Map:     mapLoopEnd,
+    mark:    markEnd
   };
 
   //hidden-buton
@@ -129,8 +131,32 @@ $(function() {
     var postUrl  = '/searches/map.json';
     $('#map-search-result li').remove();
     clearMarkers();
+    clearOwnMarker();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
+  });
+
+  // create own card                                                                                                                                
+  $('#create-mark').bind('click', function() {
+    $('#map-pin-result li').remove();
+    if (ownMarker == undefined){
+      alert('地図にマークがありません');
+      return;
+    }
+    var meta = {
+      name : document.mark.keyword.value,
+      type : 'mark'
+    };
+    var main = {
+      name : document.mark.keyword.value,
+      latitude: ownMarker.position.nb,
+      longitude : ownMarker.position.ob
+    };
+    var card = {main: main};
+    var cards = new Array();
+    cards.push(card);
+　　var data = {meta : meta, cards: cards};
+    apiCallback(data);
   });
 
   // Map
@@ -140,8 +166,17 @@ $(function() {
     putMarker(data);
   }
 
+  function markCardFunc(li, metaData, data) {
+    $('#map-pin-result').append(li);
+  }
+
   function mapLoopEnd() {
     $('#map-search input[name=keyword]').val('');
+    bindZoomMap();
+  }
+
+  function markEnd() {
+    document.mark.keyword.value = '';
     bindZoomMap();
   }
 
@@ -161,9 +196,8 @@ $(function() {
     var imageUrl = data[sub]['image_url'];
     var infoUrl  = data[sub]['info_url'];
 
-    var aSelector = $('li > .title > a');
-    aSelector.attr('href','#Modal' + hotelNo);
-    aSelector.attr('data-toggle','modal');
+    li.attr('href','#Modal' + hotelNo);
+    li.attr('data-toggle','modal');
     //modal window
     var dialog = '';
     dialog += '<div class="modal fade" id="Modal' + hotelNo + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
@@ -207,7 +241,7 @@ $(function() {
   });
 
   // box link
-  $('.plans-list > li').bind('click', function() {
+  $('.plans-list > li > .plan-info').bind('click', function() {
     window.location=$(this).find("a").attr("href");
     return false;
   });
@@ -215,7 +249,6 @@ $(function() {
   function saveplanCallback(data) {
     location.href = '/plans';
   }
-
   var failFunc = function() {
     alert('post failed');
   }
@@ -244,8 +277,11 @@ $(function() {
     zoomMap("routeMap", latlng);
   });
 
-  // route viewer
+  // route viewer 
   $('#route-view-btn').bind('click', function() {
+    mapInitialize();
+    clearMarkers();
+    clearOwnMarker();
     var allCard = getAllCard('#new-my-plan-cards > li > div');
     if(!allCard) {
       alert('カードを追加してください');
@@ -308,6 +344,28 @@ $(function() {
 
 $(function() {
   $('.nav-tabs > li > a').tooltip();
+  $('.comment-cont').tooltip();
+});
+
+$(function() {
+  $('#map-block').resizable({
+    handles: 'se',
+    maxHeight: 470,
+    maxWidth: 455,
+    minHeight: 100,
+    minWidth: 455
+  });
+
+  $('.nav-tabs > li ').hover( function(){
+    if($(this).hasClass('hoverblock'))
+      return;
+    else
+      $(this).find('a').tab('show');
+  });
+   $('.nav-tabs > li').find('a').click( function(){
+     $(this).parent()
+        .siblings().addClass('hoverblock');
+   });
 });
 
 // return card list from main card list
