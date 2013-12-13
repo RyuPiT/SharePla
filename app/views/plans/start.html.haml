@@ -28,11 +28,10 @@
       = link_to 'お試し', plans_path, class: 'btn btn-primary btn-lg'
 
     #sharepla-img= image_tag 'big-sharepla-img.png'
+    #review-img= image_tag 'review.png'
+    #clone-img= image_tag 'clone.png'
+    #pdf-img= image_tag 'pdf.png'
+    #route-img= image_tag 'route.png'
+    #search= image_tag 'search.png'
 
   = render 'sns_button'
-  - if flash[:notice]
-    .alert.alert-success.alert-dismissable
-      %button{ type: 'button', class: 'close', data: {dismiss: 'alert'}, aria: {hiddeen: 'true'} }
-        &times;
-      =h(flash[:notice])
-
