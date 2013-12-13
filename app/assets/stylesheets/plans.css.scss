@@ -41,9 +41,9 @@ $bgc-white:           #fefefe;
 .top-tabs {
   width: 940px;
 }
+
 .top-list-title {
   background-color: #fefefe;
-  padding: 10px 10px 0px 10px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   border-radius: 0px 0px 5px 5px;
   -moz-border-radius: 0px 0px 5px 5px;
@@ -52,7 +52,29 @@ $bgc-white:           #fefefe;
   float: left;
   width: 225px;
   margin: 42px 5px 5px;
+  .plan-info{
   cursor: pointer;
+  padding: 10px 10px 0px 10px;
+  height: 91px;
+    &:hover {
+      background-color: #ddd;
+      h4 {
+        background-color: $attention-color;
+      }
+    }
+  }
+  .show-modal {
+    background-color: #eaeaea;
+    width: 225px;
+    text-align: center;
+    border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    boder-top: 1px solid #eee;
+    &:hover {
+      background-color: $attention-color;
+    }
+  }
   h4 {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -74,8 +96,6 @@ $bgc-white:           #fefefe;
     margin-top: 5px;
   }
   a {
-    width: 100%;
-    height: 100%;
     float: right;
   }
   .twitter-info {
@@ -96,18 +116,36 @@ $bgc-white:           #fefefe;
   p {
     float: right;
   }
-  &:hover {
-    background-color: #ddd;
-    h4 {
-      background-color: $attention-color;
-    }
-  }
-  &:active {
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3) inset;
-    background-color: #cfdfef;
-  }
   span {
     margin-right: 3px;
+  }
+}
+
+#top-modal-content {
+  p {
+    float: none;
+  }
+  a {
+    float: none;
+  }
+  #top-plan-block {
+    clear: right;
+  }
+  .sortable-card .title {
+    font-size: 14px;
+  }
+  .carousel-control.right,
+  .carousel-control.left {
+    height: 65px;
+    width: 140px;
+  }
+  .glyphicon-chevron-right,
+  .glyphicon-chevron-left {
+    top: 35%;
+    left: 35%;
+  }
+  .label {
+    margin-top: 15px;
   }
 }
 
@@ -221,7 +259,7 @@ textarea {
 }
 
 #map-block {
-  height: 154px;
+  height: 386px;
 }
 
 #map-block > h4,
@@ -237,6 +275,7 @@ textarea {
   vertical-align: top;
 }
 
+#top-my-plan-cards,
 #new-my-plan-cards,
 #show-my-plan-cards,
 #example-message-card,
@@ -249,6 +288,11 @@ textarea {
 
 #new-my-plan-cards {
   padding-top: 20px;
+}
+
+#top-my-plan-cards > .sortable-card{
+  margin-left: 79px;
+  width: 86%;
 }
 
 #show-my-plan-cards > .sortable-card,
@@ -504,6 +548,7 @@ a[href^="#route"]:before {
   }
 }
 
+#top-my-plan-cards,
 #show-my-plan-cards {
   padding-left: 0px;
   padding-top: 15px;
@@ -533,7 +578,7 @@ a[href^="#route"]:before {
   float: right;
   margin-top: -24px;
   z-index: 0;
-  background-color: $bgc-white;
+  background-color: $dark-color;
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
   &:hover {
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
@@ -596,7 +641,7 @@ a[href^="#route"]:before {
     text-align: center;
   }
 }
-
+#top-my-plan-cards .title,
 #show-my-plan-cards .title {
   text-overflow: clip;
   white-space: normal;
@@ -636,6 +681,7 @@ a[href^="#route"]:before {
   padding-right: 2px;
 }
 
+#top-my-plan-cards,
 #show-my-plan-cards {
   .default-card {
     &:hover {
