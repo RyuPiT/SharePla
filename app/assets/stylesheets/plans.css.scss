@@ -259,7 +259,7 @@ textarea {
 }
 
 #map-block {
-  height: 154px;
+  height: 386px;
 }
 
 #map-block > h4,
@@ -290,7 +290,11 @@ textarea {
   padding-top: 20px;
 }
 
-#top-my-plan-cards > .sortable-card,
+#top-my-plan-cards > .sortable-card{
+  margin-left: 79px;
+  width: 86%;
+}
+
 #show-my-plan-cards > .sortable-card,
 #new-my-plan-cards > .default-card {
   margin-left: 70px;
