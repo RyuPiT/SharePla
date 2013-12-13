@@ -55,7 +55,6 @@ function putOwnMarker(event) {
     position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
     map:      map
   });
-  markerList.push(marker);
 }
 
 function putMarker(data) {

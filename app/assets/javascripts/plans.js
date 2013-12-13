@@ -134,6 +134,26 @@ $(function() {
     return false;
   });
 
+  // create own card                                                                                                                                
+  $('#create-mark').bind('click', function() {
+    var meta = {
+      name : document.mark.keyword.value,
+      type : 'Map'
+    };
+    var main = {
+      name : document.mark.keyword.value,
+      latitude: ownMarker.position.nb,
+      longitude : ownMarker.position.ob
+    };
+
+    var card = {main: main};
+    var cards = new Array();
+    cards.push(card);
+    document.mark.keyword.value = '';
+　　var data = {meta : meta, cards: cards};
+    apiCallback(data);
+  });
+
   // Map
   function mapCardFunc(li, metaData, data) {
     $('#map-search-result').append(li);
