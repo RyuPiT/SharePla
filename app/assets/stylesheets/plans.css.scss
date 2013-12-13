@@ -388,6 +388,10 @@ a[href^="#time"]:before {
 }
 
 //map icon
+a[href^="#pin-map"]:before {
+  font-family: 'Fontello';
+  content: "P";
+}
 a[href^="#map"]:before {
   font-family: 'Fontello';
   content: "m";

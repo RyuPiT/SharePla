@@ -1,11 +1,11 @@
 - content_for :plan_tab_navs do
   %li#travel-map-pin-tab
-    %a{href: '#map-pin', 'data-toggle' => 'tab', title: 'マップのピン'}
+    %a{href: '#pin-map', 'data-toggle' => 'tab', title: '地図のピンから作る'}
     %script{language: 'JavaScript'}
       window.onload = mapInitialize;
 
 - content_for :plan_tab_contents do
-  #map-pin.tab-pane
+  #pin-map.tab-pane
     %form#own-card{action: '', name: 'mark'}
       .row
         .col-sm-10
