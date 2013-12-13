@@ -6,12 +6,6 @@
 
 - content_for :plan_tab_contents do
   #map.tab-pane
-    %form#own-card{action: '', name: 'mark'}
-      .row
-        .col-sm-10
-          %input.form-control{name: 'keyword', placeholder: 'カードのタイトルを入力してください', required: '', type: 'input'}
-        .col-sm-2
-          %input.btn.btn-default#create-mark{type: 'button', value: '作成'}
     %form#map-search{action: map_search_path, method: 'POST'}
       .row
         .col-sm-10
