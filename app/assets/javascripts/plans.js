@@ -64,13 +64,15 @@ $(function() {
   var tabCallbacks = {
     Hotel:   hotelCardFunc,
     Touring: touringCardFunc,
-    Map:     mapCardFunc
+    Map:     mapCardFunc,
+    mark:    markCardFunc
   };
 
   var loopEndCallbacks = {
     Hotel:   hotelLoopEnd,
     Touring: touringLoopEnd,
-    Map:     mapLoopEnd
+    Map:     mapLoopEnd,
+    mark:    mapLoopEnd
   };
 
   //hidden-buton
@@ -130,19 +132,21 @@ $(function() {
     var postUrl  = '/searches/map.json';
     $('#map-search-result li').remove();
     clearMarkers();
+    clearOwnMarker();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
   });
 
   // create own card                                                                                                                                
   $('#create-mark').bind('click', function() {
+    $('#map-search-result li').remove();
     if (ownMarker == undefined){
       alert('地図にマークがありません');
       return;
     }
     var meta = {
       name : document.mark.keyword.value,
-      type : 'Map'
+      type : 'mark'
     };
     var main = {
       name : document.mark.keyword.value,
@@ -162,6 +166,10 @@ $(function() {
     $('#map-search-result').append(li);
     // put marker
     putMarker(data);
+  }
+
+  function markCardFunc(li, metaData, data) {
+    $('#map-search-result').append(li);
   }
 
   function mapLoopEnd() {

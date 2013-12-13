@@ -52,9 +52,7 @@ function routeInitialize(){
 
 function putOwnMarker(event) {
   clearMarkers();
-  if (ownMarker !=undefined){
-    ownMarker.setMap(null);
-  }
+  clearOwnMarker();
   ownMarker = new google.maps.Marker({
     position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
   });
@@ -79,6 +77,12 @@ function putMarker(data) {
     infoWindow.setContent(name);
     infoWindow.open(map, this);
   });
+}
+
+function clearOwnMarker(){
+  if (ownMarker !=undefined){
+    ownMarker.setMap(null);
+  }
 }
 
 function clearMarkers() {
