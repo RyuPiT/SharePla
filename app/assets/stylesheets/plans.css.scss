@@ -72,7 +72,7 @@ $bgc-white:           #fefefe;
     -webkit-border-radius: 0px 0px 5px 5px;
     boder-top: 1px solid #eee;
     &:hover {
-      background-color: #ddd;
+      background-color: $attention-color;
     }
   }
   h4 {
@@ -133,6 +133,16 @@ $bgc-white:           #fefefe;
   }
   .sortable-card .title {
     font-size: 14px;
+  }
+  .carousel-control.right,
+  .carousel-control.left {
+    height: 65px;
+    width: 100px;
+  }
+  .glyphicon-chevron-right,
+  .glyphicon-chevron-left {
+    top: 35%;
+    left: 35%;
   }
 }
 
