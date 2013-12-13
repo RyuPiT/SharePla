@@ -27,7 +27,6 @@ function mapInitialize(){
   var mapOptions = {
     center:    myLatLng,
     zoom:      5,
-    disableDoubleClickZoom: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
