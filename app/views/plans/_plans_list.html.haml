@@ -1,4 +1,5 @@
 .plans-list
+  - modal_count = 0
   - plans.each do |plan|
     %li.top-list-title
       .plan-info
@@ -16,10 +17,10 @@
             .top-screen-name 未登録ユーザ
         %p= plan.created_at.strftime('%Y/%m/%d %H:%M')
         = link_to '', plan
-      %a.show-modal{'data-toggle' => 'modal', href: '#top-plan-detail'} チラ見する
-      #top-plan-detail.modal.fade{'aria-hidden' => 'true', 'aria-labelledby' => 'myModalLabel', role: 'dialog', tabindex: '-1'}
+      %a.show-modal{'data-toggle' => 'modal', href: "#top-plan-detail#{modal_count}"} チラ見する
+      %div(id="top-plan-detail#{modal_count}" aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" role="dialog" tabindex="-1")
         .modal-dialog
-          .modal-content
+          #top-modal-content.modal-content
             .modal-header
               %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'modal', type: 'button'} &times;
               %h3.modal-title= plan[:title]
@@ -56,4 +57,9 @@
                         .default-card
                           .title= card.title
             .modal-footer
+              - if modal_count != 0
+                %a.show-modal{'data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count-1}"} 次
+              - if modal_count != plans.count-1
+                %a.show-modal{'data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count+1}"} 前
               %button.btn.btn-default{'data-dismiss' => 'modal', type: 'button'} 閉じる
+      - modal_count= modal_count + 1
