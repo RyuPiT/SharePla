@@ -239,6 +239,13 @@ $bgc-white:           #fefefe;
   }
 }
 
+#sharepla-img > img{
+  width: 300px;
+  height: 85px;
+  margin-left: 30px;
+  margin-top: 24px;
+}
+
 // plan/new.html.haml
 #new-plan-page > .navbar-fixed-top {
   top: 50px;
