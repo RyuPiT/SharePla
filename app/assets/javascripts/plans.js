@@ -356,6 +356,17 @@ $(function() {
     minHeight: 100,
     minWidth: 455
   });
+
+  $('.nav-tabs > li ').hover( function(){
+    if($(this).hasClass('hoverblock'))
+      return;
+    else
+      $(this).find('a').tab('show');
+  });
+   $('.nav-tabs > li').find('a').click( function(){
+     $(this).parent()
+        .siblings().addClass('hoverblock');
+   });
 });
 
 // return card list from main card list
