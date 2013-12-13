@@ -136,6 +136,10 @@ $(function() {
 
   // create own card                                                                                                                                
   $('#create-mark').bind('click', function() {
+    if (ownMarker == undefined){
+      alert('地図にマークがありません');
+      return;
+    }
     var meta = {
       name : document.mark.keyword.value,
       type : 'Map'
@@ -145,11 +149,10 @@ $(function() {
       latitude: ownMarker.position.nb,
       longitude : ownMarker.position.ob
     };
-
+    document.mark.keyword.value = '';
     var card = {main: main};
     var cards = new Array();
     cards.push(card);
-    document.mark.keyword.value = '';
 　　var data = {meta : meta, cards: cards};
     apiCallback(data);
   });

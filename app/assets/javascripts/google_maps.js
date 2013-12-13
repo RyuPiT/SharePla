@@ -51,10 +51,14 @@ function routeInitialize(){
 }
 
 function putOwnMarker(event) {
+  clearMarkers();
+  if (ownMarker !=undefined){
+    ownMarker.setMap(null);
+  }
   ownMarker = new google.maps.Marker({
     position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
-    map:      map
   });
+  ownMarker.setMap(map);
 }
 
 function putMarker(data) {
