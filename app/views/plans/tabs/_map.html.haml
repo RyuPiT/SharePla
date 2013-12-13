@@ -1,9 +1,10 @@
 - content_for :plan_tab_navs do
   %li#travel-map-tab
-    %a{href: '#map', 'data-toggle' => 'tab', title: '地図検索'}
+    %a{href: '#map', 'data-toggle' => 'tab', title: 'マップから検索をする'}
 
 - content_for :plan_tab_contents do
   #map.tab-pane
+    %p 検索結果のカードをクリックすると地図に場所が表示されます。
     %form#map-search{action: map_search_path, method: 'POST'}
       .row
         .col-sm-10
