@@ -12,14 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.core.js
-//= require jquery.ui.widget.js
-//= require jquery.ui.mouse.js
-//= require jquery.ui.sortable.js
-//= require jquery.ui.draggable.js
-//= require jquery.ui.droppable.js
-//= require jquery.ui.effect.all
-//= require jquery.ui.tooltip.js
+//= require jquery.ui.all
 //= require_tree .
 //= require twitter/bootstrap
 

@@ -3,6 +3,7 @@ var routeMap; // マップ
 var infowindow; // マーカーの詳細表示
 var latlng;
 var markerList;
+var ownMarker;
 // for route 
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
@@ -26,11 +27,12 @@ function mapInitialize(){
   var mapOptions = {
     center:    myLatLng,
     zoom:      5,
+    disableDoubleClickZoom: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-  google.maps.event.addListener(map, 'dblclick', putOwnMarker);
+  google.maps.event.addListener(map, 'rightclick', putOwnMarker);
   $("#travel-map-tab a").attr('onclick', '');
 }
 
@@ -49,11 +51,12 @@ function routeInitialize(){
 }
 
 function putOwnMarker(event) {
-  var marker = new google.maps.Marker({
+  clearMarkers();
+  clearOwnMarker();
+  ownMarker = new google.maps.Marker({
     position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()),
-    map:      map
   });
-  markerList.push(marker);
+  ownMarker.setMap(map);
 }
 
 function putMarker(data) {
@@ -74,6 +77,12 @@ function putMarker(data) {
     infoWindow.setContent(name);
     infoWindow.open(map, this);
   });
+}
+
+function clearOwnMarker(){
+  if (ownMarker !=undefined){
+    ownMarker.setMap(null);
+  }
 }
 
 function clearMarkers() {

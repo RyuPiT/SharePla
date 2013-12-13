@@ -63,13 +63,15 @@ $(function() {
   var tabCallbacks = {
     Hotel:   hotelCardFunc,
     Touring: touringCardFunc,
-    Map:     mapCardFunc
+    Map:     mapCardFunc,
+    mark:    markCardFunc
   };
 
   var loopEndCallbacks = {
     Hotel:   hotelLoopEnd,
     Touring: touringLoopEnd,
-    Map:     mapLoopEnd
+    Map:     mapLoopEnd,
+    mark:    mapLoopEnd
   };
 
   //hidden-buton
@@ -129,8 +131,33 @@ $(function() {
     var postUrl  = '/searches/map.json';
     $('#map-search-result li').remove();
     clearMarkers();
+    clearOwnMarker();
     jQuery.post(postUrl, postData, apiCallback).fail(failFunc);
     return false;
+  });
+
+  // create own card                                                                                                                                
+  $('#create-mark').bind('click', function() {
+    $('#map-search-result li').remove();
+    if (ownMarker == undefined){
+      alert('地図にマークがありません');
+      return;
+    }
+    var meta = {
+      name : document.mark.keyword.value,
+      type : 'mark'
+    };
+    var main = {
+      name : document.mark.keyword.value,
+      latitude: ownMarker.position.nb,
+      longitude : ownMarker.position.ob
+    };
+    document.mark.keyword.value = '';
+    var card = {main: main};
+    var cards = new Array();
+    cards.push(card);
+　　var data = {meta : meta, cards: cards};
+    apiCallback(data);
   });
 
   // Map
@@ -138,6 +165,10 @@ $(function() {
     $('#map-search-result').append(li);
     // put marker
     putMarker(data);
+  }
+
+  function markCardFunc(li, metaData, data) {
+    $('#map-search-result').append(li);
   }
 
   function mapLoopEnd() {
@@ -308,6 +339,16 @@ $(function() {
 $(function() {
   $('.nav-tabs > li > a').tooltip();
   $('.comment-cont').tooltip();
+});
+
+$(function() {
+  $('#map-block').resizable({
+    handles: 'se',
+    maxHeight: 470,
+    maxWidth: 455,
+    minHeight: 100,
+    minWidth: 455
+  });
 });
 
 // return card list from main card list

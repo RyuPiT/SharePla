@@ -259,6 +259,17 @@ textarea {
 }
 
 #map-block {
+  height: 30%;
+  margin-top: -11px;
+  background-color: #fefefe;
+  margin-bottom: 20px;
+  border-radius: 0 5px 5px 5px;
+  -moz-border-radius: 0 5px 5px 5px;
+  -webkit-border-radius: 0 5px 5px 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+#show-map-block {
   height: 386px;
 }
 
@@ -312,7 +323,7 @@ textarea {
 
 #card-search {
   padding: 20px 0 0 10px;
-  height: 98%;
+  height: 60%;
   overflow: scroll;
   width: 100%;
   background-color: $bgc-white;
@@ -482,7 +493,7 @@ a[href^="#route"]:before {
 }
 
 .nav-tab-area {
-  width: 91%;
+  width: 310px;
   height: 57px;
   background-color: transparent;
   z-index: 200;
@@ -604,14 +615,15 @@ a[href^="#route"]:before {
 }
 
 #map-canvas {
-  width: 88%;
-  height: 200px;
+  width: 95%;
+  height: 95%;
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   margin: 0 auto;
   margin-top: 11px;
+  top: 5px
 }
 
 #route-map {
