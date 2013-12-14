@@ -34,7 +34,7 @@
             %ol#new-my-plan-cards.droptrue
               - if @plan
                 - @plan.cards.each do |card|
-                  - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
+                  - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring' or  card.card_type == 'mark'
                     %li.sortable-card
                       .hotel-card
                         .title= card.title
