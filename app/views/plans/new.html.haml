@@ -8,11 +8,6 @@
       %span#hidden-btn.btn
       .row
         #create-card-block.col-sm-6
-          %h4 マップ
-          #map-block
-            #map-canvas
-          %script{language: 'JavaScript'}
-            window.onload = mapInitialize;
           %h4 カード作成
           #card-search
             .nav-tab-area
@@ -26,6 +21,10 @@
               %ul.nav.nav-tabs= yield :plan_tab_navs
             .tab-content
               = yield :plan_tab_contents
+          #map-block
+            #map-canvas
+          %script{language: 'JavaScript'}
+            window.onload = mapInitialize;
 
         #my-plan-block.col-sm-6
           %input#route-view-btn.btn.btn-default{type: 'button', value: 'ルートの表示(10個まで)'}
