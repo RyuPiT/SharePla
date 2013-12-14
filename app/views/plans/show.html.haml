@@ -25,7 +25,7 @@
       #plan-block.col-sm-6
         %ol#show-my-plan-cards
           - @plan.cards.each do |card|
-            - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
+            - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring' or card.card_type == 'mark'
               %li.sortable-card
                 .hotel-card
                   .longitude= card.longitude
