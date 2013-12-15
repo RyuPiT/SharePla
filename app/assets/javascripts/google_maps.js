@@ -57,7 +57,7 @@ function routeInitialize(){
 }
 
 function putOwnMarker(event) {
-  mapInitialize();
+  clearRouteLine();
   clearMarkers();
   clearOwnMarker();
   ownMarker = new google.maps.Marker({
@@ -84,6 +84,10 @@ function putMarker(data) {
     infoWindow.setContent(name);
     infoWindow.open(map, this);
   });
+}
+
+function clearRouteLine(){
+  directionsDisplay.setMap(null);
 }
 
 function clearOwnMarker(){
