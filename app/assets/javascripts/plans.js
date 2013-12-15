@@ -64,14 +64,14 @@ $(function() {
     Hotel:   hotelCardFunc,
     Touring: touringCardFunc,
     Map:     mapCardFunc,
-    mark:    markCardFunc
+    Mark:    markCardFunc
   };
 
   var loopEndCallbacks = {
     Hotel:   hotelLoopEnd,
     Touring: touringLoopEnd,
     Map:     mapLoopEnd,
-    mark:    markEnd
+    Mark:    markEnd
   };
 
   //hidden-buton
@@ -145,7 +145,7 @@ $(function() {
     }
     var meta = {
       name : document.mark.keyword.value,
-      type : 'mark'
+      type : 'Mark'
     };
     var main = {
       name : document.mark.keyword.value,
@@ -168,6 +168,7 @@ $(function() {
 
   function markCardFunc(li, metaData, data) {
     $('#map-pin-result').append(li);
+    zoomMap("map", latlng);
   }
 
   function mapLoopEnd() {
@@ -260,6 +261,14 @@ $(function() {
 
   function bindZoomMap() {
     $('#map-search-result > .sortable-card >.hotel-card').bind('click', function() {
+      var latlng = new google.maps.LatLng(
+                     Number($(this).children('.latitude').text()),
+                     Number($(this).children('.longitude').text())
+                   );
+      zoomMap("map", latlng);
+    });
+
+    $('#map-pin-result > .sortable-card >.hotel-card').bind('click', function() {
       var latlng = new google.maps.LatLng(
                      Number($(this).children('.latitude').text()),
                      Number($(this).children('.longitude').text())
