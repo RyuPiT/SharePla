@@ -6,14 +6,14 @@
         %h4= plan[:title]
         .area-tags
           - (plan[:area_tags] || []).each do |tag|
-            %span{ name: tag, class: 'label label-default' }= tag
+            %span.label.label-default{name: tag}= tag
         .comment-cont{title: 'レビュー数'}= plan.comments.count
         .twitter-info
           - if users[plan.provider][plan.uid][:screen_name].present?
-            %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
+            %img.img-rounded{src: users[plan.provider][plan.uid][:image_url]}/
             .top-screen-name= users[plan.provider][plan.uid][:screen_name]
           - else
-            %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
+            %img.img-rounded{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png'}/
             .top-screen-name 未登録ユーザ
         %p= plan.created_at.strftime('%Y/%m/%d %H:%M')
         = link_to '', plan
@@ -34,15 +34,15 @@
               .comment-cont{title: 'レビュー数'}= plan.comments.count
               .twitter-info
                 - if users[plan.provider][plan.uid][:screen_name].present?
-                  %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
+                  %img.img-rounded{src: users[plan.provider][plan.uid][:image_url]}/
                   .top-screen-name= users[plan.provider][plan.uid][:screen_name]
                 - else
-                  %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
+                  %img.img-rounded{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png'}/
                   .top-screen-name 未登録ユーザ
               #area-tags
                 - if plan
                   - (plan[:area_tags] || []).each do |tag|
-                    %span{ name: tag, class: 'label label-default'}= tag
+                    %span.label.label-default{name: tag}= tag
               %h5= plan.description
               #top-plan-block
                 %ol#top-my-plan-cards
