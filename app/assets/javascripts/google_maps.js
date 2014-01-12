@@ -142,8 +142,11 @@ function getRoute(cards){
       destination: to['location'],
       travelMode:  google.maps.DirectionsTravelMode.DRIVING
     };
-  } else if (length > 10) {
-
+  } else if (length > 10){
+    for (var i=0; i<length-1;i++){
+      calcRoute(points[i].location,points[i+1].location);
+    }
+    return;
   } else { // google route service is up to 10 Waypoint.
     from = points.shift();
     to = points.pop();
@@ -153,8 +156,9 @@ function getRoute(cards){
       destination: to['location'],
       travelMode:  google.maps.DirectionsTravelMode.DRIVING
     };
-  }
+  
 
+  }
   directionsService.route(request, function(response, status){
     if(status == google.maps.DirectionsStatus.OK){
       // set card title
@@ -174,5 +178,19 @@ function viewRoute(){
   getRoute(getAllCard('#show-my-plan-cards > li > div'));
 }
 
-function calcRoute(){
+function calcRoute(start, end){
+  var dDisplay = new google.maps.DirectionsRenderer();
+  var dService = new google.maps.DirectionsService();
+  var request = {
+    origin: start,
+    destination: end,
+    optimizeWaypoints: true,
+    travelMode: google.maps.DirectionsTravelMode.DRIVING
+  };
+  dService.route(request, function(response, status){
+    if (status == google.maps.DirectionsStatus.OK){
+      dDisplay.setDirections(response);
+    }
+  });
+  dDisplay.setMap(map);
 }
