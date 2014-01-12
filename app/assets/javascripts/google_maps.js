@@ -134,11 +134,6 @@ function getRoute(cards){
 
   var length = points.length;
   if (length == 0){ return; }
-  if (length > 10) {
-    alert("Way points are up to 10 positions");
-    return;
-  }
-
   if (length == 1){
     from = points.shift()
     to = from;
@@ -147,7 +142,9 @@ function getRoute(cards){
       destination: to['location'],
       travelMode:  google.maps.DirectionsTravelMode.DRIVING
     };
-  } else { // google service is up to 10 Waypoint.
+  } else if (length > 10) {
+
+  } else { // google route service is up to 10 Waypoint.
     from = points.shift();
     to = points.pop();
     request = {
@@ -175,4 +172,7 @@ function getRoute(cards){
 function viewRoute(){
   routeInitialize()
   getRoute(getAllCard('#show-my-plan-cards > li > div'));
+}
+
+function calcRoute(){
 }
