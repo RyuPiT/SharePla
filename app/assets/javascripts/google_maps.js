@@ -1,5 +1,4 @@
 var map; // マップ
-var routeMap; // マップ
 var infowindow; // マーカーの詳細表示
 var latlng;
 var markerList;
@@ -41,14 +40,15 @@ function mapInitialize(){
 function routeInitialize(){
   var directionsDisplay = new google.maps.DirectionsRenderer();
   var myRouteLatLng   = new google.maps.LatLng(35.681382, 139.766084);
+  markerList = new google.maps.MVCArray();
   var mapRouteOptions = {
     center:    myRouteLatLng,
     zoom:      5,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
-  routeMap = new google.maps.Map(document.getElementById("route-map"), mapRouteOptions);
-  directionsDisplay.setMap(routeMap);
+  map = new google.maps.Map(document.getElementById("route-map"), mapRouteOptions);
+  directionsDisplay.setMap(map);
 
 }
 
@@ -106,14 +106,8 @@ function clearMarkers() {
 
 
 function zoomMap(mapName, latlng){
-  if (mapName == "routeMap"){
-    routeMap.setCenter(latlng);
-    routeMap.setZoom(15);
-  } else {
-    map.setCenter(latlng);
-    map.setZoom(15);
-  }
-  
+  map.setCenter(latlng);
+  map.setZoom(15);
 }
 
 function getRoute(cards){
@@ -147,6 +141,7 @@ function getRoute(cards){
     for (var i=0; i<length-1;i++){
       calcRoute(points[i].location,points[i+1].location);
     }
+    console.log(length);
     for (var i=0; i<length;i++){
       putMarker({main: cards[i]});
     }
@@ -203,6 +198,5 @@ function calcRoute(start, end){
       directionsDisplay.setDirections(response);
     }
   });
-
   directionsDisplayArray.push(directionsDisplay);
 }
