@@ -168,7 +168,7 @@ $(function() {
 
   function markCardFunc(li, metaData, data) {
     $('#map-pin-result').append(li);
-    zoomMap("map", latlng);
+    zoomMap(latlng);
   }
 
   function mapLoopEnd() {
@@ -265,7 +265,7 @@ $(function() {
                      Number($(this).children('.latitude').text()),
                      Number($(this).children('.longitude').text())
                    );
-      zoomMap("map", latlng);
+      zoomMap(latlng);
     });
 
     $('#map-pin-result > .sortable-card >.hotel-card').bind('click', function() {
@@ -273,7 +273,7 @@ $(function() {
                      Number($(this).children('.latitude').text()),
                      Number($(this).children('.longitude').text())
                    );
-      zoomMap("map", latlng);
+      zoomMap(latlng);
     });
 
   }
@@ -283,7 +283,7 @@ $(function() {
                    Number($(this).children('.latitude').text()),
                    Number($(this).children('.longitude').text())
                  );
-    zoomMap("routeMap", latlng);
+    zoomMap(latlng);
   });
 
   // route viewer 

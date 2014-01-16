@@ -84,7 +84,6 @@ function putMarker(data) {
 
 function clearRouteLine(){
   var length = directionsDisplayArray.length;
-console.log(length);
   for (var i=0;i<length;i++){
     var directionsDisplay = directionsDisplayArray.pop();
     directionsDisplay.setMap(null);
@@ -105,7 +104,7 @@ function clearMarkers() {
 }
 
 
-function zoomMap(mapName, latlng){
+function zoomMap(latlng){
   map.setCenter(latlng);
   map.setZoom(15);
 }
@@ -141,10 +140,13 @@ function getRoute(cards){
     for (var i=0; i<length-1;i++){
       calcRoute(points[i].location,points[i+1].location);
     }
-    console.log(length);
-    for (var i=0; i<length;i++){
-      putMarker({main: cards[i]});
-    }
+    var i=0;
+    $.each(cards, function(){
+      if ((cards[i]['latitude'] != "") && (cards[i]['longitude'] != "")){
+        putMarker({main: cards[i]});
+      }
+      i++;
+    });
     return;
   } else { // google route service is up to 10 Waypoint.
     from = points.shift();
