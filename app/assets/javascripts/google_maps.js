@@ -4,7 +4,7 @@ var infowindow; // マーカーの詳細表示
 var latlng;
 var markerList;
 var ownMarker;
-// for route 
+// for route
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
@@ -145,7 +145,9 @@ function getRoute(cards){
   } else if (length > 10){
     for (var i=0; i<length-1;i++){
       calcRoute(points[i].location,points[i+1].location);
+      putMarker({main: cards[i]});
     }
+
     return;
   } else { // google route service is up to 10 Waypoint.
     from = points.shift();
@@ -180,14 +182,17 @@ function viewRoute(){
 
 function calcRoute(start, end){
   var dDisplay = new google.maps.DirectionsRenderer();
-  var dService = new google.maps.DirectionsService();
+  dDisplay.setOptions({
+    suppressMarkers: true
+  });
+
   var request = {
     origin: start,
     destination: end,
     optimizeWaypoints: true,
     travelMode: google.maps.DirectionsTravelMode.DRIVING
   };
-  dService.route(request, function(response, status){
+  directionsService.route(request, function(response, status){
     if (status == google.maps.DirectionsStatus.OK){
       dDisplay.setDirections(response);
     }
