@@ -5,7 +5,7 @@ var latlng;
 var markerList;
 var ownMarker;
 // for route
-var directionsDisplay;
+var directionsDisplayArray = new Array();
 var directionsService = new google.maps.DirectionsService();
 
 var tokyoPosition = {
@@ -35,15 +35,11 @@ function mapInitialize(){
   // for marker
   google.maps.event.addListener(map, 'rightclick', putOwnMarker);
 
-  // for route
-  directionsDisplay = new google.maps.DirectionsRenderer();
-  directionsDisplay.setMap(map)
-
   $("#travel-map-tab a").attr('onclick', '');
 }
 
 function routeInitialize(){
-  directionsDisplay = new google.maps.DirectionsRenderer();
+  var directionsDisplay = new google.maps.DirectionsRenderer();
   var myRouteLatLng   = new google.maps.LatLng(35.681382, 139.766084);
   var mapRouteOptions = {
     center:    myRouteLatLng,
@@ -87,7 +83,12 @@ function putMarker(data) {
 }
 
 function clearRouteLine(){
-  directionsDisplay.setMap(null);
+  var length = directionsDisplayArray.length;
+console.log(length);
+  for (var i=0;i<length;i++){
+    var directionsDisplay = directionsDisplayArray.pop();
+    directionsDisplay.setMap(null);
+  }
 }
 
 function clearOwnMarker(){
@@ -145,9 +146,10 @@ function getRoute(cards){
   } else if (length > 10){
     for (var i=0; i<length-1;i++){
       calcRoute(points[i].location,points[i+1].location);
+    }
+    for (var i=0; i<length;i++){
       putMarker({main: cards[i]});
     }
-
     return;
   } else { // google route service is up to 10 Waypoint.
     from = points.shift();
@@ -158,10 +160,12 @@ function getRoute(cards){
       destination: to['location'],
       travelMode:  google.maps.DirectionsTravelMode.DRIVING
     };
-  
-
   }
+
   directionsService.route(request, function(response, status){
+    var directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay.setMap(map)
+
     if(status == google.maps.DirectionsStatus.OK){
       // set card title
       var i = 0;
@@ -173,6 +177,7 @@ function getRoute(cards){
       directionsDisplay.setDirections(response);
     }
   });
+  directionsDisplayArray.push(directionsDisplay);
 }
 
 function viewRoute(){
@@ -181,8 +186,9 @@ function viewRoute(){
 }
 
 function calcRoute(start, end){
-  var dDisplay = new google.maps.DirectionsRenderer();
-  dDisplay.setOptions({
+  var directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsDisplay.setMap(map);
+  directionsDisplay.setOptions({
     suppressMarkers: true
   });
 
@@ -194,8 +200,9 @@ function calcRoute(start, end){
   };
   directionsService.route(request, function(response, status){
     if (status == google.maps.DirectionsStatus.OK){
-      dDisplay.setDirections(response);
+      directionsDisplay.setDirections(response);
     }
   });
-  dDisplay.setMap(map);
+
+  directionsDisplayArray.push(directionsDisplay);
 }
