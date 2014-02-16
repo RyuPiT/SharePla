@@ -6,43 +6,43 @@
         %h4= plan[:title]
         .area-tags
           - (plan[:area_tags] || []).each do |tag|
-            %span{ name: tag, class: 'label label-default' }= tag
+            %span.label.label-default{name: tag}= tag
         .comment-cont{title: 'レビュー数'}= plan.comments.count
         .twitter-info
           - if users[plan.provider][plan.uid][:screen_name].present?
-            %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
+            %img.img-rounded{src: users[plan.provider][plan.uid][:image_url]}/
             .top-screen-name= users[plan.provider][plan.uid][:screen_name]
           - else
-            %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
+            %img.img-rounded{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png'}/
             .top-screen-name 未登録ユーザ
         %p= plan.created_at.strftime('%Y/%m/%d %H:%M')
         = link_to '', plan
-      %a.show-modal{'data-toggle' => 'modal', href: "#top-plan-detail#{modal_count}"} チラ見する
+      %a.show-modal{data: {toggle: 'modal'}, href: "#top-plan-detail#{modal_count}"} チラ見する
       %div(id="top-plan-detail#{modal_count}" aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" role="dialog" tabindex="-1")
         .modal-dialog
           #top-modal-content.modal-content
             .modal-header
-              %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'modal', type: 'button'} &times;
+              %button.close{aria: {hidden: 'true'}, data: {dismiss: 'modal'}, type: 'button'} &times;
               %h3.modal-title= plan[:title]
             .modal-body
               - if modal_count != 0
-                %a.show-modal{class: 'left carousel-control', 'data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count-1}"}
+                %a.show-modal{class: 'left carousel-control', data: {dismiss: 'modal'},data: {toggle: 'modal'}, href: "#top-plan-detail#{modal_count-1}"}
                   %span.glyphicon.glyphicon-chevron-left
               - if modal_count != plans.count-1
-                %a.show-modal{class: 'right carousel-control','data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count+1}"}
+                %a.show-modal{class: 'right carousel-control', data: {dismiss: 'modal'}, data: {toggle: 'modal'}, href: "#top-plan-detail#{modal_count+1}"}
                   %span.glyphicon.glyphicon-chevron-right
               .comment-cont{title: 'レビュー数'}= plan.comments.count
               .twitter-info
                 - if users[plan.provider][plan.uid][:screen_name].present?
-                  %img{src: users[plan.provider][plan.uid][:image_url], class: 'img-rounded'}/
+                  %img.img-rounded{src: users[plan.provider][plan.uid][:image_url]}/
                   .top-screen-name= users[plan.provider][plan.uid][:screen_name]
                 - else
-                  %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
+                  %img.img-rounded{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png'}/
                   .top-screen-name 未登録ユーザ
               #area-tags
                 - if plan
                   - (plan[:area_tags] || []).each do |tag|
-                    %span{ name: tag, class: 'label label-default'}= tag
+                    %span.label.label-default{name: tag}= tag
               %h5= plan.description
               #top-plan-block
                 %ol#top-my-plan-cards
@@ -65,5 +65,5 @@
                           .title= card.title
             .modal-footer
               = link_to 'もっと見る', plan, class: 'btn btn-primary'
-              %button.btn.btn-default{'data-dismiss' => 'modal', type: 'button'} 閉じる
+              %button.btn.btn-default{data: {dismiss: 'modal'}, type: 'button'} 閉じる
       - modal_count= modal_count + 1

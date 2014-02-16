@@ -1,18 +1,18 @@
 %form#save-plan.form-inline{ method: 'POST'}
   .row
     .col-xs-4.col-sm-3.col-md-2.col-lg-2
-      %button{ type: 'submit', class: 'btn btn-default btn-lg' }
+      %button.btn.btn-default.btn-lg{ type: 'submit' }
         プラン保存
     .col-xs-6.col-sm-7.col-md-7.col-lg-7
       - if @plan
-        %input{ type: 'input', name: 'plan-title', class: 'form-control input-lg', value: @plan[:title], required: 'true' }
+        %input.form-control.input-lg{ type: 'input', name: 'plan-title', value: @plan[:title], required: 'true' }
       - else
-        %input{ type: 'input', name: 'plan-title', class: 'form-control input-lg', placeholder: 'プランタイトル', required: 'true' }
+        %input.form-control.input-lg{ type: 'input', name: 'plan-title', placeholder: 'プランタイトル', required: 'true' }
       = hidden_field_tag :authenticity_token, form_authenticity_token
 
     #area-tags-box.col-xs-2.col-sm-2.col-md-3.col-lg-3
       - if @plan
         - (@plan[:area_tags] || []).each do |tag|
-          %span{ name: tag, class: 'label label-default' }= tag
+          %span.label.label-default{ name: tag }= tag
 
   %textarea.form-control{ name: 'plan-desc', placeholder: 'プランの説明（場所、時間、予算等）' }=  @plan.try(:description)

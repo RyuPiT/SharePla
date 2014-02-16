@@ -5,27 +5,27 @@
       %button.btn#btn-pdf ダウンロード[PDF]
     %form{ action: new_plan_path, method: 'GET' }
       %input{ type: 'hidden', value: @plan.id, name: 'id' }
-      %input{ type: 'submit', value: 'コピーして新規作成', class: 'btn', id: 'btn-clone' }
+      %input.btn#btn-clone{ type: 'submit', value: 'コピーして新規作成' }
 .container
   = render 'sns_button'
   #show-plan-area
     .twitter-info
       - if @users[@plan.provider][@plan.uid][:screen_name].present?
-        %img{src: @users[@plan.provider][@plan.uid][:image_url], class: 'img-rounded'}/
+        %img.img-rounded{src: @users[@plan.provider][@plan.uid][:image_url]}/
         .top-screen-name= @users[@plan.provider][@plan.uid][:screen_name]
       - else
-        %img{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png', class: 'img-rounded'}/
+        %img.img-rounded{src: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_4_bigger.png'}/
         .top-screen-name 未登録ユーザ
     %h4= simple_format(@plan.description)
     #area-tags
       - if @plan
         - (@plan[:area_tags] || []).each do |tag|
-          %span{ name: tag, class: 'label label-default'}= tag
+          %span.label.label-default{ name: tag }= tag
     .row
       #plan-block.col-sm-6
         %ol#show-my-plan-cards
           - @plan.cards.each do |card|
-            - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring'
+            - if card.card_type == 'Hotel' or card.card_type == 'Map' or  card.card_type == 'Touring' or card.card_type == 'Mark'
               %li.sortable-card
                 .hotel-card
                   .longitude= card.longitude

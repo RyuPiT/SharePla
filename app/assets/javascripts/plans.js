@@ -64,14 +64,14 @@ $(function() {
     Hotel:   hotelCardFunc,
     Touring: touringCardFunc,
     Map:     mapCardFunc,
-    mark:    markCardFunc
+    Mark:    markCardFunc
   };
 
   var loopEndCallbacks = {
     Hotel:   hotelLoopEnd,
     Touring: touringLoopEnd,
     Map:     mapLoopEnd,
-    mark:    markEnd
+    Mark:    markEnd
   };
 
   //hidden-buton
@@ -145,7 +145,7 @@ $(function() {
     }
     var meta = {
       name : document.mark.keyword.value,
-      type : 'mark'
+      type : 'Mark'
     };
     var main = {
       name : document.mark.keyword.value,
@@ -168,6 +168,7 @@ $(function() {
 
   function markCardFunc(li, metaData, data) {
     $('#map-pin-result').append(li);
+    zoomMap(latlng);
   }
 
   function mapLoopEnd() {
@@ -264,7 +265,15 @@ $(function() {
                      Number($(this).children('.latitude').text()),
                      Number($(this).children('.longitude').text())
                    );
-      zoomMap("map", latlng);
+      zoomMap(latlng);
+    });
+
+    $('#map-pin-result > .sortable-card >.hotel-card').bind('click', function() {
+      var latlng = new google.maps.LatLng(
+                     Number($(this).children('.latitude').text()),
+                     Number($(this).children('.longitude').text())
+                   );
+      zoomMap(latlng);
     });
 
   }
@@ -274,7 +283,7 @@ $(function() {
                    Number($(this).children('.latitude').text()),
                    Number($(this).children('.longitude').text())
                  );
-    zoomMap("routeMap", latlng);
+    zoomMap(latlng);
   });
 
   // route viewer 
@@ -355,17 +364,6 @@ $(function() {
     minHeight: 100,
     minWidth: 455
   });
-
-  $('.nav-tabs > li ').hover( function(){
-    if($(this).hasClass('hoverblock'))
-      return;
-    else
-      $(this).find('a').tab('show');
-  });
-   $('.nav-tabs > li').find('a').click( function(){
-     $(this).parent()
-        .siblings().addClass('hoverblock');
-   });
 });
 
 // return card list from main card list

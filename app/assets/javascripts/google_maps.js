@@ -1,11 +1,10 @@
 var map; // マップ
-var routeMap; // マップ
 var infowindow; // マーカーの詳細表示
 var latlng;
 var markerList;
 var ownMarker;
-// for route 
-var directionsDisplay;
+// for route
+var directionsDisplayArray = new Array();
 var directionsService = new google.maps.DirectionsService();
 
 var tokyoPosition = {
@@ -35,29 +34,26 @@ function mapInitialize(){
   // for marker
   google.maps.event.addListener(map, 'rightclick', putOwnMarker);
 
-  // for route
-  directionsDisplay = new google.maps.DirectionsRenderer();
-  directionsDisplay.setMap(map)
-
   $("#travel-map-tab a").attr('onclick', '');
 }
 
 function routeInitialize(){
-  directionsDisplay = new google.maps.DirectionsRenderer();
+  var directionsDisplay = new google.maps.DirectionsRenderer();
   var myRouteLatLng   = new google.maps.LatLng(35.681382, 139.766084);
+  markerList = new google.maps.MVCArray();
   var mapRouteOptions = {
     center:    myRouteLatLng,
     zoom:      5,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
-  routeMap = new google.maps.Map(document.getElementById("route-map"), mapRouteOptions);
-  directionsDisplay.setMap(routeMap);
+  map = new google.maps.Map(document.getElementById("route-map"), mapRouteOptions);
+  directionsDisplay.setMap(map);
 
 }
 
 function putOwnMarker(event) {
-  mapInitialize();
+  clearRouteLine();
   clearMarkers();
   clearOwnMarker();
   ownMarker = new google.maps.Marker({
@@ -86,6 +82,14 @@ function putMarker(data) {
   });
 }
 
+function clearRouteLine(){
+  var length = directionsDisplayArray.length;
+  for (var i=0;i<length;i++){
+    var directionsDisplay = directionsDisplayArray.pop();
+    directionsDisplay.setMap(null);
+  }
+}
+
 function clearOwnMarker(){
   if (ownMarker !=undefined){
     ownMarker.setMap(null);
@@ -100,15 +104,9 @@ function clearMarkers() {
 }
 
 
-function zoomMap(mapName, latlng){
-  if (mapName == "routeMap"){
-    routeMap.setCenter(latlng);
-    routeMap.setZoom(15);
-  } else {
-    map.setCenter(latlng);
-    map.setZoom(15);
-  }
-  
+function zoomMap(latlng){
+  map.setCenter(latlng);
+  map.setZoom(15);
 }
 
 function getRoute(cards){
@@ -130,11 +128,6 @@ function getRoute(cards){
 
   var length = points.length;
   if (length == 0){ return; }
-  if (length > 10) {
-    alert("Way points are up to 10 positions");
-    return;
-  }
-
   if (length == 1){
     from = points.shift()
     to = from;
@@ -143,7 +136,19 @@ function getRoute(cards){
       destination: to['location'],
       travelMode:  google.maps.DirectionsTravelMode.DRIVING
     };
-  } else { // google service is up to 10 Waypoint.
+  } else if (length > 10){
+    for (var i=0; i<length-1;i++){
+      calcRoute(points[i].location,points[i+1].location);
+    }
+    var i=0;
+    $.each(cards, function(){
+      if ((cards[i]['latitude'] != "") && (cards[i]['longitude'] != "")){
+        putMarker({main: cards[i]});
+      }
+      i++;
+    });
+    return;
+  } else { // google route service is up to 10 Waypoint.
     from = points.shift();
     to = points.pop();
     request = {
@@ -155,6 +160,9 @@ function getRoute(cards){
   }
 
   directionsService.route(request, function(response, status){
+    var directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay.setMap(map)
+
     if(status == google.maps.DirectionsStatus.OK){
       // set card title
       var i = 0;
@@ -166,9 +174,31 @@ function getRoute(cards){
       directionsDisplay.setDirections(response);
     }
   });
+  directionsDisplayArray.push(directionsDisplay);
 }
 
 function viewRoute(){
   routeInitialize()
   getRoute(getAllCard('#show-my-plan-cards > li > div'));
+}
+
+function calcRoute(start, end){
+  var directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsDisplay.setMap(map);
+  directionsDisplay.setOptions({
+    suppressMarkers: true
+  });
+
+  var request = {
+    origin: start,
+    destination: end,
+    optimizeWaypoints: true,
+    travelMode: google.maps.DirectionsTravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status){
+    if (status == google.maps.DirectionsStatus.OK){
+      directionsDisplay.setDirections(response);
+    }
+  });
+  directionsDisplayArray.push(directionsDisplay);
 }

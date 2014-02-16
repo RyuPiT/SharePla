@@ -248,7 +248,7 @@ $bgc-white:           #fefefe;
 
 #review-img > img {
   width: 300px;
-  margin: 90px 0px 0px 32px;
+  margin: 195px 0px 0px 32px;
   float: left;
 }
 
@@ -299,7 +299,6 @@ textarea {
 
 #map-block {
   height: 30%;
-  margin-top: -11px;
   background-color: #fefefe;
   margin-bottom: 20px;
   border-radius: 0 5px 5px 5px;
@@ -325,7 +324,7 @@ textarea {
   vertical-align: top;
 }
 
-map-pin-result,
+#map-pin-result,
 #top-my-plan-cards,
 #new-my-plan-cards,
 #show-my-plan-cards,
@@ -818,7 +817,7 @@ a[href^="#route"]:before {
   -webkit-border-radius: 0 0 4px 4px;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4) inset;
   padding: 20px;
-  min-height: 460px;
+  min-height: 490px;
   h4 {
     position: relative;
     margin-top: 15px;
