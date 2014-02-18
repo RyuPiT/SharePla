@@ -26,10 +26,10 @@
               %h3.modal-title= plan[:title]
             .modal-body
               - if modal_count != 0
-                %a.show-modal{class: 'left carousel-control', data: {dismiss: 'modal'},data: {toggle: 'modal'}, href: "#top-plan-detail#{modal_count-1}"}
+                %a.show-modal{class: 'left carousel-control', 'data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count-1}"}
                   %span.glyphicon.glyphicon-chevron-left
               - if modal_count != plans.count-1
-                %a.show-modal{class: 'right carousel-control', data: {dismiss: 'modal'}, data: {toggle: 'modal'}, href: "#top-plan-detail#{modal_count+1}"}
+                %a.show-modal{class: 'right carousel-control','data-dismiss' => 'modal','data-toggle' => 'modal', href: "#top-plan-detail#{modal_count+1}"}
                   %span.glyphicon.glyphicon-chevron-right
               .comment-cont{title: 'レビュー数'}= plan.comments.count
               .twitter-info
