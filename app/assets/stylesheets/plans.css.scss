@@ -138,6 +138,8 @@ $bgc-white:           #fefefe;
   .carousel-control.left {
     height: 65px;
     width: 140px;
+    margin-top: auto;
+    z-index: 100;
   }
   .glyphicon-chevron-right,
   .glyphicon-chevron-left {
@@ -544,6 +546,16 @@ a[href^="#route"]:before {
   margin-top: -60px;
   margin-left: 126px;
 }
+#hotel-search-result {
+  .modal-body {
+    min-height: 300px;
+  }
+  .img-rounded {
+    float: left;
+    margin-right: 20px;
+  }
+}
+
 
 #time {
   hr {

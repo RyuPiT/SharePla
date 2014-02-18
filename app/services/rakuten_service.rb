@@ -41,7 +41,12 @@ class RakutenService
         sub: {
           number:    data[hotel_info]['hotelNo'],
           image_url: data[hotel_info]['hotelImageUrl'],
-          info_url:  data[hotel_info]['hotelInformationUrl']
+          info_url:  data[hotel_info]['hotelInformationUrl'],
+          name:      data[hotel_info]['hotelName'],
+          plan_url:  data[hotel_info]['planListUrl'],
+          charge:    data[hotel_info]['hotelMinCharge'],
+          address1:  data[hotel_info]['address1'],
+          address2:  data[hotel_info]['address2']
         }
       }
     }
