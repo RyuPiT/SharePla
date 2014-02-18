@@ -546,6 +546,16 @@ a[href^="#route"]:before {
   margin-top: -60px;
   margin-left: 126px;
 }
+#hotel-search-result {
+  .modal-body {
+    min-height: 300px;
+  }
+  .img-rounded {
+    float: left;
+    margin-right: 20px;
+  }
+}
+
 
 #time {
   hr {

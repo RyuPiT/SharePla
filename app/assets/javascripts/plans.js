@@ -192,10 +192,15 @@ $(function() {
   // Hotel
   function hotelCardFunc(li, metaData, data) {
     $('#hotel-search-result').append(li);
-    var sub      = 'sub';
-    var hotelNo  = data[sub]['number'];
-    var imageUrl = data[sub]['image_url'];
-    var infoUrl  = data[sub]['info_url'];
+    var sub       = 'sub';
+    var hotelNo   = data[sub]['number'];
+    var imageUrl  = data[sub]['image_url'];
+    var infoUrl   = data[sub]['info_url'];
+    var name      = data[sub]['name'];
+    var planUrl   = data[sub]['plan_url'];
+    var minCharge = data[sub]['charge'];
+    var address1  = data[sub]['address1'];
+    var address2  = data[sub]['address2'];
 
     li.attr('href','#Modal' + hotelNo);
     li.attr('data-toggle','modal');
@@ -210,6 +215,8 @@ $(function() {
     dialog += '</div>';// .model-header
     dialog += '<div class="modal-body">';
     dialog += '<img src="' + imageUrl + '" class="img-rounded" height="200px">';
+    dialog += '住所：' + address1 + address2 + '<br>';
+    dialog += '料金(お一人様当り)：' + minCharge + '円〜 <a href="' + planUrl + '" target="_blank">プラン一覧</a><br>';
     dialog += '</div>';// .modal-body
     dialog += '<div class="modal-footer">';
     dialog += '<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>';
