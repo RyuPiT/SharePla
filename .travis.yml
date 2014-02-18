@@ -4,14 +4,13 @@ rvm:
 deploy:
   provider: heroku
   api_key:
-    secure: ZlnNOSRChLaqKShNyc1aexkQkNQwFwbwUcIb2QGqEsIN5UvgTCKiHw5nOJVK8WZMs5AP0X12CTg6iigDaLMSHu8hya76H8Gww19qZsoVa5ZZ663UKFNjSMtXU05RvxtBem6ef86RZ8rJJ5YzPXUDwG2TCQABqFh0spOAUNEKh24=
+    secure: kQIN8NHuGKBFpL3NZBBV+jALVljpGEe0XQBdFYa6uo5ZQq+ckn1kLA4eG+cAoGHUxeLMI0Ge1G9m7X3N3kFGNht/XFWmAM1hrl0QY9xXJrkYHVm5mFDd7xAMWtC2cZ8hG7euDcVBiYJBHfhwo2ep6w3N7Do0Qh07OmZpwipZ+90=
   app: sharepla
   on:
     repo: RyuPiT/SharePla
 services:
-  - mongodb
+- mongodb
 before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - gem install nokogiri -- --with-cflags='--std=gnu99'
-
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- gem install nokogiri -- --with-cflags='--std=gnu99'
