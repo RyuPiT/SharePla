@@ -138,6 +138,8 @@ $bgc-white:           #fefefe;
   .carousel-control.left {
     height: 65px;
     width: 140px;
+    margin-top: auto;
+    z-index: 100;
   }
   .glyphicon-chevron-right,
   .glyphicon-chevron-left {
