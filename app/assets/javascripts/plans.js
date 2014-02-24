@@ -136,7 +136,7 @@ $(function() {
     return false;
   });
 
-  // create own card                                                                                                                                
+  // create own card
   $('#create-mark').bind('click', function() {
     $('#map-pin-result li').remove();
     if (ownMarker == undefined){
@@ -148,14 +148,14 @@ $(function() {
       type : 'Mark'
     };
     var main = {
-      name : document.mark.keyword.value,
-      latitude: ownMarker.position.nb,
-      longitude : ownMarker.position.ob
+      name :      document.mark.keyword.value,
+      latitude:   ownMarker.position.d,
+      longitude : ownMarker.position.e
     };
     var card = {main: main};
     var cards = new Array();
     cards.push(card);
-　　var data = {meta : meta, cards: cards};
+    var data = {meta : meta, cards: cards};
     apiCallback(data);
   });
 
@@ -167,6 +167,10 @@ $(function() {
   }
 
   function markCardFunc(li, metaData, data) {
+    var latlng = new google.maps.LatLng(
+                   data['main'].latitude,
+                   data['main'].longitude
+                 );
     $('#map-pin-result').append(li);
     zoomMap(latlng);
   }
@@ -293,7 +297,7 @@ $(function() {
     zoomMap(latlng);
   });
 
-  // route viewer 
+  // route viewer
   $('#route-view-btn').bind('click', function() {
     mapInitialize();
     clearMarkers();
