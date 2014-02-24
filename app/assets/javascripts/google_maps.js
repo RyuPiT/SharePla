@@ -1,6 +1,5 @@
 var map; // マップ
 var infowindow; // マーカーの詳細表示
-var latlng;
 var markerList;
 var ownMarker;
 // for route
