@@ -1,10 +1,10 @@
 class PlansController < ApplicationController
-  before_action :set_plan, only: %i[show add_comment]
+  before_action :set_plan,   only: %i[show add_comment]
+  before_action :users_info, only: %i[index show]
 
   def index
     @plans    = Plan.all
     @my_plans = Plan.find_my_plans( session[:provider], session[:user_id] ) if session[:user_id]
-    @users    = users_info
   end
 
   def start
@@ -16,7 +16,6 @@ class PlansController < ApplicationController
   end
 
   def show
-    @users    = users_info
     respond_to do |format|
       format.pdf do
         send_data render_to_pdf, filename: "#{@plan.id}.pdf", disposition: 'inline'
@@ -44,11 +43,12 @@ class PlansController < ApplicationController
   end
 
   def add_comment
-    # DBに保存の処理
     @new_comment = Comment.new
-    @new_comment.text = params[:comment]
-    # maybe user name get. but my environment can't test
-    # @new_comment.writer = session[:user_id]
+
+    @new_comment.text     = params[:comment]
+    @new_comment.uid      = session[:user_id]
+    @new_comment.provider = session[:provider]
+
     @plan.comments.push(@new_comment)
     redirect_to action: 'show'
   end
@@ -68,6 +68,6 @@ class PlansController < ApplicationController
     User.all.each do |user|
       hash[user[:provider]][user[:uid]] = { image_url: user[:image_url], screen_name: user[:screen_name] }
     end
-    hash
+    @users = hash
   end
 end
