@@ -172,8 +172,9 @@ function getRoute(cards){
       });
       directionsDisplay.setDirections(response);
     }
+    directionsDisplayArray.push(directionsDisplay);
   });
-  directionsDisplayArray.push(directionsDisplay);
+
 }
 
 function viewRoute(){
