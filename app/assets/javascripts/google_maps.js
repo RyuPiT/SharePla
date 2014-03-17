@@ -142,7 +142,11 @@ function getRoute(cards){
     var i=0;
     $.each(cards, function(){
       if ((cards[i]['latitude'] != "") && (cards[i]['longitude'] != "")){
-        putMarker({main: cards[i]});
+        putMarker({main: {
+          latitude:  cards[i]['latitude'],
+          longitude: cards[i]['longitude'],
+          name:      cards[i]['title'] 
+        }});
       }
       i++;
     });
