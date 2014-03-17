@@ -149,8 +149,8 @@ $(function() {
     };
     var main = {
       name :      document.mark.keyword.value,
-      latitude:   ownMarker.position.d,
-      longitude : ownMarker.position.e
+      latitude:   ownMarker.position.k,
+      longitude : ownMarker.position.A
     };
     var card = {main: main};
     var cards = new Array();
