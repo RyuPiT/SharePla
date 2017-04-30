@@ -8,6 +8,7 @@ deploy:
   app: sharepla
   on:
     repo: RyuPiT/SharePla
+script: "bundle exec rspec"
 services:
 - mongodb
 before_install:
