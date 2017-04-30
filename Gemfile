@@ -29,6 +29,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+end
+
 group :test do
   gem 'rake'
   gem 'rspec-rails'
