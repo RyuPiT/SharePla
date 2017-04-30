@@ -13,4 +13,3 @@ services:
 before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-- gem install nokogiri -- --with-cflags='--std=gnu99'
