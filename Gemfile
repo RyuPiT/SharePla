@@ -14,10 +14,12 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem 'json'
-gem 'omniauth'
-gem 'omniauth-twitter'
 gem 'nokogiri'
 gem 'mongoid', git: 'git://github.com/mongoid/mongoid.git'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'pry-byebug'
+gem 'pry-rails'
 gem 'rails', '4.0.0'
 gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 4.0.0'
@@ -32,8 +34,6 @@ end
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'pry-byebug'
-  gem 'pry-rails'
 end
 
 group :test do
