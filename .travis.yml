@@ -8,6 +8,7 @@ deploy:
   app: sharepla
   on:
     repo: RyuPiT/SharePla
+  skip_cleanup: true
 script: "bundle exec rspec"
 services:
 - mongodb
